@@ -1,6 +1,6 @@
 extends Control
 
-@onready var start_button = $VBoxContainer/VBoxContainer/StartButton
+@onready var start_button = $VBoxContainer2/StartButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,12 +24,18 @@ func _on_levels_button_pressed():
 
 func _on_settings_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menus/settings.tscn")
+	
+func _on_achievement_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menus/achievements.tscn")
 
 func _on_credits_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menus/credits.tscn")
 	
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://j1lptnjrrw0k"]
+[gd_scene load_steps=18 format=3 uid="uid://j1lptnjrrw0k"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_n0i3q"]
 [ext_resource type="FontFile" uid="uid://bdxx3t7yctmg5" path="res://assets/Kurland_Font_0_34/Kurland.ttf" id="2_jcou7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2t1r8reres0g" path="res://assets/Lucid V1.2/PNG/Flat/64/Grid.png" id="5_4pe1y"]
 [ext_resource type="Texture2D" uid="uid://twtnhmyunrdb" path="res://assets/Lucid V1.2/PNG/Flat/64/Gear.png" id="6_g2n4k"]
 [ext_resource type="Texture2D" uid="uid://pf5iewgoprdn" path="res://assets/Lucid V1.2/PNG/Flat/64/Star.png" id="7_4aapv"]
+[ext_resource type="Texture2D" uid="uid://uu80y1amn7ty" path="res://assets/Lucid V1.2/PNG/Flat/64/People.png" id="8_4vysc"]
 [ext_resource type="Texture2D" uid="uid://kyd7ed82alap" path="res://assets/Lucid V1.2/PNG/Flat/64/Power.png" id="8_blfnl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4j31m"]
@@ -18,6 +19,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ml7t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qvgr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0frt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i6s0"]
 
@@ -35,11 +38,11 @@ script = ExtResource("1_n0i3q")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 z_as_relative = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = 95.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 60
 alignment = 1
 
@@ -56,14 +59,25 @@ text = "Paradox Hunter
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -196.0
+offset_right = 137.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 theme_override_constants/separation = 22
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer2"]
 clip_contents = true
 layout_mode = 2
 tooltip_text = "Start
@@ -87,7 +101,7 @@ icon = ExtResource("3_qyq6r")
 alignment = 0
 icon_alignment = 2
 
-[node name="LoadDataButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="LoadDataButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 tooltip_text = "Load Data"
 theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
@@ -108,7 +122,7 @@ icon = ExtResource("4_lsams")
 alignment = 0
 icon_alignment = 2
 
-[node name="LevelsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="LevelsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 tooltip_text = "Select Level
 "
@@ -130,7 +144,7 @@ icon = ExtResource("5_4pe1y")
 alignment = 0
 icon_alignment = 2
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 tooltip_text = "Settings
 "
@@ -152,7 +166,27 @@ icon = ExtResource("6_g2n4k")
 alignment = 0
 icon_alignment = 2
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="AchievementButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_jcou7")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w0frt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w0frt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0frt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w0frt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w0frt")
+text = "Achievements"
+icon = ExtResource("7_4aapv")
+alignment = 0
+icon_alignment = 2
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 tooltip_text = "Credits"
 theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
@@ -169,11 +203,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5i6s0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_5i6s0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5i6s0")
 text = "Credits"
-icon = ExtResource("7_4aapv")
+icon = ExtResource("8_4vysc")
 alignment = 0
 icon_alignment = 2
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 tooltip_text = "Quit
 "
@@ -196,9 +230,9 @@ icon = ExtResource("8_blfnl")
 alignment = 0
 icon_alignment = 2
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/LoadDataButton" to="." method="_on_load_data_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/LevelsButton" to="." method="_on_levels_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/LoadDataButton" to="." method="_on_load_data_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/LevelsButton" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
