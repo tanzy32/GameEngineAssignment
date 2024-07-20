@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://04ego1p1e352"
-path="res://.godot/imported/far-mountains.png-2491aa38a01ea851a5b7becc2e2ebb7b.ctex"
+uid="uid://clwwpcrox07ka"
+path="res://.godot/imported/Normal Button.png-385136200f4439e59a074d392762938f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu_backgrounds/far-mountains.png"
-dest_files=["res://.godot/imported/far-mountains.png-2491aa38a01ea851a5b7becc2e2ebb7b.ctex"]
+source_file="res://assets/menu/buttons/Normal Button.png"
+dest_files=["res://.godot/imported/Normal Button.png-385136200f4439e59a074d392762938f.ctex"]
 
 [params]
 

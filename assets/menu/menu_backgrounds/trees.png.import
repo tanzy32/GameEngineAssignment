@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv6wyqqj3hmbq"
-path="res://.godot/imported/Hover Button.png-e3d738f353f74ac17a4be810e504bf58.ctex"
+uid="uid://by822q5e406wd"
+path="res://.godot/imported/trees.png-438f5fed9f114f35ae55532803794af9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Hover Button.png"
-dest_files=["res://.godot/imported/Hover Button.png-e3d738f353f74ac17a4be810e504bf58.ctex"]
+source_file="res://assets/menu/menu_backgrounds/trees.png"
+dest_files=["res://.godot/imported/trees.png-438f5fed9f114f35ae55532803794af9.ctex"]
 
 [params]
 

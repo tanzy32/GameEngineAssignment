@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dss4w05a71uqf"
-path="res://.godot/imported/far-clouds.png-4933c443e07eb49085502e808ee296f0.ctex"
+uid="uid://dhv5wh7gtmpul"
+path="res://.godot/imported/level pressed.png-8aac67e8db2c1e27f9c4a7ef8c2adebd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu_backgrounds/far-clouds.png"
-dest_files=["res://.godot/imported/far-clouds.png-4933c443e07eb49085502e808ee296f0.ctex"]
+source_file="res://assets/menu/levels/level pressed.png"
+dest_files=["res://.godot/imported/level pressed.png-8aac67e8db2c1e27f9c4a7ef8c2adebd.ctex"]
 
 [params]
 

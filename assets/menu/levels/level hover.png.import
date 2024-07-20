@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by822q5e406wd"
-path="res://.godot/imported/trees.png-92d2ece4b91f2e196d2ac1d3b23cb976.ctex"
+uid="uid://cxyxxlpmaed8y"
+path="res://.godot/imported/level hover.png-9ff25ab26bb1b14c0d9e75455cca30e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu_backgrounds/trees.png"
-dest_files=["res://.godot/imported/trees.png-92d2ece4b91f2e196d2ac1d3b23cb976.ctex"]
+source_file="res://assets/menu/levels/level hover.png"
+dest_files=["res://.godot/imported/level hover.png-9ff25ab26bb1b14c0d9e75455cca30e7.ctex"]
 
 [params]
 
