@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nb4qqtihge01"
-path="res://.godot/imported/UI books & more.png-cf6bd25eb9c674d9d2243d6e4719dbef.ctex"
+uid="uid://ssavrcpubdov"
+path="res://.godot/imported/near-clouds.png-7b6201113837f8497a3b119ea63d6cf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI assets pack 2/UI books & more.png"
-dest_files=["res://.godot/imported/UI books & more.png-cf6bd25eb9c674d9d2243d6e4719dbef.ctex"]
+source_file="res://assets/menu_backgrounds/near-clouds.png"
+dest_files=["res://.godot/imported/near-clouds.png-7b6201113837f8497a3b119ea63d6cf3.ctex"]
 
 [params]
 

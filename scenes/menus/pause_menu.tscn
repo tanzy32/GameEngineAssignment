@@ -1,9 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://dn4lqbsse7t1d"]
 
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_15mpq"]
+[sub_resource type="Shader" id="Shader_5sxpi"]
+code = "shader_type canvas_item;
+
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap
+
+uniform float lod: hint_range(0.0, 5) = 0.0;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV lod);
+	COLOR = color;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uqtmd"]
-shader = ExtResource("1_15mpq")
+shader = SubResource("Shader_5sxpi")
 
 [sub_resource type="Animation" id="Animation_yl7ja"]
 resource_name = "blur"

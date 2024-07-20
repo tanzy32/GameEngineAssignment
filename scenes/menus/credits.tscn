@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://bb0ekisytxrid"]
+[gd_scene load_steps=4 format=3 uid="uid://bb0ekisytxrid"]
+
+[ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_deqfb"]
+[ext_resource type="Texture2D" uid="uid://d31m5uofx1e0g" path="res://assets/GUI/Credits.png" id="2_fl56m"]
+[ext_resource type="PackedScene" uid="uid://br2slxwewk4hf" path="res://scenes/menus/buttons/main_menu_button.tscn" id="3_nn4tt"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -8,14 +12,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="MenuParallaxBackground" parent="." instance=ExtResource("1_deqfb")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -497.0
+offset_right = 497.0
+offset_bottom = 572.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Credits"
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_fl56m")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -62.0
+offset_right = 72.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" parent="CenterContainer2" instance=ExtResource("3_nn4tt")]
+layout_mode = 2

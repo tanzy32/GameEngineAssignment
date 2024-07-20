@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr2djtuetl3b3"
-path="res://.godot/imported/Time & weather.png-1e2260b1c18cdc032189f775e7257f08.ctex"
+uid="uid://d1nbn16sykd81"
+path="res://.godot/imported/sky.png-9011f3f055d610f08c91eba71625fab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI assets pack 2/Time & weather.png"
-dest_files=["res://.godot/imported/Time & weather.png-1e2260b1c18cdc032189f775e7257f08.ctex"]
+source_file="res://assets/menu_backgrounds/sky.png"
+dest_files=["res://.godot/imported/sky.png-9011f3f055d610f08c91eba71625fab2.ctex"]
 
 [params]
 

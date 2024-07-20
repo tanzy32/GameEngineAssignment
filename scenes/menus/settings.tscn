@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b22go5c4a1pka"]
-
-[ext_resource type="FontFile" uid="uid://bdxx3t7yctmg5" path="res://assets/Kurland_Font_0_34/Kurland.ttf" id="1_50ohr"]
+[gd_scene format=3 uid="uid://b22go5c4a1pka"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -20,7 +18,6 @@ offset_top = -278.0
 offset_bottom = -255.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_50ohr")
 text = "Settings"
 horizontal_alignment = 1
 

@@ -1,30 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://j1lptnjrrw0k"]
+[gd_scene load_steps=7 format=3 uid="uid://b7dx32enef3lg"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_n0i3q"]
-[ext_resource type="FontFile" uid="uid://bdxx3t7yctmg5" path="res://assets/Kurland_Font_0_34/Kurland.ttf" id="2_jcou7"]
-[ext_resource type="Texture2D" uid="uid://dkvse8vs7opc2" path="res://assets/Lucid V1.2/PNG/Flat/64/Play.png" id="3_qyq6r"]
-[ext_resource type="Texture2D" uid="uid://bsaavev42tsr0" path="res://assets/Lucid V1.2/PNG/Flat/64/Floppy-Drive.png" id="4_lsams"]
-[ext_resource type="Texture2D" uid="uid://c2t1r8reres0g" path="res://assets/Lucid V1.2/PNG/Flat/64/Grid.png" id="5_4pe1y"]
-[ext_resource type="Texture2D" uid="uid://twtnhmyunrdb" path="res://assets/Lucid V1.2/PNG/Flat/64/Gear.png" id="6_g2n4k"]
-[ext_resource type="Texture2D" uid="uid://pf5iewgoprdn" path="res://assets/Lucid V1.2/PNG/Flat/64/Star.png" id="7_4aapv"]
-[ext_resource type="Texture2D" uid="uid://uu80y1amn7ty" path="res://assets/Lucid V1.2/PNG/Flat/64/People.png" id="8_4vysc"]
-[ext_resource type="Texture2D" uid="uid://kyd7ed82alap" path="res://assets/Lucid V1.2/PNG/Flat/64/Power.png" id="8_blfnl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4j31m"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u80y0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnsgm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ml7t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qvgr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0frt"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i6s0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fjdp"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_08iut"]
+[ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_omntp"]
+[ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/fonts/PixelAE-Regular.ttf" id="2_qh6u1"]
+[ext_resource type="Texture2D" uid="uid://clwwpcrox07ka" path="res://assets/buttons/Normal Button.png" id="3_1n4ju"]
+[ext_resource type="Texture2D" uid="uid://7xi83a03276o" path="res://assets/buttons/Pressed Button.png" id="4_j84s4"]
+[ext_resource type="Texture2D" uid="uid://bv6wyqqj3hmbq" path="res://assets/buttons/Hover Button.png" id="5_s6smv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -33,206 +14,301 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n0i3q")
+script = ExtResource("1_08iut")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-z_as_relative = false
+[node name="MenuParallaxBackground" parent="." instance=ExtResource("1_omntp")]
+position = Vector2(314, 37)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-offset_top = 21.0
-offset_bottom = 95.0
+anchor_bottom = 0.5
+offset_top = -253.0
+offset_bottom = -103.0
 grow_horizontal = 2
-theme_override_constants/separation = 60
-alignment = 1
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 70
-text = "Paradox Hunter
-"
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 100
+text = "Paradox Hunter"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 372.0
+offset_top = 215.0
+offset_right = 771.0
+offset_bottom = 382.0
+
+[node name="StartTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitTextureButton")
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/StartTextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -196.0
-offset_right = 137.0
-offset_bottom = 320.0
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 22
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer2"]
-clip_contents = true
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/StartTextureButton/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Start
-"
-focus_neighbor_top = NodePath("../QuitButton")
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_4j31m")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_u80y0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_u80y0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_u80y0")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_u80y0")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
 text = "Start"
-icon = ExtResource("3_qyq6r")
-alignment = 0
-icon_alignment = 2
+horizontal_alignment = 1
 
-[node name="LoadDataButton" type="Button" parent="VBoxContainer2"]
+[node name="LoadDataTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-tooltip_text = "Load Data"
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wnsgm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_wnsgm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wnsgm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wnsgm")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wnsgm")
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/LoadDataTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/LoadDataTextureButton/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
 text = "Load Data"
-icon = ExtResource("4_lsams")
-alignment = 0
-icon_alignment = 2
+horizontal_alignment = 1
 
-[node name="LevelsButton" type="Button" parent="VBoxContainer2"]
+[node name="LevelsTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-tooltip_text = "Select Level
-"
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8ml7t")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8ml7t")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_8ml7t")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ml7t")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8ml7t")
-text = "Levels"
-icon = ExtResource("5_4pe1y")
-alignment = 0
-icon_alignment = 2
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/LevelsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/LevelsTextureButton/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Settings
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
+text = "Levels
 "
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_0qvgr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_0qvgr")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0qvgr")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0qvgr")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0qvgr")
+horizontal_alignment = 1
+
+[node name="SettingsTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/SettingsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/SettingsTextureButton/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
 text = "Settings"
-icon = ExtResource("6_g2n4k")
-alignment = 0
-icon_alignment = 2
+horizontal_alignment = 1
 
-[node name="AchievementButton" type="Button" parent="VBoxContainer2"]
+[node name="AchievementsTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_w0frt")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_w0frt")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0frt")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_w0frt")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w0frt")
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/AchievementsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/AchievementsTextureButton/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
 text = "Achievements"
-icon = ExtResource("7_4aapv")
-alignment = 0
-icon_alignment = 2
+horizontal_alignment = 1
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
+[node name="CreditsTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-tooltip_text = "Credits"
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i6s0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_5i6s0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5i6s0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_5i6s0")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5i6s0")
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/CreditsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/CreditsTextureButton/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
 text = "Credits"
-icon = ExtResource("8_4vysc")
-alignment = 0
-icon_alignment = 2
+horizontal_alignment = 1
 
-[node name="QuitButton" type="Button" parent="VBoxContainer2"]
+[node name="QuitTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-tooltip_text = "Quit
-"
-focus_neighbor_bottom = NodePath("../StartButton")
-theme_override_colors/font_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_pressed_color = Color(1, 0.647059, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_jcou7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_7fjdp")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7fjdp")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7fjdp")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7fjdp")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_7fjdp")
-text = "Quit"
-icon = ExtResource("8_blfnl")
-alignment = 0
-icon_alignment = 2
+focus_neighbor_bottom = NodePath("../StartTextureButton")
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
 
-[connection signal="pressed" from="VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/LoadDataButton" to="." method="_on_load_data_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/LevelsButton" to="." method="_on_levels_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/QuitTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ButtonsVBoxContainer/QuitTextureButton/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
+text = "Quit"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ButtonsVBoxContainer/StartTextureButton" to="." method="_on_start_texture_button_pressed"]
+[connection signal="pressed" from="ButtonsVBoxContainer/LoadDataTextureButton" to="." method="_on_load_data_texture_button_pressed"]
+[connection signal="pressed" from="ButtonsVBoxContainer/LevelsTextureButton" to="." method="_on_levels_texture_button_pressed"]
+[connection signal="pressed" from="ButtonsVBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_pressed"]
+[connection signal="pressed" from="ButtonsVBoxContainer/AchievementsTextureButton" to="." method="_on_achievements_texture_button_pressed"]
+[connection signal="pressed" from="ButtonsVBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_pressed"]
+[connection signal="pressed" from="ButtonsVBoxContainer/QuitTextureButton" to="." method="_on_quit_texture_button_pressed"]
