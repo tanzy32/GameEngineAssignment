@@ -18,6 +18,7 @@ offset_bottom = 128.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_d3xhd")
 theme_override_font_sizes/font_size = 10
-text = "[E] to interact"
+text = "[E] to interact
+"
 horizontal_alignment = 1
 vertical_alignment = 1
