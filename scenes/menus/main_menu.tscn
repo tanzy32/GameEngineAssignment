@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7dx32enef3lg"]
 
-[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_08iut"]
-[ext_resource type="PackedScene" path="res://scenes/menus/menu_parallax_background.tscn" id="1_omntp"]
+[ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_omntp"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_x8o8d"]
 [ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="2_qh6u1"]
 [ext_resource type="Texture2D" uid="uid://clwwpcrox07ka" path="res://assets/menu/buttons/Normal Button.png" id="3_1n4ju"]
 [ext_resource type="Texture2D" uid="uid://7xi83a03276o" path="res://assets/menu/buttons/Pressed Button.png" id="4_j84s4"]
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_08iut")
+script = ExtResource("1_x8o8d")
 
 [node name="MenuParallaxBackground" parent="." instance=ExtResource("1_omntp")]
 position = Vector2(314, 37)

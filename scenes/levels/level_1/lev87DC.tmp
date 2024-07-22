@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bxk8jteyj2ndc" path="res://scenes/levels/level_1/spikes.tscn" id="5_jw15o"]
 [ext_resource type="PackedScene" uid="uid://brixk0gf31yu0" path="res://scenes/levels/level_1/chest.tscn" id="6_cc42o"]
 [ext_resource type="PackedScene" uid="uid://c42pkvt286755" path="res://scenes/levels/level_1/obelisk.tscn" id="7_67cla"]
-[ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="10_ggn72"]
+[ext_resource type="PackedScene" uid="uid://djna11vpqdqu" path="res://scenes/menus/pause_menu_canvas_layer.tscn" id="10_1fxr0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r55kj"]
 texture = ExtResource("1_sywtn")
@@ -481,6 +481,6 @@ position = Vector2(-391, -78)
 [node name="Obelisk" parent="Obelisks" instance=ExtResource("7_67cla")]
 position = Vector2(790, -745)
 
-[node name="PauseMenu" parent="." instance=ExtResource("10_ggn72")]
+[node name="PauseMenuCanvasLayer" parent="." instance=ExtResource("10_1fxr0")]
 
 [connection signal="timeout" from="Player/countdown/spawner_timer" to="." method="_on_spawner_timer_timeout"]
