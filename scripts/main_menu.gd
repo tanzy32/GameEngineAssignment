@@ -14,8 +14,8 @@ func _ready():
 
 
 func _on_start_button_pressed():
-	#get_tree().change_scene_to_file("res://scenes/levels/level_1/level.tscn")
-	get_tree().change_scene_to_file("res://scenes/player/map.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1/level.tscn")
+
 	
 func _on_load_data_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menus/load_data.tscn")
