@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=3 uid="uid://dw7p76bxk0xdq"]
+
+[ext_resource type="Script" path="res://scripts/menus/select_levels.gd" id="1_h4004"]
+[ext_resource type="PackedScene" uid="uid://ck45uhe10dnbp" path="res://scenes/menus/general_ui.tscn" id="1_qygvx"]
+[ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="2_xwkb0"]
+[ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="3_jqf8y"]
+[ext_resource type="Texture2D" uid="uid://di5k6i60sh7is" path="res://assets/menu/levels/level normal.png" id="4_bn24n"]
+[ext_resource type="Texture2D" uid="uid://dhv5wh7gtmpul" path="res://assets/menu/levels/level pressed.png" id="5_ud7fq"]
+[ext_resource type="Texture2D" uid="uid://cxyxxlpmaed8y" path="res://assets/menu/levels/level hover.png" id="6_0sses"]
+[ext_resource type="FontFile" uid="uid://bkgf67jn1dcxb" path="res://assets/menu/fonts/PixelAE-Bold.ttf" id="7_8vapo"]
+
+[node name="SelectLevels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h4004")
+
+[node name="GeneralUI" parent="." instance=ExtResource("1_qygvx")]
+layout_mode = 1
+
+[node name="TitleVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 63.0
+offset_right = 150.0
+offset_bottom = 168.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TitleVBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_xwkb0")
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -20.0
+offset_right = 27.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_jqf8y")
+theme_override_font_sizes/font_size = 30
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 172.0
+offset_right = 906.0
+offset_bottom = 344.0
+theme_override_constants/h_separation = 46
+columns = 4
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_bn24n")
+texture_pressed = ExtResource("5_ud7fq")
+texture_hover = ExtResource("6_0sses")
+
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/TextureButton/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("7_8vapo")
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_bn24n")
+texture_pressed = ExtResource("5_ud7fq")
+texture_hover = ExtResource("6_0sses")
+
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/TextureButton2/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("7_8vapo")
+theme_override_font_sizes/font_size = 50
+text = "2"
+horizontal_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_bn24n")
+texture_pressed = ExtResource("5_ud7fq")
+texture_hover = ExtResource("6_0sses")
+
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/TextureButton3/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("7_8vapo")
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+
+[node name="TextureButton4" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_bn24n")
+texture_pressed = ExtResource("5_ud7fq")
+texture_hover = ExtResource("6_0sses")
+
+[node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/TextureButton4/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("7_8vapo")
+theme_override_font_sizes/font_size = 50
+text = "4"
+
+[connection signal="pressed" from="GridContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]

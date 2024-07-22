@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://4n7xavtyuceq"]
+
+[ext_resource type="PackedScene" uid="uid://ck45uhe10dnbp" path="res://scenes/menus/general_ui.tscn" id="1_vfdto"]
+[ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="2_xt85h"]
+[ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="3_4q5fs"]
+
+[node name="LoadData" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GeneralUI" parent="." instance=ExtResource("1_vfdto")]
+layout_mode = 1
+
+[node name="TitleVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 63.0
+offset_right = 150.0
+offset_bottom = 168.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TitleVBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_xt85h")
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -20.0
+offset_right = 27.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_4q5fs")
+theme_override_font_sizes/font_size = 30
+text = "Load Data"
+horizontal_alignment = 1

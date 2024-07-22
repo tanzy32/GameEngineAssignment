@@ -1,0 +1,340 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb0ekisytxrid"]
+
+[ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_deqfb"]
+[ext_resource type="Texture2D" uid="uid://dhddj472ke5pu" path="res://assets/menu/GUI/Credits.png" id="2_fl56m"]
+[ext_resource type="PackedScene" uid="uid://br2slxwewk4hf" path="res://scenes/menus/buttons/main_menu_button.tscn" id="3_nn4tt"]
+[ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="4_2a7d8"]
+[ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="5_t4vlk"]
+[ext_resource type="FontFile" uid="uid://bkgf67jn1dcxb" path="res://assets/menu/fonts/PixelAE-Bold.ttf" id="6_ma6kp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_yv8pr"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuParallaxBackground" parent="." instance=ExtResource("1_deqfb")]
+
+[node name="HolderCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -497.0
+offset_right = 497.0
+offset_bottom = 572.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="HolderCenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_fl56m")
+
+[node name="MainMenuCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -84.0
+offset_right = 73.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" parent="MainMenuCenterContainer" instance=ExtResource("3_nn4tt")]
+layout_mode = 2
+
+[node name="TitleVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 63.0
+offset_right = 150.0
+offset_bottom = 168.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TitleVBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_2a7d8")
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -20.0
+offset_right = 27.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 167.0
+offset_top = 154.0
+offset_right = 966.0
+offset_bottom = 500.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 170
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DeveloperLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Developers: "
+uppercase = true
+
+[node name="KevinLFYLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Kevin Lai Fong Yi            2107246"
+
+[node name="LeeCJLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Lee Chee Jian"
+
+[node name="RickyTRHLabel2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Ricky Tang Ruey Horng 2200130"
+
+[node name="TanZYLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Tan Zhi Yang                 2100208"
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="LevelProgrammerLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Level Programmers: "
+uppercase = true
+
+[node name="Label2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Kevin Lai Fong Yi"
+
+[node name="Label3" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Lee Chee Jian"
+
+[node name="Label4" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="UIProgrammerLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "UI Programmer: "
+uppercase = true
+
+[node name="Label5" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Tan Zhi Yang"
+
+[node name="Label6" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="AccredidationLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Special thanks to: "
+uppercase = true
+
+[node name="LinkButton" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Essssam"
+uri = "https://essssam.itch.io/pixel-ae"
+
+[node name="LinkButton2" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " BDragon1727"
+uri = "https://bdragon1727.itch.io/"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LecturerLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Lecturer: "
+uppercase = true
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Mr. Tai Liang Kwang "
+
+[node name="Label2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="Label3" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="Label4" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="Label5" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="PlayerProgrammerLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Player Programmer: "
+uppercase = true
+
+[node name="Label6" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+text = "Ricky Tang Ruey Horng"
+
+[node name="Label7" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="Label8" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
