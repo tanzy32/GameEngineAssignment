@@ -12,7 +12,7 @@ extends Control
 
 
 func _on_texture_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1/level.tscn")
 
 func _on_texture_button_2_pressed():
 	get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")
