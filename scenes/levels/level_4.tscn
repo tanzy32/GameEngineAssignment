@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb1apmg28lane"]
+[gd_scene load_steps=11 format=3 uid="uid://b7il0fxfvmawh"]
 
 [ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/Dungeon Tile Set/Dungeon Tile Set.png" id="1_mnxjm"]
 [ext_resource type="PackedScene" uid="uid://bu6lfyqmq1wnj" path="res://scenes/levels/level 2/playertest.tscn" id="2_hoy7c"]
