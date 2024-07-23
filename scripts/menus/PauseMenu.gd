@@ -3,8 +3,12 @@ extends Control
 @onready var canvas_layer = $CanvasLayer
 @onready var resume_texture_button = $CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/ResumeTextureButton
 
+
+
+
 func _ready():
 	canvas_layer.visible = false
+	resume_texture_button.grab_focus()
 	get_tree().paused = false  # Ensure game is not paused on scene load
 
 func _input(event):

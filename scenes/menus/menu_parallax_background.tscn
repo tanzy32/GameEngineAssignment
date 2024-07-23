@@ -11,6 +11,7 @@
 position = Vector2(248, 57)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+process_mode = 3
 script = ExtResource("1_tfg1l")
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]

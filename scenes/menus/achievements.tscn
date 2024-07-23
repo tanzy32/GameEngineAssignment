@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="3_uj6mx"]
 
 [node name="Achievements" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
