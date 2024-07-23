@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbupmg7kst0ir"]
+
+[ext_resource type="Script" path="res://scripts/level 2 script/movingplat.gd" id="1_v2nb5"]
+[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level 2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="1_x3p76"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7byc"]
+size = Vector2(281.831, 9.9893)
+
+[sub_resource type="Animation" id="Animation_6voq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0k0kc"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(-1.56, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6sjls"]
+_data = {
+"RESET": SubResource("Animation_6voq1"),
+"move": SubResource("Animation_0k0kc")
+}
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(10.1862, 523.8)
+scale = Vector2(0.216449, 1.5428)
+script = ExtResource("1_v2nb5")
+speed_scale = 0.5
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(2406.17, -134.69)
+rotation = -0.00210889
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+position = Vector2(18.4855, -2.55377)
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(2424.65, -137.283)
+rotation = -0.00210889
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(-60.0451, -7.25646)
+scale = Vector2(5.9858, 0.707483)
+texture = ExtResource("1_x3p76")
+region_enabled = true
+region_rect = Rect2(0, 96.3974, 47.6024, 14.6832)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-60.0437, -7.43743)
+shape = SubResource("RectangleShape2D_m7byc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6sjls")
+}

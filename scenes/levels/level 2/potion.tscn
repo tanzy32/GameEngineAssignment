@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm40lk3pac0g8"]
+
+[ext_resource type="Script" path="res://scripts/level 2 script/potion.gd" id="1_tvfjj"]
+[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level 2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_x27vm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5msbd"]
+radius = 4.0
+height = 14.0
+
+[node name="Potion" type="Area2D"]
+script = ExtResource("1_tvfjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x27vm")
+region_enabled = true
+region_rect = Rect2(3.32517, 130.167, 9.31995, 15.1056)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5msbd")
+
+[node name="Label" type="Label" parent="."]
+offset_top = -19.0
+offset_right = 32.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 10
+text = "Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_PotionArea_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_PotionArea_body_exited"]

@@ -1,14 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4e4xoo217cvc"]
+[gd_scene load_steps=22 format=3 uid="uid://c4e4xoo217cvc"]
 
 [ext_resource type="Script" path="res://scripts/level_control.gd" id="1_n16ul"]
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_sywtn"]
 [ext_resource type="Script" path="res://scripts/countdown.gd" id="3_7pd1b"]
 [ext_resource type="PackedScene" uid="uid://b52frv2hv6vtt" path="res://scenes/levels/level_1/platform.tscn" id="3_qn3ht"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="4_vqetv"]
-[ext_resource type="PackedScene" uid="uid://d02wdx7xldayf" path="res://scenes/levels/level_1/player.tscn" id="5_csj8p"]
+[ext_resource type="PackedScene" uid="uid://ic0b6imn3aua" path="res://scenes/levels/level_1/player.tscn" id="5_csj8p"]
 [ext_resource type="PackedScene" uid="uid://bxk8jteyj2ndc" path="res://scenes/levels/level_1/spikes.tscn" id="5_jw15o"]
 [ext_resource type="PackedScene" uid="uid://brixk0gf31yu0" path="res://scenes/levels/level_1/chest.tscn" id="6_cc42o"]
 [ext_resource type="PackedScene" uid="uid://c42pkvt286755" path="res://scenes/levels/level_1/obelisk.tscn" id="7_67cla"]
+[ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="10_ggn72"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r55kj"]
 texture = ExtResource("1_sywtn")
@@ -395,6 +396,7 @@ layer_0/tile_data = PackedInt32Array(196651, 458758, 1, 196652, 458758, 1, 19665
 
 [node name="Player" parent="." instance=ExtResource("5_csj8p")]
 position = Vector2(416, -849)
+collision_mask = 2
 
 [node name="countdown" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -479,5 +481,7 @@ position = Vector2(-391, -78)
 
 [node name="Obelisk" parent="Obelisks" instance=ExtResource("7_67cla")]
 position = Vector2(790, -745)
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_ggn72")]
 
 [connection signal="timeout" from="Player/countdown/spawner_timer" to="." method="_on_spawner_timer_timeout"]

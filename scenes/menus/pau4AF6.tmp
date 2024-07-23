@@ -1,0 +1,188 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5vd10rcolxlx"]
+
+[ext_resource type="Script" path="res://scripts/menus/PauseMenu.gd" id="1_cfh3m"]
+[ext_resource type="Texture2D" uid="uid://csgf83cav1t5r" path="res://assets/menu/GUI/pause menu.png" id="1_f73xk"]
+[ext_resource type="Texture2D" uid="uid://clwwpcrox07ka" path="res://assets/menu/buttons/Normal Button.png" id="2_8dt1l"]
+[ext_resource type="Texture2D" uid="uid://7xi83a03276o" path="res://assets/menu/buttons/Pressed Button.png" id="3_8508h"]
+[ext_resource type="Texture2D" uid="uid://bv6wyqqj3hmbq" path="res://assets/menu/buttons/Hover Button.png" id="4_o4mq8"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="5_fohp1"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_cfh3m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausePanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -160.0
+offset_right = 120.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PausePanel/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_f73xk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect"]
+layout_mode = 2
+offset_left = 102.0
+offset_top = 117.0
+offset_right = 248.0
+offset_bottom = 337.0
+theme_override_constants/separation = 29
+
+[node name="ResumeTextureButton" type="TextureButton" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_8dt1l")
+texture_pressed = ExtResource("3_8508h")
+texture_hover = ExtResource("4_o4mq8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/ResumeTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/ResumeTextureButton/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_fohp1")
+theme_override_font_sizes/font_size = 21
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="RestartTextureButton" type="TextureButton" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_8dt1l")
+texture_pressed = ExtResource("3_8508h")
+texture_hover = ExtResource("4_o4mq8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/RestartTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/RestartTextureButton/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_fohp1")
+theme_override_font_sizes/font_size = 21
+text = "Restart"
+horizontal_alignment = 1
+
+[node name="SettingsTextureButton" type="TextureButton" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_8dt1l")
+texture_pressed = ExtResource("3_8508h")
+texture_hover = ExtResource("4_o4mq8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/SettingsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/SettingsTextureButton/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_fohp1")
+theme_override_font_sizes/font_size = 21
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="MainMenuTextureButton" type="TextureButton" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ResumeTextureButton")
+texture_normal = ExtResource("2_8dt1l")
+texture_pressed = ExtResource("3_8508h")
+texture_hover = ExtResource("4_o4mq8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/MainMenuTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/MainMenuTextureButton/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_fohp1")
+theme_override_font_sizes/font_size = 21
+text = "Main Menu
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/ResumeTextureButton" to="." method="_on_resume_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/RestartTextureButton" to="." method="_on_restart_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/MainMenuTextureButton" to="." method="_on_main_menu_texture_button_pressed"]

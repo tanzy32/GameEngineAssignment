@@ -1,80 +1,784 @@
-[gd_scene load_steps=12 format=3 uid="uid://d02wdx7xldayf"]
+[gd_scene load_steps=16 format=3 uid="uid://ic0b6imn3aua"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_hv8re"]
-[ext_resource type="Texture2D" uid="uid://bcevrh25vda0n" path="res://assets/Slimes/Slimes/slime_move.png" id="2_aot07"]
+[ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
+[ext_resource type="Script" path="res://scenes/player/StateMachine.gd" id="3_nqnws"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jha3g"]
-atlas = ExtResource("2_aot07")
-region = Rect2(0, 288, 80, 72)
+[sub_resource type="GDScript" id="GDScript_cplqo"]
+script/source = "extends CharacterBody2D
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_paojh"]
-atlas = ExtResource("2_aot07")
-region = Rect2(80, 288, 80, 72)
+enum State{
+	IDLE,
+	RUNNING,
+	JUMP,
+	FALL,
+	LANDING,
+	WALL_SLIDING,
+	WALL_JUMP,
+	SLIDE,
+	SLIDE_END,
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1ce0"]
-atlas = ExtResource("2_aot07")
-region = Rect2(160, 288, 80, 72)
+const GROUND_STATES := [
+	State.IDLE, State.RUNNING, State.LANDING,
+]
+const RUN_SPEED := 160.0
+const FLOOR_ACCELERATION := RUN_SPEED / 0.2
+const AIR_ACCELERATION := RUN_SPEED / 0.1
+const JUMP_VELOCITY := -500.0
+const WALL_JUMP_VELOCITY := Vector2(500, -400)
+const SLIDE_SPEED := 260.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2q2pm"]
-atlas = ExtResource("2_aot07")
-region = Rect2(240, 288, 80, 72)
+var default_gravity:= ProjectSettings.get(\"physics/2d/default_gravity\") as float
+var is_first_tick := false
+var jump_max = 1
+var jump_count = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ichki"]
-atlas = ExtResource("2_aot07")
-region = Rect2(320, 288, 80, 72)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b15rt"]
-atlas = ExtResource("2_aot07")
-region = Rect2(400, 288, 80, 72)
+@onready var animation_player = $AnimationPlayer
+@onready var coyote_timer: Timer = $CoyoteTimer
+@onready var jump_request_timer: Timer = $JumpRequestTimer
+@onready var state_machine: StateMachine = $StateMachine
+@onready var graphics: Node2D = $Graphics
+@onready var foot_checker: RayCast2D = $Graphics/Sprite2D/FootChecker
+@onready var hand_checker: RayCast2D = $Graphics/Sprite2D/HandChecker
+@onready var slide_timer: Timer = $SlideTimer
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ckcg"]
-atlas = ExtResource("2_aot07")
-region = Rect2(480, 288, 80, 72)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_15n5f"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jha3g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_paojh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1ce0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2q2pm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ichki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b15rt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ckcg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"jump\"):
+		jump_request_timer.start()
+	
+	if event.is_action_released(\"jump\"):
+		jump_request_timer.stop()
+		if velocity.y < JUMP_VELOCITY / 2:
+			velocity.y = JUMP_VELOCITY / 4
+				
+	if event.is_action_pressed(\"slide\"):
+		slide_timer.start()
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnqah"]
-size = Vector2(19, 15.5)
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 30
-script = ExtResource("1_hv8re")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_15n5f")
-autoplay = "default"
-frame_progress = 0.835993
+func tick_physics(state: State, delta: float) -> void:		
+	match state:
+		State.IDLE:
+			move(default_gravity,delta)
+			
+		State.RUNNING:
+			move(default_gravity, delta)
+			
+		State.JUMP:
+			move(0.0 if is_first_tick else default_gravity, delta)
+			
+		State.FALL:
+			move(default_gravity, delta)
+			
+		State.LANDING:
+			stand(default_gravity, delta)
+			
+		State.WALL_SLIDING:
+			move(default_gravity / 8, delta)
+			
+		State.WALL_JUMP:
+			if state_machine.state_time < 0.1:
+				stand(0.0 if is_first_tick else default_gravity,delta)
+				graphics.scale.x = -get_wall_normal().x
+			else:
+				move(default_gravity, delta)
+			
+		State.SLIDE:
+			move(default_gravity, delta)	
+		
+		State.SLIDE_END:
+			stand(default_gravity, delta)	
+			
+	is_first_tick = false		
+			
+func move(gravity: float, delta: float) -> void:
+	var direction := Input.get_axis(\"left\", \"right\")
+	var acceleration :=  FLOOR_ACCELERATION if is_on_floor() else AIR_ACCELERATION
+	velocity.x = move_toward(velocity.x, direction * RUN_SPEED, acceleration * delta)
+	velocity.y += gravity * delta
+
+	if not is_zero_approx(direction):
+		graphics.scale.x = -1 if direction > 0 else 1
+	
+	move_and_slide()
+	
+	
+func stand(gravity: float, delta: float) -> void:
+	var acceleration := FLOOR_ACCELERATION if is_on_floor() else AIR_ACCELERATION
+	velocity.x = move_toward(velocity.x, 0.0, acceleration * delta)
+	velocity.y += gravity * delta
+	
+	move_and_slide()
+
+func slide(delta: float) -> void:
+	velocity.x = graphics.scale.x * SLIDE_SPEED
+	velocity.y += default_gravity * delta
+	
+	move_and_slide()
+
+func should_slide() -> bool:
+	if not Input.is_action_just_pressed(\"slide\") or is_on_wall():
+		return false
+	return Input.is_action_just_pressed(\"slide\") and not foot_checker.is_colliding()
+	
+func can_wall_slide() -> bool:
+	return is_on_wall() and hand_checker.is_colliding() and foot_checker.is_colliding()
+	
+	
+func get_next_state(state: State) -> State:
+	var direction := Input.get_axis(\"left\", \"right\")
+	var is_still := is_zero_approx(direction) and is_zero_approx(velocity.x)
+	
+	var can_jump := is_on_floor() or coyote_timer.time_left > 0 or jump_count < jump_max
+	var should_jump := can_jump and jump_request_timer.time_left > 0
+
+	if is_on_floor():
+		jump_count = 0
+		
+	if should_jump:
+		jump_count += 1 
+		return State.JUMP
+			
+	match state:
+		State.IDLE:
+			if not is_on_floor():
+				return State.FALL
+			if not is_still:
+				return State.RUNNING
+			if should_slide():
+				return State.SLIDE
+				
+		State.RUNNING:
+			if not is_on_floor():
+				return State.FALL
+			if is_still:
+				return State.IDLE
+			if should_slide():
+				return State.SLIDE
+			
+		State.JUMP:
+			print(\"jump count remaining:\", jump_count)
+			if velocity.y >= 0 or jump_count < jump_max:
+				return State.FALL
+			if is_on_wall():
+				return State.WALL_SLIDING
+			
+		State.FALL:
+			if is_on_floor():
+				return State.LANDING if is_still else State.RUNNING
+			if can_wall_slide():
+				return State.WALL_SLIDING
+
+		State.LANDING:
+			if not is_still:
+				return State.RUNNING
+			if not animation_player.is_playing():
+				return State.IDLE
+		
+		State.WALL_SLIDING:
+			if jump_request_timer.time_left > 0:
+				return State.WALL_JUMP
+			if is_on_floor():
+				return State.IDLE
+			if not is_on_wall():
+				return  State.FALL
+				
+		State.WALL_JUMP:
+			if can_wall_slide() and not is_first_tick:
+				return State.WALL_SLIDING
+			if velocity.y >= 0:
+				return State.FALL
+			
+		State.SLIDE:
+			if not is_on_floor():
+				return State.FALL
+			if is_on_wall():
+				return State.SLIDE_END
+			if slide_timer.time_left > 0:
+				print(\"Slide time remaining:\", slide_timer.time_left)
+				return State.SLIDE
+			else:
+				print(\"Slide timer expired\")
+				return State.SLIDE_END
+				
+		State.SLIDE_END:
+			return State.IDLE
+		
+	return state
+
+
+func transition_state(from: State, to: State) -> void:
+	print(\"[%s] %s => %s\" % [
+		Engine.get_physics_frames(),
+		State.keys()[from] if from != -1 else \"<START>\",
+		State.keys()[to],
+	])
+	
+	if from not in GROUND_STATES and to in GROUND_STATES:
+		coyote_timer.stop()
+	
+	match to:
+		State.IDLE:
+			animation_player.play(\"idle\")
+		
+		State.RUNNING:
+			animation_player.play(\"running\")
+		
+		State.JUMP:
+			animation_player.play(\"jump\")
+			velocity.y = JUMP_VELOCITY
+			coyote_timer.stop()
+			jump_request_timer.stop()
+			
+		
+		State.FALL:
+			animation_player.play(\"fall\")
+			if from in GROUND_STATES:
+				coyote_timer.start()
+			
+		State.LANDING:
+			jump_count = 0
+			animation_player.play(\"landing\")
+
+		State.WALL_SLIDING:
+			animation_player.play(\"wall_sliding\")
+		
+		State.WALL_JUMP:
+			animation_player.play(\"jump\")
+			velocity = WALL_JUMP_VELOCITY
+			velocity.x *= get_wall_normal().x
+			jump_request_timer.stop()
+			
+		State.SLIDE:
+			animation_player.play(\"slide\")
+
+		State.SLIDE_END:
+			animation_player.play(\"slide_end\")
+			slide_timer.stop()
+	
+	if to == State.WALL_JUMP:
+		Engine.time_scale = 0.3
+	if from == State.WALL_JUMP:
+		Engine.time_scale = 1.0
+	
+	is_first_tick = true
+			
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l41ol"]
+size = Vector2(10, 29)
+
+[sub_resource type="Animation" id="Animation_21w0d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 200, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics/Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics/Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -19)]
+}
+
+[sub_resource type="Animation" id="Animation_cb1dp"]
+resource_name = "fall"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(50, 111, 100, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_oqdc0"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 200, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_jvhln"]
+resource_name = "jump"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 74, 200, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_wm3fu"]
+resource_name = "landing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(200, 0, 150, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_qudbu"]
+resource_name = "running"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(50, 37, 300, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_u2unk"]
+resource_name = "slide"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(150, 111, 100, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_kgxur"]
+resource_name = "slide_end"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 148, 50, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_pf1q8"]
+resource_name = "wall ladder"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(200, 407, 150, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_j44t8"]
+resource_name = "wall_sliding"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(100, 407, 100, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics/Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics/Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -19)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6riny"]
+_data = {
+"RESET": SubResource("Animation_21w0d"),
+"fall": SubResource("Animation_cb1dp"),
+"idle": SubResource("Animation_oqdc0"),
+"jump": SubResource("Animation_jvhln"),
+"landing": SubResource("Animation_wm3fu"),
+"running": SubResource("Animation_qudbu"),
+"slide": SubResource("Animation_u2unk"),
+"slide_end": SubResource("Animation_kgxur"),
+"wall ladder": SubResource("Animation_pf1q8"),
+"wall_sliding": SubResource("Animation_j44t8")
+}
+
+[node name="player" type="CharacterBody2D"]
+script = SubResource("GDScript_cplqo")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
+position = Vector2(0, -19)
+texture = ExtResource("2_x4yyh")
+flip_h = true
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 37)
+
+[node name="HandChecker" type="RayCast2D" parent="Graphics/Sprite2D"]
+position = Vector2(0, -8)
+target_position = Vector2(-7, 0)
+
+[node name="FootChecker" type="RayCast2D" parent="Graphics/Sprite2D"]
+position = Vector2(0, 17)
+target_position = Vector2(-7, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.5, 4.75)
-shape = SubResource("RectangleShape2D_rnqah")
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_l41ol")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6riny")
+}
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpRequestTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_nqnws")
+
+[node name="SlideTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

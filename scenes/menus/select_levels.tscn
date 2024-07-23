@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://bkgf67jn1dcxb" path="res://assets/menu/fonts/PixelAE-Bold.ttf" id="7_8vapo"]
 
 [node name="SelectLevels" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
