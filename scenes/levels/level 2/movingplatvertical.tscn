@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuqhqtbhqyblk"]
+
+[ext_resource type="Script" path="res://scripts/level 2 script/movingplatvertical.gd" id="1_lchro"]
+[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level 2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_h6uiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3um0"]
+size = Vector2(18.5017, 58.1761)
+
+[sub_resource type="Animation" id="Animation_l2xbj"]
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_45a6t"]
+resource_name = "move_vertical"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.56, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mnth"]
+_data = {
+"RESET": SubResource("Animation_l2xbj"),
+"move_vertical": SubResource("Animation_45a6t")
+}
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(251, 425)
+script = ExtResource("1_lchro")
+speed = 1.0
+speed_scale = 0.5
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(5, 85)
+rotation = 1.5708
+progress = 155.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(5, 85)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(-151, 1.00001)
+scale = Vector2(1.16122, 1.23549)
+texture = ExtResource("2_h6uiw")
+region_enabled = true
+region_rect = Rect2(96.1524, 1.00212, 16.0254, 46.2652)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-151, 1.00001)
+shape = SubResource("RectangleShape2D_x3um0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3mnth")
+}
