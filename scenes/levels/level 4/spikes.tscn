@@ -22,4 +22,6 @@ position = Vector2(9.58419, -12.3426)
 scale = Vector2(2.1562, 1.90746)
 polygon = PackedVector2Array(0, -3, -6.42471, 9.11917, 7.2278, 9.11917)
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
