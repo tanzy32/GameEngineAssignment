@@ -15,10 +15,12 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		if canvas_layer.visible:
 			# Resume game
+			resume_texture_button.grab_focus()
 			canvas_layer.visible = false
 			get_tree().paused = false
 		else:
 			# Show pause menu
+			resume_texture_button.grab_focus()
 			canvas_layer.visible = true
 			get_tree().paused = true
 
