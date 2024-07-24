@@ -21,4 +21,4 @@ func _on_texture_button_3_pressed():
 	get_tree().change_scene_to_file("res://scenes/levels/level_3.tscn")
 
 func _on_texture_button_4_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/level_4.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_4/level_4.tscn")

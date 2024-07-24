@@ -6,6 +6,7 @@
 [sub_resource type="GDScript" id="GDScript_cplqo"]
 script/source = "extends CharacterBody2D
 
+
 enum State{
 	IDLE,
 	RUNNING,
@@ -43,6 +44,8 @@ var jump_count = 0
 @onready var hand_checker: RayCast2D = $Graphics/Sprite2D/HandChecker
 @onready var slide_timer: Timer = $SlideTimer
 
+func _ready():
+	Global.playerBody = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"jump\"):

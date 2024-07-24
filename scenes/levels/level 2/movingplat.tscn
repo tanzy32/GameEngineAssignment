@@ -7,7 +7,7 @@
 size = Vector2(281.831, 9.9893)
 
 [sub_resource type="Animation" id="Animation_6voq1"]
-length = 0.001
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,10 +15,10 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(-1.55, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_0k0kc"]
@@ -48,19 +48,21 @@ _data = {
 position = Vector2(10.1862, 523.8)
 scale = Vector2(0.216449, 1.5428)
 script = ExtResource("1_v2nb5")
+loop = false
 speed_scale = 0.5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(2406.17, -134.69)
-rotation = -0.00210889
+position = Vector2(3094.56, -144.413)
+rotation = -0.000899322
+progress = 720.724
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 position = Vector2(18.4855, -2.55377)
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(2424.65, -137.283)
-rotation = -0.00210889
+position = Vector2(3113.04, -146.983)
+rotation = -0.000899322
 scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]

@@ -16,7 +16,7 @@ func _process(delta):
 func move(delta):
 	if is_bat_chase:
 		player = Global.playerBody
-		#velocity = position.direction_to(player.position) * speed
+		velocity = position.direction_to(player.position) * speed
 		dir.x = abs(velocity.x)/ velocity.x
 	elif !is_bat_chase:
 		velocity += dir * speed * delta 
