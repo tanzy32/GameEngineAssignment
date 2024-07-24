@@ -72,9 +72,11 @@ columns = 4
 
 [node name="TextureButton" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../TextureButton4")
 texture_normal = ExtResource("4_bn24n")
 texture_pressed = ExtResource("5_ud7fq")
 texture_hover = ExtResource("6_0sses")
+texture_focused = ExtResource("6_0sses")
 
 [node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton"]
 layout_mode = 1
@@ -104,6 +106,7 @@ layout_mode = 2
 texture_normal = ExtResource("4_bn24n")
 texture_pressed = ExtResource("5_ud7fq")
 texture_hover = ExtResource("6_0sses")
+texture_focused = ExtResource("6_0sses")
 
 [node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton2"]
 layout_mode = 1
@@ -133,6 +136,7 @@ layout_mode = 2
 texture_normal = ExtResource("4_bn24n")
 texture_pressed = ExtResource("5_ud7fq")
 texture_hover = ExtResource("6_0sses")
+texture_focused = ExtResource("6_0sses")
 
 [node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton3"]
 layout_mode = 1
@@ -159,9 +163,11 @@ horizontal_alignment = 1
 
 [node name="TextureButton4" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
+focus_neighbor_right = NodePath("../TextureButton")
 texture_normal = ExtResource("4_bn24n")
 texture_pressed = ExtResource("5_ud7fq")
 texture_hover = ExtResource("6_0sses")
+texture_focused = ExtResource("6_0sses")
 
 [node name="CenterContainer" type="CenterContainer" parent="GridContainer/TextureButton4"]
 layout_mode = 1
