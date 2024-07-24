@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b22go5c4a1pka"]
+[gd_scene load_steps=9 format=3 uid="uid://b22go5c4a1pka"]
 
 [ext_resource type="Script" path="res://scripts/menus/settings.gd" id="1_7mt3i"]
 [ext_resource type="PackedScene" uid="uid://ck45uhe10dnbp" path="res://scenes/menus/general_ui.tscn" id="1_oa8l7"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ddnlqdr3hjm54" path="res://assets/menu/GUI/setting panel.png" id="4_r26cn"]
 [ext_resource type="Texture2D" uid="uid://curpk84wvtwmp" path="res://assets/menu/GUI/setting panel pressed.png" id="5_5odv6"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="6_e1gbs"]
-[ext_resource type="Theme" uid="uid://d4j6n7lmk5t7y" path="res://scenes/menus/themes/dropdown_font.tres" id="9_bpxhd"]
 
 [node name="Settings" type="Control"]
 process_mode = 3
@@ -121,10 +120,7 @@ text = "  Resolution"
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme = ExtResource("9_bpxhd")
-theme_type_variation = &"optionButton"
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_e1gbs")
@@ -156,12 +152,7 @@ text = "  Window Size"
 
 [node name="WIndowSizeOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme = ExtResource("9_bpxhd")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("6_e1gbs")
 item_count = 2
 selected = 0
 popup/item_0/text = "Windowed"
@@ -197,55 +188,8 @@ visible = false
 texture_filter = 1
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
-texture_filter = 1
+[node name="Button" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label2" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label3" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label4" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label5" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
 
 [node name="KeybindTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
 texture_filter = 1
@@ -277,66 +221,6 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label2" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label3" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label4" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label5" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
-
-[node name="Label6" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("6_e1gbs")
-theme_override_font_sizes/font_size = 25
-text = "  Window Size"
 
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_video_texture_button_pressed"]
 [connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
