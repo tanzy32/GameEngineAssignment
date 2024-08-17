@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxk8jteyj2ndc"]
 
-[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_dp2sc"]
+[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_dp2sc"]
 [ext_resource type="PackedScene" uid="uid://bxqats5dv6dal" path="res://scenes/levels/level_1/killzone.tscn" id="2_vixd1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6vig"]

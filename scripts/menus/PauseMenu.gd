@@ -3,9 +3,6 @@ extends Control
 @onready var canvas_layer = $CanvasLayer
 @onready var resume_texture_button = $CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/ResumeTextureButton
 
-
-
-
 func _ready():
 	canvas_layer.visible = false
 	resume_texture_button.grab_focus()
@@ -31,7 +28,6 @@ func _on_resume_texture_button_pressed():
 func _on_restart_texture_button_pressed():
 	get_tree().reload_current_scene()
 	
-
 func _on_settings_texture_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menus/settings.tscn")
 

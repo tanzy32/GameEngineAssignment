@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b52frv2hv6vtt"]
 
-[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_y1hyf"]
+[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_y1hyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rg82m"]
 size = Vector2(89, 10)

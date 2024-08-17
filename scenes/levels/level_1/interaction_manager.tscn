@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://meip1fq2hjp6"]
 
-[ext_resource type="Script" path="res://scripts/interaction_manager.gd" id="1_oj5ni"]
+[ext_resource type="Script" path="res://scripts/level 1/interaction_manager.gd" id="1_oj5ni"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="2_d3xhd"]
 
 [node name="InteractionManager" type="Node2D"]

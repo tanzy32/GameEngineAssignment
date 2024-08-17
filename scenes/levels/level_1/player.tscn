@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://scenes/player/StateMachine.gd" id="3_nqnws"]
 
 [sub_resource type="GDScript" id="GDScript_cplqo"]
-script/source = "extends CharacterBody2D
+script/source = "class_name Player
+extends CharacterBody2D
 
 # Enumeration for various character states
 enum State{
@@ -751,6 +752,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 2
 script = SubResource("GDScript_cplqo")
 
 [node name="Graphics" type="Node2D" parent="."]

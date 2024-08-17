@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeatlhItem" load_steps=3 format=3 uid="uid://cev4t84v4ykqw"]
+
+[ext_resource type="Script" path="res://scripts/inventory/health_item.gd" id="1_egjrh"]
+[ext_resource type="Texture2D" uid="uid://deimlhvk70jy6" path="res://assets/global/All Potions/Blue potions/empty.png" id="2_kshbh"]
+
+[resource]
+script = ExtResource("1_egjrh")
+health_increase = 1
+name = "potion"
+texture = ExtResource("2_kshbh")
+maxAmountPerStack = 2

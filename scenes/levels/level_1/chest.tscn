@@ -1,8 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://brixk0gf31yu0"]
 
-[ext_resource type="Script" path="res://scripts/chest.gd" id="1_vh7sx"]
-[ext_resource type="Texture2D" uid="uid://7luvp0l32fem" path="res://assets/Animated Chests/Chests.png" id="2_fumyb"]
-[ext_resource type="PackedScene" uid="uid://cltvv4k2lxq5u" path="res://scenes/levels/level_1/interaction_area.tscn" id="3_5d8tu"]
+[ext_resource type="Script" path="res://scripts/level 1/chest.gd" id="1_vh7sx"]
+[ext_resource type="Texture2D" uid="uid://7luvp0l32fem" path="res://assets/level_1/Animated Chests/Chests.png" id="2_fumyb"]
+[ext_resource type="PackedScene" uid="uid://dd3phmifx65o0" path="res://scenes/levels/global/potion.tscn" id="2_jkvdc"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="4_tswu0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dx8iy"]
 atlas = ExtResource("2_fumyb")
@@ -57,12 +58,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngbyi"]
 size = Vector2(35, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jil17"]
-size = Vector2(47, 33)
-
-[node name="Chest" type="StaticBody2D"]
-collision_layer = 0
+[node name="Chest" type="Area2D"]
 script = ExtResource("1_vh7sx")
+potion_scene = ExtResource("2_jkvdc")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -4)
@@ -72,9 +70,13 @@ animation = &"open"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ngbyi")
 
-[node name="InteractionArea" parent="." instance=ExtResource("3_5d8tu")]
-position = Vector2(32, 7)
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-32, -8)
-shape = SubResource("RectangleShape2D_jil17")
+[node name="Label" type="Label" parent="."]
+offset_left = -45.0
+offset_top = -28.0
+offset_right = 46.0
+offset_bottom = -13.0
+theme_override_fonts/font = ExtResource("4_tswu0")
+theme_override_font_sizes/font_size = 10
+text = "Press E to interact"

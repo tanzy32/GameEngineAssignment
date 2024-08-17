@@ -1,0 +1,224 @@
+[gd_scene load_steps=5 format=3 uid="uid://xg4u3kklf1t7"]
+
+[ext_resource type="Script" path="res://scripts/global/InventoryUI.gd" id="1_ihydy"]
+[ext_resource type="Texture2D" uid="uid://b81767n8va107" path="res://assets/global/bags/Backpack.png" id="2_l7uxr"]
+[ext_resource type="Texture2D" uid="uid://cslh2ev7ku83q" path="res://assets/global/inventory/InventoryRect.png" id="3_1jnhw"]
+[ext_resource type="Texture2D" uid="uid://63fqto5a6ryn" path="res://assets/global/inventory/inventorySlot.png" id="4_nufjd"]
+
+[node name="Bag" type="CanvasLayer"]
+script = ExtResource("1_ihydy")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 953.0
+offset_top = 59.0
+offset_right = 1017.0
+offset_bottom = 123.0
+texture_normal = ExtResource("2_l7uxr")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(130, 90)
+offset_left = 576.0
+offset_top = 119.0
+offset_right = 733.0
+offset_bottom = 212.0
+scale = Vector2(3, 3)
+texture = ExtResource("3_1jnhw")
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 147.0
+offset_bottom = 90.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SlotBackground" type="GridContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotBackground"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_nufjd")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="SlotItems" type="GridContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="NinePatchRect/MarginContainer/SlotItems"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+expand_mode = 1

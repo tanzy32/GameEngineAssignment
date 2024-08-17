@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://dd3phmifx65o0"]
+
+[ext_resource type="Script" path="res://scripts/global/potion.gd" id="1_1jcwl"]
+[ext_resource type="Texture2D" uid="uid://cbvsp4rep6fcs" path="res://assets/global/All Potions/Red potions/poç╞o vermelha.png" id="1_s78mj"]
+[ext_resource type="Resource" uid="uid://cev4t84v4ykqw" path="res://scenes/levels/global/inventory/potion.tres" id="2_0bhbk"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="3_wpdg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqxr"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlcx1"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpgns"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp768"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s42mb"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_off6o"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yclix"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owumq"]
+atlas = ExtResource("1_s78mj")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uhc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahqxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlcx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpgns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp768")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s42mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_off6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yclix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owumq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjpad"]
+size = Vector2(14, 16)
+
+[node name="Potion" type="Area2D"]
+script = ExtResource("1_1jcwl")
+item = ExtResource("2_0bhbk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3uhc2")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yjpad")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -22.0
+offset_right = 43.0
+offset_bottom = -7.0
+theme_override_fonts/font = ExtResource("3_wpdg5")
+theme_override_font_sizes/font_size = 10
+text = "Press E to pickup"
+
+[connection signal="potion_picked_up" from="." to="." method="_on_potion_picked_up"]
