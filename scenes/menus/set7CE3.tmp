@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b22go5c4a1pka"]
+[gd_scene load_steps=12 format=3 uid="uid://b22go5c4a1pka"]
 
 [ext_resource type="Script" path="res://scripts/menus/settings.gd" id="1_7mt3i"]
 [ext_resource type="PackedScene" uid="uid://ck45uhe10dnbp" path="res://scenes/menus/general_ui.tscn" id="1_oa8l7"]
@@ -9,16 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://curpk84wvtwmp" path="res://assets/menu/GUI/setting panel pressed.png" id="5_5odv6"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="6_e1gbs"]
 [ext_resource type="Theme" uid="uid://d4j6n7lmk5t7y" path="res://scenes/menus/themes/dropdown_font.tres" id="9_bpxhd"]
+[ext_resource type="Script" path="res://scripts/menus/keybind_mapping.gd" id="10_5mnd7"]
 [ext_resource type="Theme" uid="uid://cf7on2ytxplq5" path="res://scenes/menus/themes/button.tres" id="10_pe6ji"]
-[ext_resource type="Script" path="res://scripts/menus/left_key_remap.gd" id="12_6ahuw"]
-[ext_resource type="Script" path="res://scripts/menus/right_key_remap.gd" id="12_yn0mv"]
-[ext_resource type="Script" path="res://scripts/menus/jump_key_remap.gd" id="13_d3cev"]
-[ext_resource type="Script" path="res://scripts/menus/slide_key_remap.gd" id="14_t0c43"]
-[ext_resource type="Script" path="res://scripts/menus/attack_key_remap.gd" id="15_a50jk"]
-[ext_resource type="Script" path="res://scripts/menus/interact_key_remap.gd" id="16_qq64f"]
-[ext_resource type="Script" path="res://scripts/menus/inventory_key_remap.gd" id="17_bkw7a"]
-[ext_resource type="Script" path="res://scripts/menus/use_item_key_remap.gd" id="18_s006c"]
-[ext_resource type="Script" path="res://scripts/menus/drink_potion_key_remap.gd" id="19_p0jt3"]
 
 [node name="Settings" type="Control"]
 process_mode = 3
@@ -117,7 +109,7 @@ layout_mode = 2
 [node name="ResolutionHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
 texture_filter = 1
@@ -132,7 +124,7 @@ text = "  Resolution"
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("9_bpxhd")
 theme_type_variation = &"optionButton"
@@ -153,7 +145,7 @@ popup/item_3/id = 3
 [node name="WindowSizeHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
 texture_filter = 1
@@ -168,7 +160,7 @@ text = "  Window Size"
 
 [node name="WIndowSizeOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("9_bpxhd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -271,14 +263,14 @@ theme_override_font_sizes/font_size = 29
 text = "   Keybind"
 
 [node name="KeybindVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
-visible = false
 texture_filter = 1
 layout_mode = 2
+script = ExtResource("10_5mnd7")
 
 [node name="LeftHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer"]
 texture_filter = 1
@@ -292,15 +284,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Move Left"
 
 [node name="LeftButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("12_6ahuw")
 
 [node name="RightHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer"]
 texture_filter = 1
@@ -314,16 +305,15 @@ theme_override_font_sizes/font_size = 25
 text = "  Move Right"
 
 [node name="RightButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
 theme_type_variation = &"buttonStyle"
-script = ExtResource("12_yn0mv")
 
 [node name="JumpHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer"]
 texture_filter = 1
@@ -337,15 +327,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Jump"
 
 [node name="JumpButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("13_d3cev")
 
 [node name="SlideHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer"]
 texture_filter = 1
@@ -359,16 +348,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Slide"
 
 [node name="SlideButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("14_t0c43")
-action = "slide"
 
 [node name="AttackHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer"]
 texture_filter = 1
@@ -382,15 +369,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Attack"
 
 [node name="AttackButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("15_a50jk")
 
 [node name="InteractHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer"]
 texture_filter = 1
@@ -404,15 +390,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Interact"
 
 [node name="InteractButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("16_qq64f")
 
 [node name="InventoryHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer"]
 texture_filter = 1
@@ -426,15 +411,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Inventory"
 
 [node name="InventoryButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("17_bkw7a")
 
 [node name="UseItemHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer"]
 texture_filter = 1
@@ -448,15 +432,14 @@ theme_override_font_sizes/font_size = 25
 text = "  Use Item"
 
 [node name="UseItemButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("18_s006c")
 
 [node name="DrinkPotionHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 358
+theme_override_constants/separation = 380
 
 [node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer"]
 texture_filter = 1
@@ -470,10 +453,9 @@ theme_override_font_sizes/font_size = 25
 text = "  Drink Potion"
 
 [node name="DrinkPotionButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer"]
-custom_minimum_size = Vector2(222, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("10_pe6ji")
-script = ExtResource("19_p0jt3")
 
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_video_texture_button_pressed"]
 [connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
@@ -481,12 +463,12 @@ script = ExtResource("19_p0jt3")
 [connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer/WIndowSizeOptionButton" to="." method="_on_w_indow_size_option_button_item_selected"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_audio_texture_button_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_keybind_texture_button_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" method="_on_pressed"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_left_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_right_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_jump_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_slide_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_attack_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_interact_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_inventory_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_use_item_button_toggled"]
+[connection signal="toggled" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer" method="_on_drink_potion_button_toggled"]

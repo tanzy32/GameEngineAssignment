@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://c4e4xoo217cvc"]
 
 [ext_resource type="Script" path="res://scripts/level 1/level_control.gd" id="1_n16ul"]
-[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_sywtn"]
+[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_sywtn"]
 [ext_resource type="PackedScene" uid="uid://bu6lfyqmq1wnj" path="res://scenes/levels/level 2/playertest.tscn" id="3_5ayxy"]
 [ext_resource type="Script" path="res://scripts/level 1/countdown.gd" id="3_7pd1b"]
 [ext_resource type="PackedScene" uid="uid://b52frv2hv6vtt" path="res://scenes/levels/level_1/platform.tscn" id="3_qn3ht"]

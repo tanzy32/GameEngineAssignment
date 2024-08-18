@@ -1,0 +1,350 @@
+[gd_scene load_steps=10 format=3 uid="uid://b22go5c4a1pka"]
+
+[ext_resource type="Script" path="res://scripts/menus/settings.gd" id="1_7mt3i"]
+[ext_resource type="PackedScene" uid="uid://ck45uhe10dnbp" path="res://scenes/menus/general_ui.tscn" id="1_oa8l7"]
+[ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="2_4tgqy"]
+[ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="3_jnlj0"]
+[ext_resource type="Script" path="res://scripts/menus/setting_expandable.gd" id="4_4o0f6"]
+[ext_resource type="Texture2D" uid="uid://ddnlqdr3hjm54" path="res://assets/menu/GUI/setting panel.png" id="4_r26cn"]
+[ext_resource type="Texture2D" uid="uid://curpk84wvtwmp" path="res://assets/menu/GUI/setting panel pressed.png" id="5_5odv6"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="6_e1gbs"]
+[ext_resource type="Theme" uid="uid://d4j6n7lmk5t7y" path="res://scenes/menus/themes/dropdown_font.tres" id="9_bpxhd"]
+
+[node name="Settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7mt3i")
+
+[node name="GeneralUI" parent="." instance=ExtResource("1_oa8l7")]
+texture_filter = 1
+layout_mode = 1
+
+[node name="TitleVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 63.0
+offset_right = 150.0
+offset_bottom = 168.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TitleVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_4tgqy")
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -20.0
+offset_right = 27.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_jnlj0")
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = -254.0
+offset_top = 93.0
+offset_right = 545.0
+offset_bottom = 439.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("4_4o0f6")
+
+[node name="VideoTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_r26cn")
+texture_pressed = ExtResource("5_5odv6")
+texture_hover = ExtResource("5_5odv6")
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoTextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 29
+text = "   Video"
+
+[node name="VideoVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ResolutionHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 450
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme = ExtResource("9_bpxhd")
+theme_type_variation = &"optionButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_e1gbs")
+item_count = 4
+selected = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+popup/item_3/text = "1152 x 648"
+popup/item_3/id = 3
+
+[node name="WindowSizeHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 450
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="WIndowSizeOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme = ExtResource("9_bpxhd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_e1gbs")
+item_count = 3
+selected = 0
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Window"
+popup/item_2/id = 2
+
+[node name="AudioTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("4_r26cn")
+texture_pressed = ExtResource("5_5odv6")
+texture_hover = ExtResource("5_5odv6")
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioTextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 29
+text = "   Audio"
+
+[node name="AudioVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label2" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label3" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label4" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label5" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="KeybindTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("4_r26cn")
+texture_pressed = ExtResource("5_5odv6")
+texture_hover = ExtResource("5_5odv6")
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindTextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 29
+text = "   Keybind"
+
+[node name="KeybindVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label2" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label3" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label4" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label5" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="Label6" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_e1gbs")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_video_texture_button_pressed"]
+[connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_pressed"]
+[connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer/WIndowSizeOptionButton" to="." method="_on_w_indow_size_option_button_item_selected"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_audio_texture_button_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_keybind_texture_button_pressed"]

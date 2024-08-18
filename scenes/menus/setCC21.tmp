@@ -271,7 +271,6 @@ theme_override_font_sizes/font_size = 29
 text = "   Keybind"
 
 [node name="KeybindVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
-visible = false
 texture_filter = 1
 layout_mode = 2
 
@@ -482,11 +481,3 @@ script = ExtResource("19_p0jt3")
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_audio_texture_button_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_keybind_texture_button_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" method="_on_pressed"]
