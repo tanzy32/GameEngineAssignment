@@ -20,17 +20,21 @@ func _ready():
 	keybind_texture_button.connect("pressed", _on_keybind_texture_button_pressed)
 
 
+@onready var dropdown = $"../../../../Dropdown"
 
 
 
 func _on_video_texture_button_pressed():
 	# Toggle visibility of the video container
+	dropdown.play()
 	video_v_box_container.visible = !video_v_box_container.visible
 
 func _on_audio_texture_button_pressed():
 	# Toggle visibility of the audio container
+	dropdown.play()
 	audio_v_box_container.visible = !audio_v_box_container.visible
 
 func _on_keybind_texture_button_pressed():
 	# Toggle visibility of the keybinds container
+	dropdown.play()
 	keybind_v_box_container.visible = not keybind_v_box_container.visible

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck45uhe10dnbp"]
+[gd_scene load_steps=6 format=3 uid="uid://ck45uhe10dnbp"]
 
 [ext_resource type="Texture2D" uid="uid://dhddj472ke5pu" path="res://assets/menu/GUI/Credits.png" id="1_muh6j"]
 [ext_resource type="PackedScene" uid="uid://br2slxwewk4hf" path="res://scenes/menus/buttons/main_menu_button.tscn" id="2_syr5v"]
+[ext_resource type="AudioStream" uid="uid://bwx2vjnvvi8os" path="res://assets/audio/sfx/MI_SFX 05.wav" id="3_rb1q4"]
+[ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="4_y1nhw"]
 [ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="5_nrxnr"]
 
 [node name="GeneralUI" type="Control"]
@@ -43,4 +45,16 @@ grow_vertical = 0
 [node name="TextureButton" parent="MainMenuCenterContainer" instance=ExtResource("2_syr5v")]
 layout_mode = 2
 
+[node name="Hover" type="AudioStreamPlayer" parent="MainMenuCenterContainer"]
+stream = ExtResource("3_rb1q4")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="MainMenuCenterContainer"]
+stream = ExtResource("4_y1nhw")
+volume_db = -10.0
+bus = &"SFX"
+
 [node name="MenuParallaxBackground" parent="." instance=ExtResource("5_nrxnr")]
+
+[connection signal="focus_entered" from="MainMenuCenterContainer/TextureButton" to="MainMenuCenterContainer/TextureButton" method="_on_focus_entered"]

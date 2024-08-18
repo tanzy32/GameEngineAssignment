@@ -7,7 +7,7 @@ extends Area2D
 var is_died: bool = false  # Tracks if the player has died
 @onready var timer = $Timer  # Reference to the Timer node
 
-# Triggered when another body (e.g., player) enters the KillZone
+# Triggered when another body (e.g., player) enters the KillZonea
 func _on_body_entered(body):
 	if body is MyPlayer:  # Check if the body is the player
 		body.damage(1)  # Inflict damage to the player

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7dx32enef3lg"]
+[gd_scene load_steps=10 format=3 uid="uid://b7dx32enef3lg"]
 
 [ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_omntp"]
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_x8o8d"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://clwwpcrox07ka" path="res://assets/menu/buttons/Normal Button.png" id="3_1n4ju"]
 [ext_resource type="Texture2D" uid="uid://7xi83a03276o" path="res://assets/menu/buttons/Pressed Button.png" id="4_j84s4"]
 [ext_resource type="Texture2D" uid="uid://bv6wyqqj3hmbq" path="res://assets/menu/buttons/Hover Button.png" id="5_s6smv"]
+[ext_resource type="AudioStream" uid="uid://bwx2vjnvvi8os" path="res://assets/audio/sfx/MI_SFX 05.wav" id="7_tahx5"]
+[ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="8_1wneq"]
+[ext_resource type="AudioStream" uid="uid://crdtcguydjno" path="res://assets/audio/sfx/error_007.ogg" id="9_che8y"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -306,10 +309,32 @@ theme_override_font_sizes/font_size = 21
 text = "Quit"
 horizontal_alignment = 1
 
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tahx5")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1wneq")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_che8y")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="focus_entered" from="ButtonsVBoxContainer/StartTextureButton" to="." method="_on_start_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/StartTextureButton" to="." method="_on_start_texture_button_pressed"]
+[connection signal="focus_entered" from="ButtonsVBoxContainer/LoadDataTextureButton" to="." method="_on_load_data_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/LoadDataTextureButton" to="." method="_on_load_data_texture_button_pressed"]
+[connection signal="focus_entered" from="ButtonsVBoxContainer/LevelsTextureButton" to="." method="_on_levels_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/LevelsTextureButton" to="." method="_on_levels_texture_button_pressed"]
+[connection signal="focus_entered" from="ButtonsVBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_pressed"]
+[connection signal="focus_entered" from="ButtonsVBoxContainer/AchievementsTextureButton" to="." method="_on_achievements_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/AchievementsTextureButton" to="." method="_on_achievements_texture_button_pressed"]
+[connection signal="focus_entered" from="ButtonsVBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_pressed"]
+[connection signal="focus_entered" from="ButtonsVBoxContainer/QuitTextureButton" to="." method="_on_quit_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/QuitTextureButton" to="." method="_on_quit_texture_button_pressed"]

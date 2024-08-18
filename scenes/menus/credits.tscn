@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb0ekisytxrid"]
+[gd_scene load_steps=10 format=3 uid="uid://bb0ekisytxrid"]
 
 [ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_deqfb"]
 [ext_resource type="Texture2D" uid="uid://dhddj472ke5pu" path="res://assets/menu/GUI/Credits.png" id="2_fl56m"]
 [ext_resource type="PackedScene" uid="uid://br2slxwewk4hf" path="res://scenes/menus/buttons/main_menu_button.tscn" id="3_nn4tt"]
 [ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="4_2a7d8"]
+[ext_resource type="AudioStream" uid="uid://bwx2vjnvvi8os" path="res://assets/audio/sfx/MI_SFX 05.wav" id="4_4mgxa"]
 [ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="5_t4vlk"]
+[ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="5_ys0bw"]
 [ext_resource type="FontFile" uid="uid://bkgf67jn1dcxb" path="res://assets/menu/fonts/PixelAE-Bold.ttf" id="6_ma6kp"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_yv8pr"]
@@ -50,6 +52,16 @@ grow_vertical = 0
 
 [node name="TextureButton" parent="MainMenuCenterContainer" instance=ExtResource("3_nn4tt")]
 layout_mode = 2
+
+[node name="Hover" type="AudioStreamPlayer" parent="MainMenuCenterContainer"]
+stream = ExtResource("4_4mgxa")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="MainMenuCenterContainer"]
+stream = ExtResource("5_ys0bw")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="TitleVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw7p76bxk0xdq"]
+[gd_scene load_steps=11 format=3 uid="uid://dw7p76bxk0xdq"]
 
 [ext_resource type="Script" path="res://scripts/menus/select_levels.gd" id="1_h4004"]
 [ext_resource type="PackedScene" uid="uid://ck45uhe10dnbp" path="res://scenes/menus/general_ui.tscn" id="1_qygvx"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dhv5wh7gtmpul" path="res://assets/menu/levels/level pressed.png" id="5_ud7fq"]
 [ext_resource type="Texture2D" uid="uid://cxyxxlpmaed8y" path="res://assets/menu/levels/level hover.png" id="6_0sses"]
 [ext_resource type="FontFile" uid="uid://bkgf67jn1dcxb" path="res://assets/menu/fonts/PixelAE-Bold.ttf" id="7_8vapo"]
+[ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="9_usm5r"]
+[ext_resource type="AudioStream" uid="uid://bwx2vjnvvi8os" path="res://assets/audio/sfx/MI_SFX 05.wav" id="10_m8cxk"]
 
 [node name="SelectLevels" type="Control"]
 process_mode = 3
@@ -191,7 +193,21 @@ theme_override_fonts/font = ExtResource("7_8vapo")
 theme_override_font_sizes/font_size = 50
 text = "4"
 
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_usm5r")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_m8cxk")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="focus_entered" from="GridContainer/TextureButton" to="." method="_on_texture_button_focus_entered"]
 [connection signal="pressed" from="GridContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="focus_entered" from="GridContainer/TextureButton2" to="." method="_on_texture_button_2_focus_entered"]
 [connection signal="pressed" from="GridContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="focus_entered" from="GridContainer/TextureButton3" to="." method="_on_texture_button_3_focus_entered"]
 [connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="focus_entered" from="GridContainer/TextureButton4" to="." method="_on_texture_button_4_focus_entered"]
 [connection signal="pressed" from="GridContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvmwdqr7ujubj"]
+
+[ext_resource type="AudioStream" uid="uid://pi6yvh21ix4a" path="res://assets/audio/music/Scene - The Long Journey (piano v2).ogg" id="1_b2okc"]
+[ext_resource type="Script" path="res://scripts/menus/musics/background_music_main.gd" id="2_6y0sr"]
+
+[node name="BackgroundMusicMain" type="AudioStreamPlayer"]
+stream = ExtResource("1_b2okc")
+volume_db = -32.781
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_6y0sr")
