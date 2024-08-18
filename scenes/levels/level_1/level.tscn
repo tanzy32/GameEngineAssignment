@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c4e4xoo217cvc"]
+[gd_scene load_steps=27 format=3 uid="uid://c4e4xoo217cvc"]
 
 [ext_resource type="Script" path="res://scripts/level 1/level.gd" id="1_n16ul"]
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_sywtn"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="12_bfhoo"]
 [ext_resource type="PackedScene" uid="uid://dbnhypf7akg8r" path="res://scenes/levels/global/inventory/hotbar.tscn" id="13_7k4c7"]
 [ext_resource type="Texture2D" uid="uid://b5gquffx04ys5" path="res://assets/level_1/Mondstadt Background Wallpaper/Mondstadt Background Wallpaper/windrise-background.png" id="14_5rs08"]
-[ext_resource type="PackedScene" uid="uid://cyahalnyx2eo8" path="res://scenes/levels/level_1/testenemy.tscn" id="16_gndl4"]
 [ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="16_tmj1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r55kj"]
@@ -659,11 +658,6 @@ texture = ExtResource("14_5rs08")
 position = Vector2(577.5, 177)
 scale = Vector2(7.19375, 4.325)
 texture = ExtResource("16_tmj1q")
-
-[node name="testenemy" type="Node2D" parent="."]
-
-[node name="testenemy2" parent="testenemy" instance=ExtResource("16_gndl4")]
-position = Vector2(435, -619)
 
 [connection signal="timeout" from="Player/countdown/spawner_timer" to="." method="_on_spawner_timer_timeout"]
 [connection signal="closed" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_closed"]

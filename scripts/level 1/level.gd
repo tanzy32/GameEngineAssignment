@@ -18,6 +18,7 @@ func _on_spawner_timer_timeout():
 	var random_y = rng.randi_range(-1600, -1300)
 	slime.position = Vector2(random_x, random_y)
 	slime.current_health = 1
+	slime.max_health = 1
 	
 func _process(delta):
 	if level_timer.is_stopped():

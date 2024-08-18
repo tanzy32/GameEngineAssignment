@@ -5,11 +5,12 @@ extends CharacterBody2D
 @export var gravity: float = 200.0                 
 @export var idle_time: float = 0.5      
 
-
+@onready var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var spriteIdle = $idle
 @onready var spriteJump = $jump
 @onready var animations = $AnimationPlayer
 
+var max_health: int
 var current_health: int
 var jump_timer: float = 0.0
 var is_jumping: bool = false
@@ -63,6 +64,22 @@ func _on_hurt_box_area_entered(area):
 		is_dead = true
 		updateAnimation("death")
 		await animations.animation_finished
-		queue_free()
+		
+		if scale == Vector2(1,1):
+			queue_free()
+		else:
+			split()
 	current_health -= 1	
 	print(current_health)
+
+func split():
+	# Create two smaller slimes by instantiating the slime_scene
+	for i in range(2):
+		var smaller_slime = slime_scene.instantiate()  # Instantiate a new slime from the slime_scene
+		smaller_slime.scale = scale / 2  # Halve the size of the smaller slimes
+		smaller_slime.position = position + Vector2(randi_range(-10, 10), randi_range(-10, 10))  # Slightly offset the position
+		smaller_slime.current_health = max_health / 2  # Halve the health for the smaller slimes
+		smaller_slime.max_health = max_health / 2
+		queue_free()
+		# Add the smaller slimes to the same parent node
+		get_parent().add_child(smaller_slime)
