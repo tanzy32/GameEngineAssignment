@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crpq261csdin8"]
+[gd_scene load_steps=11 format=3 uid="uid://crpq261csdin8"]
 
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_ocr8l"]
 [ext_resource type="Script" path="res://scripts/level 1/bosslevel.gd" id="1_rrxqu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/global/CanvasLayer.gd" id="4_opxyi"]
 [ext_resource type="PackedScene" uid="uid://cv62tsn3extwa" path="res://scenes/levels/global/inventory/inventory_gui.tscn" id="5_fmu0t"]
 [ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="6_wtacf"]
+[ext_resource type="PackedScene" uid="uid://mr8swaje8xty" path="res://scenes/levels/level_1/enemy.tscn" id="8_v0b1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s7o2i"]
 texture = ExtResource("1_ocr8l")
@@ -257,3 +258,6 @@ offset_right = 266.0
 offset_bottom = 55.0
 
 [node name="Boss" type="Node2D" parent="."]
+
+[node name="enemy" parent="." instance=ExtResource("8_v0b1f")]
+position = Vector2(299, 432)

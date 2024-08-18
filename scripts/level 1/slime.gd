@@ -4,22 +4,21 @@ extends CharacterBody2D
 @export var vertical_jump_speed: float = 220.0    
 @export var gravity: float = 200.0                 
 @export var idle_time: float = 0.5      
-  
+
+@onready var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var spriteIdle = $idle
 @onready var spriteJump = $jump
 @onready var animations = $AnimationPlayer
 
+var max_health: int
+var current_health: int
 var jump_timer: float = 0.0
 var is_jumping: bool = false
 var is_dead: bool = false
 
 func _ready():
-	var rng = RandomNumberGenerator.new()
+	pass
 	
-	var random_x = rng.randi_range(-640, 800)
-	var random_y = rng.randi_range(-1600, -1300)
-	position = Vector2(random_x, random_y)
-
 func _process(delta):
 	if is_dead: return
 	if is_on_floor():
@@ -59,8 +58,28 @@ func updateAnimation(animation: String):
 
 func _on_hurt_box_area_entered(area):
 	if area == $hitBox || area == $hurtBox: return
-	$hitBox.set_deferred("monitorable",false)
-	is_dead = true
-	updateAnimation("death")
-	await animations.animation_finished
-	queue_free()
+	
+	if current_health <= 1:
+		$hitBox.set_deferred("monitorable",false)
+		is_dead = true
+		updateAnimation("death")
+		await animations.animation_finished
+		
+		if scale == Vector2(1,1):
+			queue_free()
+		else:
+			split()
+	current_health -= 1	
+	print(current_health)
+
+func split():
+	# Create two smaller slimes by instantiating the slime_scene
+	for i in range(2):
+		var smaller_slime = slime_scene.instantiate()  # Instantiate a new slime from the slime_scene
+		smaller_slime.scale = scale / 2  # Halve the size of the smaller slimes
+		smaller_slime.position = position + Vector2(randi_range(-10, 10), randi_range(-10, 10))  # Slightly offset the position
+		smaller_slime.current_health = max_health / 2  # Halve the health for the smaller slimes
+		smaller_slime.max_health = max_health / 2
+		queue_free()
+		# Add the smaller slimes to the same parent node
+		get_parent().add_child(smaller_slime)

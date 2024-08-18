@@ -1,11 +1,81 @@
-[gd_scene load_steps=13 format=3 uid="uid://dh0dinugfp4d1"]
+[gd_scene load_steps=13 format=3 uid="uid://xr7qf1he3g2r"]
 
-[ext_resource type="Texture2D" uid="uid://b8fk0abaonlh1" path="res://assets/Slimes/Slimes/slime_idle1.png" id="1_a8jpm"]
-[ext_resource type="Script" path="res://scripts/level 1/slime.gd" id="1_qnjlu"]
-[ext_resource type="Texture2D" uid="uid://bhf0h8gwcdvgh" path="res://assets/Slimes/Slimes/slime_jump.png" id="2_embrq"]
-[ext_resource type="Texture2D" uid="uid://cdux0jalf4v3i" path="res://assets/Slimes/Slimes/slime_die.png" id="4_c15af"]
+[ext_resource type="Texture2D" uid="uid://b8fk0abaonlh1" path="res://assets/Slimes/Slimes/slime_idle1.png" id="1_dm8a5"]
+[ext_resource type="Texture2D" uid="uid://bhf0h8gwcdvgh" path="res://assets/Slimes/Slimes/slime_jump.png" id="2_plcb8"]
+[ext_resource type="Texture2D" uid="uid://cdux0jalf4v3i" path="res://assets/Slimes/Slimes/slime_die.png" id="3_8h5uy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6o3b"]
+[sub_resource type="GDScript" id="GDScript_w1wu1"]
+script/source = "extends CharacterBody2D
+
+@export var horizontal_jump_speed: float = 150.0  
+@export var vertical_jump_speed: float = 220.0    
+@export var gravity: float = 200.0                 
+@export var idle_time: float = 0.5      
+
+@onready var spriteIdle = $idle
+@onready var spriteJump = $jump
+@onready var animations = $AnimationPlayer
+
+var current_health: int = 6
+var jump_timer: float = 0.0
+var is_jumping: bool = false
+var is_dead: bool = false
+
+func _ready():
+	pass
+	
+func _process(delta):
+	if is_dead: return
+	if is_on_floor():
+		if is_jumping:
+			# Slime has landed
+			is_jumping = false
+			jump_timer = idle_time
+			spriteIdle.visible = true
+			spriteJump.visible = false
+			updateAnimation(\"idle\")
+			velocity.x = 0  
+		else:
+			# Countdown to next jump
+			jump_timer -= delta
+			if jump_timer <= 0:
+				_jump()
+	else:
+		# Slime is in the air, apply gravity
+		velocity.y += gravity * delta
+	
+	# Handle movement and collisions
+	move_and_slide()
+
+func _jump():
+	# Determine the direction of the jump
+	var direction = -1 if randi() % 2 == 0 else 1
+	velocity.x = direction * horizontal_jump_speed
+	velocity.y = -vertical_jump_speed
+	is_jumping = true
+	# Play the jump animation
+	spriteIdle.visible = false
+	spriteJump.visible = true
+	updateAnimation(\"jump\")
+	
+func updateAnimation(animation: String):
+	animations.play(animation)
+
+func _on_hurt_box_area_entered(area):
+	if area == $hitBox || area == $hurtBox: return
+	
+	if current_health <= 1:
+		$hitBox.set_deferred(\"monitorable\",false)
+		is_dead = true
+		updateAnimation(\"death\")
+		await animations.animation_finished
+		queue_free()
+	current_health -= 1	
+	print(current_health)
+
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4d0w"]
 radius = 8.0
 height = 22.0
 
@@ -400,38 +470,34 @@ _data = {
 "jump": SubResource("Animation_u26hg")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0j8j"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jpjgf"]
 radius = 8.0
 height = 22.0
 
-[node name="slime" type="CharacterBody2D"]
-z_index = 1
-collision_layer = 4
-collision_mask = 10
-script = ExtResource("1_qnjlu")
-idle_time = 1.0
+[node name="bossSlime" type="CharacterBody2D"]
+script = SubResource("GDScript_w1wu1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_r6o3b")
+shape = SubResource("CapsuleShape2D_s4d0w")
 
 [node name="idle" type="Sprite2D" parent="."]
 position = Vector2(7, -13)
-texture = ExtResource("1_a8jpm")
+texture = ExtResource("1_dm8a5")
 hframes = 2
 vframes = 7
 
 [node name="jump" type="Sprite2D" parent="."]
 position = Vector2(7, -13)
-texture = ExtResource("2_embrq")
+texture = ExtResource("2_plcb8")
 hframes = 11
 vframes = 7
 
 [node name="death" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(7, -13)
-texture = ExtResource("4_c15af")
+texture = ExtResource("3_8h5uy")
 hframes = 13
 vframes = 7
 
@@ -454,6 +520,4 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
 position = Vector2(0, -8)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_p0j8j")
-
-[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+shape = SubResource("CapsuleShape2D_jpjgf")
