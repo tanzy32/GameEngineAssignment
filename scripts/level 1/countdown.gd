@@ -3,11 +3,9 @@ extends Camera2D
 @onready var label = $level_description
 @onready var timer = $level_timer
 
-
 func _ready():
 	label.hide()
 
-	
 func time_countdown():
 	var time_left = timer.time_left
 	var minute = floor(time_left / 60)

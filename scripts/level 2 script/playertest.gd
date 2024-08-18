@@ -87,11 +87,14 @@ func hurtByEnemy(area):
 		currentHealth = maxHealth
 	
 	healthChanged.emit(currentHealth)
+	
 	isHurt = true
 	knockback(area.get_parent().velocity)
 	effects.play("hurtBlink")
 	hurtTimer.start()
+	
 	await hurtTimer.timeout
+	
 	effects.play("RESET")
 	isHurt = false
 	
@@ -101,7 +104,7 @@ func _on_hurt_box_area_entered(area):
 		
 	if area.has_method("collect"):
 		area.collect(inventory)
-		
+
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
 	velocity = knockbackDirection

@@ -304,7 +304,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_u26hg"]
 resource_name = "jump"
-length = 2.4
+length = 4.0
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"

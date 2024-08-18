@@ -4,22 +4,20 @@ extends CharacterBody2D
 @export var vertical_jump_speed: float = 220.0    
 @export var gravity: float = 200.0                 
 @export var idle_time: float = 0.5      
-  
+
+
 @onready var spriteIdle = $idle
 @onready var spriteJump = $jump
 @onready var animations = $AnimationPlayer
 
+var current_health: int
 var jump_timer: float = 0.0
 var is_jumping: bool = false
 var is_dead: bool = false
 
 func _ready():
-	var rng = RandomNumberGenerator.new()
+	pass
 	
-	var random_x = rng.randi_range(-640, 800)
-	var random_y = rng.randi_range(-1600, -1300)
-	position = Vector2(random_x, random_y)
-
 func _process(delta):
 	if is_dead: return
 	if is_on_floor():
@@ -59,8 +57,12 @@ func updateAnimation(animation: String):
 
 func _on_hurt_box_area_entered(area):
 	if area == $hitBox || area == $hurtBox: return
-	$hitBox.set_deferred("monitorable",false)
-	is_dead = true
-	updateAnimation("death")
-	await animations.animation_finished
-	queue_free()
+	
+	if current_health <= 1:
+		$hitBox.set_deferred("monitorable",false)
+		is_dead = true
+		updateAnimation("death")
+		await animations.animation_finished
+		queue_free()
+	current_health -= 1	
+	print(current_health)
