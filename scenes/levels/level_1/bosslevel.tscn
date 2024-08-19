@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://crpq261csdin8"]
+[gd_scene load_steps=13 format=3 uid="uid://crpq261csdin8"]
 
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_ocr8l"]
 [ext_resource type="Script" path="res://scripts/level 1/bosslevel.gd" id="1_rrxqu"]
-[ext_resource type="PackedScene" uid="uid://bu6lfyqmq1wnj" path="res://scenes/levels/level 2/playertest.tscn" id="3_jgwd6"]
+[ext_resource type="PackedScene" uid="uid://b0p5xgxhoukjk" path="res://scenes/levels/level 2/playertest.tscn" id="3_jgwd6"]
 [ext_resource type="PackedScene" uid="uid://dbnhypf7akg8r" path="res://scenes/levels/global/inventory/hotbar.tscn" id="4_obl1i"]
 [ext_resource type="Script" path="res://scripts/global/CanvasLayer.gd" id="4_opxyi"]
 [ext_resource type="PackedScene" uid="uid://cv62tsn3extwa" path="res://scenes/levels/global/inventory/inventory_gui.tscn" id="5_fmu0t"]
+[ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="5_lmbko"]
 [ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="6_wtacf"]
+[ext_resource type="Texture2D" uid="uid://b5gquffx04ys5" path="res://assets/level_1/Mondstadt Background Wallpaper/Mondstadt Background Wallpaper/windrise-background.png" id="9_8ipb1"]
+[ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="10_ew62k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s7o2i"]
 texture = ExtResource("1_ocr8l")
@@ -224,6 +227,8 @@ position = Vector2(456, 424)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_opxyi")
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_lmbko")]
+
 [node name="Hotbar" parent="CanvasLayer" instance=ExtResource("4_obl1i")]
 anchors_preset = 7
 anchor_left = 0.5
@@ -255,5 +260,18 @@ offset_left = 153.0
 offset_top = 25.0
 offset_right = 266.0
 offset_bottom = 55.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_offset = Vector2(-2218.4, -779.034)
+
+[node name="background" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(576.5, 324)
+scale = Vector2(0.562012, 0.835938)
+texture = ExtResource("9_8ipb1")
+
+[node name="clouds" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2(577.5, 177)
+scale = Vector2(7.19375, 4.325)
+texture = ExtResource("10_ew62k")
 
 [node name="Boss" type="Node2D" parent="."]

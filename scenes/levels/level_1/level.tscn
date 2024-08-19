@@ -1,8 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4e4xoo217cvc"]
+[gd_scene load_steps=30 format=3 uid="uid://c4e4xoo217cvc"]
 
 [ext_resource type="Script" path="res://scripts/level 1/level.gd" id="1_n16ul"]
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_sywtn"]
-[ext_resource type="PackedScene" uid="uid://bu6lfyqmq1wnj" path="res://scenes/levels/level 2/playertest.tscn" id="3_5ayxy"]
+[ext_resource type="PackedScene" uid="uid://b0p5xgxhoukjk" path="res://scenes/levels/level 2/playertest.tscn" id="3_5ayxy"]
 [ext_resource type="Script" path="res://scripts/level 1/countdown.gd" id="3_7pd1b"]
 [ext_resource type="PackedScene" uid="uid://b52frv2hv6vtt" path="res://scenes/levels/level_1/platform.tscn" id="3_qn3ht"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="4_vqetv"]
@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="12_bfhoo"]
 [ext_resource type="PackedScene" uid="uid://dbnhypf7akg8r" path="res://scenes/levels/global/inventory/hotbar.tscn" id="13_7k4c7"]
 [ext_resource type="Texture2D" uid="uid://b5gquffx04ys5" path="res://assets/level_1/Mondstadt Background Wallpaper/Mondstadt Background Wallpaper/windrise-background.png" id="14_5rs08"]
-[ext_resource type="PackedScene" uid="uid://c7v383lf04rnc" path="res://scenes/levels/global/scene_trigger.tscn" id="16_ndw0h"]
+[ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="16_25ms8"]
+[ext_resource type="PackedScene" path="res://scenes/levels/global/scene_trigger.tscn" id="16_ndw0h"]
 [ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="16_tmj1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r55kj"]
@@ -617,7 +618,6 @@ position = Vector2(800, -799)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("11_ew4vn")
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("12_bfhoo")]
@@ -651,6 +651,8 @@ offset_right = 184.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_25ms8")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 scroll_offset = Vector2(-2218.4, -779.034)
