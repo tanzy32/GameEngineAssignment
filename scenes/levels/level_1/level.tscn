@@ -1,22 +1,16 @@
-[gd_scene load_steps=30 format=3 uid="uid://c4e4xoo217cvc"]
+[gd_scene load_steps=24 format=3 uid="uid://c4e4xoo217cvc"]
 
 [ext_resource type="Script" path="res://scripts/level 1/level.gd" id="1_n16ul"]
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_sywtn"]
-[ext_resource type="PackedScene" uid="uid://b0p5xgxhoukjk" path="res://scenes/levels/level 2/playertest.tscn" id="3_5ayxy"]
+[ext_resource type="PackedScene" uid="uid://bu6lfyqmq1wnj" path="res://scenes/levels/level 2/playertest.tscn" id="3_5ayxy"]
 [ext_resource type="Script" path="res://scripts/level 1/countdown.gd" id="3_7pd1b"]
 [ext_resource type="PackedScene" uid="uid://b52frv2hv6vtt" path="res://scenes/levels/level_1/platform.tscn" id="3_qn3ht"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="4_vqetv"]
 [ext_resource type="PackedScene" uid="uid://bxk8jteyj2ndc" path="res://scenes/levels/level_1/spikes.tscn" id="5_jw15o"]
 [ext_resource type="PackedScene" uid="uid://brixk0gf31yu0" path="res://scenes/levels/level_1/chest.tscn" id="6_cc42o"]
 [ext_resource type="PackedScene" uid="uid://c42pkvt286755" path="res://scenes/levels/level_1/obelisk.tscn" id="7_67cla"]
-[ext_resource type="PackedScene" uid="uid://cv62tsn3extwa" path="res://scenes/levels/global/inventory/inventory_gui.tscn" id="11_cv1qe"]
-[ext_resource type="Script" path="res://scripts/global/CanvasLayer.gd" id="11_ew4vn"]
-[ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="12_bfhoo"]
-[ext_resource type="PackedScene" uid="uid://dbnhypf7akg8r" path="res://scenes/levels/global/inventory/hotbar.tscn" id="13_7k4c7"]
-[ext_resource type="Texture2D" uid="uid://b5gquffx04ys5" path="res://assets/level_1/Mondstadt Background Wallpaper/Mondstadt Background Wallpaper/windrise-background.png" id="14_5rs08"]
-[ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="16_25ms8"]
-[ext_resource type="PackedScene" path="res://scenes/levels/global/scene_trigger.tscn" id="16_ndw0h"]
-[ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="16_tmj1q"]
+[ext_resource type="PackedScene" uid="uid://bq0eoa3h4c2bt" path="res://scenes/levels/global/player_ui.tscn" id="11_8wrnh"]
+[ext_resource type="PackedScene" uid="uid://c7v383lf04rnc" path="res://scenes/levels/global/scene_trigger.tscn" id="16_ndw0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r55kj"]
 texture = ExtResource("1_sywtn")
@@ -616,57 +610,6 @@ position = Vector2(-224, -732)
 [node name="Obelisk" parent="Obelisks" instance=ExtResource("7_67cla")]
 position = Vector2(800, -799)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-script = ExtResource("11_ew4vn")
-
-[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("12_bfhoo")]
-offset_left = 171.0
-offset_top = 25.0
-offset_right = 316.0
-offset_bottom = 55.0
-
-[node name="InventoryGUI" parent="CanvasLayer" instance=ExtResource("11_cv1qe")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -135.0
-offset_top = -81.0
-offset_right = -7.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("13_7k4c7")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -184.0
-offset_top = -80.0
-offset_right = 184.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_25ms8")]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-scroll_offset = Vector2(-2218.4, -779.034)
-
-[node name="background" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
-position = Vector2(576.5, 324)
-scale = Vector2(0.562012, 0.835938)
-texture = ExtResource("14_5rs08")
-
-[node name="clouds" type="Sprite2D" parent="CanvasLayer/ParallaxBackground"]
-position = Vector2(577.5, 177)
-scale = Vector2(7.19375, 4.325)
-texture = ExtResource("16_tmj1q")
-
 [node name="SceneTrigger" parent="." instance=ExtResource("16_ndw0h")]
 position = Vector2(553, 182)
 connected_scene = "bosslevel"
@@ -675,6 +618,6 @@ connected_scene = "bosslevel"
 position = Vector2(0, 136)
 shape = SubResource("RectangleShape2D_rv768")
 
+[node name="PlayerUI" parent="." instance=ExtResource("11_8wrnh")]
+
 [connection signal="timeout" from="Player/countdown/spawner_timer" to="." method="_on_spawner_timer_timeout"]
-[connection signal="closed" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_closed"]
-[connection signal="opened" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_opened"]

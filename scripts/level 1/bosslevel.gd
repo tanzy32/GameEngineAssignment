@@ -1,7 +1,7 @@
 extends Node2D
 
 var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
-@onready var heartsContainer = $CanvasLayer/heartsContainer
+@onready var playerui = $PlayerUI
 @onready var player = $Player
 @onready var boss_slime = $Boss
 @onready var slime = slime_scene.instantiate()
@@ -20,9 +20,9 @@ func _ready() -> void:
 	slime.current_health = 6
 	slime.max_health = 6
 	
-	heartsContainer.setMaxHearts(player.maxHealth)
-	heartsContainer.updateHearts(player.currentHealth)
-	player.healthChanged.connect(heartsContainer.updateHearts)
+	playerui.get_child(3).setMaxHearts(player.maxHealth)
+	playerui.get_child(3).updateHearts(player.currentHealth)
+	player.healthChanged.connect(playerui.get_child(3).updateHearts)
 
 	
 func _on_inventory_gui_closed():

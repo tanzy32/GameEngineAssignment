@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq0eoa3h4c2bt"]
+
+[ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="1_35q08"]
+[ext_resource type="Script" path="res://scripts/global/player_ui.gd" id="1_bp4as"]
+[ext_resource type="PackedScene" uid="uid://dbnhypf7akg8r" path="res://scenes/levels/global/inventory/hotbar.tscn" id="2_0d4sc"]
+[ext_resource type="PackedScene" uid="uid://cv62tsn3extwa" path="res://scenes/levels/global/inventory/inventory_gui.tscn" id="3_f1q5n"]
+[ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="4_bianm"]
+[ext_resource type="Texture2D" uid="uid://b5gquffx04ys5" path="res://assets/level_1/Mondstadt Background Wallpaper/Mondstadt Background Wallpaper/windrise-background.png" id="6_1apv8"]
+[ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="7_gv7kf"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_bp4as")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_35q08")]
+
+[node name="Hotbar" parent="." instance=ExtResource("2_0d4sc")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -80.0
+offset_right = 184.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InventoryGUI" parent="." instance=ExtResource("3_f1q5n")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -38.5
+offset_right = 64.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="heartsContainer" parent="." instance=ExtResource("4_bianm")]
+offset_left = 153.0
+offset_top = 25.0
+offset_right = 266.0
+offset_bottom = 55.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-2218.4, -779.034)
+
+[node name="background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(576.5, 324)
+scale = Vector2(0.562012, 0.835938)
+texture = ExtResource("6_1apv8")
+
+[node name="clouds" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(577.5, 177)
+scale = Vector2(7.19375, 4.325)
+texture = ExtResource("7_gv7kf")

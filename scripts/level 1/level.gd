@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var heartsContainer = $CanvasLayer/heartsContainer
+@onready var playerui = $PlayerUI
 @onready var player = $Player
 @onready var slimes = $Slimes
 
@@ -29,9 +29,9 @@ func _ready() -> void:
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	
-	heartsContainer.setMaxHearts(player.maxHealth)
-	heartsContainer.updateHearts(player.currentHealth)
-	player.healthChanged.connect(heartsContainer.updateHearts)
+	playerui.get_child(3).setMaxHearts(player.maxHealth)
+	playerui.get_child(3).updateHearts(player.currentHealth)
+	player.healthChanged.connect(playerui.get_child(3).updateHearts)
 	
 	
 	countdown.limit_top = used.position.y * tile_size.y
