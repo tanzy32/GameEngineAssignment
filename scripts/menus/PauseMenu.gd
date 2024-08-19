@@ -3,9 +3,11 @@ extends Control
 @onready var canvas_layer = $CanvasLayer
 @onready var resume_texture_button = $CanvasLayer/PausePanel/CenterContainer/TextureRect/VBoxContainer/ResumeTextureButton
 @onready var resume_texture_button_focused = false
+@onready var setting_canvas_layer = $SettingCanvasLayer
 
 func _ready():
 	canvas_layer.visible = false
+	setting_canvas_layer.visible = false
 	resume_texture_button.grab_focus()
 	resume_texture_button_focused = true
 	call_deferred("_reset_focus_flag")
@@ -15,7 +17,13 @@ func _reset_focus_flag():
 	resume_texture_button_focused = false 
 
 func _input(event):
+	if event.is_action_pressed("ui_cancel") and setting_canvas_layer.visible:
+		setting_canvas_layer.visible = false
+		return
+	
 	if event.is_action_pressed("pause"):
+		if setting_canvas_layer.visible:
+			return
 		if canvas_layer.visible:
 			# Resume game
 			resume_texture_button.grab_focus()
@@ -50,9 +58,16 @@ func _on_restart_texture_button_focus_entered():
 func _on_settings_texture_button_pressed():
 	$Click.play()
 	await $Click.finished
-	get_tree().change_scene_to_file("res://scenes/menus/settings.tscn")
-	
+	setting_canvas_layer.visible = true
+
 func _on_settings_texture_button_focus_entered():
+	$Hover.play()
+	
+func _on_save_data_texture_button_pressed():
+	$Click.play()
+	await $Click.finished
+
+func _on_save_data_texture_button_focus_entered():
 	$Hover.play()
 
 func _on_main_menu_texture_button_pressed():
@@ -63,4 +78,10 @@ func _on_main_menu_texture_button_pressed():
 
 func _on_main_menu_texture_button_focus_entered():
 	$Hover.play()
+
+
+
+
+
+
 

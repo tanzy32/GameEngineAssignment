@@ -1,0 +1,605 @@
+[gd_scene load_steps=25 format=3 uid="uid://csvdykup6gt7f"]
+
+[ext_resource type="Script" path="res://scripts/menus/GeneralSettings.gd" id="1_lbgnw"]
+[ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="2_tl2wo"]
+[ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="3_op0cm"]
+[ext_resource type="Script" path="res://scripts/menus/general_expandable_setting.gd" id="4_h4hfn"]
+[ext_resource type="Texture2D" uid="uid://ddnlqdr3hjm54" path="res://assets/menu/GUI/setting panel.png" id="5_p2j4w"]
+[ext_resource type="Texture2D" uid="uid://curpk84wvtwmp" path="res://assets/menu/GUI/setting panel pressed.png" id="6_idxhh"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="7_4d78i"]
+[ext_resource type="Theme" uid="uid://d4j6n7lmk5t7y" path="res://scenes/menus/themes/dropdown_font.tres" id="8_howdq"]
+[ext_resource type="Texture2D" uid="uid://80d7wuo6q5dj" path="res://assets/menu/buttons/checkboxChecked.png" id="9_iwt2r"]
+[ext_resource type="Texture2D" uid="uid://cdk623biwoosk" path="res://assets/menu/buttons/checkboxUnchecked.png" id="10_4x4fk"]
+[ext_resource type="Texture2D" uid="uid://c1qqcxj5u77bh" path="res://assets/menu/buttons/Grabber.png" id="11_k2jb5"]
+[ext_resource type="Theme" uid="uid://cf7on2ytxplq5" path="res://scenes/menus/themes/button.tres" id="12_0244f"]
+[ext_resource type="Script" path="res://scripts/menus/left_key_remap.gd" id="13_qgv2n"]
+[ext_resource type="Script" path="res://scripts/menus/right_key_remap.gd" id="14_aaxyw"]
+[ext_resource type="Script" path="res://scripts/menus/jump_key_remap.gd" id="15_dufd8"]
+[ext_resource type="Script" path="res://scripts/menus/slide_key_remap.gd" id="16_kwmy2"]
+[ext_resource type="Script" path="res://scripts/menus/attack_key_remap.gd" id="17_m2jr3"]
+[ext_resource type="Script" path="res://scripts/menus/interact_key_remap.gd" id="18_imkyl"]
+[ext_resource type="Script" path="res://scripts/menus/inventory_key_remap.gd" id="19_f8ow0"]
+[ext_resource type="Script" path="res://scripts/menus/use_item_key_remap.gd" id="20_yra5k"]
+[ext_resource type="Script" path="res://scripts/menus/drink_potion_key_remap.gd" id="21_glxjx"]
+[ext_resource type="AudioStream" uid="uid://djbuudst11eu7" path="res://assets/audio/sfx/drop_003.ogg" id="22_lge4c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4duv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oqct"]
+bg_color = Color(0.303233, 0.303233, 0.303233, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[node name="GeneralSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lbgnw")
+
+[node name="TitleVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 300.0
+offset_bottom = 75.0
+
+[node name="TextureRect" type="TextureRect" parent="TitleVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_tl2wo")
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -20.0
+offset_right = 27.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_op0cm")
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TitleVBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = -254.0
+offset_top = 93.0
+offset_right = 545.0
+offset_bottom = 439.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("4_h4hfn")
+
+[node name="VideoTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_p2j4w")
+texture_pressed = ExtResource("6_idxhh")
+texture_hover = ExtResource("6_idxhh")
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoTextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 29
+text = "   Video"
+
+[node name="VideoVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ResolutionHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("8_howdq")
+theme_type_variation = &"optionButton"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_4d78i")
+item_count = 4
+selected = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+popup/item_3/text = "1152 x 648"
+popup/item_3/id = 3
+
+[node name="WindowSizeHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Window Size"
+
+[node name="WIndowSizeOptionButton" type="OptionButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("8_howdq")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_4d78i")
+item_count = 3
+selected = 0
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Window"
+popup/item_2/id = 2
+
+[node name="AudioTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("5_p2j4w")
+texture_pressed = ExtResource("6_idxhh")
+texture_hover = ExtResource("6_idxhh")
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioTextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 29
+text = "   Audio"
+
+[node name="AudioVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+
+[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Master Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer"]
+layout_mode = 2
+
+[node name="MuteLabel" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Mute
+"
+
+[node name="MasterMuteCheckBox" type="CheckBox" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_icons/checked = ExtResource("9_iwt2r")
+theme_override_icons/unchecked = ExtResource("10_4x4fk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e4duv")
+
+[node name="MasterSlider" type="HSlider" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("11_k2jb5")
+theme_override_icons/grabber_highlight = ExtResource("11_k2jb5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5oqct")
+max_value = 1.0
+step = 0.001
+value = 0.7
+
+[node name="BGMMusicVolumeHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Background Music Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer"]
+layout_mode = 2
+
+[node name="MuteLabel" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Mute
+"
+
+[node name="BGMMuteCheckBox" type="CheckBox" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_icons/checked = ExtResource("9_iwt2r")
+theme_override_icons/unchecked = ExtResource("10_4x4fk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e4duv")
+
+[node name="BGMSlider" type="HSlider" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("11_k2jb5")
+theme_override_icons/grabber_highlight = ExtResource("11_k2jb5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5oqct")
+max_value = 1.0
+step = 0.001
+value = 0.7
+
+[node name="SFXVolumeHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Sound Effect Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer"]
+layout_mode = 2
+
+[node name="MuteLabel" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Mute
+"
+
+[node name="SFXMuteCheckBox" type="CheckBox" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_icons/checked = ExtResource("9_iwt2r")
+theme_override_icons/unchecked = ExtResource("10_4x4fk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e4duv")
+
+[node name="SFXSlider" type="HSlider" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("11_k2jb5")
+theme_override_icons/grabber_highlight = ExtResource("11_k2jb5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5oqct")
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="KeybindTextureButton" type="TextureButton" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("5_p2j4w")
+texture_pressed = ExtResource("6_idxhh")
+texture_hover = ExtResource("6_idxhh")
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindTextureButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 29
+text = "   Keybind"
+
+[node name="KeybindVBoxContainer" type="VBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+
+[node name="LeftHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Move Left"
+
+[node name="LeftButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("13_qgv2n")
+
+[node name="RightHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Move Right"
+
+[node name="RightButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+theme_type_variation = &"buttonStyle"
+script = ExtResource("14_aaxyw")
+
+[node name="JumpHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Jump"
+
+[node name="JumpButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("15_dufd8")
+
+[node name="SlideHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Slide"
+
+[node name="SlideButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("16_kwmy2")
+action = "slide"
+
+[node name="AttackHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Attack"
+
+[node name="AttackButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("17_m2jr3")
+
+[node name="InteractHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Interact"
+
+[node name="InteractButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("18_imkyl")
+
+[node name="InventoryHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Inventory"
+
+[node name="InventoryButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("19_f8ow0")
+
+[node name="UseItemHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Use Item"
+
+[node name="UseItemButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("20_yra5k")
+
+[node name="DrinkPotionHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Drink Potion"
+
+[node name="DrinkPotionButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("21_glxjx")
+
+[node name="Dropdown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_lge4c")
+volume_db = -5.0
+bus = &"SFX"
+
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_video_texture_button_pressed"]
+[connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/ResolutionHBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="item_selected" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/VideoVBoxContainer/WindowSizeHBoxContainer/WIndowSizeOptionButton" to="." method="_on_w_indow_size_option_button_item_selected"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_audio_texture_button_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer/HBoxContainer/MasterMuteCheckBox" to="." method="_on_master_mute_check_box_pressed"]
+[connection signal="value_changed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer/HBoxContainer/BGMMuteCheckBox" to="." method="_on_bgm_mute_check_box_pressed"]
+[connection signal="value_changed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer/BGMSlider" to="." method="_on_bgm_slider_value_changed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer/HBoxContainer/SFXMuteCheckBox" to="." method="_on_sfx_mute_check_box_pressed"]
+[connection signal="value_changed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindTextureButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer" method="_on_keybind_texture_button_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/LeftHBoxContainer/LeftButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/RightHBoxContainer/RightButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" method="_on_pressed"]

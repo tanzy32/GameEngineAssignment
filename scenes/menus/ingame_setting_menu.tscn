@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dynipjym6hgkc"]
+
+[ext_resource type="Script" path="res://scripts/menus/ingame_setting_menu.gd" id="1_bgskx"]
+[ext_resource type="Texture2D" uid="uid://dhddj472ke5pu" path="res://assets/menu/GUI/Credits.png" id="1_fvtms"]
+[ext_resource type="PackedScene" uid="uid://csvdykup6gt7f" path="res://scenes/menus/general_settings.tscn" id="3_0x6us"]
+
+[node name="IngameSettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bgskx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HolderCenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -497.0
+offset_top = -286.0
+offset_right = 497.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HolderCenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_fvtms")
+
+[node name="GeneralSettings" parent="CanvasLayer" instance=ExtResource("3_0x6us")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 101.0
+offset_right = -103.0
+offset_bottom = 141.0
+grow_horizontal = 2

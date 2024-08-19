@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt5tcqu0xv7w7"
-path="res://.godot/imported/Mountains.png-fb5f514e610503cab7cea2e2ca80ac88.ctex"
+uid="uid://80d7wuo6q5dj"
+path="res://.godot/imported/checkboxChecked.png-10860fcaa790ef185962b4a677211285.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/menu_backgrounds/Mountains.png"
-dest_files=["res://.godot/imported/Mountains.png-fb5f514e610503cab7cea2e2ca80ac88.ctex"]
+source_file="res://assets/menu/buttons/checkboxChecked.png"
+dest_files=["res://.godot/imported/checkboxChecked.png-10860fcaa790ef185962b4a677211285.ctex"]
 
 [params]
 
