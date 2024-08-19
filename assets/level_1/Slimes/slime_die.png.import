@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp5glvwun4isn"
-path="res://.godot/imported/cover_taiga-asset-pack.png-231aa96edd411a194ac588eca9fb8330.ctex"
+uid="uid://cdux0jalf4v3i"
+path="res://.godot/imported/slime_die.png-fbb0e9d74ba6979742dde909bf0bae94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Taiga-Asset-Pack_v2_vnitti/cover_taiga-asset-pack.png"
-dest_files=["res://.godot/imported/cover_taiga-asset-pack.png-231aa96edd411a194ac588eca9fb8330.ctex"]
+source_file="res://assets/level_1/Slimes/slime_die.png"
+dest_files=["res://.godot/imported/slime_die.png-fbb0e9d74ba6979742dde909bf0bae94.ctex"]
 
 [params]
 

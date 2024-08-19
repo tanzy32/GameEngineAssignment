@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c318akrlxdn0f"
-path="res://.godot/imported/Chests_Snow.png-8e05be2d97fc4c0d17ced45a5d60cd9b.ctex"
+uid="uid://b8fk0abaonlh1"
+path="res://.godot/imported/slime_idle1.png-5c2df0d961c69ca296c3426ccf558bd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Animated Chests/Chests_Snow.png"
-dest_files=["res://.godot/imported/Chests_Snow.png-8e05be2d97fc4c0d17ced45a5d60cd9b.ctex"]
+source_file="res://assets/level_1/Slimes/slime_idle1.png"
+dest_files=["res://.godot/imported/slime_idle1.png-5c2df0d961c69ca296c3426ccf558bd8.ctex"]
 
 [params]
 

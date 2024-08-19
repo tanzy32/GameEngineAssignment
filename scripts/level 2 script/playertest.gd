@@ -7,7 +7,7 @@ signal healthChanged
 @export var speed: int = 300  # Player movement speed
 @export var gravity: int = 30  # Gravity affecting the player
 @export var jump_force: int = 300  # Force applied when the player jumps
-@export var inventory: Inventory
+@export var inventory: Inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres")
 
 @export var maxHealth: int = 4 # Maximum health for the player
 @onready var currentHealth: int = 2
@@ -101,9 +101,6 @@ func hurtByEnemy(area):
 func _on_hurt_box_area_entered(area):
 	if area.name == "hitBox":
 		enemyCollisions.append(area)
-		
-	if area.has_method("collect"):
-		area.collect(inventory)
 
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
@@ -121,4 +118,4 @@ func use_item(item: InventoryItem) -> void:
 func _on_hurt_box_area_exited(area):
 	enemyCollisions.erase(area)
 
-	
+

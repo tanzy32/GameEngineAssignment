@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw0fkl1cppq74"
-path="res://.godot/imported/Obelisk.png-42227e28f1be26c786dbdbb06c45ef10.ctex"
+uid="uid://bcevrh25vda0n"
+path="res://.godot/imported/slime_move.png-d750fc1a7f37b5bed6b66005f4bab964.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Obelisk_demo/Obelisk.png"
-dest_files=["res://.godot/imported/Obelisk.png-42227e28f1be26c786dbdbb06c45ef10.ctex"]
+source_file="res://assets/level_1/Slimes/slime_move.png"
+dest_files=["res://.godot/imported/slime_move.png-d750fc1a7f37b5bed6b66005f4bab964.ctex"]
 
 [params]
 

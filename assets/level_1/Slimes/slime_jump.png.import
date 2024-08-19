@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://su850230hjtq"
-path="res://.godot/imported/slime_swallow.png-8c2ad9e9238e8447039f0e816d172f19.ctex"
+uid="uid://bhf0h8gwcdvgh"
+path="res://.godot/imported/slime_jump.png-8e0d9f5b081d535f31447ae0e1cde936.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_1/Slimes/Slimes/slime_swallow.png"
-dest_files=["res://.godot/imported/slime_swallow.png-8c2ad9e9238e8447039f0e816d172f19.ctex"]
+source_file="res://assets/level_1/Slimes/slime_jump.png"
+dest_files=["res://.godot/imported/slime_jump.png-8e0d9f5b081d535f31447ae0e1cde936.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f2q4q337cb7w"
-path="res://.godot/imported/taiga_mockup.png-1ada058263363938567ae51a06c78513.ctex"
+uid="uid://cfooqpwcx2x5s"
+path="res://.godot/imported/slime_hit.png-0187c87a4489ba7a3c5c4a1bb17ceb96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Taiga-Asset-Pack_v2_vnitti/taiga_mockup.png"
-dest_files=["res://.godot/imported/taiga_mockup.png-1ada058263363938567ae51a06c78513.ctex"]
+source_file="res://assets/level_1/Slimes/slime_hit.png"
+dest_files=["res://.godot/imported/slime_hit.png-0187c87a4489ba7a3c5c4a1bb17ceb96.ctex"]
 
 [params]
 
