@@ -83,7 +83,7 @@ func handleCollision():
 
 func hurtByEnemy(area):
 	currentHealth -= 1
-	if currentHealth < 0:
+	if currentHealth < 1:
 		currentHealth = maxHealth
 	
 	healthChanged.emit(currentHealth)
