@@ -1,8 +1,7 @@
-extends Node2D
+extends BaseScene
 
 var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var playerui = $PlayerUI
-@onready var player = $Player
 @onready var boss_slime = $Boss
 @onready var slime = slime_scene.instantiate()
 @onready var level_background: TileMap = $"Level background"
@@ -13,10 +12,11 @@ func _process(delta):
 	pass
 	
 func _ready() -> void:
+	super()
 	boss_slime.add_child(slime)
 	
 	slime.scale = Vector2(4,4)
-	slime.position = Vector2(520,243)
+	slime.position = Vector2(990,-34)
 	slime.current_health = 6
 	slime.max_health = 6
 	

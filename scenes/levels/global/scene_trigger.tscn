@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7v383lf04rnc"]
 
-[ext_resource type="Script" path="res://scripts/global/SceneTrigger.gd" id="1_7gyxp"]
+[ext_resource type="Script" path="res://scripts/global/scene_trigger.gd" id="1_7gyxp"]
 
 [node name="SceneTrigger" type="Area2D"]
 collision_layer = 0

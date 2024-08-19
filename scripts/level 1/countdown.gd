@@ -1,4 +1,4 @@
-extends Camera2D
+extends Control
 
 @onready var label = $level_description
 @onready var timer = $level_timer

@@ -10,7 +10,7 @@ signal healthChanged
 @export var inventory: Inventory
 
 @export var maxHealth: int = 4 # Maximum health for the player
-@onready var currentHealth: int = maxHealth
+@onready var currentHealth: int = 2
 
 @export var knockbackPower: int = 700 
 var can_control: bool = true  # Indicates if the player can be controlled
