@@ -29,7 +29,7 @@ func _on_start_texture_button_focus_entered():
 func _on_load_data_texture_button_pressed():
 	$Click.play()
 	await $Click.finished
-	SaveLoad.LoadGame("res://resources/data.tres")
+	#SaveLoad.LoadGame("res://resources/data.tres")
 	
 func _on_load_data_texture_button_focus_entered():
 	$Hover.play()

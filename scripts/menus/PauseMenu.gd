@@ -66,7 +66,7 @@ func _on_settings_texture_button_focus_entered():
 func _on_save_data_texture_button_pressed():
 	$Click.play()
 	await $Click.finished
-	SaveLoad.SaveGame("res://resources/data.tres")
+	#SaveLoad.SaveGame("res://resources/data.tres")
 
 func _on_save_data_texture_button_focus_entered():
 	$Hover.play()
