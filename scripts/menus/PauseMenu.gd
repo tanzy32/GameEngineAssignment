@@ -23,7 +23,7 @@ func _input(event):
 	
 	if event.is_action_pressed("pause"):
 		if setting_canvas_layer.visible:
-			return
+			return # ignore input 
 		if canvas_layer.visible:
 			# Resume game
 			resume_texture_button.grab_focus()

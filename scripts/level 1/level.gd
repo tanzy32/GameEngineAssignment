@@ -45,8 +45,8 @@ func _ready() -> void:
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	
-	playerui.get_child(3).setMaxHearts(player.maxHealth)
-	playerui.get_child(3).updateHearts(player.currentHealth)
-	player.healthChanged.connect(playerui.get_child(3).updateHearts)
+	playerui.get_child(0).setMaxHearts(player.maxHealth)
+	playerui.get_child(0).updateHearts(player.currentHealth)
+	player.healthChanged.connect(playerui.get_child(0).updateHearts)
 	
 	

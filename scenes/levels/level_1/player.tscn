@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://ic0b6imn3aua"]
+[gd_scene load_steps=16 format=3 uid="uid://cbt7uvd6t7ep0"]
 
 [ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
-[ext_resource type="Script" path="res://scenes/player/StateMachine.gd" id="3_nqnws"]
 
 [sub_resource type="GDScript" id="GDScript_cplqo"]
 script/source = "class_name Player
@@ -751,6 +750,36 @@ _data = {
 "wall_sliding": SubResource("Animation_j44t8")
 }
 
+[sub_resource type="GDScript" id="GDScript_qwahw"]
+script/source = "#class_name StateMachine
+extends Node
+
+var current_state: int = -1:
+	set(v):
+		owner.transition_state(current_state, v)
+		current_state = v
+		state_time = 0
+		
+var state_time: float
+
+
+func _ready() -> void:
+	await owner.ready
+	current_state = 0
+
+
+func _physics_process(delta: float) -> void:
+	while true:
+		var next := owner.get_next_state(current_state) as int
+		if current_state == next:
+			break
+		current_state = next
+	
+	owner.tick_physics(current_state, delta)
+	state_time += delta
+	
+"
+
 [node name="player" type="CharacterBody2D"]
 collision_mask = 2
 script = SubResource("GDScript_cplqo")
@@ -791,7 +820,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_nqnws")
+script = SubResource("GDScript_qwahw")
 
 [node name="SlideTimer" type="Timer" parent="."]
 wait_time = 3.0

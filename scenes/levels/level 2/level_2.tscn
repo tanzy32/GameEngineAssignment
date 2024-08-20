@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c6sgvbumfsf7f" path="res://scenes/levels/level 2/flying_enemy.tscn" id="5_iwtop"]
 [ext_resource type="PackedScene" uid="uid://cuqhqtbhqyblk" path="res://scenes/levels/level 2/movingplatvertical.tscn" id="6_picn4"]
 [ext_resource type="PackedScene" uid="uid://bm40lk3pac0g8" path="res://scenes/levels/level 2/potion.tscn" id="7_0anq6"]
-[ext_resource type="PackedScene" uid="uid://ic0b6imn3aua" path="res://scenes/levels/level_1/player.tscn" id="8_ca44y"]
 [ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="8_mwx7a"]
+[ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="9_sx0vi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b7dkb"]
 
@@ -292,6 +292,8 @@ script = ExtResource("1_o6l43")
 level_start_pos = NodePath("Spawn")
 
 [node name="TileMap" type="TileMap" parent="."]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-74, 32)
 tile_set = SubResource("TileSet_syyrq")
 format = 2
@@ -416,14 +418,15 @@ collision_mask = 16
 position = Vector2(1018, -408)
 polygon = PackedVector2Array(92, 607, 131, 611, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 613, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 126, 621, 90, 618, 86, 618, 88, 613)
 
-[node name="player" parent="." instance=ExtResource("8_ca44y")]
-position = Vector2(98, 622)
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2, 2)
-
 [node name="PauseMenu" parent="." instance=ExtResource("8_mwx7a")]
 offset_left = 506.873
 offset_top = 496.703
 offset_right = 546.873
 offset_bottom = 536.703
+
+[node name="Player" parent="." instance=ExtResource("9_sx0vi")]
+position = Vector2(89, 624)
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(98, 622)
+zoom = Vector2(2, 2)
