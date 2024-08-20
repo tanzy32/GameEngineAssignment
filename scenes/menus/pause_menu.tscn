@@ -20,6 +20,7 @@ offset_bottom = 40.0
 script = ExtResource("1_cfh3m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8

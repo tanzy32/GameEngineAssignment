@@ -29,7 +29,7 @@ func _on_start_texture_button_focus_entered():
 func _on_load_data_texture_button_pressed():
 	$Click.play()
 	await $Click.finished
-	get_tree().change_scene_to_file("res://scenes/menus/load_data.tscn")
+	SaveLoad.LoadGame("res://resources/data.tres")
 	
 func _on_load_data_texture_button_focus_entered():
 	$Hover.play()
