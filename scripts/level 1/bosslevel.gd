@@ -17,7 +17,7 @@ func _ready() -> void:
 	slime.current_health = 6
 	slime.max_health = 6
 	
-	playerui.get_child(3).setMaxHearts(player.maxHealth)
-	playerui.get_child(3).updateHearts(player.currentHealth)
-	player.healthChanged.connect(playerui.get_child(3).updateHearts)
+	playerui.get_child(0).setMaxHearts(player.maxHealth)
+	playerui.get_child(0).updateHearts(player.currentHealth)
+	player.healthChanged.connect(playerui.get_child(0).updateHearts)
 
