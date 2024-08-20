@@ -79,7 +79,7 @@ var is_using_angel_grace: bool = false
 @onready var hurtTimer: Timer = $hurtTimer
 @onready var effects: AnimationPlayer = $Effects
 @onready var death_timer: Timer = $DeathTimer
-@onready var currentHealth: int = 3
+@onready var currentHealth: int = 2
 
 # Handle unhandled input events
 func _unhandled_input(event: InputEvent) -> void:
