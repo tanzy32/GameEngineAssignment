@@ -5,7 +5,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#BackgroundMusicMain.play_bgm()
+	BackgroundMusicMain.play_bgm()
 	start_button_focused = true
 	start_button.grab_focus()
 	call_deferred("_reset_focus_flag")
