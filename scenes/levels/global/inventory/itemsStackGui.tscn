@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/inventory/itemsStackGui.gd" id="1_tn1qs"]
 
 [node name="Panel" type="Panel"]
+process_mode = 3
 script = ExtResource("1_tn1qs")
 
 [node name="item" type="Sprite2D" parent="."]

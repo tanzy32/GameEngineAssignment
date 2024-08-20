@@ -1,20 +1,41 @@
-extends StaticBody2D
+extends Area2D
 var is_activate = false
 
-@onready var interaction_area = $InteractionArea
 @onready var sprite = $AnimatedSprite
-@onready var label = $"../../Player/countdown/level_description" 
-@onready var level_timer = $"../../Player/countdown/level_timer"
-@onready var spawner_timer = $"../../Player/countdown/spawner_timer"
+@onready var label = $Label
+
+var player_nearby: bool = false
 
 func _ready():
-	interaction_area.interact = Callable(self,"_activate_obelisk")
+	connect("body_entered", Callable(self, "_on_body_entered"))
+	connect("body_exited", Callable(self, "_on_body_exited"))
+	label.hide()
 
-func _activate_obelisk():
-	if not is_activate:
+func _on_body_entered(body: Node):
+	if body is CharacterBody2D:
+		if !is_activate:
+			player_nearby = true
+			label.show()
+
+func _on_body_exited(body: Node):
+	if body is CharacterBody2D:
+		player_nearby = false
+		label.hide()
+		
+func _input(event):
+	if player_nearby and event.is_action_pressed("interact"):
+		player_nearby = false
+		label.hide()
 		sprite.play("run")
-		label.show()
-		level_timer.start()
-		spawner_timer.start()
+		activate_puzzle()
+		
+func activate_puzzle():
+	if not is_activate:
+		
+		$"../../level_controls/level_timer".start()
+		$"../../level_controls/level_description".show()
+		$"../../level_controls/spawner_timer".start()
 		is_activate = true
+
+	
 	

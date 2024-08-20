@@ -14,14 +14,18 @@ func _ready():
 	$Label.hide()
 
 func _on_body_entered(body: Node):
-	if body.name == "Player":
+	if body is CharacterBody2D:
 		player_nearby = true
 		$Label.show()
 
 func _on_body_exited(body: Node):
-	if body.name == "Player":
+	if body is CharacterBody2D:
 		player_nearby = false
 		$Label.hide()
+
+func _input(event):
+	if player_nearby and event.is_action_pressed("interact"):
+		collect(player.inventory)
 
 func collect(inventory: Inventory):
 	inventory.insert(item)
