@@ -6,6 +6,7 @@ extends Control
 @onready var BGM_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 
+
 @onready var master_slider = $TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/MasterVolumeHBoxContainer/MasterSlider
 @onready var bgm_slider = $TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/BGMMusicVolumeHBoxContainer/BGMSlider
 @onready var sfx_slider = $TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/AudioVBoxContainer/SFXVolumeHBoxContainer/SFXSlider
@@ -16,13 +17,13 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-	#w_indow_size_option_button.item_selected.connect(_on_w_indow_size_option_button_item_selected)
-	#resolution_option_button.item_selected.connect(_on_resolution_option_button_item_selected)
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#pass
+func _ready():
+	w_indow_size_option_button.item_selected.connect(_on_w_indow_size_option_button_item_selected)
+	resolution_option_button.item_selected.connect(_on_resolution_option_button_item_selected)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
 
  
