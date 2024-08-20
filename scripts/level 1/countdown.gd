@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 
 @onready var label = $level_description
 @onready var timer = $level_timer

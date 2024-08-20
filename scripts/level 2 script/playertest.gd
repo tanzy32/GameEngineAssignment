@@ -1,4 +1,4 @@
-class_name MyPlayer
+#class_name Player
 extends CharacterBody2D
 
 signal healthChanged

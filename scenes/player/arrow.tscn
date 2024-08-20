@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvfsxs62x1jay"]
+
+[ext_resource type="Script" path="res://scripts/player/arrow.gd" id="1_3qvxy"]
+[ext_resource type="Texture2D" uid="uid://cymc0g303otdv" path="res://assets/player/Item 13-1.png.png" id="1_sydus"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7ih1"]
+radius = 2.0
+
+[node name="arrow" type="CharacterBody2D"]
+position = Vector2(23, -14)
+collision_layer = 0
+collision_mask = 130
+script = ExtResource("1_3qvxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, -2)
+rotation = 1.5708
+texture = ExtResource("1_sydus")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 64)
+
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
+position = Vector2(1.99998, -6.00001)
+rotation = -1.5708
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p7ih1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p7ih1")
+
+[connection signal="area_entered" from="Sprite2D/HitBox" to="." method="_on_hit_box_area_entered"]

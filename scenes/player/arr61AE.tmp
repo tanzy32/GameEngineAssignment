@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://blr51wt1o8jbp"]
+
+[ext_resource type="Script" path="res://scripts/player/arrow.gd" id="1_3qvxy"]
+[ext_resource type="Texture2D" uid="uid://cymc0g303otdv" path="res://assets/player/Item 13-1.png.png" id="1_sydus"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yemmp"]
+atlas = ExtResource("1_sydus")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ql0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yemmp")
+}],
+"loop": true,
+"name": &"arrow",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lvfdu"]
+a = Vector2(0, -13)
+b = Vector2(18, -13)
+
+[node name="arrow" type="CharacterBody2D"]
+script = ExtResource("1_3qvxy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -16)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_7ql0k")
+animation = &"arrow"
+autoplay = "arrow"
+frame_progress = 0.261474
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_lvfdu")

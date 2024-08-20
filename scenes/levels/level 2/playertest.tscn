@@ -178,9 +178,15 @@ _data = {
 
 [node name="Playertest" type="CharacterBody2D"]
 position = Vector2(1, -7)
+collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_sn0ob")
+speed = null
+gravity = null
+jump_force = null
 inventory = ExtResource("2_ycox4")
+maxHealth = null
+knockbackPower = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2

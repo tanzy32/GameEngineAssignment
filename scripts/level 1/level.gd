@@ -7,7 +7,14 @@ var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var level_timer = $PlayerUI/countdown/level_timer
 @onready var spawner_timer = $PlayerUI/countdown/spawner_timer
 @onready var level_background: TileMap = $"Level background"
-@onready var countdown: Control = $PlayerUI/countdown
+@onready var label = $PlayerUI/level_description
+@onready var timer = $PlayerUI/level_timer
+
+func time_countdown():
+	var time_left = timer.time_left
+	var minute = floor(time_left / 60)
+	var second = int(time_left) % 60
+	return [minute,second]
 
 func _on_spawner_timer_timeout():
 	var slime = slime_scene.instantiate()
@@ -20,11 +27,13 @@ func _on_spawner_timer_timeout():
 	slime.max_health = 1
 	
 func _process(delta):
-	if level_timer.is_stopped():
-		spawner_timer.stop()
+	if timer.is_stopped():
+		label.hide()
+		
 				
 func _ready() -> void:
 	super()
+	label.hide()
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	
@@ -33,8 +42,3 @@ func _ready() -> void:
 	player.healthChanged.connect(playerui.get_child(3).updateHearts)
 	
 	
-func _on_inventory_gui_closed():
-	get_tree().paused = false
-
-func _on_inventory_gui_opened():
-	get_tree().paused = true

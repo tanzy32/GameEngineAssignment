@@ -9,11 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="7_gv7kf"]
 
 [node name="PlayerUI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_bp4as")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_35q08")]
 
 [node name="Hotbar" parent="." instance=ExtResource("2_0d4sc")]
+process_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -27,6 +29,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="InventoryGUI" parent="." instance=ExtResource("3_f1q5n")]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -57,3 +60,6 @@ texture = ExtResource("6_1apv8")
 position = Vector2(577.5, 177)
 scale = Vector2(7.19375, 4.325)
 texture = ExtResource("7_gv7kf")
+
+[connection signal="closed" from="InventoryGUI" to="." method="_on_inventory_gui_closed"]
+[connection signal="opened" from="InventoryGUI" to="." method="_on_inventory_gui_opened"]
