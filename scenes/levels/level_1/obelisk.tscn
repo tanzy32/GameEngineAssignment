@@ -1,9 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://c42pkvt286755"]
+[gd_scene load_steps=35 format=3 uid="uid://c42pkvt286755"]
 
 [ext_resource type="Script" path="res://scripts/level 1/obelisk.gd" id="1_rd6xx"]
 [ext_resource type="Texture2D" uid="uid://bw0fkl1cppq74" path="res://assets/level_1/Obelisk_demo/Obelisk.png" id="2_v8vyu"]
-[ext_resource type="PackedScene" uid="uid://cltvv4k2lxq5u" path="res://scenes/levels/level_1/interaction_area.tscn" id="2_yc8gb"]
 [ext_resource type="Texture2D" uid="uid://cbqdrv05hvbgu" path="res://assets/level_1/Obelisk_demo/Obelisk_effects.png" id="3_a1jxt"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="4_kjlve"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjf6a"]
 atlas = ExtResource("2_v8vyu")
@@ -217,10 +217,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m17ax"]
 size = Vector2(93, 231.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sxi3"]
-size = Vector2(183.75, 298.5)
-
-[node name="Obelisk" type="StaticBody2D"]
+[node name="Obelisk" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_rd6xx")
 
@@ -235,8 +232,11 @@ autoplay = "idle"
 position = Vector2(-3, -130)
 shape = SubResource("RectangleShape2D_m17ax")
 
-[node name="InteractionArea" parent="." instance=ExtResource("2_yc8gb")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-2, -153)
-shape = SubResource("RectangleShape2D_7sxi3")
+[node name="Label" type="Label" parent="."]
+offset_left = -201.0
+offset_top = -150.0
+offset_right = -41.0
+offset_bottom = -120.0
+theme_override_fonts/font = ExtResource("4_kjlve")
+theme_override_font_sizes/font_size = 20
+text = "Press E to start!"

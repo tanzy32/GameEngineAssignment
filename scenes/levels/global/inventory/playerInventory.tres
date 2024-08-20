@@ -1,17 +1,20 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=15 format=3 uid="uid://bkyauqww1v81h"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=16 format=3 uid="uid://bkyauqww1v81h"]
 
+[ext_resource type="Resource" uid="uid://cev4t84v4ykqw" path="res://scenes/levels/global/inventory/potion.tres" id="2_eerno"]
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="2_oefck"]
 [ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="2_y6vo0"]
 
 [sub_resource type="Resource" id="Resource_kjqrg"]
 script = ExtResource("2_y6vo0")
-amount = 0
-maxAmountPerStack = 0
+item = ExtResource("2_eerno")
+amount = 2
+maxAmountPerStack = 2
 
 [sub_resource type="Resource" id="Resource_0qrpa"]
 script = ExtResource("2_y6vo0")
-amount = 0
-maxAmountPerStack = 0
+item = ExtResource("2_eerno")
+amount = 1
+maxAmountPerStack = 2
 
 [sub_resource type="Resource" id="Resource_j5kwp"]
 script = ExtResource("2_y6vo0")

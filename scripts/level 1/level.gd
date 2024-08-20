@@ -1,17 +1,23 @@
 extends BaseScene
 
-@onready var playerui = $PlayerUI
 @onready var slimes = $Slimes
 
 var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
-@onready var level_timer = $PlayerUI/countdown/level_timer
-@onready var spawner_timer = $PlayerUI/countdown/spawner_timer
+@onready var level_timer = $level_controls/level_timer
+@onready var label = $level_controls/level_description
+@onready var spawner_timer = $level_controls/spawner_timer
 @onready var level_background: TileMap = $"Level background"
-@onready var label = $PlayerUI/level_description
-@onready var timer = $PlayerUI/level_timer
 
+
+func activate_puzzle(is_activate: bool):
+	if not is_activate:
+		label.show()
+		level_timer.start()
+		spawner_timer.start()
+		is_activate = true
+	
 func time_countdown():
-	var time_left = timer.time_left
+	var time_left = level_timer.time_left
 	var minute = floor(time_left / 60)
 	var second = int(time_left) % 60
 	return [minute,second]
@@ -27,7 +33,9 @@ func _on_spawner_timer_timeout():
 	slime.max_health = 1
 	
 func _process(delta):
-	if timer.is_stopped():
+	label.text = "%02d:%02d | Survive!" % time_countdown() 
+	if level_timer.is_stopped():
+		spawner_timer.stop()
 		label.hide()
 		
 				

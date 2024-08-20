@@ -74,12 +74,12 @@ var is_using_angel_grace: bool = false
 @onready var wwcd_timer: Timer = $WWCDTimer
 @onready var angel_timer: Timer = $AngelTimer
 @onready var angel_cd_timer: Timer = $AngelCDTimer
-@onready var hand_checker: RayCast2D = $Graphics/PlayerIdle/HandChecker
-@onready var foot_checker: RayCast2D = $Graphics/PlayerIdle/FootChecker
+@onready var hand_checker: RayCast2D = $Graphics/Sprite2D/HandChecker
+@onready var foot_checker: RayCast2D = $Graphics/Sprite2D/FootChecker
 @onready var hurtTimer: Timer = $hurtTimer
 @onready var effects: AnimationPlayer = $Effects
 @onready var death_timer: Timer = $DeathTimer
-@onready var currentHealth: int = maxHealth
+@onready var currentHealth: int = 3
 
 # Handle unhandled input events
 func _unhandled_input(event: InputEvent) -> void:
@@ -100,7 +100,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("rowAttack"):
 		arrow_timer.start()
-		
+"""
 	if event.is_action_pressed("slimyCoat"):
 		use_slimy_coat()
 		
@@ -112,6 +112,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("angelGrace"):
 		use_angel_grace()
+"""
 
 # Update physics for each state
 func tick_physics(state: State, delta: float) -> void:		
@@ -220,7 +221,6 @@ func increase_health(amount: int) -> void:
 	currentHealth += amount
 	currentHealth = min(maxHealth, currentHealth)
 	healthChanged.emit(currentHealth)
-	
 	
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
@@ -462,18 +462,16 @@ func use_item(item: InventoryItem) -> void:
 	if item == null:
 		print("Item is null")
 		return
-	if Global.playerBody == null:
+	if self == null:
 		print("Global.playerBody is null")
 		return
-	print("Using item on:", Global.playerBody)
-	item.use(Global.playerBody)
+	print("Using item on:", self)
+	item.use(self)
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "hitBox":
 		enemyCollisions.append(area)
-	if area.has_method("collect"):
-		area.collect(inventory)
 
 
 func _on_hurtbox_area_exited(area: Area2D) -> void:
@@ -483,7 +481,7 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.has_method("is_enemy") and area.is_enemy():
 		queue_free()
-
+"""
 func use_slimy_coat() -> void:
 	if slimy_coat_cd_timer.time_left <= 0:
 		is_using_slimy_coat = true
@@ -495,6 +493,7 @@ func use_slimy_coat() -> void:
 		effects.play("RESET")
 		slimy_coat_cd_timer.start()
 
+"""
 func use_wings() -> void:
 	if fly_cd_timer.time_left <= 0:
 		is_using_wings = true
@@ -511,6 +510,7 @@ func use_wings() -> void:
 		effects.play("RESET")
 		fly_cd_timer.start()
 		
+"""	
 func use_water_walk() -> void:
 	if wwcd_timer.time_left <= 0:
 		is_using_water_walk = true
@@ -522,6 +522,7 @@ func use_water_walk() -> void:
 		effects.play("RESET")
 		wwcd_timer.start()
 
+"""
 func use_angel_grace() -> void:
 	if angel_cd_timer.time_left <= 0:
 		is_using_angel_grace = true
@@ -535,3 +536,4 @@ func use_angel_grace() -> void:
 		is_using_angel_grace = false
 		effects.play("RESET")
 		angel_cd_timer.start()
+
