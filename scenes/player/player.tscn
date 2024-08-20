@@ -1,13 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://c4trd1cn6tjcx"]
+[gd_scene load_steps=32 format=3 uid="uid://d073oe2bjayce"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_xuxsi"]
-[ext_resource type="Resource" uid="uid://bkyauqww1v81h" path="res://scenes/levels/global/inventory/playerInventory.tres" id="2_616eb"]
 [ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
 [ext_resource type="Script" path="res://scripts/player/StateMachine.gd" id="3_nqnws"]
-[ext_resource type="Script" path="res://scripts/player/Hurtbox.gd" id="3_y3yak"]
-[ext_resource type="Script" path="res://scripts/player/Hitbox.gd" id="4_7fwgj"]
-[ext_resource type="Texture2D" path="res://assets/player/Adventurer-Bow/adventurer-bow-Sheet.png" id="5_57q3h"]
-[ext_resource type="Texture2D" path="res://assets/player/Adventurer-Hand-Combat/adventurer-hand-combat-Sheet.png" id="6_uql5m"]
+[ext_resource type="Texture2D" uid="uid://4r6t4ujb7ris" path="res://assets/player/Adventurer-Bow/adventurer-bow-Sheet.png" id="5_57q3h"]
+[ext_resource type="Texture2D" uid="uid://camhyag5q2123" path="res://assets/player/Adventurer-Hand-Combat/adventurer-hand-combat-Sheet.png" id="6_uql5m"]
+[ext_resource type="PackedScene" uid="uid://bq0eoa3h4c2bt" path="res://scenes/levels/global/player_ui.tscn" id="6_ynbb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md4mc"]
 size = Vector2(9, 25)
@@ -1327,11 +1325,59 @@ script/source = "extends AnimationPlayer
 
 [sub_resource type="Animation" id="Animation_a4hxx"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.952941, 0.945098, 0.478431)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_x4qp4"]
 resource_name = "hurtBlink"
 length = 0.4
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Sprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.952941, 0.945098, 0.478431)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Sprite2D/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_chyul"]
 _data = {
@@ -1339,10 +1385,14 @@ _data = {
 "hurtBlink": SubResource("Animation_x4qp4")
 }
 
-[node name="player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_xuxsi")
-inventory = ExtResource("2_616eb")
+knockbackPower = 100
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="Graphics" type="Node2D" parent="."]
 
@@ -1364,9 +1414,7 @@ position = Vector2(0, 17)
 target_position = Vector2(-7, 0)
 
 [node name="Hurtbox" type="Area2D" parent="Graphics/Sprite2D"]
-collision_layer = 64
-collision_mask = 0
-script = ExtResource("3_y3yak")
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Sprite2D/Hurtbox"]
 position = Vector2(0, 4)
@@ -1374,9 +1422,8 @@ shape = SubResource("RectangleShape2D_md4mc")
 
 [node name="Hitbox" type="Area2D" parent="Graphics/Sprite2D"]
 position = Vector2(0, 19)
-collision_layer = 0
-collision_mask = 128
-script = ExtResource("4_7fwgj")
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Sprite2D/Hitbox"]
 position = Vector2(-11.25, -21.25)
@@ -1393,6 +1440,14 @@ position = Vector2(-1.375, -12.375)
 shape = SubResource("RectangleShape2D_w14gc")
 disabled = true
 
+[node name="ColorRect" type="ColorRect" parent="Graphics/Sprite2D"]
+visible = false
+offset_left = -9.0
+offset_top = -11.0
+offset_right = 10.0
+offset_bottom = 19.0
+color = Color(1, 0.952941, 0.945098, 0.478431)
+
 [node name="Sprite2D2" type="Sprite2D" parent="Graphics"]
 visible = false
 position = Vector2(0, -19)
@@ -1406,7 +1461,6 @@ region_rect = Rect2(0, 0, 200, 74)
 [node name="Hurtbox" type="Area2D" parent="Graphics/Sprite2D2"]
 collision_layer = 64
 collision_mask = 0
-script = ExtResource("3_y3yak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Sprite2D2/Hurtbox"]
 position = Vector2(0, 4)
@@ -1461,11 +1515,13 @@ libraries = {
 }
 
 [node name="hurtTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="."]
 
+[node name="PlayerUI" parent="." instance=ExtResource("6_ynbb7")]
+
 [connection signal="area_entered" from="Graphics/Sprite2D/Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Graphics/Sprite2D/Hurtbox" to="." method="_on_hurtbox_area_exited"]
-[connection signal="hurt" from="Graphics/Sprite2D/Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="area_entered" from="Graphics/Sprite2D/Hitbox" to="." method="_on_hitbox_area_entered"]

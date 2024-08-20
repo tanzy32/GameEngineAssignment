@@ -1,14 +1,26 @@
-extends Node2D
+extends BaseScene
 
-@onready var heartsContainer = $CanvasLayer/heartsContainer
-@onready var player = $Player
 @onready var slimes = $Slimes
 
 var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
-@onready var level_timer = $Player/countdown/level_timer
-@onready var spawner_timer = $Player/countdown/spawner_timer
+@onready var level_timer = $level_controls/level_timer
+@onready var label = $level_controls/level_description
+@onready var spawner_timer = $level_controls/spawner_timer
 @onready var level_background: TileMap = $"Level background"
-@onready var countdown: Camera2D = $Player/countdown
+
+
+func activate_puzzle(is_activate: bool):
+	if not is_activate:
+		label.show()
+		level_timer.start()
+		spawner_timer.start()
+		is_activate = true
+	
+func time_countdown():
+	var time_left = level_timer.time_left
+	var minute = floor(time_left / 60)
+	var second = int(time_left) % 60
+	return [minute,second]
 
 func _on_spawner_timer_timeout():
 	var slime = slime_scene.instantiate()
@@ -21,27 +33,20 @@ func _on_spawner_timer_timeout():
 	slime.max_health = 1
 	
 func _process(delta):
+	label.text = "%02d:%02d | Survive!" % time_countdown() 
 	if level_timer.is_stopped():
 		spawner_timer.stop()
+		label.hide()
 		
-		
+				
 func _ready() -> void:
+	super()
+	label.hide()
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	
-	heartsContainer.setMaxHearts(player.maxHealth)
-	heartsContainer.updateHearts(player.currentHealth)
-	player.healthChanged.connect(heartsContainer.updateHearts)
+	playerui.get_child(3).setMaxHearts(player.maxHealth)
+	playerui.get_child(3).updateHearts(player.currentHealth)
+	player.healthChanged.connect(playerui.get_child(3).updateHearts)
 	
 	
-	countdown.limit_top = used.position.y * tile_size.y
-	countdown.limit_right = used.end.x * tile_size.x
-	countdown.limit_bottom = used.end.y * tile_size.y
-	countdown.limit_left = used.position.x * tile_size.x
-	countdown.reset_smoothing()
-	
-func _on_inventory_gui_closed():
-	get_tree().paused = false
-
-func _on_inventory_gui_opened():
-	get_tree().paused = true

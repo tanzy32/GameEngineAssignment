@@ -1,10 +1,86 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7v383lf04rnc"]
+[gd_scene load_steps=12 format=3 uid="uid://c7v383lf04rnc"]
 
-[ext_resource type="Script" path="res://scripts/global/SceneTrigger.gd" id="1_7gyxp"]
+[ext_resource type="Script" path="res://scripts/global/scene_trigger.gd" id="1_7gyxp"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="2_qvp15"]
+[ext_resource type="Texture2D" uid="uid://dysy0rbfplpka" path="res://assets/level_1/Dimensional_Portal.png" id="2_yi7xa"]
 
-[node name="SceneTrigger" type="Area2D"]
-collision_layer = 0
-collision_mask = 64
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oq1mn"]
+height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lavgh"]
+atlas = ExtResource("2_yi7xa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16641"]
+atlas = ExtResource("2_yi7xa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6nvp"]
+atlas = ExtResource("2_yi7xa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5gcg"]
+atlas = ExtResource("2_yi7xa")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6anr"]
+atlas = ExtResource("2_yi7xa")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igxoe"]
+atlas = ExtResource("2_yi7xa")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmqsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lavgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16641")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6nvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5gcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6anr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igxoe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="PortalEntrance" type="Area2D"]
+position = Vector2(-38, -35)
+collision_layer = 64
 script = ExtResource("1_7gyxp")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, 37)
+shape = SubResource("CapsuleShape2D_oq1mn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(38, 36)
+sprite_frames = SubResource("SpriteFrames_xmqsl")
+autoplay = "default"
+frame_progress = 0.873981
+
+[node name="Label" type="Label" parent="."]
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 79.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("2_qvp15")
+theme_override_font_sizes/font_size = 10
+text = "Press E to travel!"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

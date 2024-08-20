@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b52frv2hv6vtt"]
 
-[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_y1hyf"]
+[ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_nc5h8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rg82m"]
 size = Vector2(89, 10)
@@ -12,10 +12,10 @@ collision_mask = 5
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(21.5, 11.75)
 scale = Vector2(1.45, 0.730769)
-texture = ExtResource("1_y1hyf")
+texture = ExtResource("1_nc5h8")
 region_enabled = true
 region_rect = Rect2(192.434, 64.4655, 60.8503, 13.6603)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21.5, 12)
+position = Vector2(23, 12)
 shape = SubResource("RectangleShape2D_rg82m")
