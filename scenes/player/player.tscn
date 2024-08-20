@@ -1,7 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://d073oe2bjayce"]
+[gd_scene load_steps=35 format=3 uid="uid://d073oe2bjayce"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_xuxsi"]
-[ext_resource type="Resource" uid="uid://bkyauqww1v81h" path="res://scenes/levels/global/inventory/playerInventory.tres" id="2_gn5qa"]
 [ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
 [ext_resource type="Script" path="res://scripts/player/StateMachine.gd" id="3_nqnws"]
 [ext_resource type="Texture2D" uid="uid://4r6t4ujb7ris" path="res://assets/player/Adventurer-Bow/adventurer-bow-Sheet.png" id="5_57q3h"]
@@ -27,7 +26,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +38,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -51,7 +50,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -63,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:flip_h")
+tracks/3/path = NodePath("Graphics/PlayerIdle:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -75,7 +74,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/Sprite2D:position")
+tracks/4/path = NodePath("Graphics/PlayerIdle:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -87,7 +86,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/5/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -111,7 +110,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Graphics/Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/7/path = NodePath("Graphics/PlayerIdle/Hitbox/Attack01Collision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -123,7 +122,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Graphics/Sprite2D/Hitbox/CollisionShape2D2:disabled")
+tracks/8/path = NodePath("Graphics/PlayerIdle/Hitbox/Attack02Collision:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -135,7 +134,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Graphics/Sprite2D/Hitbox/CollisionShape2D3:disabled")
+tracks/9/path = NodePath("Graphics/PlayerIdle/Hitbox/Attack03Collision:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -147,7 +146,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Graphics/Sprite2D2:frame")
+tracks/10/path = NodePath("Graphics/PlayerBow:frame")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -159,7 +158,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Graphics/Sprite2D2:vframes")
+tracks/11/path = NodePath("Graphics/PlayerBow:vframes")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -171,7 +170,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Graphics/Sprite2D2:hframes")
+tracks/12/path = NodePath("Graphics/PlayerBow:hframes")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -183,7 +182,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Graphics/Sprite2D2:region_rect")
+tracks/13/path = NodePath("Graphics/PlayerBow:region_rect")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -195,7 +194,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Graphics/Sprite2D2:visible")
+tracks/14/path = NodePath("Graphics/PlayerBow:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -207,7 +206,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Graphics/Sprite2D:visible")
+tracks/15/path = NodePath("Graphics/PlayerIdle:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -219,7 +218,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Graphics/Sprite2D2:flip_h")
+tracks/16/path = NodePath("Graphics/PlayerBow:flip_h")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -231,7 +230,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Graphics/Sprite2D3:region_enabled")
+tracks/17/path = NodePath("Graphics/PlayerDeath:region_enabled")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -243,7 +242,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Graphics/Sprite2D3:hframes")
+tracks/18/path = NodePath("Graphics/PlayerDeath:hframes")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -255,7 +254,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Graphics/Sprite2D3:vframes")
+tracks/19/path = NodePath("Graphics/PlayerDeath:vframes")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -267,7 +266,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Graphics/Sprite2D3:frame")
+tracks/20/path = NodePath("Graphics/PlayerDeath:frame")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -279,7 +278,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Graphics/Sprite2D3:flip_h")
+tracks/21/path = NodePath("Graphics/PlayerDeath:flip_h")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -291,7 +290,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Graphics/Sprite2D3:visible")
+tracks/22/path = NodePath("Graphics/PlayerDeath:visible")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -307,7 +306,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -319,7 +318,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -331,7 +330,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -343,7 +342,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -367,7 +366,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/5/path = NodePath("Graphics/PlayerIdle/Hitbox/Attack01Collision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -383,7 +382,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -395,7 +394,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -407,7 +406,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/2/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -419,7 +418,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:frame")
+tracks/3/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -443,7 +442,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D/Hitbox/CollisionShape2D2:disabled")
+tracks/5/path = NodePath("Graphics/PlayerIdle/Hitbox/Attack02Collision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -459,7 +458,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -471,7 +470,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -483,7 +482,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/2/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -495,7 +494,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:frame")
+tracks/3/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -507,7 +506,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/Sprite2D/Hitbox/CollisionShape2D3:disabled")
+tracks/4/path = NodePath("Graphics/PlayerIdle/Hitbox/Attack03Collision:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -523,7 +522,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D3:region_enabled")
+tracks/0/path = NodePath("Graphics/PlayerDeath:region_enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -535,7 +534,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D3:hframes")
+tracks/1/path = NodePath("Graphics/PlayerDeath:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -547,7 +546,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D3:vframes")
+tracks/2/path = NodePath("Graphics/PlayerDeath:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -559,7 +558,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D3:frame")
+tracks/3/path = NodePath("Graphics/PlayerDeath:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -571,7 +570,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/Sprite2D3:flip_h")
+tracks/4/path = NodePath("Graphics/PlayerDeath:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -583,7 +582,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D3:visible")
+tracks/5/path = NodePath("Graphics/PlayerDeath:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -595,7 +594,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Sprite2D:visible")
+tracks/6/path = NodePath("Graphics/PlayerIdle:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -612,7 +611,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -624,7 +623,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -636,7 +635,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -648,7 +647,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -677,7 +676,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -689,7 +688,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -701,7 +700,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -713,7 +712,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -742,7 +741,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -754,7 +753,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -766,7 +765,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -778,7 +777,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -806,7 +805,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -818,7 +817,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -830,7 +829,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -842,7 +841,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -870,7 +869,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D2:frame")
+tracks/0/path = NodePath("Graphics/PlayerBow:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -882,7 +881,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D2:vframes")
+tracks/1/path = NodePath("Graphics/PlayerBow:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -894,7 +893,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D2:hframes")
+tracks/2/path = NodePath("Graphics/PlayerBow:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -906,7 +905,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D2:region_rect")
+tracks/3/path = NodePath("Graphics/PlayerBow:region_rect")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -918,7 +917,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/Sprite2D2:visible")
+tracks/4/path = NodePath("Graphics/PlayerBow:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -930,7 +929,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D:visible")
+tracks/5/path = NodePath("Graphics/PlayerIdle:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -942,7 +941,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Sprite2D2:flip_h")
+tracks/6/path = NodePath("Graphics/PlayerBow:flip_h")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -959,7 +958,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -971,7 +970,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -983,7 +982,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -995,7 +994,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1024,7 +1023,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1036,7 +1035,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1048,7 +1047,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1060,7 +1059,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1088,7 +1087,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1100,7 +1099,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1112,7 +1111,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1124,7 +1123,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1153,7 +1152,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1165,7 +1164,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1177,7 +1176,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1189,7 +1188,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/3/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1218,7 +1217,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D:region_rect")
+tracks/0/path = NodePath("Graphics/PlayerIdle:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1230,7 +1229,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D:hframes")
+tracks/1/path = NodePath("Graphics/PlayerIdle:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1242,7 +1241,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/Sprite2D:frame")
+tracks/2/path = NodePath("Graphics/PlayerIdle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1254,7 +1253,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/Sprite2D:flip_h")
+tracks/3/path = NodePath("Graphics/PlayerIdle:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1266,7 +1265,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/Sprite2D:position")
+tracks/4/path = NodePath("Graphics/PlayerIdle:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1278,7 +1277,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D:vframes")
+tracks/5/path = NodePath("Graphics/PlayerIdle:vframes")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1328,7 +1327,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D/ColorRect:color")
+tracks/0/path = NodePath("Graphics/PlayerIdle/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1340,7 +1339,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D/ColorRect:visible")
+tracks/1/path = NodePath("Graphics/PlayerIdle/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1350,6 +1349,62 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_mqqii"]
+resource_name = "SlimyCoat"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/PlayerIdle/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/PlayerIdle/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 1, 0.490196), Color(0, 0, 1, 0.490196)]
+}
+
+[sub_resource type="Animation" id="Animation_128ih"]
+resource_name = "angelgrace"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/PlayerIdle/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/PlayerIdle/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.556516, 0.214876, 3.57628e-07, 0.490196), Color(0.556516, 0.214876, 3.85046e-07, 0.490196)]
+}
+
 [sub_resource type="Animation" id="Animation_x4qp4"]
 resource_name = "hurtBlink"
 length = 0.4
@@ -1357,7 +1412,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/Sprite2D/ColorRect:color")
+tracks/0/path = NodePath("Graphics/PlayerIdle/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1369,7 +1424,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/Sprite2D/ColorRect:visible")
+tracks/1/path = NodePath("Graphics/PlayerIdle/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1379,10 +1434,70 @@ tracks/1/keys = {
 "values": [true, false, true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_8fnn7"]
+resource_name = "waterwalk"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/PlayerIdle/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.560058, 0.208907, 1, 0.490196), Color(0.560058, 0.208907, 1, 0.490196)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/PlayerIdle/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qlx6s"]
+resource_name = "wings"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/PlayerIdle/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/PlayerIdle/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.295854, 0.543364, 0.165708, 0.490196), Color(0.295854, 0.543364, 0.165708, 0.490196)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_chyul"]
 _data = {
 "RESET": SubResource("Animation_a4hxx"),
-"hurtBlink": SubResource("Animation_x4qp4")
+"SlimyCoat": SubResource("Animation_mqqii"),
+"angelgrace": SubResource("Animation_128ih"),
+"hurtBlink": SubResource("Animation_x4qp4"),
+"waterwalk": SubResource("Animation_8fnn7"),
+"wings": SubResource("Animation_qlx6s")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -1390,14 +1505,13 @@ collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_xuxsi")
 knockbackPower = 100
-inventory = ExtResource("2_gn5qa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
 [node name="Graphics" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
+[node name="PlayerIdle" type="Sprite2D" parent="Graphics"]
 position = Vector2(0, -19)
 texture = ExtResource("2_x4yyh")
 flip_h = true
@@ -1406,42 +1520,42 @@ vframes = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 200, 37)
 
-[node name="HandChecker" type="RayCast2D" parent="Graphics/Sprite2D"]
+[node name="HandChecker" type="RayCast2D" parent="Graphics/PlayerIdle"]
 position = Vector2(0, -8)
 target_position = Vector2(-7, 0)
 
-[node name="FootChecker" type="RayCast2D" parent="Graphics/Sprite2D"]
+[node name="FootChecker" type="RayCast2D" parent="Graphics/PlayerIdle"]
 position = Vector2(0, 17)
 target_position = Vector2(-7, 0)
 
-[node name="Hurtbox" type="Area2D" parent="Graphics/Sprite2D"]
+[node name="Hurtbox" type="Area2D" parent="Graphics/PlayerIdle"]
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Sprite2D/Hurtbox"]
+[node name="PlayerCollision" type="CollisionShape2D" parent="Graphics/PlayerIdle/Hurtbox"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_md4mc")
 
-[node name="Hitbox" type="Area2D" parent="Graphics/Sprite2D"]
+[node name="Hitbox" type="Area2D" parent="Graphics/PlayerIdle"]
 position = Vector2(0, 19)
 collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Sprite2D/Hitbox"]
+[node name="Attack01Collision" type="CollisionShape2D" parent="Graphics/PlayerIdle/Hitbox"]
 position = Vector2(-11.25, -21.25)
 shape = SubResource("RectangleShape2D_ejjsn")
 disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Graphics/Sprite2D/Hitbox"]
+[node name="Attack02Collision" type="CollisionShape2D" parent="Graphics/PlayerIdle/Hitbox"]
 position = Vector2(-4.375, -16.875)
 shape = SubResource("RectangleShape2D_t8sbe")
 disabled = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Graphics/Sprite2D/Hitbox"]
+[node name="Attack03Collision" type="CollisionShape2D" parent="Graphics/PlayerIdle/Hitbox"]
 position = Vector2(-1.375, -12.375)
 shape = SubResource("RectangleShape2D_w14gc")
 disabled = true
 
-[node name="ColorRect" type="ColorRect" parent="Graphics/Sprite2D"]
+[node name="ColorRect" type="ColorRect" parent="Graphics/PlayerIdle"]
 visible = false
 offset_left = -9.0
 offset_top = -11.0
@@ -1449,7 +1563,7 @@ offset_right = 10.0
 offset_bottom = 19.0
 color = Color(1, 0.952941, 0.945098, 0.478431)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Graphics"]
+[node name="PlayerBow" type="Sprite2D" parent="Graphics"]
 visible = false
 position = Vector2(0, -19)
 texture = ExtResource("5_57q3h")
@@ -1459,15 +1573,15 @@ vframes = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 200, 74)
 
-[node name="Hurtbox" type="Area2D" parent="Graphics/Sprite2D2"]
+[node name="Hurtbox" type="Area2D" parent="Graphics/PlayerBow"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Sprite2D2/Hurtbox"]
+[node name="PlayerColliion" type="CollisionShape2D" parent="Graphics/PlayerBow/Hurtbox"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_md4mc")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Graphics"]
+[node name="PlayerDeath" type="Sprite2D" parent="Graphics"]
 visible = false
 position = Vector2(0, -19)
 texture = ExtResource("6_uql5m")
@@ -1478,7 +1592,7 @@ frame = 4
 region_enabled = true
 region_rect = Rect2(0, 148, 343, 74)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerColliion" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_l41ol")
 
@@ -1521,6 +1635,38 @@ one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="."]
 
-[connection signal="area_entered" from="Graphics/Sprite2D/Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="Graphics/Sprite2D/Hurtbox" to="." method="_on_hurtbox_area_exited"]
-[connection signal="area_entered" from="Graphics/Sprite2D/Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="slimyCoatTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="slimyCoatCDTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="FlyTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="FlyCDTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="WWTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="WWCDTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="AngelTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="AngelCDTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="area_entered" from="Graphics/PlayerIdle/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Graphics/PlayerIdle/Hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="Graphics/PlayerIdle/Hitbox" to="." method="_on_hitbox_area_entered"]
