@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InteractionManager="*res://scenes/levels/level_1/interaction_manager.tscn"
 Global="*res://Global.gd"
 BackgroundMusicMain="*res://scenes/menus/musics/background_music_main.tscn"
 scene_manager="*res://scripts/global/scene_manager.gd"
