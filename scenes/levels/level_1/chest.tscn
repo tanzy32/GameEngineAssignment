@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://brixk0gf31yu0"]
 
-[ext_resource type="Script" path="res://scripts/level 1/chest.gd" id="1_vh7sx"]
+[ext_resource type="Script" path="res://scripts/level_1/chest.gd" id="1_vh7sx"]
 [ext_resource type="Texture2D" uid="uid://7luvp0l32fem" path="res://assets/level_1/Animated Chests/Chests.png" id="2_fumyb"]
 [ext_resource type="PackedScene" uid="uid://dd3phmifx65o0" path="res://scenes/levels/global/potion.tscn" id="2_jkvdc"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="4_tswu0"]
