@@ -59,6 +59,7 @@ animations = [{
 size = Vector2(28, 19.5)
 
 [node name="Chest" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_vh7sx")
 potion_scene = ExtResource("2_jkvdc")
 

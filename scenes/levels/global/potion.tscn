@@ -73,6 +73,7 @@ animations = [{
 size = Vector2(14, 16)
 
 [node name="Potion" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_1jcwl")
 item = ExtResource("2_0bhbk")
 

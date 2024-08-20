@@ -1392,7 +1392,7 @@ script = ExtResource("1_xuxsi")
 knockbackPower = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Graphics" type="Node2D" parent="."]
 

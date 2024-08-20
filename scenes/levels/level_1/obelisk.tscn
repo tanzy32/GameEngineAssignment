@@ -218,7 +218,7 @@ animations = [{
 size = Vector2(93, 231.5)
 
 [node name="Obelisk" type="Area2D"]
-collision_layer = 0
+collision_layer = 16
 script = ExtResource("1_rd6xx")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
