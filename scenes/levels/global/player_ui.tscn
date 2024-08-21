@@ -12,12 +12,6 @@
 process_mode = 3
 script = ExtResource("1_bp4as")
 
-[node name="heartsContainer" parent="." instance=ExtResource("4_bianm")]
-offset_left = 153.0
-offset_top = 25.0
-offset_right = 266.0
-offset_bottom = 55.0
-
 [node name="PauseMenu" parent="." instance=ExtResource("1_35q08")]
 
 [node name="Hotbar" parent="." instance=ExtResource("2_0d4sc")]
@@ -47,6 +41,12 @@ offset_right = 64.0
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="heartsContainer" parent="." instance=ExtResource("4_bianm")]
+offset_left = 153.0
+offset_top = 25.0
+offset_right = 266.0
+offset_bottom = 55.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(-2218.4, -779.034)
