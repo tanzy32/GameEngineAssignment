@@ -1389,7 +1389,6 @@ _data = {
 collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_xuxsi")
-knockbackPower = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)

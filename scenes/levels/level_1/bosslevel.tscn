@@ -212,6 +212,7 @@ script = ExtResource("1_rrxqu")
 
 [node name="Player" parent="." instance=ExtResource("2_iuu8p")]
 position = Vector2(805, 0)
+knockbackPower = 200
 
 [node name="Level background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dyqyx")
