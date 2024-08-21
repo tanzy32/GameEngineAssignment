@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=16 format=3 uid="uid://bkyauqww1v81h"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=19 format=3 uid="uid://bkyauqww1v81h"]
 
 [ext_resource type="Resource" uid="uid://cev4t84v4ykqw" path="res://scenes/levels/global/inventory/potion.tres" id="2_eerno"]
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="2_oefck"]
@@ -18,13 +18,15 @@ maxAmountPerStack = 2
 
 [sub_resource type="Resource" id="Resource_j5kwp"]
 script = ExtResource("2_y6vo0")
-amount = 0
-maxAmountPerStack = 0
+item = ExtResource("2_eerno")
+amount = 1
+maxAmountPerStack = 2
 
 [sub_resource type="Resource" id="Resource_mcgg1"]
 script = ExtResource("2_y6vo0")
-amount = 0
-maxAmountPerStack = 0
+item = ExtResource("2_eerno")
+amount = 1
+maxAmountPerStack = 2
 
 [sub_resource type="Resource" id="Resource_bjvt4"]
 script = ExtResource("2_y6vo0")
@@ -66,6 +68,21 @@ script = ExtResource("2_y6vo0")
 amount = 0
 maxAmountPerStack = 0
 
+[sub_resource type="Resource" id="Resource_er0hu"]
+script = ExtResource("2_y6vo0")
+amount = 0
+maxAmountPerStack = 0
+
+[sub_resource type="Resource" id="Resource_ckvyb"]
+script = ExtResource("2_y6vo0")
+amount = 0
+maxAmountPerStack = 0
+
+[sub_resource type="Resource" id="Resource_nfoos"]
+script = ExtResource("2_y6vo0")
+amount = 0
+maxAmountPerStack = 0
+
 [resource]
 script = ExtResource("2_oefck")
-slots = Array[ExtResource("2_y6vo0")]([SubResource("Resource_kjqrg"), SubResource("Resource_0qrpa"), SubResource("Resource_j5kwp"), SubResource("Resource_mcgg1"), SubResource("Resource_bjvt4"), SubResource("Resource_3sgge"), SubResource("Resource_tw835"), SubResource("Resource_1c4ue"), SubResource("Resource_kb8m2"), SubResource("Resource_cqgyo"), SubResource("Resource_bkmch"), SubResource("Resource_qwx6h")])
+slots = Array[ExtResource("2_y6vo0")]([SubResource("Resource_kjqrg"), SubResource("Resource_0qrpa"), SubResource("Resource_j5kwp"), SubResource("Resource_mcgg1"), SubResource("Resource_bjvt4"), SubResource("Resource_3sgge"), SubResource("Resource_tw835"), SubResource("Resource_1c4ue"), SubResource("Resource_kb8m2"), SubResource("Resource_cqgyo"), SubResource("Resource_bkmch"), SubResource("Resource_qwx6h"), SubResource("Resource_er0hu"), SubResource("Resource_ckvyb"), SubResource("Resource_nfoos")])

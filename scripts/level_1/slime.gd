@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
 @export var horizontal_jump_speed: float = 150.0  
-@export var vertical_jump_speed: float = 220.0    
+@export var vertical_jump_speed: float = 250.0    
 @export var gravity: float = 200.0                 
 @export var idle_time: float = 0.5      
 
 @onready var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
-@onready var spriteIdle = $idle
-@onready var spriteJump = $jump
 @onready var animations = $AnimationPlayer
 
 var max_health: int
@@ -26,8 +24,6 @@ func _process(delta):
 			# Slime has landed
 			is_jumping = false
 			jump_timer = idle_time
-			spriteIdle.visible = true
-			spriteJump.visible = false
 			updateAnimation("idle")
 			velocity.x = 0  
 		else:
@@ -38,7 +34,6 @@ func _process(delta):
 	else:
 		# Slime is in the air, apply gravity
 		velocity.y += gravity * delta
-	
 	# Handle movement and collisions
 	move_and_slide()
 
@@ -49,8 +44,6 @@ func _jump():
 	velocity.y = -vertical_jump_speed
 	is_jumping = true
 	# Play the jump animation
-	spriteIdle.visible = false
-	spriteJump.visible = true
 	updateAnimation("jump")
 	
 func updateAnimation(animation: String):
