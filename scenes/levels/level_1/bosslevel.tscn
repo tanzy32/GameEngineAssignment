@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crpq261csdin8"]
+[gd_scene load_steps=7 format=3 uid="uid://ukj5h3818dym"]
 
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_ocr8l"]
 [ext_resource type="Script" path="res://scripts/level_1/bosslevel.gd" id="1_rrxqu"]
@@ -212,7 +212,6 @@ script = ExtResource("1_rrxqu")
 
 [node name="Player" parent="." instance=ExtResource("2_iuu8p")]
 position = Vector2(805, 0)
-knockbackPower = 200
 
 [node name="Level background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dyqyx")

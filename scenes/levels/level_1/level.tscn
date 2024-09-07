@@ -388,7 +388,6 @@ layer_1/tile_data = PackedInt32Array(1441750, 524294, 3, 1507286, 524294, 3, 144
 [node name="Player" parent="." instance=ExtResource("3_p74bv")]
 position = Vector2(703, -753)
 collision_layer = 1
-knockbackPower = 200
 
 [node name="Platforms" type="Node" parent="."]
 

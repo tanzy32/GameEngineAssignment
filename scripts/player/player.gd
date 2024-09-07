@@ -443,16 +443,25 @@ func hurtByEnemy(area):
 		currentHealth -= 1
 		if currentHealth < 1:
 			currentHealth = maxHealth
-	
+
 		healthChanged.emit(currentHealth)
-	
+
 		isHurt = true
-		knockback(area.get_parent().velocity)
+		
+		# Check if the parent of the area is a TileMap to avoid accessing velocity
+		var parent = area.get_parent()
+		if parent is TileMap:
+			# If it's a TileMap, skip knockback as there's no velocity
+			print("Hit by TileMap, no knockback applied.")
+		else:
+			# If not a TileMap, assume it has velocity and apply knockback
+			knockback(parent.velocity)
+		
 		effects.play("hurtBlink")
 		hurtTimer.start()
-	
+
 		await hurtTimer.timeout
-	
+
 		effects.play("RESET")
 		isHurt = false
 
