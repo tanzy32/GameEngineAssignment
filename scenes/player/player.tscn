@@ -1391,7 +1391,6 @@ collision_mask = 2
 script = ExtResource("1_xuxsi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="Graphics" type="Node2D" parent="."]
 
@@ -1514,7 +1513,7 @@ libraries = {
 }
 
 [node name="hurtTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="."]

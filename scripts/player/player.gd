@@ -39,7 +39,7 @@ const SLIDE_SPEED := 260.0
 
 @export var can_combo := false
 @export var maxHealth: int = 4  # Maximum health for the player
-@export var knockbackPower: int = 200
+@export var knockbackPower: int = 300
 @export var inventory: Inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres") 
 
 # Get the default gravity value from project settings
@@ -452,7 +452,9 @@ func hurtByEnemy(area):
 		var parent = area.get_parent()
 		if parent is TileMap:
 			# If it's a TileMap, skip knockback as there's no velocity
-			print("Hit by TileMap, no knockback applied.")
+			print("Hit by TileMap, applying fixed knockback.")
+			var fixed_velocity = Vector2(100, 0)  # Example fixed velocity
+			knockback(fixed_velocity)
 		else:
 			# If not a TileMap, assume it has velocity and apply knockback
 			knockback(parent.velocity)
@@ -502,7 +504,7 @@ func use_slimy_coat() -> void:
 		effects.play("RESET")
 		slimy_coat_cd_timer.start()
 
-"""
+
 func use_wings() -> void:
 	if fly_cd_timer.time_left <= 0:
 		is_using_wings = true
@@ -518,8 +520,8 @@ func use_wings() -> void:
 		
 		effects.play("RESET")
 		fly_cd_timer.start()
-		
-"""	
+
+
 func use_water_walk() -> void:
 	if wwcd_timer.time_left <= 0:
 		is_using_water_walk = true
@@ -531,7 +533,7 @@ func use_water_walk() -> void:
 		effects.play("RESET")
 		wwcd_timer.start()
 
-"""
+
 func use_angel_grace() -> void:
 	if angel_cd_timer.time_left <= 0:
 		is_using_angel_grace = true
@@ -545,4 +547,4 @@ func use_angel_grace() -> void:
 		is_using_angel_grace = false
 		effects.play("RESET")
 		angel_cd_timer.start()
-
+"""
