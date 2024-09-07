@@ -750,7 +750,7 @@ _data = {
 "wall_sliding": SubResource("Animation_j44t8")
 }
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 script = SubResource("GDScript_cplqo")
 

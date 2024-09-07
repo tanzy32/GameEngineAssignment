@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3ymfbe465qbv"]
+
+[ext_resource type="Script" path="res://scripts/level 4 script/door.gd" id="1_12p3p"]
+[ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level 4 assests/Dungeon Tile Set.png" id="1_it6wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r0ux"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_our2y"]
+size = Vector2(10, 31)
+
+[sub_resource type="Animation" id="Animation_638fy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kc7mu"]
+resource_name = "closed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.995275, 0, 0.250597, 1), Color(1, 1, 1, 1), Color(0.995275, 0, 0.250597, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2pti2"]
+resource_name = "open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.333333), Color(1, 1, 1, 1), Color(1, 1, 1, 0.333333), Color(1, 1, 1, 1), Color(1, 1, 1, 0.333333), Color(1, 1, 1, 1), Color(1, 1, 1, 0.333333)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3agvh"]
+_data = {
+"RESET": SubResource("Animation_638fy"),
+"closed": SubResource("Animation_kc7mu"),
+"open": SubResource("Animation_2pti2")
+}
+
+[node name="door" type="StaticBody2D"]
+script = ExtResource("1_12p3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.25, -5.5)
+scale = Vector2(1.05556, 1.34375)
+texture = ExtResource("1_it6wk")
+region_enabled = true
+region_rect = Rect2(191.649, 160.187, 9.17281, 32.1947)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5r0ux")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_our2y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3agvh")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

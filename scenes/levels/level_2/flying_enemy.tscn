@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6sgvbumfsf7f"]
+
+[ext_resource type="Texture2D" uid="uid://buj3o0l38gkn7" path="res://assets/level 2 assets/32x32-bat-sprite.png" id="1_46gis"]
+[ext_resource type="Script" path="res://scripts/level 2 script/flying_enemy.gd" id="1_d3kpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep5oc"]
+atlas = ExtResource("1_46gis")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7fte"]
+atlas = ExtResource("1_46gis")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtmg"]
+atlas = ExtResource("1_46gis")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pwpo"]
+atlas = ExtResource("1_46gis")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5xp8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep5oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7fte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prtmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pwpo")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwugf"]
+radius = 10.198
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhavy"]
+bg_color = Color(0, 1, 0.0823529, 0.992157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="FlyingBat" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_d3kpa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s5xp8")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 7)
+shape = SubResource("CircleShape2D_vwugf")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jhavy")
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

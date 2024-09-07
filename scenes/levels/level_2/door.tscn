@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwl83ubixewog"]
+
+[ext_resource type="Script" path="res://scripts/level 2 script/gate.gd" id="1_eqe0l"]
+[ext_resource type="Texture2D" uid="uid://cnkxyvsfsgjrx" path="res://assets/level 4 assests/pngfind.com-dungeon-door-png-4386730.png" id="1_xvenf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfnxb"]
+size = Vector2(26.4688, 27.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptejc"]
+size = Vector2(29, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdaja"]
+size = Vector2(46, 48)
+
+[sub_resource type="Animation" id="Animation_qk60e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_eeu7n"]
+resource_name = "idle_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tv5yl"]
+resource_name = "open_door"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.1, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.1, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_egvqf"]
+_data = {
+"RESET": SubResource("Animation_qk60e"),
+"idle_door": SubResource("Animation_eeu7n"),
+"open_door": SubResource("Animation_tv5yl")
+}
+
+[node name="door" type="Area2D"]
+script = ExtResource("1_eqe0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.75, 10.8437)
+scale = Vector2(0.174812, 0.150187)
+texture = ExtResource("1_xvenf")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 14)
+shape = SubResource("RectangleShape2D_gfnxb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, 14)
+shape = SubResource("RectangleShape2D_ptejc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(7, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -9)
+shape = SubResource("RectangleShape2D_xdaja")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_egvqf")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

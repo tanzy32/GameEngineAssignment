@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://cm4qs6dpycovx"]
+
+[ext_resource type="Script" path="res://scripts/level 4 script/enemy.gd" id="1_blxqp"]
+[ext_resource type="Texture2D" uid="uid://b6uoshc43qbqv" path="res://assets/level 4 assests/1.png" id="2_t8ur4"]
+[ext_resource type="Texture2D" uid="uid://bw5bph7jxpkdi" path="res://assets/level 4 assests/2.png" id="3_u7nlv"]
+[ext_resource type="Texture2D" uid="uid://b8182l0a6tgc4" path="res://assets/level 4 assests/3.png" id="4_jyogx"]
+[ext_resource type="Texture2D" uid="uid://b60qeeq2dmg2v" path="res://assets/level 4 assests/4.png" id="5_svttl"]
+[ext_resource type="Texture2D" uid="uid://khqe7k5vd1oy" path="res://assets/level 4 assests/5.png" id="6_66p6g"]
+[ext_resource type="Texture2D" uid="uid://dpdqbe2vyxwk1" path="res://assets/level 4 assests/6.png" id="7_0s7b4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_in43f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t8ur4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u7nlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jyogx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_svttl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_66p6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0s7b4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bovqf"]
+radius = 4.72344
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksp5h"]
+bg_color = Color(0, 0.996078, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 4
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(14, 4)
+script = ExtResource("1_blxqp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-14, -5)
+scale = Vector2(0.0251063, 0.0204973)
+sprite_frames = SubResource("SpriteFrames_in43f")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14, -5)
+scale = Vector2(1.69368, 1.49121)
+shape = SubResource("CircleShape2D_bovqf")
+
+[node name="RayCast2D_floor" type="RayCast2D" parent="."]
+position = Vector2(-22, -4)
+target_position = Vector2(0, 12)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -25.0
+offset_top = -19.0
+offset_right = -2.0
+offset_bottom = -13.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ksp5h")
+value = 100.0
+show_percentage = false
