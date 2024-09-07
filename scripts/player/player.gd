@@ -481,7 +481,7 @@ func use_item(item: InventoryItem) -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.name == "hitBox":
+	if "hitBox" in area.name:
 		enemyCollisions.append(area)
 
 
