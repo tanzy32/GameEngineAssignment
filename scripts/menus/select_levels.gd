@@ -27,7 +27,7 @@ func _on_texture_button_focus_entered():
 func _on_texture_button_2_pressed():
 	$Click.play()
 	await $Click.finished
-	get_tree().change_scene_to_file("res://scenes/levels/level 2/level_2.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_2/level_2.tscn")
 	
 func _on_texture_button_2_focus_entered():
 	$Hover.play()
@@ -43,7 +43,7 @@ func _on_texture_button_3_focus_entered():
 func _on_texture_button_4_pressed():
 	$Click.play()
 	await $Click.finished
-	get_tree().change_scene_to_file("res://scenes/levels/level_4.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_4/level_4.tscn")
 
 func _on_texture_button_4_focus_entered():
 	$Hover.play()
