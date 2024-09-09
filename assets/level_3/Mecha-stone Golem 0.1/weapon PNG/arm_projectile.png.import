@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt5tcqu0xv7w7"
-path="res://.godot/imported/mountains.png-2171c7d007365e747ddef5a947313900.ctex"
+uid="uid://iufi781hdlm3"
+path="res://.godot/imported/arm_projectile.png-47b7d8327a654a1b8e7162f616a12040.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/menu_backgrounds/mountains.png"
-dest_files=["res://.godot/imported/mountains.png-2171c7d007365e747ddef5a947313900.ctex"]
+source_file="res://assets/level_3/Mecha-stone Golem 0.1/weapon PNG/arm_projectile.png"
+dest_files=["res://.godot/imported/arm_projectile.png-47b7d8327a654a1b8e7162f616a12040.ctex"]
 
 [params]
 

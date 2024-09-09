@@ -39,7 +39,7 @@ const SLIDE_SPEED := 260.0
 
 @export var can_combo := false
 @export var maxHealth: int = 4  # Maximum health for the player
-@export var knockbackPower: int = 300
+@export var knockbackPower: int = 700
 @export var inventory: Inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres") 
 
 # Get the default gravity value from project settings
