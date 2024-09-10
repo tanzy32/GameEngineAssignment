@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdhb3c64reqbk"]
 
-[ext_resource type="Texture2D" uid="uid://du8n3rt07prcm" path="res://assets/level 4 assests/city_presskit.png" id="1_pnhqm"]
-[ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level 4 assests/Dungeon Tile Set.png" id="2_20ccn"]
+[ext_resource type="Texture2D" uid="uid://du8n3rt07prcm" path="res://assets/level_4 assests/city_presskit.png" id="1_pnhqm"]
+[ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level_4 assests/Dungeon Tile Set.png" id="2_20ccn"]
 [ext_resource type="PackedScene" uid="uid://ic0b6imn3aua" path="res://scenes/levels/level_1/player.tscn" id="3_oa551"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r85gl"]
