@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c700awxere05o"]
+[gd_scene load_steps=24 format=3 uid="uid://c700awxere05o"]
 
 [ext_resource type="Texture2D" uid="uid://ckgrviugumsmb" path="res://assets/level_4 boss/Boss.png" id="1_vltdu"]
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/crystal_knight_boss.gd" id="1_y0rw8"]
@@ -11,14 +11,6 @@
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/MeleeLeft.gd" id="7_idt0l"]
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/MeleeRight.gd" id="8_p2xfg"]
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/LongRangeSkill.gd" id="9_7wris"]
-[ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/Death.gd" id="10_0u4fq"]
-[ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/TeleportAway.gd" id="11_21gy4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fd1b"]
-size = Vector2(87, 45.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_btlp1"]
-size = Vector2(43.9135, 61.0212)
 
 [sub_resource type="Animation" id="Animation_f7de5"]
 resource_name = "Death"
@@ -93,17 +85,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FiniteStateMachine/LongRangeSkill")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_w7bqc"]
@@ -301,16 +282,16 @@ _data = {
 "boss_slained": SubResource("Animation_yb2am")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g3qsm"]
-radius = 28.75
-height = 95.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iynpo"]
+radius = 37.0
+height = 102.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej6vd"]
 radius = 100.0
 
 [node name="CrystalKnightBoss" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_y0rw8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -321,15 +302,6 @@ hframes = 7
 vframes = 6
 frame = 7
 
-[node name="hitBox" type="Area2D" parent="Sprite2D"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/hitBox"]
-position = Vector2(-0.5, -2.25)
-shape = SubResource("RectangleShape2D_8fd1b")
-disabled = true
-
 [node name="Pivot" type="Node2D" parent="."]
 position = Vector2(0, -46)
 
@@ -339,15 +311,6 @@ scale = Vector2(1.24016, 1.60938)
 texture = ExtResource("2_6jy4j")
 hframes = 9
 
-[node name="hitBox" type="Area2D" parent="Pivot/Sprite2D"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sprite2D/hitBox"]
-position = Vector2(41.1237, 1.30683)
-shape = SubResource("RectangleShape2D_btlp1")
-disabled = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nk642")
@@ -355,13 +318,14 @@ libraries = {
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -50)
-shape = SubResource("CapsuleShape2D_g3qsm")
+position = Vector2(0, -52)
+shape = SubResource("CapsuleShape2D_iynpo")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(0, -39)
+position = Vector2(3, -39)
 shape = SubResource("CircleShape2D_ej6vd")
 
 [node name="FiniteStateMachine" type="Node2D" parent="."]
@@ -383,10 +347,10 @@ script = ExtResource("8_p2xfg")
 script = ExtResource("9_7wris")
 
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_0u4fq")
+script = ExtResource("4_oydtd")
 
 [node name="TeleportAway" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("11_21gy4")
+script = ExtResource("4_oydtd")
 
 [node name="TeleportHere" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("4_oydtd")
@@ -402,7 +366,6 @@ anchor_bottom = 1.0
 offset_top = -27.0
 offset_right = 200.0
 grow_vertical = 0
-max_value = 500.0
 value = 100.0
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
@@ -444,11 +407,5 @@ offset_bottom = -109.0
 text = "Debug"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="TeleportTimer" type="Timer" parent="."]
-wait_time = 5.0
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
