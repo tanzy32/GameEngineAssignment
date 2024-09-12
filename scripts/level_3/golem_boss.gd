@@ -3,10 +3,12 @@ extends CharacterBody2D
 @onready var player: MyPlayer = $"../Player"
 @onready var golem: Sprite2D = $Golem
 @onready var progress_bar: ProgressBar = $UI/ProgressBar
+@onready var hit_box: Area2D = $Golem/hitBox
+@onready var collision_shape_2d: CollisionShape2D = $Golem/hitBox/CollisionShape2D
 
 var direction : Vector2
 var DEF = 0
-var health = 5
+var health = 500.0
 var gravity = 500.0 
 var max_fall_speed = 200.0 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr7xt4okqlgcv"]
+[gd_scene load_steps=12 format=3 uid="uid://dr7xt4okqlgcv"]
 
 [ext_resource type="Script" path="res://scripts/level_3/Bullet.gd" id="1_mje5u"]
 [ext_resource type="Texture2D" uid="uid://dvuj16l8d0nqn" path="res://assets/level_3/Mecha-stone Golem 0.1/weapon PNG/arm_projectile_glowing.png" id="2_ax6t5"]
@@ -56,6 +56,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k35b6"]
 size = Vector2(36, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwqjx"]
+size = Vector2(36, 20)
+
 [node name="Bullet" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_mje5u")
@@ -67,5 +70,13 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(27, -13)
 shape = SubResource("RectangleShape2D_k35b6")
+
+[node name="hitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(27, -13)
+shape = SubResource("RectangleShape2D_kwqjx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

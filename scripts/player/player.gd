@@ -169,7 +169,7 @@ func move(gravity: float, delta: float) -> void:
 	
 	handleCollision()
 
-	 # Flip character direction based on movement
+	# Flip character direction based on movement
 	if not is_zero_approx(direction):
 		graphics.scale.x = -1 if direction > 0 else 1
 	
@@ -456,8 +456,14 @@ func hurtByEnemy(area):
 			var fixed_velocity = Vector2(100, 0)  # Example fixed velocity
 			knockback(fixed_velocity)
 		else:
-			# If not a TileMap, assume it has velocity and apply knockback
-			knockback(parent.velocity)
+			# Check if the parent has a velocity property
+			if parent.has_method("get_velocity"):
+				knockback(parent.get_velocity())
+			else:
+				# Fallback to fixed velocity if no velocity property is found
+				print("Parent has no velocity, applying fixed knockback.")
+				var fallback_velocity = Vector2(100, 0)
+				knockback(fallback_velocity)
 		
 		effects.play("hurtBlink")
 		hurtTimer.start()
