@@ -45,8 +45,6 @@ func take_damage():
 	health -= 10 - DEF
 	update_health()
 	
-
-
+# Detect when the hurtbox is entered and apply damage
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	take_damage()
-

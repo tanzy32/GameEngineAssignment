@@ -444,7 +444,7 @@ func hurtByEnemy(area):
 		currentHealth -= 1
 		if currentHealth < 1:
 			currentHealth = maxHealth
-
+			#GameOverScene
 		healthChanged.emit(currentHealth)
 
 		isHurt = true

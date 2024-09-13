@@ -14,10 +14,8 @@ func exit():
 func transition():
 	var distance = owner.direction.length()
 	
-	if distance < 70: 
-		# Player is close, decide on melee based on player's position
-		if owner.direction.x < 0:  # Player is to the left
-			get_parent().change_state("MeleeRight")
+	if distance < 50: 
+		get_parent().change_state("MeleeRight")
 	elif distance > 70 and distance < 100 and owner.is_on_floor():
 		# Randomly decide between LongRangeSkill or TeleportAway
 		var random_choice = randi() % 2  # Get either 0 or 1
