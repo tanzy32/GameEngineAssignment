@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt5tcqu0xv7w7"
-path="res://.godot/imported/mountains.png-2171c7d007365e747ddef5a947313900.ctex"
+uid="uid://bpenjbqi56834"
+path="res://.godot/imported/DEATH.png-f8604d726a6fe2c61a27239048476fbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/menu_backgrounds/mountains.png"
-dest_files=["res://.godot/imported/mountains.png-2171c7d007365e747ddef5a947313900.ctex"]
+source_file="res://assets/level_2 assets/with_outline/DEATH.png"
+dest_files=["res://.godot/imported/DEATH.png-f8604d726a6fe2c61a27239048476fbd.ctex"]
 
 [params]
 
