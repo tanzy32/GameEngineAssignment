@@ -35,8 +35,10 @@ func _on_water_activator_body_exited(body: Node):
 
 func _input(event):
 	if player_nearby and event.is_action_pressed("interact") and is_activate_platformlever:
+		$Open.play()
 		move_platform(activator_number)
 	if player_nearby and event.is_action_pressed("interact") and is_activate_waterlever:
+		$Open.play()
 		change_water()
 		
 func move_platform(number: int):

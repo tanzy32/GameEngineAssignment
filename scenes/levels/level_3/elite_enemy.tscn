@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://poyvp2xsuea6"]
+[gd_scene load_steps=8 format=3 uid="uid://do373m0nqkip1"]
 
 [ext_resource type="Texture2D" uid="uid://csgq24lal87ul" path="res://assets/level_3/Deep-sea_Creatures/DeepseaCreatures_spritesheet.png" id="1_4810f"]
 [ext_resource type="Script" path="res://scripts/level_3/elite_enemy.gd" id="1_al63f"]

@@ -41,6 +41,7 @@ func _process(delta):
 				
 func _ready() -> void:
 	BackgroundMusicMain.stop()
+	$BGM.play()
 	super()
 	label.hide()
 	var used := level_background.get_used_rect()

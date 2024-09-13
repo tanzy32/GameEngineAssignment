@@ -41,6 +41,7 @@ const SLIDE_SPEED := 260.0
 @export var maxHealth: int = 4  # Maximum health for the player
 @export var knockbackPower: int = 700
 @export var inventory: Inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres") 
+@onready var game_over_ui = $GameOverUI
 
 # Get the default gravity value from project settings
 var default_gravity:= ProjectSettings.get("physics/2d/default_gravity") as float
@@ -74,10 +75,9 @@ var current_cooldown_time = 0.0
 @onready var foot_checker: RayCast2D = $Graphics/Sprite2D/FootChecker
 @onready var hurtTimer: Timer = $hurtTimer
 @onready var effects: AnimationPlayer = $Effects
-@onready var death_timer: Timer = $DeathTimer
+@onready var death_timer = $PlayerUI/DeathTimer
 @onready var currentHealth: int = 2
 @onready var slime: Sprite2D = $Graphics/slime
-
 
 
 # Handle unhandled input events
@@ -230,12 +230,14 @@ func knockback(enemyVelocity: Vector2):
 
 func _ready():
 	effects.play("RESET")
+	game_over_ui.visible = false
 	# Initialize player settings
 	inventory.use_item.connect(use_item)
 	Global.playerBody = self  # Register the player in a global variable (if needed)
 	slime.visible = false
 	slime.modulate = Color(1, 1, 1, 0.5)
-	
+	# Reset health
+	currentHealth = maxHealth
 	
 # Determine the next state based on the current state and conditio	
 func get_next_state(state: State) -> State:
@@ -385,27 +387,34 @@ func transition_state(from: State, to: State) -> void:
 			velocity.y = JUMP_VELOCITY
 			coyote_timer.stop()
 			jump_request_timer.stop()
+			$Jump.play()
+
 			
 		State.FALL:
 			animation_player.play("fall")
+			$Fall.play()
 			if from in GROUND_STATES:
 				coyote_timer.start()
 			
 		State.LANDING:
 			jump_count = 0
 			animation_player.play("landing")
+			$Land.play()
 
 		State.WALL_SLIDING:
 			animation_player.play("wall_sliding")
+			$WallSlide.play()
 		
 		State.WALL_JUMP:
 			animation_player.play("jump")
+			$Jump2.play()
 			velocity = WALL_JUMP_VELOCITY
 			velocity.x *= get_wall_normal().x
 			jump_request_timer.stop()
 			
 		State.SLIDE:
 			animation_player.play("slide")
+			$Slide.play()
 
 		State.SLIDE_END:
 			animation_player.play("slide_end")
@@ -413,14 +422,17 @@ func transition_state(from: State, to: State) -> void:
 
 		State.ATTACK_1:
 			animation_player.play("attack01")
+			$Attack1.play()
 			is_combo_requested = false
 		
 		State.ATTACK_2:
 			animation_player.play("attack02")
+			$Attack2.play()
 			is_combo_requested = false
 		
 		State.ATTACK_3:
 			animation_player.play("attack03")
+			$Attack3.play()
 			is_combo_requested = false
 			
 		State.ROW_1:
@@ -430,6 +442,7 @@ func transition_state(from: State, to: State) -> void:
 			print("Entering DEATH state")
 			death_timer.start()
 			animation_player.play("death")
+			$Death.play()
 
 	if to == State.WALL_JUMP:
 		Engine.time_scale = 1.0
@@ -443,12 +456,13 @@ func hurtByEnemy(area):
 	if not is_using_slimy_coat:
 		currentHealth -= 1
 		if currentHealth < 1:
-			currentHealth = maxHealth
-			#GameOverScene
+			game_over()  # Call the game over function
+			return
+			
 		healthChanged.emit(currentHealth)
 
 		isHurt = true
-		
+		$PlayerDamage.play()
 		# Check if the parent of the area is a TileMap to avoid accessing velocity
 		var parent = area.get_parent()
 		if parent is TileMap:
@@ -474,9 +488,23 @@ func hurtByEnemy(area):
 		effects.play("RESET")
 		isHurt = false
 
+func game_over():
+	# Optional: Show Game Over UI or play sound effects
+	print("Game Over! Reloading scene...")
+	game_over_ui.visible = true
+	
+func _on_death_timer_timeout():
+	print("Death timer timed out. Reloading scene...")
+	game_over_ui.visible = false
+	var current_scene = get_tree().current_scene
+	get_tree().reload_current_scene()
+
+
+
 
 func use_item(item: InventoryItem) -> void:
 	print("drink")
+	$UseItem.play()
 	if item == null:
 		print("Item is null")
 		return
@@ -502,6 +530,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		
 func use_slimy_coat():
 	if not is_using_slimy_coat and not in_cooldown:
+		$SlimyCoat.play()
 		is_using_slimy_coat = true
 		current_activation_time = 0.0
 		in_cooldown = true

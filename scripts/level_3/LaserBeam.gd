@@ -1,5 +1,6 @@
 extends StateBoss
 
+@onready var laser = $"../../Laser"
 @onready var pivot = $"../../Pivot"
 var can_transition: bool = false
  
@@ -12,6 +13,7 @@ func enter():
  
 func play_animation(anim_name):
 	boss_animation_player.play(anim_name)
+	laser.play()
 	await boss_animation_player.animation_finished
  
 func set_target():
