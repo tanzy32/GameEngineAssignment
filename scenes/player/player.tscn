@@ -1954,6 +1954,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="BubbleUI" parent="." instance=ExtResource("7_ucyyq")]
+offset = Vector2(361, 277)
+transform = Transform2D(1, 0, 0, 1, 361, 277)
 
 [node name="PlayerUI" parent="." instance=ExtResource("6_ynbb7")]
 
