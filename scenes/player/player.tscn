@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d073oe2bjayce"]
+[gd_scene load_steps=51 format=3 uid="uid://d073oe2bjayce"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_xuxsi"]
 [ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
@@ -8,6 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://bq0eoa3h4c2bt" path="res://scenes/levels/global/player_ui.tscn" id="6_ynbb7"]
 [ext_resource type="Texture2D" uid="uid://b8fk0abaonlh1" path="res://assets/level_1/Slimes/slime_idle1.png" id="7_khro0"]
 [ext_resource type="PackedScene" uid="uid://dl0wvpqnidlxb" path="res://scenes/levels/level_3/bubbleUI.tscn" id="7_ucyyq"]
+[ext_resource type="AudioStream" uid="uid://cvfyy2a5rrqfh" path="res://assets/audio/sfx/12_human_jump_1.wav" id="8_ksph6"]
+[ext_resource type="AudioStream" uid="uid://ds0pnhtv80o48" path="res://assets/audio/sfx/13_human_jump_land_1.wav" id="9_aiqf5"]
+[ext_resource type="AudioStream" uid="uid://npscc1kic28h" path="res://assets/audio/sfx/45_Landing_01.wav" id="9_ftkx0"]
+[ext_resource type="AudioStream" uid="uid://bqmjov0lygr1j" path="res://assets/audio/sfx/15_human_dash_1.wav" id="10_45ovy"]
+[ext_resource type="AudioStream" uid="uid://csoasn2udsrmo" path="res://assets/audio/sfx/07_human_atk_sword_1.wav" id="11_p0vpw"]
+[ext_resource type="AudioStream" uid="uid://d1kk74r4l0cfe" path="res://assets/audio/sfx/07_human_atk_sword_2.wav" id="12_8yed1"]
+[ext_resource type="AudioStream" uid="uid://bilpcsr0gmkb7" path="res://assets/audio/sfx/07_human_atk_sword_3.wav" id="13_o2cy3"]
+[ext_resource type="AudioStream" uid="uid://c46rsqkkqiulh" path="res://assets/audio/sfx/15_human_dash_2.wav" id="14_eo2l5"]
+[ext_resource type="AudioStream" uid="uid://bdadff085lfv5" path="res://assets/audio/sfx/14_human_death_spin.wav" id="16_r5tke"]
+[ext_resource type="AudioStream" uid="uid://t6todu23a6p" path="res://assets/audio/sfx/03_Step_grass_03.wav" id="17_qnf38"]
+[ext_resource type="AudioStream" uid="uid://qo2tvyj5c0ox" path="res://assets/audio/sfx/051_use_item_01.wav" id="18_ce5k8"]
+[ext_resource type="AudioStream" uid="uid://bfii33qubkpm7" path="res://assets/audio/sfx/08_human_charge_2.wav" id="19_g75bf"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="20_kd2qg"]
+[ext_resource type="AudioStream" uid="uid://d4c46sbmrob82" path="res://assets/audio/sfx/11_human_damage_2.wav" id="20_x4v56"]
+[ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="25_htkat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md4mc"]
 size = Vector2(9, 25)
@@ -1806,6 +1821,36 @@ collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_xuxsi")
 
+[node name="GameOverUI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Panel" type="Panel" parent="GameOverUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOverUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -75.0
+offset_right = 260.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("20_kd2qg")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Graphics" type="Node2D" parent="."]
@@ -1952,6 +1997,76 @@ libraries = {
 [node name="hurtTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ksph6")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Jump2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_aiqf5")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Land" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ftkx0")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Attack1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_p0vpw")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Attack2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8yed1")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Attack3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_o2cy3")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Slide" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_45ovy")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="WallSlide" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_eo2l5")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_r5tke")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_qnf38")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="UseItem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ce5k8")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="SlimyCoat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_g75bf")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="PlayerDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_x4v56")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_htkat")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="BubbleUI" parent="." instance=ExtResource("7_ucyyq")]
 offset = Vector2(361, 277)

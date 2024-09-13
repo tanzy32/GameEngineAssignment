@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq0eoa3h4c2bt"]
+[gd_scene load_steps=9 format=3 uid="uid://bq0eoa3h4c2bt"]
 
 [ext_resource type="PackedScene" uid="uid://b5vd10rcolxlx" path="res://scenes/menus/pause_menu.tscn" id="1_35q08"]
 [ext_resource type="Script" path="res://scripts/global/player_ui.gd" id="1_bp4as"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://pl5jybksp1nl" path="res://scenes/levels/global/hearts_container.tscn" id="4_bianm"]
 [ext_resource type="Texture2D" uid="uid://b5gquffx04ys5" path="res://assets/level_1/Mondstadt Background Wallpaper/Mondstadt Background Wallpaper/windrise-background.png" id="6_1apv8"]
 [ext_resource type="Texture2D" uid="uid://vawr64fnm4j4" path="res://assets/level_1/pixel_art_mountains_parallax/layers/clouds_big.png" id="7_gv7kf"]
+[ext_resource type="AudioStream" uid="uid://b5sdxoy4angp" path="res://assets/audio/sfx/001_Hover_01.wav" id="8_1kf20"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 process_mode = 3
@@ -60,6 +61,11 @@ texture = ExtResource("6_1apv8")
 position = Vector2(577.5, 177)
 scale = Vector2(7.19375, 4.325)
 texture = ExtResource("7_gv7kf")
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1kf20")
+volume_db = 1.0
+bus = &"SFX"
 
 [connection signal="closed" from="InventoryGUI" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="InventoryGUI" to="." method="_on_inventory_gui_opened"]
