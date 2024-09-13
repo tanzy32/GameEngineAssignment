@@ -59,7 +59,7 @@ var cooldown_timer = 30.0
 var activation_timer = 5.0
 var current_activation_time = 0.0
 var current_cooldown_time = 0.0
-
+var is_game_over = false
 
 # Cache references to various nodes
 @onready var animation_player = $AnimationPlayer
@@ -78,10 +78,16 @@ var current_cooldown_time = 0.0
 @onready var death_timer = $PlayerUI/DeathTimer
 @onready var currentHealth: int = 2
 @onready var slime: Sprite2D = $Graphics/slime
+@onready var reload_timer = $ReloadTimer
 
 
 # Handle unhandled input events
 func _unhandled_input(event: InputEvent) -> void:
+	# Check if the game is over
+	if is_game_over:
+		# Ignore all input events if the game over UI is visible
+		return
+	
 	if event.is_action_pressed("jump"):
 		jump_request_timer.start()
 	
@@ -102,6 +108,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("slimyCoat"):
 		use_slimy_coat()
+		
+
 
 
 # Update physics for each state
@@ -230,7 +238,8 @@ func knockback(enemyVelocity: Vector2):
 
 func _ready():
 	effects.play("RESET")
-	game_over_ui.visible = false
+	if game_over_ui.visible:
+		set_process_unhandled_input(false)
 	# Initialize player settings
 	inventory.use_item.connect(use_item)
 	Global.playerBody = self  # Register the player in a global variable (if needed)
@@ -437,6 +446,7 @@ func transition_state(from: State, to: State) -> void:
 			
 		State.ROW_1:
 			animation_player.play("row01")
+			$Arrow.play()
 			
 		State.DEATH:
 			print("Entering DEATH state")
@@ -489,18 +499,14 @@ func hurtByEnemy(area):
 		isHurt = false
 
 func game_over():
-	# Optional: Show Game Over UI or play sound effects
-	print("Game Over! Reloading scene...")
-	game_over_ui.visible = true
-	
-func _on_death_timer_timeout():
-	print("Death timer timed out. Reloading scene...")
-	game_over_ui.visible = false
-	var current_scene = get_tree().current_scene
-	get_tree().reload_current_scene()
-
-
-
+	get_tree().paused = true
+	is_game_over = true
+	$GameOverUI.visible = true
+	$BubbleUI.visible = false
+	$PlayerUI.visible = false
+	# Disable processing of physics and input
+	set_process(false)
+	set_physics_process(false)
 
 func use_item(item: InventoryItem) -> void:
 	print("drink")

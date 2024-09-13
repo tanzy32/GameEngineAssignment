@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d073oe2bjayce"]
+[gd_scene load_steps=52 format=3 uid="uid://d073oe2bjayce"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_xuxsi"]
 [ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
@@ -20,8 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://t6todu23a6p" path="res://assets/audio/sfx/03_Step_grass_03.wav" id="17_qnf38"]
 [ext_resource type="AudioStream" uid="uid://qo2tvyj5c0ox" path="res://assets/audio/sfx/051_use_item_01.wav" id="18_ce5k8"]
 [ext_resource type="AudioStream" uid="uid://bfii33qubkpm7" path="res://assets/audio/sfx/08_human_charge_2.wav" id="19_g75bf"]
-[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="20_kd2qg"]
 [ext_resource type="AudioStream" uid="uid://d4c46sbmrob82" path="res://assets/audio/sfx/11_human_damage_2.wav" id="20_x4v56"]
+[ext_resource type="PackedScene" uid="uid://cptx4idgwybhd" path="res://scenes/menus/game_over_ui.tscn" id="21_nl684"]
+[ext_resource type="AudioStream" uid="uid://s2obypkspu7q" path="res://assets/audio/sfx/27_sword_miss_3.wav" id="21_tdro2"]
 [ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="25_htkat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md4mc"]
@@ -1821,36 +1822,6 @@ collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_xuxsi")
 
-[node name="GameOverUI" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Panel" type="Panel" parent="GameOverUI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GameOverUI/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -260.0
-offset_top = -75.0
-offset_right = 260.0
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("20_kd2qg")
-theme_override_font_sizes/font_size = 100
-text = "Game Over"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Graphics" type="Node2D" parent="."]
@@ -2067,6 +2038,15 @@ bus = &"SFX"
 stream = ExtResource("25_htkat")
 volume_db = -10.0
 bus = &"SFX"
+
+[node name="Arrow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_tdro2")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="GameOverUI" parent="." instance=ExtResource("21_nl684")]
+process_mode = 3
+visible = false
 
 [node name="BubbleUI" parent="." instance=ExtResource("7_ucyyq")]
 offset = Vector2(361, 277)

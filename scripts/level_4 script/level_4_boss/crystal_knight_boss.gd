@@ -10,6 +10,7 @@ extends CharacterBody2D
 
 
 
+
 var direction : Vector2
 var DEF = 0
 var health = 500.0
@@ -48,9 +49,14 @@ func update_health():
 	if health <= 0:
 		progress_bar.visible = false
 		find_child("FiniteStateMachine").change_state("Death")
+		get_tree().change_scene_to_file("res://scenes/menus/ending_scene.tscn")
 	elif health <= progress_bar.max_value / 2 and DEF == 0:
 		DEF = 5
 	
+
+
+
+
 # Detect when the hurtbox is entered and apply damage
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	take_damage()
@@ -59,5 +65,3 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 
 
 
-func _on_hit_box_body_entered(body):
-	print("Player entered")

@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://cptx4idgwybhd"]
+
+[ext_resource type="Script" path="res://scripts/menus/game_over_ui.gd" id="1_ac7vl"]
+[ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="1_ikowa"]
+[ext_resource type="Texture2D" uid="uid://clwwpcrox07ka" path="res://assets/menu/buttons/Normal Button.png" id="2_g4ja2"]
+[ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="2_yvdys"]
+[ext_resource type="Texture2D" uid="uid://7xi83a03276o" path="res://assets/menu/buttons/Pressed Button.png" id="3_ehw2a"]
+[ext_resource type="Texture2D" uid="uid://bv6wyqqj3hmbq" path="res://assets/menu/buttons/Hover Button.png" id="4_12kfh"]
+[ext_resource type="AudioStream" uid="uid://bwx2vjnvvi8os" path="res://assets/audio/sfx/MI_SFX 05.wav" id="7_g6vaq"]
+
+[node name="GameOverUI" type="CanvasLayer"]
+script = ExtResource("1_ac7vl")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -75.0
+offset_right = 260.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_ikowa")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 354.0
+offset_top = 383.0
+offset_right = 796.0
+offset_bottom = 437.0
+theme_override_constants/separation = 150
+
+[node name="MainMenuTextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ResumeTextureButton")
+texture_normal = ExtResource("2_g4ja2")
+texture_pressed = ExtResource("3_ehw2a")
+texture_hover = ExtResource("4_12kfh")
+texture_focused = ExtResource("4_12kfh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MainMenuTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MainMenuTextureButton/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ikowa")
+theme_override_font_sizes/font_size = 21
+text = "Main Menu
+"
+horizontal_alignment = 1
+
+[node name="RestartTextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_g4ja2")
+texture_pressed = ExtResource("3_ehw2a")
+texture_hover = ExtResource("4_12kfh")
+texture_focused = ExtResource("4_12kfh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RestartTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/RestartTextureButton/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ikowa")
+theme_override_font_sizes/font_size = 21
+text = "Restart"
+horizontal_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yvdys")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_g6vaq")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="focus_entered" from="HBoxContainer/MainMenuTextureButton" to="." method="_on_main_menu_texture_button_focus_entered"]
+[connection signal="pressed" from="HBoxContainer/MainMenuTextureButton" to="." method="_on_main_menu_texture_button_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/RestartTextureButton" to="." method="_on_restart_texture_button_focus_entered"]
+[connection signal="pressed" from="HBoxContainer/RestartTextureButton" to="." method="_on_restart_texture_button_pressed"]

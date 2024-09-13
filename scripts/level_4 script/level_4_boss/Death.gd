@@ -13,4 +13,5 @@ func enter():
 	await death.finished
 	success.play()
 	animation_player.play("boss_slained")
+	await animation_player.animation_finished
 	
