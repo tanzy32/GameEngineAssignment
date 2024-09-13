@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c700awxere05o"]
+[gd_scene load_steps=34 format=3 uid="uid://c700awxere05o"]
 
 [ext_resource type="Texture2D" uid="uid://ckgrviugumsmb" path="res://assets/level_4 boss/Boss.png" id="1_vltdu"]
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/crystal_knight_boss.gd" id="1_y0rw8"]
@@ -13,6 +13,11 @@
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/LongRangeSkill.gd" id="9_7wris"]
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/Death.gd" id="10_0u4fq"]
 [ext_resource type="Script" path="res://scripts/level_4 script/level_4_boss/TeleportAway.gd" id="11_21gy4"]
+[ext_resource type="AudioStream" uid="uid://4w6mu8xn11g4" path="res://assets/audio/sfx/Retro Success Melody 04 - electric piano 2.wav" id="14_grgc3"]
+[ext_resource type="AudioStream" uid="uid://bj81pgcghh5ny" path="res://assets/audio/sfx/Retro Charge Magic 11.wav" id="15_ec8ke"]
+[ext_resource type="AudioStream" uid="uid://1lvqu02fkp0" path="res://assets/audio/sfx/Retro Explosion Short 01.wav" id="16_rx6l4"]
+[ext_resource type="AudioStream" uid="uid://cmk8b7p2a30pg" path="res://assets/audio/sfx/56_Attack_03.wav" id="17_rhsrf"]
+[ext_resource type="AudioStream" uid="uid://c2uv8t6epdrpv" path="res://assets/audio/sfx/18_Thunder_02.wav" id="18_so3ip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fd1b"]
 size = Vector2(87, 45.5)
@@ -477,6 +482,31 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_6w1x0")
+
+[node name="Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_grgc3")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="Teleport" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ec8ke")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_rx6l4")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="Attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_rhsrf")
+volume_db = 15.0
+bus = &"SFX"
+
+[node name="Skill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_so3ip")
+volume_db = 5.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Sprite2D/hitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]

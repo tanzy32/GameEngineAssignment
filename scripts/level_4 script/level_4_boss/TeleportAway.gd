@@ -1,5 +1,6 @@
 extends Lvl4BossState
 
+@onready var teleport = $"../../Teleport"
 @onready var teleport_timer : Timer = Timer.new()  # Timer to control teleport timing
 var teleport_distance = 30  # Fixed distance for teleportation from the player's position
 var can_transition: bool = false
@@ -19,6 +20,7 @@ func exit():
 	super.exit()
 
 func _teleport():
+	teleport.play()
 	if owner.player == null:
 		print("Error: Player node is null, cannot teleport.")
 		return

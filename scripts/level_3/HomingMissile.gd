@@ -1,5 +1,8 @@
 extends StateBoss
 
+@onready var missile = $"../../Missile"
+
+
 @export var bullet_node: PackedScene
 var can_transition: bool = false
 
@@ -8,6 +11,7 @@ func enter():
 	boss_animation_player.play("ranged_attack")
 	await boss_animation_player.animation_finished
 	shoot()
+	missile.play()
 	get_parent().change_state("Follow")
 
 func shoot():

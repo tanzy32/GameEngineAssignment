@@ -12,3 +12,4 @@ func _ready() -> void:
 	playerui.get_child(3).setMaxHearts(player.maxHealth)
 	playerui.get_child(3).updateHearts(player.currentHealth)
 	player.healthChanged.connect(playerui.get_child(3).updateHearts)
+ 
