@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://diceb4eg6tk6b"]
+[gd_scene load_steps=2 format=3 uid="uid://dl0wvpqnidlxb"]
 
 [ext_resource type="Texture2D" uid="uid://bmldxr21nf3dm" path="res://assets/level_3/bubbles.svg" id="1_d4lqx"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_left = 48.0
 offset_top = 32.0
 offset_right = 392.0
