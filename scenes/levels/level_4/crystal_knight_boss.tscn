@@ -17,8 +17,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fd1b"]
 size = Vector2(87, 45.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_btlp1"]
-size = Vector2(43.9135, 61.0212)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5tx2"]
+size = Vector2(42.7364, 62.5105)
 
 [sub_resource type="Animation" id="Animation_f7de5"]
 resource_name = "Death"
@@ -321,9 +321,8 @@ height = 95.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej6vd"]
 radius = 100.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qcdo4"]
-radius = 33.0
-height = 96.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w1x0"]
+size = Vector2(42, 45)
 
 [node name="CrystalKnightBoss" type="CharacterBody2D"]
 collision_layer = 4
@@ -343,7 +342,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/hitBox"]
-position = Vector2(-0.5, -2.25)
+position = Vector2(0.561404, 10.0174)
 shape = SubResource("RectangleShape2D_8fd1b")
 disabled = true
 
@@ -357,14 +356,12 @@ texture = ExtResource("2_6jy4j")
 hframes = 9
 
 [node name="hitBox" type="Area2D" parent="Pivot/Sprite2D"]
-light_mask = 4
-visibility_layer = 0
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sprite2D/hitBox"]
-position = Vector2(41.1237, 1.30683)
-shape = SubResource("RectangleShape2D_btlp1")
+position = Vector2(43.5428, 3.72814)
+shape = SubResource("RectangleShape2D_a5tx2")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -471,12 +468,13 @@ wait_time = 5.0
 wait_time = 5.0
 
 [node name="hurtbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 0
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-1, -52)
-shape = SubResource("CapsuleShape2D_qcdo4")
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_6w1x0")
 
+[connection signal="area_entered" from="Sprite2D/hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
