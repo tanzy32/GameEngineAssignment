@@ -342,10 +342,10 @@ frame = 7
 [node name="hitBox" type="Area2D" parent="Sprite2D"]
 position = Vector2(-24.1403, 26.1565)
 collision_layer = 4
+collision_mask = 0
 
 [node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
 position = Vector2(24.6535, -21.8356)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l8ccn")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -360,10 +360,10 @@ hframes = 9
 [node name="hitBox" type="Area2D" parent="Pivot/Sprite2D"]
 position = Vector2(-24.1904, 29.8251)
 collision_layer = 4
+collision_mask = 0
 
 [node name="hitbox" type="CollisionShape2D" parent="Pivot/Sprite2D/hitBox"]
 position = Vector2(63.0435, -24.1043)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l8ccn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
