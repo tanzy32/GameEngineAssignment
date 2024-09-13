@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bfrj1xbks6sb"]
 
-[ext_resource type="Script" path="res://scenes/levels/level_4/lever.gd" id="1_aq8r0"]
-[ext_resource type="Texture2D" uid="uid://cxuxivkct6w43" path="res://assets/level 4 assests/lever_left_removebg.png" id="1_g2c20"]
-[ext_resource type="Texture2D" uid="uid://c2gl3kmeluvd4" path="res://assets/level 4 assests/lever_default-removebg-preview.png" id="2_klgrw"]
+[ext_resource type="Script" path="res://scripts/level 4 script/lever.gd" id="1_dmibn"]
+[ext_resource type="Texture2D" uid="uid://cxuxivkct6w43" path="res://assets/level_4 assests/lever_left_removebg.png" id="1_g2c20"]
+[ext_resource type="Texture2D" uid="uid://c2gl3kmeluvd4" path="res://assets/level_4 assests/lever_default-removebg-preview.png" id="2_klgrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i84td"]
 size = Vector2(17, 9)
@@ -101,7 +101,7 @@ _data = {
 
 [node name="lever" type="Area2D"]
 position = Vector2(73, 101)
-script = ExtResource("1_aq8r0")
+script = ExtResource("1_dmibn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-71, -112)
