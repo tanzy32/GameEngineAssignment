@@ -19,3 +19,4 @@ texture = ExtResource("1_p8xva")
 position = Vector2(-48.5, -19.5)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_kf0ac")
+one_way_collision = true

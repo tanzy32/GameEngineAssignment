@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr80fvv6wa8th"]
+
+[ext_resource type="Script" path="res://scripts/level_3/squid.gd" id="1_7tqx8"]
+[ext_resource type="Texture2D" uid="uid://cdnqe7u04e66a" path="res://assets/level_3/SpearFishing Assets Pack/Sprites/Squid - 32x16.png" id="2_7mkbr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0putt"]
+atlas = ExtResource("2_7mkbr")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45crk"]
+atlas = ExtResource("2_7mkbr")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1erel"]
+atlas = ExtResource("2_7mkbr")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwq68"]
+atlas = ExtResource("2_7mkbr")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3vla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0putt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45crk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1erel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwq68")
+}],
+"loop": true,
+"name": &"squid",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_444eo"]
+radius = 18.0
+height = 72.0
+
+[node name="Squid" type="CharacterBody2D"]
+collision_layer = 6
+collision_mask = 2
+script = ExtResource("1_7tqx8")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 0.647059, 0, 1)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_e3vla")
+animation = &"squid"
+autoplay = "squid"
+frame = 2
+frame_progress = 0.722757
+
+[node name="RayCastLeft" type="RayCast2D" parent="sprite"]
+target_position = Vector2(-9.66667, -0.333333)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="sprite"]
+target_position = Vector2(13.6667, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_444eo")
