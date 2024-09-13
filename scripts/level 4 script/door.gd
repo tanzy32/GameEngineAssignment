@@ -36,3 +36,7 @@ func _hide_message():
 
 
 
+
+
+func _on_transition_area_body_entered(body):
+	pass # Replace with function body.

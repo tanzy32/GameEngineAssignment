@@ -5,13 +5,13 @@ var dir: Vector2
 
 var is_bat_chase: bool
 var player: CharacterBody2D
-var max_hp = 100
-var current_hp = 100
+var max_hp = 1000
+var current_health = 3
+var is_dead: bool = false
 
 func _ready():
 	is_bat_chase = true
-	$ProgressBar.max_value = max_hp
-	$ProgressBar.value = current_hp
+	
 
 func _process(delta):
 	move(delta)
@@ -44,10 +44,20 @@ func choose (array):
 	array.shuffle()
 	return array.front()
 	
+func _on_hurt_box_area_entered(area):
+	if area == $hitBox || area == $hurtBox: return
+	
+	if current_health <= 1:
+		$hitBox.set_deferred("monitorable",false)
+		is_dead = true
+		queue_free()
+	current_health -= 1	
+	print(current_health)
+
 func take_damage(damage):
-	current_hp -=damage
-	$ProgressBar.value = current_hp
-	if current_hp <=0:
+	current_health -=damage
+	$ProgressBar.value = current_health
+	if current_health <=0:
 		die()
 		
 func die():
