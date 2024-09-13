@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=8 format=3 uid="uid://yicr7t1ikpy"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://bxk1xeb805k1b"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://csgq24lal87ul" path="res://assets/level_3/Deep-sea_Creatures/DeepseaCreatures_spritesheet.png" id="1_ridpc"]
 [ext_resource type="Script" path="res://scripts/level_3/elite_enemy.gd" id="1_wsiu2"]

@@ -7,9 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://frgv28ej0vgr" path="res://scenes/levels/level_3/activators.tscn" id="4_2lpg4"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="4_dere7"]
 [ext_resource type="PackedScene" uid="uid://dangbrmre4p3j" path="res://scenes/levels/level_3/platform.tscn" id="5_0vsqr"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://scenes/levels/level_3/enemyfish.tscn" id="6_8dovg"]
 [ext_resource type="PackedScene" path="res://scenes/levels/level_3/squid.tscn" id="6_42wwr"]
 [ext_resource type="PackedScene" uid="uid://yicr7t1ikpy" path="res://scenes/levels/level_3/elite_enemy.tscn" id="8_2rc2g"]
+=======
+[ext_resource type="PackedScene" uid="uid://jqpyob3c5ebn" path="res://scenes/levels/level_3/enemyfish.tscn" id="6_8dovg"]
+[ext_resource type="PackedScene" uid="uid://ueav18djgso8" path="res://scenes/levels/level_3/squid.tscn" id="6_42wwr"]
+[ext_resource type="PackedScene" uid="uid://bxk1xeb805k1b" path="res://scenes/levels/level_3/elite_enemy.tscn" id="8_2rc2g"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xd02s"]
 resource_name = "structure"
