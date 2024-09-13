@@ -39,10 +39,11 @@ collision_mask = 2
 script = ExtResource("1_al63f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_668uv")
 autoplay = "default"
-frame_progress = 0.9066
+frame_progress = 0.886542
 
 [node name="RayCastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
 target_position = Vector2(-13, 0)
@@ -53,6 +54,7 @@ target_position = Vector2(13.5, 0)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4s8e5")
@@ -60,6 +62,7 @@ shape = SubResource("CapsuleShape2D_4s8e5")
 [node name="hitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+visible = false
 position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4s8e5")
