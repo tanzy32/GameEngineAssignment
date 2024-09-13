@@ -38,6 +38,7 @@ func _process(delta):
 	move_and_slide()
 
 func _jump():
+	$Jump.play()
 	# Determine the direction of the jump
 	var direction = -1 if randi() % 2 == 0 else 1
 	velocity.x = direction * horizontal_jump_speed

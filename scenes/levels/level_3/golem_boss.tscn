@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dspfp3286yjbu"]
+[gd_scene load_steps=34 format=3 uid="uid://dspfp3286yjbu"]
 
 [ext_resource type="Script" path="res://scripts/level_3/golem_boss.gd" id="1_0kuxh"]
 [ext_resource type="Texture2D" uid="uid://47mieowf46pg" path="res://assets/level_3/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_y7ntf"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://scripts/level_3/LaserBeam.gd" id="10_w46gl"]
 [ext_resource type="Script" path="res://scripts/level_3/ArmorBuff.gd" id="11_cdnun"]
 [ext_resource type="Script" path="res://scripts/level_3/Death.gd" id="12_ke0bt"]
+[ext_resource type="AudioStream" uid="uid://4w6mu8xn11g4" path="res://assets/audio/sfx/Retro Success Melody 04 - electric piano 2.wav" id="13_wb388"]
+[ext_resource type="AudioStream" uid="uid://1lvqu02fkp0" path="res://assets/audio/sfx/Retro Explosion Short 01.wav" id="14_4uc27"]
+[ext_resource type="AudioStream" uid="uid://cmk8b7p2a30pg" path="res://assets/audio/sfx/56_Attack_03.wav" id="15_o7h43"]
+[ext_resource type="AudioStream" uid="uid://cs0qsjjjjmlsb" path="res://assets/audio/sfx/15_Impact_flesh_02.wav" id="16_tyv30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lufmx"]
 size = Vector2(87, 45.5)
@@ -554,6 +558,26 @@ script = ExtResource("11_cdnun")
 
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("12_ke0bt")
+
+[node name="Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wb388")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4uc27")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="Attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_o7h43")
+volume_db = 15.0
+bus = &"SFX"
+
+[node name="Missile" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_tyv30")
+volume_db = 15.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

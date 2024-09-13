@@ -10,6 +10,7 @@ func enter():
 
 func play_animation(anim_name):
 	animation_player.play(anim_name)
+	$"../../Skill".play()
 	await animation_player.animation_finished
 
 #func set_target():

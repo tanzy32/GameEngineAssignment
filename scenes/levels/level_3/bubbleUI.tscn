@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl0wvpqnidlxb"]
+
+[ext_resource type="Texture2D" uid="uid://bmldxr21nf3dm" path="res://assets/level_3/bubbles.svg" id="1_d4lqx"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 392.0
+offset_bottom = 168.0
+
+[node name="1" type="Sprite2D" parent="TextureRect"]
+position = Vector2(57.6, 46)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="2" type="Sprite2D" parent="TextureRect"]
+position = Vector2(113.6, 46)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="3" type="Sprite2D" parent="TextureRect"]
+position = Vector2(169.6, 46)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="4" type="Sprite2D" parent="TextureRect"]
+position = Vector2(225.6, 46)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="5" type="Sprite2D" parent="TextureRect"]
+position = Vector2(281.6, 46)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="7" type="Sprite2D" parent="TextureRect"]
+position = Vector2(57.6, 102)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="8" type="Sprite2D" parent="TextureRect"]
+position = Vector2(113.6, 102)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="9" type="Sprite2D" parent="TextureRect"]
+position = Vector2(169.6, 102)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="10" type="Sprite2D" parent="TextureRect"]
+position = Vector2(225.6, 102)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="11" type="Sprite2D" parent="TextureRect"]
+position = Vector2(281.6, 102)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_d4lqx")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="6" type="Sprite2D" parent="TextureRect"]
+position = Vector2(394.24, 64.4)
+scale = Vector2(0.16, 0.16)
+hframes = 4
+vframes = 2
+frame = 5

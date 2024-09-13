@@ -35,7 +35,7 @@ func open_chest():
 	is_opened = true
 	emit_signal("chest_opened")  # Emit the chest_opened signal
 	chest.play("open") 
-	
+	$Chest.play()
 	await chest.animation_finished
 	
 	if randf() <= potion_drop_chance:
