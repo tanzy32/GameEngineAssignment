@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ueav18djgso8"]
+[gd_scene load_steps=9 format=3 uid="uid://cr80fvv6wa8th"]
 
 [ext_resource type="Script" path="res://scripts/level_3/squid.gd" id="1_7tqx8"]
 [ext_resource type="Texture2D" uid="uid://cdnqe7u04e66a" path="res://assets/level_3/SpearFishing Assets Pack/Sprites/Squid - 32x16.png" id="2_7mkbr"]
@@ -40,8 +40,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_444eo"]
-radius = 9.0
-height = 36.0
+radius = 18.0
+height = 72.0
 
 [node name="Squid" type="CharacterBody2D"]
 collision_layer = 6
@@ -50,7 +50,7 @@ script = ExtResource("1_7tqx8")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1, 0.647059, 0, 1)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_e3vla")
 animation = &"squid"
 autoplay = "squid"
@@ -58,11 +58,11 @@ frame = 2
 frame_progress = 0.722757
 
 [node name="RayCastLeft" type="RayCast2D" parent="sprite"]
-target_position = Vector2(-17.6667, 0.333333)
+target_position = Vector2(-9.66667, -0.333333)
 collision_mask = 2
 
 [node name="RayCastRight" type="RayCast2D" parent="sprite"]
-target_position = Vector2(21.6667, 0)
+target_position = Vector2(13.6667, 0)
 collision_mask = 2
 collide_with_areas = true
 
