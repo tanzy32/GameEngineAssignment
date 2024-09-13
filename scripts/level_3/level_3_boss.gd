@@ -5,6 +5,7 @@ extends Node2D
 @onready var level_background: TileMap = $"Level background"
 
 func _ready() -> void:
+	BackgroundMusicMain.stop()
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	

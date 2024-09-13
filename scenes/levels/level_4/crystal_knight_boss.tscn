@@ -18,7 +18,7 @@
 size = Vector2(87, 45.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5tx2"]
-size = Vector2(42.7364, 62.5105)
+size = Vector2(49.5904, 62.5105)
 
 [sub_resource type="Animation" id="Animation_f7de5"]
 resource_name = "Death"
@@ -322,7 +322,7 @@ height = 95.0
 radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w1x0"]
-size = Vector2(42, 45)
+size = Vector2(60, 83.5)
 
 [node name="CrystalKnightBoss" type="CharacterBody2D"]
 collision_layer = 4
@@ -338,6 +338,7 @@ vframes = 6
 frame = 7
 
 [node name="hitBox" type="Area2D" parent="Sprite2D"]
+position = Vector2(-0.561404, -1.11304)
 collision_layer = 4
 collision_mask = 0
 
@@ -356,11 +357,12 @@ texture = ExtResource("2_6jy4j")
 hframes = 9
 
 [node name="hitBox" type="Area2D" parent="Pivot/Sprite2D"]
+position = Vector2(38.7047, 1.24271)
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sprite2D/hitBox"]
-position = Vector2(43.5428, 3.72814)
+position = Vector2(-3.8147e-06, 1.24272)
 shape = SubResource("RectangleShape2D_a5tx2")
 disabled = true
 
@@ -375,6 +377,7 @@ position = Vector2(-1, -50)
 shape = SubResource("CapsuleShape2D_g3qsm")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(0, -39)
@@ -410,7 +413,6 @@ script = ExtResource("4_oydtd")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
 custom_minimum_size = Vector2(200, 10)
 anchors_preset = 2
 anchor_top = 1.0
@@ -419,7 +421,7 @@ offset_top = -27.0
 offset_right = 200.0
 grow_vertical = 0
 max_value = 500.0
-value = 100.0
+value = 500.0
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
 layout_mode = 0
@@ -453,6 +455,7 @@ theme_override_font_sizes/font_size = 40
 text = "Bloss Slained"
 
 [node name="debug" type="Label" parent="."]
+visible = false
 offset_left = -27.0
 offset_top = -132.0
 offset_right = 23.0
@@ -472,9 +475,9 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(0, -2.5)
+position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_6w1x0")
 
-[connection signal="area_entered" from="Sprite2D/hitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="Sprite2D/hitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

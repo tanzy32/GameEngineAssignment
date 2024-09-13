@@ -9,6 +9,7 @@ func _process(delta):
 	pass
 	
 func _ready() -> void:
+	BackgroundMusicMain.stop()
 	super()
 	boss_slime.add_child(slime)
 	

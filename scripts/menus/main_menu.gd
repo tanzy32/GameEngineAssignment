@@ -50,14 +50,6 @@ func _on_settings_texture_button_pressed():
 func _on_settings_texture_button_focus_entered():
 	$Hover.play()
 
-func _on_achievements_texture_button_pressed():
-	$Click.play()
-	await $Click.finished
-	get_tree().change_scene_to_file("res://scenes/menus/achievements.tscn")
-	
-func _on_achievements_texture_button_focus_entered():
-	$Hover.play()
-
 func _on_credits_texture_button_pressed():
 	$Click.play()
 	await $Click.finished

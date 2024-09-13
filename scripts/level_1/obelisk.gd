@@ -27,6 +27,7 @@ func _on_body_exited(body: Node):
 		
 func _input(event):
 	if player_nearby and event.is_action_pressed("interact"):
+		$Puzzle.play()
 		player_nearby = false
 		label.hide()
 		animations.play("run")

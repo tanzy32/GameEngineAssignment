@@ -1,33 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq4w7nd84ebkj"]
+[gd_scene load_steps=5 format=3 uid="uid://bq4w7nd84ebkj"]
 
 [ext_resource type="Script" path="res://scripts/level_3/level_3_boss.gd" id="1_38uym"]
-[ext_resource type="Texture2D" uid="uid://57a3w4b0m6gp" path="res://assets/level_3/sunken_temple_v1/V1/sunken_blocky.png" id="1_qf08r"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="2_7x57g"]
 [ext_resource type="PackedScene" uid="uid://dspfp3286yjbu" path="res://scenes/levels/level_3/golem_boss.tscn" id="3_7hak1"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60o65"]
-texture = ExtResource("1_qf08r")
-3:16/0 = 0
-3:16/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:16/0/physics_layer_0/angular_velocity = 0.0
-3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:16/0 = 0
-4:16/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:16/0/physics_layer_0/angular_velocity = 0.0
-4:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:17/0 = 0
-4:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:17/0/physics_layer_0/angular_velocity = 0.0
-4:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:17/0 = 0
-3:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:17/0/physics_layer_0/angular_velocity = 0.0
-3:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_qjmb6"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 5
-sources/1 = SubResource("TileSetAtlasSource_60o65")
 
 [node name="Level3Boss" type="Node2D"]
 script = ExtResource("1_38uym")

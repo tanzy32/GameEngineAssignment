@@ -5,6 +5,10 @@ extends CharacterBody2D
 @onready var player = $"../Player"
 @onready var pivot = $Pivot
 @onready var progress_bar = $UI/ProgressBar
+@onready var hitbox: Area2D = $Sprite2D/hitBox
+@onready var collision_shape_2d: CollisionShape2D = $Sprite2D/hitBox/CollisionShape2D
+
+
 
 var direction : Vector2
 var DEF = 0
@@ -12,13 +16,7 @@ var health = 500.0
 var gravity = 500.0 
 var max_fall_speed = 200.0 
 
-func update_health():
-	progress_bar.value = health
-	if health <= 0:
-		progress_bar.visible = false
-		find_child("FiniteStateMachine").change_state("Death")
-	elif health <= progress_bar.max_value / 2 and DEF == 0:
-		DEF = 5
+
 
 func _ready():
 	set_physics_process(false)
@@ -45,6 +43,21 @@ func take_damage():
 	health -= 10 - DEF
 	update_health()
 	
+func update_health():
+	progress_bar.value = health
+	if health <= 0:
+		progress_bar.visible = false
+		find_child("FiniteStateMachine").change_state("Death")
+	elif health <= progress_bar.max_value / 2 and DEF == 0:
+		DEF = 5
+	
 # Detect when the hurtbox is entered and apply damage
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	take_damage()
+
+
+
+
+
+func _on_hit_box_body_entered(body):
+	print("Player entered")

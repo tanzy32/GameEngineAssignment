@@ -9,6 +9,7 @@ var is_activate_waterlever: bool = false
 var is_activate_platformlever: bool = false
 
 func _ready():
+	BackgroundMusicMain.stop()
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	

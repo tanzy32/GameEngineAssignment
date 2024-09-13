@@ -17,6 +17,8 @@ func _play_music(music: AudioStream, volume = -5, bus = "Music"):
 func play_bgm():
 	_play_music(background_music)
 	
+func stop_bgm():
+	stop()  # Stop playback of the current stream
 
 
 

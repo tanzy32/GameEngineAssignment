@@ -50,10 +50,10 @@ horizontal_alignment = 1
 
 [node name="ButtonsVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 372.0
-offset_top = 215.0
-offset_right = 771.0
-offset_bottom = 382.0
+offset_left = 375.0
+offset_top = 244.0
+offset_right = 774.0
+offset_bottom = 588.0
 
 [node name="StartTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
 texture_filter = 1
@@ -201,42 +201,6 @@ theme_override_font_sizes/font_size = 21
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="AchievementsTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture_normal = ExtResource("3_1n4ju")
-texture_pressed = ExtResource("4_j84s4")
-texture_hover = ExtResource("5_s6smv")
-texture_focused = ExtResource("5_s6smv")
-stretch_mode = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsVBoxContainer/AchievementsTextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -20.0
-offset_right = 32.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="ButtonsVBoxContainer/AchievementsTextureButton/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 0
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("2_qh6u1")
-theme_override_font_sizes/font_size = 21
-text = "Achievements"
-horizontal_alignment = 1
-
 [node name="CreditsTextureButton" type="TextureButton" parent="ButtonsVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
@@ -335,8 +299,6 @@ bus = &"SFX"
 [connection signal="pressed" from="ButtonsVBoxContainer/LevelsTextureButton" to="." method="_on_levels_texture_button_pressed"]
 [connection signal="focus_entered" from="ButtonsVBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_pressed"]
-[connection signal="focus_entered" from="ButtonsVBoxContainer/AchievementsTextureButton" to="." method="_on_achievements_texture_button_focus_entered"]
-[connection signal="pressed" from="ButtonsVBoxContainer/AchievementsTextureButton" to="." method="_on_achievements_texture_button_pressed"]
 [connection signal="focus_entered" from="ButtonsVBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_pressed"]
 [connection signal="focus_entered" from="ButtonsVBoxContainer/QuitTextureButton" to="." method="_on_quit_texture_button_focus_entered"]
