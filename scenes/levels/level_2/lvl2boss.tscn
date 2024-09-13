@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://da3u75ljd7i3g" path="res://assets/level_2 assets/HD-wallpaper-2d-pixel-art-background-10-sky-cloud-2d-environments-unity-asset-store.png" id="1_qg5hm"]
 [ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_chw27"]
 [ext_resource type="PackedScene" uid="uid://bwl83ubixewog" path="res://scenes/levels/level_2/door.tscn" id="4_pbi36"]
-[ext_resource type="PackedScene" uid="uid://dil08sln4is51" path="res://scenes/levels/level_2/necromancer.tscn" id="6_a5ff7"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_2/necromancer.tscn" id="6_a5ff7"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="6_y5h54"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ww7kx"]
