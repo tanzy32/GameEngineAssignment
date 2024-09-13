@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cb1apmg28lane"]
+[gd_scene load_steps=23 format=3 uid="uid://cb1apmg28lane"]
 
 [ext_resource type="Texture2D" uid="uid://du8n3rt07prcm" path="res://assets/level_4 assests/city_presskit.png" id="1_2g0d3"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="1_mad4v"]
 [ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level_4 assests/Dungeon Tile Set.png" id="1_mnxjm"]
 [ext_resource type="PackedScene" uid="uid://cuqhqtbhqyblk" path="res://scenes/levels/level_2/movingplatvertical.tscn" id="4_bi7io"]
 [ext_resource type="PackedScene" uid="uid://cbupmg7kst0ir" path="res://scenes/levels/level_2/movingplat.tscn" id="5_d5vud"]
+[ext_resource type="Script" path="res://scripts/level 4 script/TransitionArea.gd" id="5_i74x4"]
 [ext_resource type="PackedScene" uid="uid://cm4qs6dpycovx" path="res://scenes/levels/level_4/enemy.tscn" id="5_j4mlr"]
 [ext_resource type="PackedScene" uid="uid://dnw6fdae5km4c" path="res://scenes/levels/level_4/key.tscn" id="6_m65fb"]
 [ext_resource type="PackedScene" uid="uid://b3ymfbe465qbv" path="res://scenes/levels/level_4/door.tscn" id="7_45idg"]
@@ -543,6 +544,9 @@ metadata/_edit_group_ = true
 [node name="Camera2D" parent="Player" index="0"]
 zoom = Vector2(2, 2)
 
+[node name="background" parent="Player/PlayerUI/ParallaxBackground" index="0"]
+visible = false
+
 [node name="door" parent="." instance=ExtResource("7_45idg")]
 position = Vector2(719, 351)
 
@@ -555,6 +559,7 @@ offset_bottom = -10.0
 theme_override_font_sizes/font_size = 9
 
 [node name="TransitionArea" type="Area2D" parent="door"]
+script = ExtResource("5_i74x4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door/TransitionArea"]
 position = Vector2(50, -5.5)
@@ -683,4 +688,5 @@ position = Vector2(579, 236)
 [connection signal="Is_Active" from="leverSwitch" to="bridge" method="_on_lever_switch_is_active"]
 
 [editable path="Player"]
+[editable path="Player/PlayerUI"]
 [editable path="bridge"]
