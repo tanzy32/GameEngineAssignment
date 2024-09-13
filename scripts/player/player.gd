@@ -51,10 +51,14 @@ var is_combo_requested := false
 var has_shot_arrow := false 
 var isHurt: bool = false
 var enemyCollisions = []
+
 var is_using_slimy_coat: bool = false
-var is_using_wings: bool = false
-var is_using_water_walk: bool = false
-var is_using_angel_grace: bool = false
+var in_cooldown = false
+var cooldown_timer = 30.0
+var activation_timer = 5.0
+var current_activation_time = 0.0
+var current_cooldown_time = 0.0
+
 
 # Cache references to various nodes
 @onready var animation_player = $AnimationPlayer
@@ -66,20 +70,15 @@ var is_using_angel_grace: bool = false
 @onready var arrow = preload("res://scenes/player/arrow.tscn")
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var arrow_timer: Timer = $ArrowTimer
-@onready var slimy_coat_timer: Timer = $slimyCoatTimer
-@onready var slimy_coat_cd_timer: Timer = $slimyCoatCDTimer
-@onready var fly_timer: Timer = $FlyTimer
-@onready var fly_cd_timer: Timer = $FlyCDTimer
-@onready var ww_timer: Timer = $WWTimer
-@onready var wwcd_timer: Timer = $WWCDTimer
-@onready var angel_timer: Timer = $AngelTimer
-@onready var angel_cd_timer: Timer = $AngelCDTimer
 @onready var hand_checker: RayCast2D = $Graphics/Sprite2D/HandChecker
 @onready var foot_checker: RayCast2D = $Graphics/Sprite2D/FootChecker
 @onready var hurtTimer: Timer = $hurtTimer
 @onready var effects: AnimationPlayer = $Effects
 @onready var death_timer: Timer = $DeathTimer
 @onready var currentHealth: int = 2
+@onready var slime: Sprite2D = $Graphics/slime
+
+
 
 # Handle unhandled input events
 func _unhandled_input(event: InputEvent) -> void:
@@ -100,19 +99,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("rowAttack"):
 		arrow_timer.start()
-"""
+
 	if event.is_action_pressed("slimyCoat"):
 		use_slimy_coat()
-		
-	if event.is_action_pressed("wings"):
-		use_wings()
-		
-	if event.is_action_pressed("waterWalk"):
-		use_water_walk()
-		
-	if event.is_action_pressed("angelGrace"):
-		use_angel_grace()
-"""
+
 
 # Update physics for each state
 func tick_physics(state: State, delta: float) -> void:		
@@ -176,6 +166,17 @@ func move(gravity: float, delta: float) -> void:
 	if !isHurt:
 		for enemyArea in enemyCollisions:
 			hurtByEnemy(enemyArea)
+			
+	if is_using_slimy_coat:
+		current_activation_time += delta
+		if current_activation_time >= activation_timer:
+			deactivate_slimy_coat()
+			
+	if in_cooldown:
+		current_cooldown_time -= delta
+		if current_cooldown_time <= 0.0:
+			end_cooldown()  # Reset the cooldown and other states
+				
 	move_and_slide()
 	
 func handleCollision():
@@ -232,10 +233,10 @@ func _ready():
 	# Initialize player settings
 	inventory.use_item.connect(use_item)
 	Global.playerBody = self  # Register the player in a global variable (if needed)
-		
+	slime.visible = false
+	slime.modulate = Color(1, 1, 1, 0.5)
 	
-
-
+	
 # Determine the next state based on the current state and conditio	
 func get_next_state(state: State) -> State:
 	var direction := Input.get_axis("left", "right")
@@ -244,8 +245,8 @@ func get_next_state(state: State) -> State:
 	var can_jump := is_on_floor() or coyote_timer.time_left > 0 or jump_count < jump_max
 	var should_jump := can_jump and jump_request_timer.time_left > 0
 	
-	if state in GROUND_STATES and not is_on_floor() and is_using_wings:
-		return State.FALL
+	#if state in GROUND_STATES and not is_on_floor() and is_using_wings:
+		#return State.FALL
 
 	if is_on_floor():
 		jump_count = 0
@@ -498,59 +499,35 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.has_method("is_enemy") and area.is_enemy():
 		queue_free()
-"""
-func use_slimy_coat() -> void:
-	if slimy_coat_cd_timer.time_left <= 0:
+		
+func use_slimy_coat():
+	if not is_using_slimy_coat and not in_cooldown:
 		is_using_slimy_coat = true
-		effects.play("SlimyCoat")
-		slimy_coat_timer.start()
+		current_activation_time = 0.0
+		in_cooldown = true
+		current_cooldown_time = cooldown_timer
+		
+		slime.visible = true
+		
+		print("Slimy coat activated for ", activation_timer, " seconds.")
+	elif in_cooldown:
+		print("Slimy coat is cooling down. Time remaining: ", current_cooldown_time, " seconds.")
+	else:
+		print("Slimy coat is already active.")
+
+func deactivate_slimy_coat():
+	is_using_slimy_coat = false
+	in_cooldown = true
+	current_activation_time = 0.0
+	current_cooldown_time = cooldown_timer
 	
-		await slimy_coat_timer.timeout
-		is_using_slimy_coat = false
-		effects.play("RESET")
-		slimy_coat_cd_timer.start()
+	slime.visible = false
+	
+	print("Slimy coat deactivated. Cooldown started.")
+
+func end_cooldown():
+	in_cooldown = false
+	current_cooldown_time = 0.0
+	print("Cooldown finished. Slimy coat is ready to use again.")
 
 
-func use_wings() -> void:
-	if fly_cd_timer.time_left <= 0:
-		is_using_wings = true
-		velocity.x = RUN_SPEED
-		velocity.y = -JUMP_VELOCITY  # Simulate initial lift
-		effects.play("wings")
-		fly_timer.start()
-		default_gravity = 0
-		
-		await fly_timer.timeout
-		is_using_wings = false
-		default_gravity = ProjectSettings.get("physics/2d/default_gravity") as float
-		
-		effects.play("RESET")
-		fly_cd_timer.start()
-
-
-func use_water_walk() -> void:
-	if wwcd_timer.time_left <= 0:
-		is_using_water_walk = true
-		effects.play("waterwalk")
-		ww_timer.start()
-
-		await ww_timer.timeout
-		is_using_water_walk = false
-		effects.play("RESET")
-		wwcd_timer.start()
-
-
-func use_angel_grace() -> void:
-	if angel_cd_timer.time_left <= 0:
-		is_using_angel_grace = true
-		effects.play("angelgrace")
-		RUN_SPEED = RUN_SPEED * 10
-		# Increase evasion and mobility (e.g., temporary speed boost)
-		angel_timer.start()
-		
-		await angel_timer.timeout
-		RUN_SPEED = RUN_SPEED / 10
-		is_using_angel_grace = false
-		effects.play("RESET")
-		angel_cd_timer.start()
-"""
