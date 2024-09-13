@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://yicr7t1ikpy"]
+
+[ext_resource type="Texture2D" uid="uid://csgq24lal87ul" path="res://assets/level_3/Deep-sea_Creatures/DeepseaCreatures_spritesheet.png" id="1_ridpc"]
+[ext_resource type="Script" path="res://scripts/level_3/elite_enemy.gd" id="1_wsiu2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpq1w"]
+atlas = ExtResource("1_ridpc")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdj6a"]
+atlas = ExtResource("1_ridpc")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3o7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpq1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdj6a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hg7l"]
+radius = 20.0
+height = 44.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7glc"]
+radius = 61.0
+height = 222.0
+
+[node name="EliteEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_wsiu2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_v3o7l")
+frame = 1
+frame_progress = 0.254517
+
+[node name="RayCastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(-19.5, 0)
+collision_mask = 7
+
+[node name="RayCastRight" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(18.5, 0.5)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7hg7l")
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(-1, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7hg7l")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CapsuleShape2D_p7glc")
