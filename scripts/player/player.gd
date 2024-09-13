@@ -432,7 +432,7 @@ func transition_state(from: State, to: State) -> void:
 			animation_player.play("death")
 
 	if to == State.WALL_JUMP:
-		Engine.time_scale = 0.3
+		Engine.time_scale = 1.0
 	if from == State.WALL_JUMP:
 		Engine.time_scale = 1.0
 	
