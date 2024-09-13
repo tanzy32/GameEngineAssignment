@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://4qdjejf4dwip"]
 
-[ext_resource type="Texture2D" uid="uid://yn1nkt2tcp7k" path="res://assets/level 4 assests/bridge-removebg-preview.png" id="1_84g10"]
-[ext_resource type="Script" path="res://scenes/levels/level_4/bridge.gd" id="2_bu3aw"]
-[ext_resource type="Texture2D" uid="uid://dj6xa28myp00c" path="res://assets/level 4 assests/noOpenBridge-nobg.png" id="2_v6dvy"]
+[ext_resource type="Texture2D" uid="uid://yn1nkt2tcp7k" path="res://assets/level_4 assests/bridge-removebg-preview.png" id="1_84g10"]
+[ext_resource type="Script" path="res://scripts/level 4 script/bridge.gd" id="2_bu3aw"]
+[ext_resource type="Texture2D" uid="uid://dj6xa28myp00c" path="res://assets/level_4 assests/noOpenBridge-nobg.png" id="2_v6dvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh1gs"]
 size = Vector2(34, 9)
@@ -112,6 +112,8 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_uh1gs")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1, 0)

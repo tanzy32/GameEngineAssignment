@@ -1,4 +1,4 @@
-class_name Player
+class_name lvl2_Player
 extends CharacterBody2D
 
 @export var speed = 300

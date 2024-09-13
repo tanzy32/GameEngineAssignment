@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://jttdsc2jcx5q"]
 
-[ext_resource type="Texture2D" uid="uid://c642nf7mf3wqc" path="res://assets/level 4 assests/button .png" id="1_is87c"]
-[ext_resource type="Script" path="res://scenes/levels/level_2/door_andbutton.gd" id="1_sv3ch"]
-[ext_resource type="Texture2D" uid="uid://cnkxyvsfsgjrx" path="res://assets/level 4 assests/pngfind.com-dungeon-door-png-4386730.png" id="2_lur14"]
-[ext_resource type="Texture2D" uid="uid://bcwhk0u5vymgq" path="res://assets/level 4 assests/button_pressed.png" id="3_bm8ty"]
+[ext_resource type="Texture2D" uid="uid://c642nf7mf3wqc" path="res://assets/level_4 assests/button .png" id="1_is87c"]
+[ext_resource type="Script" path="res://scripts/level 2 script/door_andbutton.gd" id="1_sv3ch"]
+[ext_resource type="Texture2D" uid="uid://cnkxyvsfsgjrx" path="res://assets/level_4 assests/pngfind.com-dungeon-door-png-4386730.png" id="2_lur14"]
+[ext_resource type="Texture2D" uid="uid://bcwhk0u5vymgq" path="res://assets/level_4 assests/button_pressed.png" id="3_bm8ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nadeh"]
 size = Vector2(141, 20)

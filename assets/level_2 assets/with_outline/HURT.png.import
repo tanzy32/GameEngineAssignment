@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt5tcqu0xv7w7"
-path="res://.godot/imported/mountains.png-2171c7d007365e747ddef5a947313900.ctex"
+uid="uid://dfur684apn2ss"
+path="res://.godot/imported/HURT.png-89e4decd9debad2e319f8380bfe753da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/menu_backgrounds/mountains.png"
-dest_files=["res://.godot/imported/mountains.png-2171c7d007365e747ddef5a947313900.ctex"]
+source_file="res://assets/level_2 assets/with_outline/HURT.png"
+dest_files=["res://.godot/imported/HURT.png-89e4decd9debad2e319f8380bfe753da.ctex"]
 
 [params]
 
