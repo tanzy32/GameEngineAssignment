@@ -18,6 +18,7 @@ var health = 100:
 		if value <= 0:
 			progress_bar.visible = false
 			find_child("FiniteStateMachine").change_state("Death")
+			get_tree().change_scene_to_file("res://scenes/levels/level_3/level_3.tscn")
  
  
 func _process(_delta):
@@ -30,3 +31,7 @@ func _process(_delta):
 
 func take_damage():
 	health -= 10
+
+
+func _on_hurtbox_area_entered(area):
+	take_damage()

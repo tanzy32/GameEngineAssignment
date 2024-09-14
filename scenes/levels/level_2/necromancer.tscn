@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dil08sln4is51"]
+[gd_scene load_steps=24 format=3 uid="uid://dil08sln4is51"]
 
 [ext_resource type="Script" path="res://scripts/level 2 script/necromancer.gd" id="1_4g3fp"]
 [ext_resource type="Texture2D" uid="uid://414n1xf77uej" path="res://assets/level_2 assets/Necromancer_creativekind-Sheet.png" id="1_ug1k8"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/level 2 script/Summon.gd" id="4_r5nnw"]
 [ext_resource type="PackedScene" uid="uid://dksyg8ryajssl" path="res://scenes/levels/level_2/skeleton.tscn" id="5_vqb6q"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Attack.gd" id="6_nqcry"]
-[ext_resource type="PackedScene" uid="uid://cqb6twidtc20e" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Stagger.gd" id="8_ny0wv"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Death.gd" id="9_4uivg"]
 
@@ -234,6 +234,9 @@ height = 64.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_i70b8"]
 radius = 100.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rcru"]
+size = Vector2(26, 56.375)
+
 [node name="Necromancer" type="CharacterBody2D"]
 position = Vector2(537.5, 341)
 collision_layer = 4
@@ -338,4 +341,13 @@ script = ExtResource("8_ny0wv")
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_4uivg")
 
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(1.5, 23)
+shape = SubResource("RectangleShape2D_0rcru")
+
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_entered"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
