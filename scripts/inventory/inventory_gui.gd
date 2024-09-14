@@ -57,6 +57,7 @@ func close():
 
 func takeItemFromSlot(slot):
 	itemInHand = slot.takeItem()
+	itemInHand.set_modulate(Color(255,0,0,150))
 	add_child(itemInHand)
 	updateItemInHand()
 	
@@ -66,6 +67,7 @@ func insertItemInSlot(slot):
 	var item = itemInHand
 	
 	remove_child(itemInHand)
+	itemInHand.set_modulate(Color(1.0, 1.0, 1.0, 1.0))
 	itemInHand = null
 	
 	slot.insert(item)
