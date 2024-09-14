@@ -33,9 +33,20 @@ const GROUND_STATES := [
 var RUN_SPEED := 160.0
 const FLOOR_ACCELERATION := 160.0 / 0.2
 const AIR_ACCELERATION := 160.0 / 0.1
-const JUMP_VELOCITY := -500.0
+var JUMP_VELOCITY := -500.0
 const WALL_JUMP_VELOCITY := Vector2(500, -400)
 const SLIDE_SPEED := 260.0
+
+# Angelgrace skill variables
+var normal_speed := RUN_SPEED
+var normal_jump_velocity := JUMP_VELOCITY
+var angelgrace_speed_multiplier := 2.0
+var angelgrace_jump_multiplier := 2.0
+var angelgrace_duration := 5.0  # 5 seconds active time
+var angelgrace_cooldown := 30.0  # 30 seconds cooldown
+var is_angelgrace_active := false
+var angelgrace_timer := 0.0
+var angelgrace_cooldown_timer := 0.0
 
 @export var can_combo := false
 @export var maxHealth: int = 4  # Maximum health for the player
@@ -119,6 +130,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("fly") and current_cooldown <= 0.0:
 		activate_wings()
+	
+	if event.is_action_pressed("angelgrace") and angelgrace_cooldown_timer <= 0:
+		_activate_angelgrace()
 	
 	
 
@@ -205,6 +219,13 @@ func move(gravity: float, delta: float) -> void:
 	# Reduce cooldown timer
 	if current_cooldown > 0.0:
 		current_cooldown -= delta
+	
+	if is_angelgrace_active:
+		angelgrace_timer -= delta
+		if angelgrace_timer <= 0:
+			_deactivate_angelgrace()
+	elif angelgrace_cooldown_timer > 0:
+		angelgrace_cooldown_timer -= delta
 				
 	move_and_slide()
 	
@@ -270,7 +291,10 @@ func _ready():
 	
 	wings.visible = false
 	wings.modulate = Color(1, 1, 1, 0.5)
-
+	
+	# Initialize the normal values
+	RUN_SPEED = normal_speed
+	JUMP_VELOCITY = normal_jump_velocity
 	
 	# Reset health
 	currentHealth = maxHealth
@@ -609,3 +633,15 @@ func deactivate_wings():
 	current_cooldown = flight_cooldown  # Start cooldown
 	animation_player.play("fall")  # Return to idle state after flying
 
+func _activate_angelgrace():
+	if not is_angelgrace_active:
+		RUN_SPEED = normal_speed * angelgrace_speed_multiplier
+		JUMP_VELOCITY = normal_jump_velocity * angelgrace_jump_multiplier
+		is_angelgrace_active = true
+		angelgrace_timer = angelgrace_duration
+		angelgrace_cooldown_timer = angelgrace_cooldown
+
+func _deactivate_angelgrace():
+	RUN_SPEED = normal_speed
+	JUMP_VELOCITY = normal_jump_velocity
+	is_angelgrace_active = false
