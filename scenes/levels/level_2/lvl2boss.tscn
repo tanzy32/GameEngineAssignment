@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjm2iyqrqwdgh"]
+[gd_scene load_steps=10 format=3 uid="uid://bjm2iyqrqwdgh"]
 
+[ext_resource type="Script" path="res://scripts/level 2 script/lvl2boss.gd" id="1_7d7uo"]
 [ext_resource type="Texture2D" uid="uid://da3u75ljd7i3g" path="res://assets/level_2 assets/HD-wallpaper-2d-pixel-art-background-10-sky-cloud-2d-environments-unity-asset-store.png" id="1_qg5hm"]
 [ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_chw27"]
 [ext_resource type="PackedScene" uid="uid://bwl83ubixewog" path="res://scenes/levels/level_2/door.tscn" id="4_pbi36"]
 [ext_resource type="PackedScene" path="res://scenes/levels/level_2/necromancer.tscn" id="6_a5ff7"]
+[ext_resource type="AudioStream" uid="uid://ck57ax2ktjy00" path="res://assets/audio/music/Action 4.wav" id="6_x8uaf"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="6_y5h54"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ww7kx"]
@@ -237,6 +239,7 @@ physics_layer_0/collision_mask = 5
 sources/2 = SubResource("TileSetAtlasSource_ww7kx")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_7d7uo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(427.5, 87)
@@ -263,6 +266,10 @@ zoom = Vector2(2, 2)
 
 [node name="background" parent="Player/PlayerUI/ParallaxBackground" index="0"]
 visible = false
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_x8uaf")
+bus = &"Music"
 
 [editable path="Player"]
 [editable path="Player/PlayerUI"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cb1apmg28lane"]
+[gd_scene load_steps=24 format=3 uid="uid://cb1apmg28lane"]
 
 [ext_resource type="Texture2D" uid="uid://du8n3rt07prcm" path="res://assets/level_4 assests/city_presskit.png" id="1_2g0d3"]
+[ext_resource type="Script" path="res://scripts/level_4 script/level_4.gd" id="1_b0ssa"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="1_mad4v"]
 [ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level_4 assests/Dungeon Tile Set.png" id="1_mnxjm"]
 [ext_resource type="PackedScene" uid="uid://cuqhqtbhqyblk" path="res://scenes/levels/level_2/movingplatvertical.tscn" id="4_bi7io"]
@@ -14,10 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://4qdjejf4dwip" path="res://scenes/levels/level_4/bridge.tscn" id="11_2d7vr"]
 [ext_resource type="PackedScene" uid="uid://cfbcvrouity2y" path="res://scenes/levels/level_2/button.tscn" id="12_48ct4"]
 [ext_resource type="PackedScene" uid="uid://bwl83ubixewog" path="res://scenes/levels/level_2/door.tscn" id="13_ogn86"]
-
-[sub_resource type="GDScript" id="GDScript_cgkty"]
-script/source = "extends Node2D
-"
+[ext_resource type="AudioStream" uid="uid://b1bukd2kmj5io" path="res://assets/audio/music/Light Ambience 2.wav" id="16_tnisw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_awjhs"]
 
@@ -525,7 +523,7 @@ _data = {
 point_count = 2
 
 [node name="Level4" type="Node2D"]
-script = SubResource("GDScript_cgkty")
+script = ExtResource("1_b0ssa")
 
 [node name="backgroundLvl4" type="Sprite2D" parent="."]
 position = Vector2(468, 426)
@@ -683,6 +681,10 @@ position = Vector2(391, 380)
 
 [node name="door2" parent="." instance=ExtResource("13_ogn86")]
 position = Vector2(579, 236)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_tnisw")
+bus = &"Music"
 
 [connection signal="body_entered" from="door/TransitionArea" to="door" method="_on_transition_area_body_entered"]
 [connection signal="Is_Active" from="leverSwitch" to="bridge" method="_on_lever_switch_is_active"]
