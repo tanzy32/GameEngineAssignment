@@ -18,7 +18,7 @@ func _on_area_2d_body_entered(_body):
 		Global.opened_doors.append(self.name)
 		is_door_open = true  
 		queue_free()
-		get_tree().change_scene_to_file("res://scenes/levels/level_4/lvl4boss_2d.tscn")
+		get_tree().change_scene_to_file("res://scenes/levels/level_4/level_4_boss_room.tscn")
 
 	if not self.name in Global.key_founded:
 		_show_message("You don't have enough keys!")
@@ -40,3 +40,5 @@ func _hide_message():
 
 func _on_transition_area_body_entered(body):
 	pass # Replace with function body.
+
+
