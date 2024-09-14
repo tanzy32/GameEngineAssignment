@@ -41,7 +41,7 @@ const SLIDE_SPEED := 260.0
 @export var maxHealth: int = 4  # Maximum health for the player
 @export var knockbackPower: int = 700
 @export var inventory: Inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres") 
-@onready var game_over_ui = $GameOverUI
+
 
 # Get the default gravity value from project settings
 var default_gravity:= ProjectSettings.get("physics/2d/default_gravity") as float
@@ -59,6 +59,12 @@ var cooldown_timer = 30.0
 var activation_timer = 5.0
 var current_activation_time = 0.0
 var current_cooldown_time = 0.0
+
+var is_flying = false
+var flight_duration = 5.0  # Fly for 3 seconds
+var flight_cooldown = 30.0  # 5-second cooldown before flying again
+var current_cooldown = 0.0  # Cooldown timer for flying
+
 var is_game_over = false
 
 # Cache references to various nodes
@@ -79,7 +85,9 @@ var is_game_over = false
 @onready var currentHealth: int = 2
 @onready var slime: Sprite2D = $Graphics/slime
 @onready var reload_timer = $ReloadTimer
-
+@onready var sprite_2d: Sprite2D = $Graphics/Sprite2D
+@onready var game_over_ui = $GameOverUI
+@onready var wings: Sprite2D = $Graphics/wings
 
 # Handle unhandled input events
 func _unhandled_input(event: InputEvent) -> void:
@@ -108,7 +116,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("slimyCoat"):
 		use_slimy_coat()
-		
+	
+	if event.is_action_pressed("fly") and current_cooldown <= 0.0:
+		activate_wings()
 
 
 
@@ -184,6 +194,17 @@ func move(gravity: float, delta: float) -> void:
 		current_cooldown_time -= delta
 		if current_cooldown_time <= 0.0:
 			end_cooldown()  # Reset the cooldown and other states
+	
+	if is_flying:
+		velocity.y = Input.get_axis("move_up", "move_down") * RUN_SPEED
+		velocity.x = Input.get_axis("left", "right") * RUN_SPEED
+		flight_duration -= delta
+		if flight_duration <= 0.0:
+			deactivate_wings()
+			
+	# Reduce cooldown timer
+	if current_cooldown > 0.0:
+		current_cooldown -= delta
 				
 	move_and_slide()
 	
@@ -243,10 +264,16 @@ func _ready():
 	# Initialize player settings
 	inventory.use_item.connect(use_item)
 	Global.playerBody = self  # Register the player in a global variable (if needed)
+	
 	slime.visible = false
 	slime.modulate = Color(1, 1, 1, 0.5)
+	
+	wings.visible = false
+	slime.modulate = Color(1, 1, 1, 0.5)
+	
 	# Reset health
 	currentHealth = maxHealth
+	
 	
 # Determine the next state based on the current state and conditio	
 func get_next_state(state: State) -> State:
@@ -565,4 +592,19 @@ func end_cooldown():
 	current_cooldown_time = 0.0
 	print("Cooldown finished. Slimy coat is ready to use again.")
 
+func activate_wings():
+	if is_flying == false:
+		print("Wings activated!")
+		is_flying = true
+		flight_duration = 5.0  # Reset flight duration
+		wings.visible = true
+		velocity.y = 0  # Disable gravity while flying
+	
+	
+func deactivate_wings():
+	print("Wings deactivated!")
+	is_flying = false
+	wings.visible = false
+	current_cooldown = flight_cooldown  # Start cooldown
+	animation_player.play("fall")  # Return to idle state after flying
 
