@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dil08sln4is51"]
+[gd_scene load_steps=25 format=3 uid="uid://dil08sln4is51"]
 
 [ext_resource type="Script" path="res://scripts/level 2 script/necromancer.gd" id="1_4g3fp"]
 [ext_resource type="Texture2D" uid="uid://414n1xf77uej" path="res://assets/level_2 assets/Necromancer_creativekind-Sheet.png" id="1_ug1k8"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Stagger.gd" id="8_ny0wv"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Death.gd" id="9_4uivg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huegx"]
+size = Vector2(25.3684, 54.9573)
 
 [sub_resource type="Animation" id="Animation_bs1m4"]
 length = 0.001
@@ -247,6 +250,16 @@ script = ExtResource("1_4g3fp")
 texture = ExtResource("1_ug1k8")
 hframes = 17
 vframes = 7
+
+[node name="hitBox" type="Area2D" parent="Sprite2D"]
+position = Vector2(-24.1403, 26.1565)
+collision_layer = 4
+collision_mask = 0
+
+[node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
+position = Vector2(24.9561, -1.63513)
+shape = SubResource("RectangleShape2D_huegx")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

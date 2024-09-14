@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dksyg8ryajssl"]
+[gd_scene load_steps=17 format=3 uid="uid://dksyg8ryajssl"]
 
 [ext_resource type="Script" path="res://scripts/level 2 script/skeleton.gd" id="1_7uchh"]
 [ext_resource type="Texture2D" uid="uid://du3oi7sukv7yc" path="res://assets/level_2 assets/Skeleton enemy.png" id="1_caorc"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://scripts/level 2 script/Follow.gd" id="4_7kngu"]
 [ext_resource type="Script" path="res://scripts/level 2 script/AttackSkeleton.gd" id="5_o4jdl"]
 [ext_resource type="Script" path="res://scripts/level 2 script/DeathSkeleton.gd" id="6_b6pk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4sss"]
+size = Vector2(20.5438, 39.8182)
 
 [sub_resource type="Animation" id="Animation_5ajlt"]
 length = 0.001
@@ -148,6 +151,16 @@ script = ExtResource("1_7uchh")
 texture = ExtResource("1_caorc")
 hframes = 13
 vframes = 5
+
+[node name="hitBox" type="Area2D" parent="Sprite2D"]
+position = Vector2(-24.1403, 26.1565)
+collision_layer = 4
+collision_mask = 0
+
+[node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
+position = Vector2(18.8684, -26.0656)
+shape = SubResource("RectangleShape2D_d4sss")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

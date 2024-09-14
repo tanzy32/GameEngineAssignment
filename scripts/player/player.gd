@@ -639,6 +639,7 @@ func deactivate_wings():
 
 func _activate_angelgrace():
 	if not is_angelgrace_active:
+		$SlimyCoat.play()
 		RUN_SPEED = normal_speed * angelgrace_speed_multiplier
 		JUMP_VELOCITY = normal_jump_velocity * angelgrace_jump_multiplier
 		is_angelgrace_active = true

@@ -1818,7 +1818,7 @@ _data = {
 "hurtBlink": SubResource("Animation_x4qp4")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="MyPlayer" type="CharacterBody2D" groups=["player"]]
 collision_layer = 65
 collision_mask = 2
 script = ExtResource("1_xuxsi")
