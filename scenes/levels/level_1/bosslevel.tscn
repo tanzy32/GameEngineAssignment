@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ukj5h3818dym"]
+[gd_scene load_steps=7 format=3 uid="uid://ukj5h3818dym"]
 
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="1_ocr8l"]
 [ext_resource type="Script" path="res://scripts/level_1/bosslevel.gd" id="1_rrxqu"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="2_iuu8p"]
 [ext_resource type="PackedScene" uid="uid://c7v383lf04rnc" path="res://scenes/levels/global/scene_trigger.tscn" id="4_gjdrn"]
-[ext_resource type="AudioStream" uid="uid://tqnjqofjbfn5" path="res://assets/audio/music/Ambient 10.wav" id="5_s4uin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s7o2i"]
 texture = ExtResource("1_ocr8l")
@@ -222,14 +221,9 @@ layer_0/tile_data = PackedInt32Array(-1703896, 720896, 7, -1703895, 720896, 7, -
 [node name="Boss" type="Node2D" parent="."]
 
 [node name="PortalEntrance" parent="." instance=ExtResource("4_gjdrn")]
+visible = false
 position = Vector2(467, 217)
 connected_scene = "level"
 
 [node name="position" type="Marker2D" parent="PortalEntrance"]
 position = Vector2(44, 38)
-
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_s4uin")
-volume_db = 1.0
-autoplay = true
-bus = &"Music"

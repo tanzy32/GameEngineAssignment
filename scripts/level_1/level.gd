@@ -41,7 +41,6 @@ func _process(delta):
 				
 func _ready() -> void:
 	BackgroundMusicMain.stop()
-	$BGM.play()
 	super()
 	label.hide()
 	var used := level_background.get_used_rect()
@@ -52,3 +51,5 @@ func _ready() -> void:
 	player.healthChanged.connect(playerui.get_child(3).updateHearts)
 	
 	
+func _on_level_timer_timeout():
+	entrance_markers.visible = true
