@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var progress_bar = %ProgressBar
  
 var direction : Vector2
+var DEF = 0
  
 var health = 100:
 	set(value):
@@ -30,7 +31,7 @@ func _process(_delta):
 		sprite.flip_h = false
 
 func take_damage():
-	health -= 10
+	health -= 10 - DEF
 
 
 func _on_hurtbox_area_entered(area):

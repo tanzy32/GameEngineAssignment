@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/level 2 script/Summon.gd" id="4_r5nnw"]
 [ext_resource type="PackedScene" uid="uid://dksyg8ryajssl" path="res://scenes/levels/level_2/skeleton.tscn" id="5_vqb6q"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Attack.gd" id="6_nqcry"]
-[ext_resource type="PackedScene" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
+[ext_resource type="PackedScene" uid="uid://cqb6twidtc20e" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Stagger.gd" id="8_ny0wv"]
 [ext_resource type="Script" path="res://scripts/level 2 script/Death.gd" id="9_4uivg"]
 
@@ -259,7 +259,6 @@ collision_mask = 0
 [node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
 position = Vector2(26.1403, -3.65649)
 shape = SubResource("RectangleShape2D_huegx")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
