@@ -148,15 +148,14 @@ animation = &"swordfish"
 frame_progress = 0.649054
 
 [node name="RayCastLeft" type="RayCast2D" parent="sprite"]
-target_position = Vector2(-17.3333, 0)
+target_position = Vector2(-22, 0)
 collision_mask = 2
 
 [node name="RayCastRight" type="RayCast2D" parent="sprite"]
-target_position = Vector2(20, 0)
+target_position = Vector2(23.3333, 0)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ejec2")
 
