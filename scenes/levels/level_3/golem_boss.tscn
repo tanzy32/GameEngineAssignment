@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dspfp3286yjbu"]
+[gd_scene load_steps=34 format=3 uid="uid://dspfp3286yjbu"]
 
 [ext_resource type="Script" path="res://scripts/level_3/golem_boss.gd" id="1_0kuxh"]
 [ext_resource type="Texture2D" uid="uid://47mieowf46pg" path="res://assets/level_3/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_y7ntf"]
@@ -16,7 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://1lvqu02fkp0" path="res://assets/audio/sfx/Retro Explosion Short 01.wav" id="14_4uc27"]
 [ext_resource type="AudioStream" uid="uid://cmk8b7p2a30pg" path="res://assets/audio/sfx/56_Attack_03.wav" id="15_o7h43"]
 [ext_resource type="AudioStream" uid="uid://cs0qsjjjjmlsb" path="res://assets/audio/sfx/15_Impact_flesh_02.wav" id="16_tyv30"]
-[ext_resource type="AudioStream" uid="uid://btmgcfflx3rbx" path="res://assets/audio/sfx/Retro Magic Electric 03.wav" id="17_isd52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lufmx"]
 size = Vector2(87, 45.5)
@@ -578,11 +577,6 @@ bus = &"SFX"
 [node name="Missile" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_tyv30")
 volume_db = 15.0
-bus = &"SFX"
-
-[node name="Laser" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_isd52")
-volume_db = 1.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]

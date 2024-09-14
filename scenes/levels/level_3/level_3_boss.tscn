@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq4w7nd84ebkj"]
+[gd_scene load_steps=7 format=3 uid="uid://bq4w7nd84ebkj"]
 
 [ext_resource type="Script" path="res://scripts/level_3/level_3_boss.gd" id="1_38uym"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="2_7x57g"]
 [ext_resource type="Texture2D" uid="uid://57a3w4b0m6gp" path="res://assets/level_3/sunken_temple_v1/V1/sunken_blocky.png" id="2_uhrqq"]
 [ext_resource type="PackedScene" uid="uid://dspfp3286yjbu" path="res://scenes/levels/level_3/golem_boss.tscn" id="3_7hak1"]
-[ext_resource type="AudioStream" uid="uid://bwv2elvvgdamy" path="res://assets/audio/music/Action 1.wav" id="5_xxm88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60o65"]
 texture = ExtResource("2_uhrqq")
@@ -44,9 +43,3 @@ position = Vector2(67, 749)
 
 [node name="GolemBoss" parent="." instance=ExtResource("3_7hak1")]
 position = Vector2(792, 857)
-
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_xxm88")
-volume_db = 1.0
-autoplay = true
-bus = &"Music"
