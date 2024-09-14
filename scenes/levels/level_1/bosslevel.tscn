@@ -221,9 +221,8 @@ layer_0/tile_data = PackedInt32Array(-1703896, 720896, 7, -1703895, 720896, 7, -
 [node name="Boss" type="Node2D" parent="."]
 
 [node name="PortalEntrance" parent="." instance=ExtResource("4_gjdrn")]
-visible = false
 position = Vector2(467, 217)
-connected_scene = "level"
+connected_scene = "level_2"
 
 [node name="position" type="Marker2D" parent="PortalEntrance"]
 position = Vector2(44, 38)
