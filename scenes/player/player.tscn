@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://qo2tvyj5c0ox" path="res://assets/audio/sfx/051_use_item_01.wav" id="18_ce5k8"]
 [ext_resource type="AudioStream" uid="uid://bfii33qubkpm7" path="res://assets/audio/sfx/08_human_charge_2.wav" id="19_g75bf"]
 [ext_resource type="AudioStream" uid="uid://d4c46sbmrob82" path="res://assets/audio/sfx/11_human_damage_2.wav" id="20_x4v56"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game_over_ui.tscn" id="21_nl684"]
+[ext_resource type="PackedScene" uid="uid://cptx4idgwybhd" path="res://scenes/menus/game_over_ui.tscn" id="21_nl684"]
 [ext_resource type="AudioStream" uid="uid://s2obypkspu7q" path="res://assets/audio/sfx/27_sword_miss_3.wav" id="21_tdro2"]
 [ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="25_htkat"]
 

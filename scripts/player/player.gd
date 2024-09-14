@@ -268,8 +268,8 @@ func _ready():
 	slime.visible = false
 	slime.modulate = Color(1, 1, 1, 0.5)
 	
-	wings.visible = false
-	slime.modulate = Color(1, 1, 1, 0.5)
+	#wings.visible = false
+	#slime.modulate = Color(1, 1, 1, 0.5)
 	
 	# Reset health
 	currentHealth = maxHealth
