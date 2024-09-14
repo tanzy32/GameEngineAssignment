@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scripts/level 2 script/Death.gd" id="9_4uivg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huegx"]
-size = Vector2(25.3684, 54.9573)
+size = Vector2(31, 57)
 
 [sub_resource type="Animation" id="Animation_bs1m4"]
 length = 0.001
@@ -257,7 +257,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
-position = Vector2(24.9561, -1.63513)
+position = Vector2(26.1403, -3.65649)
 shape = SubResource("RectangleShape2D_huegx")
 disabled = true
 
