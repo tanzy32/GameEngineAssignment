@@ -301,7 +301,7 @@ scale = Vector2(2.6275, 2.43111)
 texture = ExtResource("2_230tp")
 
 [node name="Player" parent="." instance=ExtResource("2_yyfil")]
-position = Vector2(77, 222)
+position = Vector2(126, 610)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" parent="Player" index="0"]
@@ -311,7 +311,7 @@ zoom = Vector2(2, 2)
 visible = false
 
 [node name="button" parent="." instance=ExtResource("10_sqc64")]
-position = Vector2(1129, 126)
+position = Vector2(1283, 239)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-71, 32)
@@ -400,37 +400,16 @@ position = Vector2(823, -844)
 scale = Vector2(1.76744, 1)
 polygon = PackedVector2Array(27, 617, 103, 612, 132, 617, 205, 616, 237, 603, 212, 571, 136.281, 529, 23.1974, 562, 33, 603, 26, 613, 15, 614, 10.75, 558, 92.7898, 525, 156.158, 520, 208.211, 555, 248, 599, 222, 616, 128, 627, 80, 629, 46, 624, 19, 622)
 
-[node name="Button A" type="Label" parent="."]
-offset_left = 1448.0
-offset_top = -180.0
-offset_right = 1516.0
-offset_bottom = -157.0
-text = "Button A"
-
-[node name="Button B" type="Label" parent="."]
-offset_left = 1375.0
-offset_top = 202.0
-offset_right = 1443.0
-offset_bottom = 225.0
-text = "Button B"
-
-[node name="Boss Room" type="Label" parent="."]
-offset_left = 1264.0
-offset_top = 91.0
-offset_right = 1374.0
-offset_bottom = 114.0
-text = "Boss Room"
-
 [node name="FlyingBat7" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(1153, 174)
+position = Vector2(1181, 163)
 
 [node name="FlyingBatArea6" type="StaticBody2D" parent="."]
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea6"]
-position = Vector2(1018, -408)
-polygon = PackedVector2Array(92, 607, 131, 611, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 613, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 126, 621, 90, 618, 86, 618, 88, 613)
+position = Vector2(1065, -422)
+polygon = PackedVector2Array(92, 607, 131, 611, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 613, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 126, 621, 110, 617, 90, 618, 86, 618, 88, 613)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("10_vhem3")]
 position = Vector2(290, 540)
@@ -450,6 +429,8 @@ position = Vector2(196, -96)
 
 [node name="Chest3" parent="." instance=ExtResource("12_i80pv")]
 position = Vector2(735, 127)
+
+[connection signal="Is_Active" from="button" to="door" method="_on_button_is_active"]
 
 [editable path="Player"]
 [editable path="Player/PlayerUI"]
