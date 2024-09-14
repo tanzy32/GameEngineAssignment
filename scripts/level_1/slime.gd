@@ -7,13 +7,14 @@ extends CharacterBody2D
 
 @onready var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var animations = $AnimationPlayer
+@onready var hurtTimer = $hurtTimer
 
 var max_health: int
 var current_health: int
 var jump_timer: float = 0.0
 var is_jumping: bool = false
 var is_dead: bool = false
-
+var isHurt = false
 func _ready():
 	pass
 	
@@ -53,18 +54,27 @@ func updateAnimation(animation: String):
 func _on_hurt_box_area_entered(area):
 	if area == $hitBox || area == $hurtBox: return
 	
-	if current_health <= 1:
-		$hitBox.set_deferred("monitorable",false)
-		is_dead = true
-		updateAnimation("death")
-		await animations.animation_finished
-		
-		if scale == Vector2(1,1):
-			queue_free()
-		else:
-			split()
-	current_health -= 1	
-	print(current_health)
+	if !isHurt:
+		isHurt = true
+		if current_health <= 1:
+			$hitBox.set_deferred("monitorable",false)
+			is_dead = true
+			updateAnimation("death")
+			
+			await animations.animation_finished
+			
+			if scale == Vector2(1,1):
+				queue_free()
+			else:
+				split()	
+		current_health -= 1	
+		print(current_health)
+		updateAnimation("hurtBlink")
+		hurtTimer.start()
+			
+		await hurtTimer.timeout
+		isHurt = false
+		updateAnimation("RESET")
 
 func split():
 	# Create two smaller slimes by instantiating the slime_scene
