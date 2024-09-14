@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://frgv28ej0vgr" path="res://scenes/levels/level_3/activators.tscn" id="4_2lpg4"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="4_dere7"]
 [ext_resource type="PackedScene" uid="uid://dangbrmre4p3j" path="res://scenes/levels/level_3/platform.tscn" id="5_0vsqr"]
-[ext_resource type="PackedScene" uid="uid://poyvp2xsuea6" path="res://scenes/levels/level_3/elite_enemy.tscn" id="8_sppa1"]
+[ext_resource type="PackedScene" uid="uid://do373m0nqkip1" path="res://scenes/levels/level_3/elite_enemy.tscn" id="8_sppa1"]
 [ext_resource type="PackedScene" uid="uid://c7v383lf04rnc" path="res://scenes/levels/global/scene_trigger.tscn" id="9_4xcol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xd02s"]
@@ -6017,7 +6017,7 @@ position = Vector2(2551.63, 199)
 shape = SubResource("RectangleShape2D_cq005")
 
 [node name="Player" parent="." instance=ExtResource("4_dere7")]
-position = Vector2(1110, 20)
+position = Vector2(-5143, 1140)
 
 [node name="Platforms" type="Node" parent="."]
 

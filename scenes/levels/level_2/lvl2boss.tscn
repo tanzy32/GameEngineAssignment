@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjm2iyqrqwdgh"]
+[gd_scene load_steps=11 format=3 uid="uid://bjm2iyqrqwdgh"]
 
 [ext_resource type="Script" path="res://scripts/level 2 script/lvl2boss.gd" id="1_7d7uo"]
 [ext_resource type="Texture2D" uid="uid://da3u75ljd7i3g" path="res://assets/level_2 assets/HD-wallpaper-2d-pixel-art-background-10-sky-cloud-2d-environments-unity-asset-store.png" id="1_qg5hm"]
@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://ck57ax2ktjy00" path="res://assets/audio/music/Action 4.wav" id="6_x8uaf"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="6_y5h54"]
 [ext_resource type="PackedScene" uid="uid://brixk0gf31yu0" path="res://scenes/levels/level_1/chest.tscn" id="8_ix4oc"]
-[ext_resource type="PackedScene" uid="uid://c7v383lf04rnc" path="res://scenes/levels/global/scene_trigger.tscn" id="9_bjo0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ww7kx"]
 texture = ExtResource("2_chw27")
@@ -275,10 +274,6 @@ bus = &"Music"
 
 [node name="Chest" parent="." instance=ExtResource("8_ix4oc")]
 position = Vector2(428, -32)
-
-[node name="PortalEntrance" parent="." instance=ExtResource("9_bjo0t")]
-position = Vector2(881, 31)
-connected_scene = "level_3"
 
 [editable path="Player"]
 [editable path="Player/PlayerUI"]
