@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dksyg8ryajssl"]
+[gd_scene load_steps=16 format=3 uid="uid://dksyg8ryajssl"]
 
 [ext_resource type="Script" path="res://scripts/level 2 script/skeleton.gd" id="1_7uchh"]
 [ext_resource type="Texture2D" uid="uid://du3oi7sukv7yc" path="res://assets/level_2 assets/Skeleton enemy.png" id="1_caorc"]
@@ -136,6 +136,9 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl12d"]
 height = 38.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p8pp"]
+size = Vector2(19, 38.1875)
+
 [node name="skeleton" type="CharacterBody2D"]
 collision_layer = 68
 collision_mask = 2
@@ -187,3 +190,13 @@ script = ExtResource("5_o4jdl")
 
 [node name="DeathSkeleton" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("6_b6pk4")
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-4.5, -0.09375)
+shape = SubResource("RectangleShape2D_5p8pp")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

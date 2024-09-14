@@ -28,3 +28,7 @@ func _physics_process(delta):
 func take_damage():
 	health -= 10
 
+
+
+func _on_hurtbox_area_entered(area):
+	take_damage()
