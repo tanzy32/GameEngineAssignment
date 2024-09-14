@@ -490,7 +490,6 @@ collision_mask = 0
 
 [node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
 position = Vector2(24.421, -21.8356)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l8ccn")
 disabled = true
 
