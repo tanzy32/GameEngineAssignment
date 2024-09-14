@@ -566,8 +566,7 @@ anchor_bottom = 1.0
 offset_top = -27.0
 offset_right = 200.0
 grow_vertical = 0
-max_value = 500.0
-value = 500.0
+value = 100.0
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
 layout_mode = 0

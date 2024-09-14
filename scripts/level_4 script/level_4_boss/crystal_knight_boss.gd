@@ -13,7 +13,7 @@ extends CharacterBody2D
 
 var direction : Vector2
 var DEF = 0
-var health = 500.0
+var health = 100.0
 var gravity = 500.0 
 var max_fall_speed = 200.0 
 

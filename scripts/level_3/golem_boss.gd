@@ -43,6 +43,7 @@ func update_health():
 	if health <= 0:
 		progress_bar.visible = false
 		find_child("FiniteStateMachine").change_state("Death")
+		get_tree().change_scene_to_file("res://scenes/levels/level_4/level_4.tscn")
 	elif health <= progress_bar.max_value / 2 and DEF == 0:
 		DEF = 5
 		find_child("FiniteStateMachine").change_state("ArmorBuff")
