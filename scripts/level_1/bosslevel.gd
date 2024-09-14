@@ -16,7 +16,7 @@ func _ready() -> void:
 	super()
 	boss_slime.add_child(slime)
 	
-	slime.scale = Vector2(4,4)
+	slime.scale = Vector2(5,5)
 	slime.position = Vector2(990,-34)
 	slime.current_health = 6
 	slime.max_health = 6
