@@ -575,7 +575,7 @@ height = 18.0
 [node name="Fishes" type="CharacterBody2D"]
 self_modulate = Color(0.960784, 0.988235, 1, 1)
 collision_layer = 4
-collision_mask = 4
+collision_mask = 2
 script = ExtResource("1_sytfa")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -585,11 +585,13 @@ animation = &"fish5"
 frame_progress = 0.113498
 
 [node name="RayCastLeft" type="RayCast2D" parent="sprite"]
-target_position = Vector2(-4, 0)
+scale = Vector2(2, 2)
+target_position = Vector2(-8, 0)
 collision_mask = 7
 
 [node name="RayCastRight" type="RayCast2D" parent="sprite"]
-target_position = Vector2(6.66667, 0)
+scale = Vector2(2, 2)
+target_position = Vector2(10, 0)
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

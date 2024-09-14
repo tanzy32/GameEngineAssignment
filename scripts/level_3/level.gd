@@ -16,7 +16,6 @@ var is_activate_platformlever: bool = false
 var in_water = false
 func _ready():
 	BackgroundMusicMain.stop()
-	$BGM.play()
 	var used := level_background.get_used_rect()
 	var tile_size := level_background.tile_set.tile_size
 	

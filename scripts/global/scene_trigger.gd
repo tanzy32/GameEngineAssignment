@@ -14,7 +14,7 @@ func _on_body_entered(body):
 		label.show()
 		
 func _input(event):
-	if player_nearby and event.is_action_pressed("interact"):
+	if player_nearby and event.is_action_pressed("interact") and visible == true:
 		scene_manager.change_scene(get_owner(), connected_scene)
 		
 func _on_body_exited(body):

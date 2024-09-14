@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.has_method("is_enemy") and area.is_enemy():
 		queue_free()
-	area.take.damege()
+	#area.take.damege()
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()
