@@ -119,8 +119,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("fly") and current_cooldown <= 0.0:
 		activate_wings()
-
-
+	
+	
 
 # Update physics for each state
 func tick_physics(state: State, delta: float) -> void:		
@@ -268,8 +268,9 @@ func _ready():
 	slime.visible = false
 	slime.modulate = Color(1, 1, 1, 0.5)
 	
-	#wings.visible = false
-	#slime.modulate = Color(1, 1, 1, 0.5)
+	wings.visible = false
+	wings.modulate = Color(1, 1, 1, 0.5)
+
 	
 	# Reset health
 	currentHealth = maxHealth

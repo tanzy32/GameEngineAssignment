@@ -14,6 +14,8 @@ var player_nearby: bool = false
 var is_activate_waterlever: bool = false
 var is_activate_platformlever: bool = false
 var in_water = false
+
+
 func _ready():
 	BackgroundMusicMain.stop()
 	var used := level_background.get_used_rect()
@@ -82,3 +84,4 @@ func _on_waterlevel_body_exited(body):
 
 func _on_air_timeout():
 	$"Level Background/waterlevelhitBox/hitbox".disabled = false
+
