@@ -294,7 +294,7 @@ func _ready():
 	wings.visible = false
 	wings.modulate = Color(1, 1, 1, 0.5)
 	
-#	buff.visible = false
+	buff.visible = false
 	
 	# Initialize the normal values
 	RUN_SPEED = normal_speed

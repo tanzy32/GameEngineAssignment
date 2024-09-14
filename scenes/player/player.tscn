@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d073oe2bjayce"]
+[gd_scene load_steps=54 format=3 uid="uid://d073oe2bjayce"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_xuxsi"]
 [ext_resource type="Texture2D" uid="uid://dslavjpxk18fd" path="res://assets/player/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="2_x4yyh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://camhyag5q2123" path="res://assets/player/Adventurer-Hand-Combat/adventurer-hand-combat-Sheet.png" id="6_uql5m"]
 [ext_resource type="PackedScene" uid="uid://bq0eoa3h4c2bt" path="res://scenes/levels/global/player_ui.tscn" id="6_ynbb7"]
 [ext_resource type="Texture2D" uid="uid://b8fk0abaonlh1" path="res://assets/level_1/Slimes/slime_idle1.png" id="7_khro0"]
+[ext_resource type="Texture2D" uid="uid://chl8v3q5xidxv" path="res://assets/player/buff/해리포터 버프3.png" id="7_kn6w7"]
 [ext_resource type="PackedScene" uid="uid://dl0wvpqnidlxb" path="res://scenes/levels/level_3/bubbleUI.tscn" id="7_ucyyq"]
 [ext_resource type="AudioStream" uid="uid://cvfyy2a5rrqfh" path="res://assets/audio/sfx/12_human_jump_1.wav" id="8_ksph6"]
 [ext_resource type="AudioStream" uid="uid://ds0pnhtv80o48" path="res://assets/audio/sfx/13_human_jump_land_1.wav" id="9_aiqf5"]
@@ -1930,6 +1931,11 @@ scale = Vector2(0.25, 0.15)
 texture = ExtResource("6_u87rd")
 region_enabled = true
 region_rect = Rect2(84, 192, 82, 65)
+
+[node name="buff" type="Sprite2D" parent="Graphics"]
+position = Vector2(-1, -35)
+scale = Vector2(0.0432099, 0.0314189)
+texture = ExtResource("7_kn6w7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
