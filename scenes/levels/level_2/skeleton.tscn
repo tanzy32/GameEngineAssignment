@@ -160,7 +160,6 @@ collision_mask = 0
 [node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
 position = Vector2(18.8684, -26.0656)
 shape = SubResource("RectangleShape2D_d4sss")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
