@@ -99,6 +99,8 @@ var is_game_over = false
 @onready var sprite_2d: Sprite2D = $Graphics/Sprite2D
 @onready var game_over_ui = $GameOverUI
 @onready var wings: Sprite2D = $Graphics/wings
+@onready var buff: Sprite2D = $Graphics/buff
+
 
 # Handle unhandled input events
 func _unhandled_input(event: InputEvent) -> void:
@@ -291,6 +293,8 @@ func _ready():
 	
 	wings.visible = false
 	wings.modulate = Color(1, 1, 1, 0.5)
+	
+	buff.visible = false
 	
 	# Initialize the normal values
 	RUN_SPEED = normal_speed
@@ -638,6 +642,7 @@ func _activate_angelgrace():
 		RUN_SPEED = normal_speed * angelgrace_speed_multiplier
 		JUMP_VELOCITY = normal_jump_velocity * angelgrace_jump_multiplier
 		is_angelgrace_active = true
+		buff.visible = true
 		angelgrace_timer = angelgrace_duration
 		angelgrace_cooldown_timer = angelgrace_cooldown
 
@@ -645,3 +650,4 @@ func _deactivate_angelgrace():
 	RUN_SPEED = normal_speed
 	JUMP_VELOCITY = normal_jump_velocity
 	is_angelgrace_active = false
+	buff.visible = false
