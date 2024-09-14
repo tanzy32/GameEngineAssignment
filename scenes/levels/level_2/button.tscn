@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfbcvrouity2y"]
 
-[ext_resource type="Texture2D" uid="uid://c642nf7mf3wqc" path="res://assets/level 4 assests/button .png" id="1_dp33r"]
-[ext_resource type="Script" path="res://scenes/button.gd" id="1_dwv4h"]
-[ext_resource type="Texture2D" uid="uid://bcwhk0u5vymgq" path="res://assets/level 4 assests/button_pressed.png" id="2_mkcq8"]
+[ext_resource type="Texture2D" uid="uid://c642nf7mf3wqc" path="res://assets/level_4 assests/button .png" id="1_dp33r"]
+[ext_resource type="Script" path="res://scripts/level 4 script/button.gd" id="1_yif54"]
+[ext_resource type="Texture2D" uid="uid://bcwhk0u5vymgq" path="res://assets/level_4 assests/button_pressed.png" id="2_mkcq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx5wk"]
 size = Vector2(9, 6)
@@ -100,7 +100,7 @@ _data = {
 
 [node name="button" type="Area2D"]
 position = Vector2(12, 2)
-script = ExtResource("1_dwv4h")
+script = ExtResource("1_yif54")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-12, -2)
@@ -121,6 +121,7 @@ shape = SubResource("RectangleShape2D_cuq83")
 libraries = {
 "": SubResource("AnimationLibrary_s2r7c")
 }
+autoplay = "idle_button"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

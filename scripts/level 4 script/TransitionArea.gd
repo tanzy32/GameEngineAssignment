@@ -8,7 +8,7 @@ func _ready():
 
 func _on_transition_area_body_entered(body):
 	# Check if the body that entered the area is the player
-	if body.name == "MyPlayer":  # Replace "Player" with the exact name of your player node
+	if body.name == "Player":  # Replace "Player" with the exact name of your player node
 		change_scene()
 
 func change_scene():

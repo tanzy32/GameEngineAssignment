@@ -118,7 +118,7 @@ shape = SubResource("RectangleShape2D_i84td")
 position = Vector2(-67, -104)
 shape = SubResource("RectangleShape2D_f0c36")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["player"]]
 libraries = {
 "": SubResource("AnimationLibrary_m8eq6")
 }
