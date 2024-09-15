@@ -252,7 +252,7 @@ func slide(delta: float) -> void:
 func should_slide() -> bool:
 	if not Input.is_action_just_pressed("slide") or is_on_wall():
 		return false
-	return Input.is_action_just_pressed("slide") and not foot_checker.is_colliding()
+	return Input.is_action_just_pressed("slide")
 
 func can_wall_slide() -> bool:
 	return is_on_wall()

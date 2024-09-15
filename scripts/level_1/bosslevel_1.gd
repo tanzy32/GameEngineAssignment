@@ -9,9 +9,10 @@ var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 func _process(delta):
 	if boss_slime.get_children().is_empty():
 		entrance_markers.visible = true
+		label.hide()
 	else:
 		entrance_markers.visible = false
-		label.hide()
+		label.show()
 	
 func _ready() -> void:
 	BackgroundMusicMain.stop()
