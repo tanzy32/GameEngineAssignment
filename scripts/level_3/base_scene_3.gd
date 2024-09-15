@@ -1,4 +1,4 @@
-class_name BaseScene_3 extends Node
+class_name BaseScene_3 extends Node2D
 
 @onready var player: MyPlayer = $Player
 @onready var entrance_markers: Area2D = $PortalEntrance

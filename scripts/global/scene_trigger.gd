@@ -15,7 +15,7 @@ func _on_body_entered(body):
 		
 func _input(event):
 	if player_nearby and event.is_action_pressed("interact") and visible == true:
-		scene_manager.change_scene(get_owner(), connected_scene)
+		SceneManagerLoad.change_scene(get_owner(), connected_scene)
 		
 func _on_body_exited(body):
 	if body is CharacterBody2D:

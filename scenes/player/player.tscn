@@ -137,7 +137,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Graphics/Player/Hitbox/Attack01:disabled")
+tracks/7/path = NodePath("Graphics/Player/HitBox/Attack01:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -149,7 +149,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Graphics/Player/Hitbox/Attack02:disabled")
+tracks/8/path = NodePath("Graphics/Player/HitBox/Attack02:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -161,7 +161,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Graphics/Player/Hitbox/Attack03:disabled")
+tracks/9/path = NodePath("Graphics/Player/HitBox/Attack03:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -257,7 +257,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Graphics/PalyerDeath:region_enabled")
+tracks/17/path = NodePath("Graphics/PlayerDeath:region_enabled")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -269,7 +269,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Graphics/PalyerDeath:hframes")
+tracks/18/path = NodePath("Graphics/PlayerDeath:hframes")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -281,7 +281,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Graphics/PalyerDeath:vframes")
+tracks/19/path = NodePath("Graphics/PlayerDeath:vframes")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -293,7 +293,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Graphics/PalyerDeath:frame")
+tracks/20/path = NodePath("Graphics/PlayerDeath:frame")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -305,7 +305,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Graphics/PalyerDeath:flip_h")
+tracks/21/path = NodePath("Graphics/PlayerDeath:flip_h")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -317,7 +317,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Graphics/PalyerDeath:visible")
+tracks/22/path = NodePath("Graphics/PlayerDeath:visible")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -329,7 +329,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("Graphics/Player/Hurtbox/SlideCollision:disabled")
+tracks/23/path = NodePath("Graphics/Player/HurtBox/SlideCollision:disabled")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -341,7 +341,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/24/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -441,7 +441,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hitbox/Attack01:disabled")
+tracks/5/path = NodePath("Graphics/Player/HitBox/Attack01:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -453,7 +453,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/6/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -541,7 +541,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hitbox/Attack02:disabled")
+tracks/5/path = NodePath("Graphics/Player/HitBox/Attack02:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -565,7 +565,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/7/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -629,7 +629,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/Player/Hitbox/Attack03:disabled")
+tracks/4/path = NodePath("Graphics/Player/HitBox/Attack03:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -641,7 +641,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/5/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -669,7 +669,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics/PalyerDeath:region_enabled")
+tracks/0/path = NodePath("Graphics/PlayerDeath:region_enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -681,7 +681,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Graphics/PalyerDeath:hframes")
+tracks/1/path = NodePath("Graphics/PlayerDeath:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -693,7 +693,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Graphics/PalyerDeath:vframes")
+tracks/2/path = NodePath("Graphics/PlayerDeath:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -705,7 +705,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Graphics/PalyerDeath:frame")
+tracks/3/path = NodePath("Graphics/PlayerDeath:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -717,7 +717,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Graphics/PalyerDeath:flip_h")
+tracks/4/path = NodePath("Graphics/PlayerDeath:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -729,7 +729,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/PalyerDeath:visible")
+tracks/5/path = NodePath("Graphics/PlayerDeath:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -765,7 +765,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/8/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -842,7 +842,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/5/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -943,7 +943,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/6/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1020,7 +1020,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/5/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1120,7 +1120,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/6/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1220,7 +1220,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/7/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1321,7 +1321,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/6/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1398,7 +1398,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hurtbox/SlideCollision:disabled")
+tracks/5/path = NodePath("Graphics/Player/HurtBox/SlideCollision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1410,7 +1410,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/6/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1510,7 +1510,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/5/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1611,7 +1611,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/6/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1712,7 +1712,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Graphics/Player/Hurtbox/PalyerHurtCollision:disabled")
+tracks/7/path = NodePath("Graphics/Player/HurtBox/PlayerHurtCollision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1846,34 +1846,34 @@ target_position = Vector2(-7, 0)
 position = Vector2(0, 17)
 target_position = Vector2(-7, 0)
 
-[node name="Hurtbox" type="Area2D" parent="Graphics/Player"]
+[node name="HurtBox" type="Area2D" parent="Graphics/Player"]
 collision_mask = 5
 
-[node name="PalyerHurtCollision" type="CollisionShape2D" parent="Graphics/Player/Hurtbox"]
+[node name="PlayerHurtCollision" type="CollisionShape2D" parent="Graphics/Player/HurtBox"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_md4mc")
 
-[node name="SlideCollision" type="CollisionShape2D" parent="Graphics/Player/Hurtbox"]
+[node name="SlideCollision" type="CollisionShape2D" parent="Graphics/Player/HurtBox"]
 position = Vector2(1, 11.125)
 shape = SubResource("RectangleShape2D_qwtam")
 disabled = true
 
-[node name="Hitbox" type="Area2D" parent="Graphics/Player"]
+[node name="HitBox" type="Area2D" parent="Graphics/Player"]
 position = Vector2(0, 19)
 collision_layer = 32
 collision_mask = 0
 
-[node name="Attack01" type="CollisionShape2D" parent="Graphics/Player/Hitbox"]
+[node name="Attack01" type="CollisionShape2D" parent="Graphics/Player/HitBox"]
 position = Vector2(-18.75, -21.25)
 shape = SubResource("RectangleShape2D_ejjsn")
 disabled = true
 
-[node name="Attack02" type="CollisionShape2D" parent="Graphics/Player/Hitbox"]
+[node name="Attack02" type="CollisionShape2D" parent="Graphics/Player/HitBox"]
 position = Vector2(-12.5, -16.875)
 shape = SubResource("RectangleShape2D_t8sbe")
 disabled = true
 
-[node name="Attack03" type="CollisionShape2D" parent="Graphics/Player/Hitbox"]
+[node name="Attack03" type="CollisionShape2D" parent="Graphics/Player/HitBox"]
 position = Vector2(-4.5, -12.375)
 shape = SubResource("RectangleShape2D_w14gc")
 disabled = true
@@ -1896,15 +1896,15 @@ vframes = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 200, 74)
 
-[node name="Hurtbox" type="Area2D" parent="Graphics/PlayerBow"]
+[node name="HurtBox" type="Area2D" parent="Graphics/PlayerBow"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="PalyerHurtCollision" type="CollisionShape2D" parent="Graphics/PlayerBow/Hurtbox"]
+[node name="PlayerHurtCollision" type="CollisionShape2D" parent="Graphics/PlayerBow/HurtBox"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_md4mc")
 
-[node name="PalyerDeath" type="Sprite2D" parent="Graphics"]
+[node name="PlayerDeath" type="Sprite2D" parent="Graphics"]
 visible = false
 position = Vector2(0, -19)
 texture = ExtResource("6_uql5m")
@@ -2072,6 +2072,6 @@ transform = Transform2D(1, 0, 0, 1, 361, 277)
 
 [node name="DeathTimer" type="Timer" parent="PlayerUI"]
 
-[connection signal="area_entered" from="Graphics/Player/Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="Graphics/Player/Hurtbox" to="." method="_on_hurtbox_area_exited"]
-[connection signal="area_entered" from="Graphics/Player/Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Graphics/Player/HurtBox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Graphics/Player/HurtBox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="Graphics/Player/HitBox" to="." method="_on_hitbox_area_entered"]

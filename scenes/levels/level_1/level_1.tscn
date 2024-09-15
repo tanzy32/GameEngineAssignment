@@ -337,7 +337,7 @@ _data = {
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_kc6ft")
 
-[node name="Level background" type="TileMap" parent="."]
+[node name="LevelStructure" type="TileMap" parent="."]
 position = Vector2(8, -46)
 scale = Vector2(1, 1.02433)
 tile_set = SubResource("TileSet_map3e")
@@ -410,16 +410,16 @@ text = "Moving platforms are ok...
 
 [node name="WallFeatures" type="Label" parent="Guides"]
 layout_mode = 0
-offset_left = 525.0
+offset_left = 489.0
 offset_top = 156.0
-offset_right = 772.0
+offset_right = 783.0
 offset_bottom = 192.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_constants/line_spacing = 2
 theme_override_fonts/font = ExtResource("3_5jfup")
 theme_override_font_sizes/font_size = 10
-text = "Hold left/right on the wall to wall slide
+text = "Hold left/right and press spacebar on the wall to wall slide
 While wall sliding, press spacebar to wall jump"
 autowrap_mode = 3
 
@@ -682,7 +682,7 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("8_1fv5y")]
-position = Vector2(691, -955)
+position = Vector2(-595, 191)
 collision_layer = 1
 
 [connection signal="timeout" from="LevelControls/LevelTimer" to="." method="_on_level_timer_timeout"]

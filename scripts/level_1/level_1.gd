@@ -6,7 +6,7 @@ var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var level_timer = $LevelControls/LevelTimer
 @onready var label = $LevelControls/LevelLabel
 @onready var spawner_timer = $LevelControls/Spawner
-@onready var level_background: TileMap = $"Level background"
+@onready var level_background: TileMap = $LevelStructure
 
 
 func activate_puzzle(is_activate: bool):
