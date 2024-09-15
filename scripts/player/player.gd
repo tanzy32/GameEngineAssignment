@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 signal healthChanged
 
-
 # Enumeration for various character states
 enum State{
 	IDLE,
@@ -37,6 +36,31 @@ var JUMP_VELOCITY := -500.0
 const WALL_JUMP_VELOCITY := Vector2(500, -400)
 const SLIDE_SPEED := 260.0
 
+# Get the default gravity value from project settings
+var default_gravity:= ProjectSettings.get("physics/2d/default_gravity") as float
+var is_first_tick := false
+var jump_max = 1
+var jump_count = 0
+var is_combo_requested := false
+var has_shot_arrow := false 
+var isHurt: bool = false
+var enemyCollisions = []
+var is_game_over = false
+
+# Slimy Coat skill variables
+var is_using_slimy_coat: bool = false
+var in_cooldown = false
+var cooldown_timer = 30.0
+var activation_timer = 5.0
+var current_activation_time = 0.0
+var current_cooldown_time = 0.0
+
+# Fly skill variables
+var is_flying = false
+var flight_duration = 5.0  # Fly for 3 seconds
+var flight_cooldown = 30.0  # 5-second cooldown before flying again
+var current_cooldown = 0.0  # Cooldown timer for flying
+
 # Angelgrace skill variables
 var normal_speed := RUN_SPEED
 var normal_jump_velocity := JUMP_VELOCITY
@@ -52,31 +76,6 @@ var angelgrace_cooldown_timer := 0.0
 @export var maxHealth: int = 4  # Maximum health for the player
 @export var knockbackPower: int = 700
 @export var inventory: Inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres") 
-
-
-# Get the default gravity value from project settings
-var default_gravity:= ProjectSettings.get("physics/2d/default_gravity") as float
-var is_first_tick := false
-var jump_max = 1
-var jump_count = 0
-var is_combo_requested := false
-var has_shot_arrow := false 
-var isHurt: bool = false
-var enemyCollisions = []
-
-var is_using_slimy_coat: bool = false
-var in_cooldown = false
-var cooldown_timer = 30.0
-var activation_timer = 5.0
-var current_activation_time = 0.0
-var current_cooldown_time = 0.0
-
-var is_flying = false
-var flight_duration = 5.0  # Fly for 3 seconds
-var flight_cooldown = 30.0  # 5-second cooldown before flying again
-var current_cooldown = 0.0  # Cooldown timer for flying
-
-var is_game_over = false
 
 # Cache references to various nodes
 @onready var animation_player = $AnimationPlayer
@@ -99,7 +98,7 @@ var is_game_over = false
 @onready var sprite_2d: Sprite2D = $Graphics/Sprite2D
 @onready var game_over_ui = $GameOverUI
 @onready var wings: Sprite2D = $Graphics/Wings
-@onready var buff: Sprite2D = $Graphics/buff
+@onready var angel: Sprite2D = $Graphics/Angel
 
 
 # Handle unhandled input events
@@ -133,10 +132,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("fly") and current_cooldown <= 0.0:
 		activate_wings()
 	
-	if event.is_action_pressed("angelgrace") and angelgrace_cooldown_timer <= 0:
+	if event.is_action_pressed("angelGrace") and angelgrace_cooldown_timer <= 0:
 		_activate_angelgrace()
-	
-	
+
 
 # Update physics for each state
 func tick_physics(state: State, delta: float) -> void:		
@@ -183,7 +181,8 @@ func tick_physics(state: State, delta: float) -> void:
 			move(default_gravity, delta)
 
 	is_first_tick = false		
-			
+
+
 # Move character with specific gravity and delta time
 func move(gravity: float, delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
@@ -192,7 +191,7 @@ func move(gravity: float, delta: float) -> void:
 	velocity.y += gravity * delta
 	
 	handleCollision()
-
+	
 	# Flip character direction based on movement
 	if not is_zero_approx(direction):
 		graphics.scale.x = -1 if direction > 0 else 1
@@ -200,12 +199,12 @@ func move(gravity: float, delta: float) -> void:
 	if !isHurt:
 		for enemyArea in enemyCollisions:
 			hurtByEnemy(enemyArea)
-			
+	
 	if is_using_slimy_coat:
 		current_activation_time += delta
 		if current_activation_time >= activation_timer:
 			deactivate_slimy_coat()
-			
+	
 	if in_cooldown:
 		current_cooldown_time -= delta
 		if current_cooldown_time <= 0.0:
@@ -217,7 +216,7 @@ func move(gravity: float, delta: float) -> void:
 		flight_duration -= delta
 		if flight_duration <= 0.0:
 			deactivate_wings()
-			
+	
 	# Reduce cooldown timer
 	if current_cooldown > 0.0:
 		current_cooldown -= delta
@@ -228,7 +227,7 @@ func move(gravity: float, delta: float) -> void:
 			_deactivate_angelgrace()
 	elif angelgrace_cooldown_timer > 0:
 		angelgrace_cooldown_timer -= delta
-				
+	
 	move_and_slide()
 	
 func handleCollision():
@@ -254,7 +253,7 @@ func should_slide() -> bool:
 	if not Input.is_action_just_pressed("slide") or is_on_wall():
 		return false
 	return Input.is_action_just_pressed("slide") and not foot_checker.is_colliding()
-	
+
 func can_wall_slide() -> bool:
 	return is_on_wall() and hand_checker.is_colliding() and foot_checker.is_colliding()
 
@@ -274,7 +273,7 @@ func increase_health(amount: int) -> void:
 	currentHealth += amount
 	currentHealth = min(maxHealth, currentHealth)
 	healthChanged.emit(currentHealth)
-	
+
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
 	velocity = knockbackDirection
@@ -294,7 +293,7 @@ func _ready():
 	wings.visible = false
 	wings.modulate = Color(1, 1, 1, 0.5)
 	
-	#buff.visible = false
+	angel.visible = false
 	
 	# Initialize the normal values
 	RUN_SPEED = normal_speed
@@ -302,8 +301,7 @@ func _ready():
 	
 	# Reset health
 	currentHealth = maxHealth
-	
-	
+
 # Determine the next state based on the current state and conditio	
 func get_next_state(state: State) -> State:
 	var direction := Input.get_axis("left", "right")
@@ -312,9 +310,6 @@ func get_next_state(state: State) -> State:
 	var can_jump := is_on_floor() or coyote_timer.time_left > 0 or jump_count < jump_max
 	var should_jump := can_jump and jump_request_timer.time_left > 0
 	
-	#if state in GROUND_STATES and not is_on_floor() and is_using_wings:
-		#return State.FALL
-
 	if is_on_floor():
 		jump_count = 0
 		
@@ -643,7 +638,7 @@ func _activate_angelgrace():
 		RUN_SPEED = normal_speed * angelgrace_speed_multiplier
 		JUMP_VELOCITY = normal_jump_velocity * angelgrace_jump_multiplier
 		is_angelgrace_active = true
-		buff.visible = true
+		angel.visible = true
 		angelgrace_timer = angelgrace_duration
 		angelgrace_cooldown_timer = angelgrace_cooldown
 
@@ -651,4 +646,4 @@ func _deactivate_angelgrace():
 	RUN_SPEED = normal_speed
 	JUMP_VELOCITY = normal_jump_velocity
 	is_angelgrace_active = false
-	buff.visible = false
+	angel.visible = false
