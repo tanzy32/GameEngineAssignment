@@ -1,18 +1,18 @@
 [gd_scene load_steps=33 format=3 uid="uid://c700awxere05o"]
 
-[ext_resource type="Texture2D" uid="uid://ckgrviugumsmb" path="res://assets/level_4 boss/Boss.png" id="1_vltdu"]
+[ext_resource type="Texture2D" uid="uid://ckgrviugumsmb" path="res://assets/level_4/level_4 boss/Boss.png" id="1_vltdu"]
 [ext_resource type="Script" path="res://scripts/level_4/level_4_boss/crystal_knight_boss.gd" id="1_y0rw8"]
-[ext_resource type="Texture2D" uid="uid://ilwrrnw8v73o" path="res://assets/level_4 boss/Skills_1_attack.png" id="2_6jy4j"]
+[ext_resource type="Texture2D" uid="uid://ilwrrnw8v73o" path="res://assets/level_4/level_4 boss/Skills_1_attack.png" id="2_6jy4j"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="3_54fbo"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/Lvl4FiniteStateMachine.gd" id="3_ula4n"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/finiteStateMachine.gd" id="4_n37o1"]
 [ext_resource type="Script" path="res://scripts/level_4/level_4_boss/boss_state.gd" id="4_oydtd"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/Idle.gd" id="4_rmpm2"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/Follow.gd" id="5_b77k5"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/MeleeLeft.gd" id="7_idt0l"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/MeleeRight.gd" id="8_p2xfg"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/LongRangeSkill.gd" id="9_7wris"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/Death.gd" id="10_0u4fq"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/TeleportAway.gd" id="11_21gy4"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/idle.gd" id="4_rmpm2"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/follow.gd" id="6_g4y60"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/melee_left.gd" id="7_cr8ow"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/melee_right.gd" id="8_e8ka1"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/long_range_skill.gd" id="9_7wris"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/death.gd" id="10_e30wx"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/teleport.gd" id="11_21gy4"]
 [ext_resource type="AudioStream" uid="uid://4w6mu8xn11g4" path="res://assets/audio/sfx/Retro Success Melody 04 - electric piano 2.wav" id="14_grgc3"]
 [ext_resource type="AudioStream" uid="uid://bj81pgcghh5ny" path="res://assets/audio/sfx/Retro Charge Magic 11.wav" id="15_ec8ke"]
 [ext_resource type="AudioStream" uid="uid://1lvqu02fkp0" path="res://assets/audio/sfx/Retro Explosion Short 01.wav" id="16_rx6l4"]
@@ -530,25 +530,25 @@ position = Vector2(0, -39)
 shape = SubResource("CircleShape2D_ej6vd")
 
 [node name="FiniteStateMachine" type="Node2D" parent="."]
-script = ExtResource("3_ula4n")
+script = ExtResource("4_n37o1")
 
 [node name="Idle" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("4_rmpm2")
 
 [node name="Follow" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("5_b77k5")
+script = ExtResource("6_g4y60")
 
 [node name="MeleeLeft" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("7_idt0l")
+script = ExtResource("7_cr8ow")
 
 [node name="MeleeRight" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("8_p2xfg")
+script = ExtResource("8_e8ka1")
 
 [node name="LongRangeSkill" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_7wris")
 
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_0u4fq")
+script = ExtResource("10_e30wx")
 
 [node name="TeleportAway" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("11_21gy4")

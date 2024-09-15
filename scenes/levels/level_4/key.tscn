@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnw6fdae5km4c"]
 
-[ext_resource type="Script" path="res://scripts/level 4 script/key.gd" id="1_7hhgm"]
-[ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level_4 assests/Dungeon Tile Set.png" id="1_uqtcm"]
+[ext_resource type="Script" path="res://scripts/level_4/key.gd" id="1_7hhgm"]
+[ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level_4/Dungeon Tile Set.png" id="1_uqtcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mf4x"]
 size = Vector2(23, 8)

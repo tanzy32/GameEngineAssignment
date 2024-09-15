@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://csvdykup6gt7f"]
 
-[ext_resource type="Script" path="res://scripts/menus/GeneralSettings.gd" id="1_lbgnw"]
+[ext_resource type="Script" path="res://scripts/menus/general_settings.gd" id="1_lbgnw"]
 [ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="2_tl2wo"]
 [ext_resource type="FontFile" uid="uid://30wn5twgg4nm" path="res://assets/menu/fonts/PixelAE-Regular.ttf" id="3_op0cm"]
 [ext_resource type="Script" path="res://scripts/menus/general_expandable_setting.gd" id="4_h4hfn"]

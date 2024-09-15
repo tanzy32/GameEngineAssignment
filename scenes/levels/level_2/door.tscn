@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwl83ubixewog"]
 
 [ext_resource type="Script" path="res://scripts/level_2/gate.gd" id="1_eqe0l"]
-[ext_resource type="Texture2D" uid="uid://cnkxyvsfsgjrx" path="res://assets/level_4 assests/pngfind.com-dungeon-door-png-4386730.png" id="1_xvenf"]
+[ext_resource type="Texture2D" uid="uid://cnkxyvsfsgjrx" path="res://assets/level_4/pngfind.com-dungeon-door-png-4386730.png" id="1_xvenf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfnxb"]
 size = Vector2(26.4688, 27.25)

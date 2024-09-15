@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6sgvbumfsf7f"]
 
-[ext_resource type="Texture2D" uid="uid://buj3o0l38gkn7" path="res://assets/level_2 assets/32x32-bat-sprite.png" id="1_46gis"]
+[ext_resource type="Texture2D" uid="uid://buj3o0l38gkn7" path="res://assets/level_2/32x32-bat-sprite.png" id="1_46gis"]
 [ext_resource type="Script" path="res://scripts/level_2/flying_enemy.gd" id="1_d3kpa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ep5oc"]

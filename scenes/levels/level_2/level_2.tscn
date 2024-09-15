@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://dqy4jomxax4rq"]
 
 [ext_resource type="Script" path="res://scripts/level_2/level_2.gd" id="1_lurya"]
-[ext_resource type="Texture2D" uid="uid://da3u75ljd7i3g" path="res://assets/level_2 assets/HD-wallpaper-2d-pixel-art-background-10-sky-cloud-2d-environments-unity-asset-store.png" id="2_230tp"]
-[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_juikb"]
+[ext_resource type="Texture2D" uid="uid://da3u75ljd7i3g" path="res://assets/level_2/HD-wallpaper-2d-pixel-art-background-10-sky-cloud-2d-environments-unity-asset-store.png" id="2_230tp"]
+[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_juikb"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="2_yyfil"]
 [ext_resource type="PackedScene" uid="uid://cbupmg7kst0ir" path="res://scenes/levels/level_2/movingplat.tscn" id="4_r5n6x"]
 [ext_resource type="PackedScene" uid="uid://c6sgvbumfsf7f" path="res://scenes/levels/level_2/flying_enemy.tscn" id="5_iwtop"]

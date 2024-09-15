@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://cm4qs6dpycovx"]
 
-[ext_resource type="Script" path="res://scripts/level 4 script/enemy.gd" id="1_blxqp"]
-[ext_resource type="Texture2D" uid="uid://b6uoshc43qbqv" path="res://assets/level_4 assests/1.png" id="2_t8ur4"]
-[ext_resource type="Texture2D" uid="uid://bw5bph7jxpkdi" path="res://assets/level_4 assests/2.png" id="3_u7nlv"]
-[ext_resource type="Texture2D" uid="uid://b8182l0a6tgc4" path="res://assets/level_4 assests/3.png" id="4_jyogx"]
-[ext_resource type="Texture2D" uid="uid://b60qeeq2dmg2v" path="res://assets/level_4 assests/4.png" id="5_svttl"]
-[ext_resource type="Texture2D" uid="uid://khqe7k5vd1oy" path="res://assets/level_4 assests/5.png" id="6_66p6g"]
-[ext_resource type="Texture2D" uid="uid://dpdqbe2vyxwk1" path="res://assets/level_4 assests/6.png" id="7_0s7b4"]
+[ext_resource type="Script" path="res://scripts/level_4/enemy.gd" id="1_blxqp"]
+[ext_resource type="Texture2D" uid="uid://b6uoshc43qbqv" path="res://assets/level_4/1.png" id="2_t8ur4"]
+[ext_resource type="Texture2D" uid="uid://bw5bph7jxpkdi" path="res://assets/level_4/2.png" id="3_u7nlv"]
+[ext_resource type="Texture2D" uid="uid://b8182l0a6tgc4" path="res://assets/level_4/3.png" id="4_jyogx"]
+[ext_resource type="Texture2D" uid="uid://b60qeeq2dmg2v" path="res://assets/level_4/4.png" id="5_svttl"]
+[ext_resource type="Texture2D" uid="uid://khqe7k5vd1oy" path="res://assets/level_4/5.png" id="6_66p6g"]
+[ext_resource type="Texture2D" uid="uid://dpdqbe2vyxwk1" path="res://assets/level_4/6.png" id="7_0s7b4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_in43f"]
 animations = [{

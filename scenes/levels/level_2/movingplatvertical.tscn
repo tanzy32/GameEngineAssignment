@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cuqhqtbhqyblk"]
 
 [ext_resource type="Script" path="res://scripts/level_2/movingplatvertical.gd" id="1_lchro"]
-[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_h6uiw"]
+[ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_h6uiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3um0"]
 size = Vector2(18.5017, 58.1761)
