@@ -98,7 +98,7 @@ _data = {
 "open": SubResource("Animation_ftkxa")
 }
 
-[node name="bridge" type="Area2D"]
+[node name="Bridge" type="Area2D"]
 script = ExtResource("2_bu3aw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,7 +1,7 @@
 extends Area2D
 var is_activate = false
 
-@onready var sprite = $idle
+@onready var sprite = $Idle
 @onready var animations = $AnimationPlayer
 @onready var label = $Label
 
@@ -35,9 +35,9 @@ func _input(event):
 		
 func activate_puzzle():
 	if not is_activate:
-		$"../../level_controls/level_timer".start()
-		$"../../level_controls/level_description".show()
-		$"../../level_controls/spawner_timer".start()
+		$"../../LevelControls/LevelTimer".start()
+		$"../../LevelControls/LevelLabel".show()
+		$"../../LevelControls/Spawner".start()
 		is_activate = true
 
 	

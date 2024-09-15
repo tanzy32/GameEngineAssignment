@@ -1,6 +1,6 @@
 extends Button
 
-@onready var backgroundSprite: Sprite2D = $background
+@onready var backgroundSprite: Sprite2D = $Background
 @onready var container: CenterContainer = $CenterContainer
 @onready var inventory = preload("res://scenes/levels/global/inventory/playerInventory.tres")
 

@@ -45,10 +45,10 @@ func choose (array):
 	return array.front()
 	
 func _on_hurt_box_area_entered(area):
-	if area == $hitBox || area == $hurtBox: return
+	if area == $HitBox || area == $HurtBox: return
 	
 	if current_health <= 1:
-		$hitBox.set_deferred("monitorable",false)
+		$HitBox.set_deferred("monitorable",false)
 		is_dead = true
 		queue_free()
 	current_health -= 1	

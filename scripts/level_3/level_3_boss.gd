@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player: MyPlayer = $Player
 @onready var playerui = player.get_child(-1)
-@onready var level_background: TileMap = $"Level background"
+@onready var level_background: TileMap = $LevelStructure
 
 func _ready() -> void:
 	BackgroundMusicMain.stop()

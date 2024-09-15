@@ -3,13 +3,13 @@ extends Area2D
 
 @onready var activator = $Sprite2D
 @onready var label = $Label
-@onready var tilemap = $"../../../Level Background"
-@onready var easyhitboxes = $"../../../Level Background/easyhitBox".get_children()
-@onready var hardhitboxes = $"../../../Level Background/hardhitBox".get_children()
+@onready var tilemap = $"../../../LevelStructure"
+@onready var easyhitboxes = $"../../../LevelStructure/EasyHitBox".get_children()
+@onready var hardhitboxes = $"../../../LevelStructure/HardHitBox".get_children()
 @onready var platforms = $"../../../Platforms"
-@onready var easytimer = $easytimer
-@onready var hardtimer = $"../../../Level Background/hardtimer"
-@onready var cooldowntimer = $"../../../Level Background/hardtimer/cooldown"
+@onready var easytimer = $EasyTimer
+@onready var hardtimer = $"../../../LevelStructure/HardTimer"
+@onready var cooldowntimer = $"../../../LevelStructure/HardTimer/Cooldown"
 
 var player_nearby: bool = false 
 var is_activate_waterlever: bool = false

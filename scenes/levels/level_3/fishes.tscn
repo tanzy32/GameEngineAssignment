@@ -578,18 +578,18 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_sytfa")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_lnwm2")
 animation = &"fish5"
 frame_progress = 0.113498
 
-[node name="RayCastLeft" type="RayCast2D" parent="sprite"]
+[node name="RayCastLeft" type="RayCast2D" parent="Sprite"]
 scale = Vector2(2, 2)
 target_position = Vector2(-8, 0)
 collision_mask = 7
 
-[node name="RayCastRight" type="RayCast2D" parent="sprite"]
+[node name="RayCastRight" type="RayCast2D" parent="Sprite"]
 scale = Vector2(2, 2)
 target_position = Vector2(10, 0)
 collision_mask = 7

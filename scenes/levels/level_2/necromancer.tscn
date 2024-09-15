@@ -251,12 +251,12 @@ texture = ExtResource("1_ug1k8")
 hframes = 17
 vframes = 7
 
-[node name="hitBox" type="Area2D" parent="Sprite2D"]
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
 position = Vector2(-24.1403, 26.1565)
 collision_layer = 4
 collision_mask = 0
 
-[node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
+[node name="Hitbox" type="CollisionShape2D" parent="Sprite2D/HitBox"]
 position = Vector2(26.1403, -3.65649)
 shape = SubResource("RectangleShape2D_huegx")
 
@@ -313,7 +313,7 @@ size_flags_vertical = 8
 text = "Boss Slained"
 metadata/_edit_use_anchors_ = true
 
-[node name="debug" type="Label" parent="."]
+[node name="Actions" type="Label" parent="."]
 offset_left = -17.0
 offset_top = -28.0
 offset_right = 23.0
@@ -353,13 +353,13 @@ script = ExtResource("8_ny0wv")
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("9_4uivg")
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+[node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(1.5, 23)
 shape = SubResource("RectangleShape2D_0rcru")
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_entered"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -4,9 +4,9 @@ extends CharacterBody2D
 @export var move_speed: float = 100
 @export var direction: Vector2 = Vector2.RIGHT
 
-@onready var raycast_left: RayCast2D = $sprite/RayCastLeft
-@onready var raycast_right: RayCast2D = $sprite/RayCastRight
-@onready var fish: AnimatedSprite2D = $sprite
+@onready var raycast_left: RayCast2D = $Sprite/RayCastLeft
+@onready var raycast_right: RayCast2D = $Sprite/RayCastRight
+@onready var fish: AnimatedSprite2D = $Sprite
 
 func _ready():
 	# Enable the RayCasts

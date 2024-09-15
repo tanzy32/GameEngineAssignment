@@ -1,7 +1,7 @@
 extends Node2D
 class_name lvl2_State
 
-@onready var debug = owner.find_child("debug")
+@onready var debug = owner.find_child("Actions")
 @onready var player = owner.get_parent().find_child("player")
 @onready var animation_player = owner.find_child("AnimationPlayer")
 

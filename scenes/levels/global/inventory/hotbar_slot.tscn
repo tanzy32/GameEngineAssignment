@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvfgkdu373hr4"]
 
-[ext_resource type="Script" path="res://scripts/inventory/hotbar_slot.gd" id="1_777lg"]
+[ext_resource type="Script" path="res://scripts/global/inventory/hotbar_slot.gd" id="1_777lg"]
 [ext_resource type="Texture2D" uid="uid://chjac4j8jkleu" path="res://assets/global/inventory/inventorySlot.png" id="2_021kx"]
 [ext_resource type="PackedScene" uid="uid://6qevmaqj1c8g" path="res://scenes/levels/global/inventory/itemsStackGui.tscn" id="3_2uboq"]
 
@@ -11,7 +11,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 script = ExtResource("1_777lg")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_021kx")
 centered = false
 vframes = 2

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45f7y"]
 size = Vector2(15, 13)
 
-[node name="spike" type="Area2D"]
+[node name="Spike" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_uhnyq")
 

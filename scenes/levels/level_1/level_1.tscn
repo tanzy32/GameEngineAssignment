@@ -380,7 +380,7 @@ D - Move right
 Spacebar - Jump
 "
 
-[node name="Double jump" type="Label" parent="Guides"]
+[node name="DoubleJump" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = -236.0
 offset_top = 111.0
@@ -407,7 +407,7 @@ theme_override_font_sizes/font_size = 10
 text = "Moving platforms are ok...
 "
 
-[node name="Wall features" type="Label" parent="Guides"]
+[node name="WallFeatures" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = 525.0
 offset_top = 156.0
@@ -422,7 +422,7 @@ text = "Hold left/right on the wall to wall slide
 While wall sliding, press spacebar to wall jump"
 autowrap_mode = 3
 
-[node name="Progress guide" type="Label" parent="Guides"]
+[node name="ProgressGuide" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = 547.0
 offset_top = -141.0
@@ -512,7 +512,7 @@ The top 5 rows of your inventory slots are your hotbar. Organize your potions we
 "
 autowrap_mode = 3
 
-[node name="Progress guide2" type="Label" parent="Guides"]
+[node name="ProgressGuide2" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = -496.0
 offset_top = -173.0
@@ -526,7 +526,7 @@ theme_override_font_sizes/font_size = 10
 text = "Wall jump here to go up!"
 autowrap_mode = 3
 
-[node name="Progress guide3" type="Label" parent="Guides"]
+[node name="ProgressGuide3" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = 494.0
 offset_top = -931.0
@@ -541,7 +541,7 @@ text = "Look an obelisk! Interact it to activate the puzzle.
 "
 autowrap_mode = 3
 
-[node name="Survival guide" type="Label" parent="Guides"]
+[node name="SurvivalGuide" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = -632.0
 offset_top = -1047.0
@@ -556,7 +556,7 @@ text = "Your hp bar is on your top right. If you reach 0 hp, you will die. Drink
 Press U to drink!"
 autowrap_mode = 3
 
-[node name="Weapon guide" type="Label" parent="Guides"]
+[node name="WeaponGuide" type="Label" parent="Guides"]
 layout_mode = 0
 offset_left = -323.0
 offset_top = -1063.0
@@ -592,7 +592,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Slimes" type="Node2D" parent="."]
+[node name="Slimes" type="Node" parent="."]
 
 [node name="Chests" type="Node" parent="."]
 
@@ -645,17 +645,17 @@ visible = false
 position = Vector2(775, 140)
 connected_scene = "bosslevel_1"
 
-[node name="position" type="Marker2D" parent="PortalEntrance"]
+[node name="Position" type="Marker2D" parent="PortalEntrance"]
 position = Vector2(55, 46)
 
-[node name="Level_Controls" type="CanvasLayer" parent="."]
+[node name="LevelControls" type="CanvasLayer" parent="."]
 
-[node name="level_timer" type="Timer" parent="Level_Controls"]
+[node name="LevelTimer" type="Timer" parent="LevelControls"]
 process_mode = 3
 wait_time = 10.0
 one_shot = true
 
-[node name="level_description" type="Label" parent="Level_Controls"]
+[node name="LevelLabel" type="Label" parent="LevelControls"]
 process_mode = 3
 anchors_preset = -1
 anchor_left = 0.508681
@@ -677,12 +677,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="spawner_timer" type="Timer" parent="Level_Controls"]
+[node name="Spawner" type="Timer" parent="LevelControls"]
 process_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("8_1fv5y")]
 position = Vector2(377, -363)
 collision_layer = 1
 
-[connection signal="timeout" from="Level_Controls/level_timer" to="." method="_on_level_timer_timeout"]
-[connection signal="timeout" from="Level_Controls/spawner_timer" to="." method="_on_spawner_timer_timeout"]
+[connection signal="timeout" from="LevelControls/LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="timeout" from="LevelControls/Spawner" to="." method="_on_spawner_timer_timeout"]

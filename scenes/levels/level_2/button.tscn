@@ -98,7 +98,7 @@ _data = {
 "pressed_button": SubResource("Animation_dsga3")
 }
 
-[node name="button" type="Area2D"]
+[node name="Button" type="Area2D"]
 position = Vector2(12, 2)
 script = ExtResource("1_yif54")
 

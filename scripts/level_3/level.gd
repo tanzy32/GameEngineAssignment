@@ -3,7 +3,7 @@ extends Node2D
 @onready var player: MyPlayer = $Player
 @onready var playerui = player.get_child(-1)
 @onready var bubbleui = player.get_child(-2).get_child(0)
-@onready var level_background: TileMap = $"Level Background"
+@onready var level_background: TileMap = $"LevelStructure"
 @onready var creatures = $Creatures
 
 var rng := RandomNumberGenerator.new()	
@@ -56,32 +56,32 @@ func _ready():
 	
 
 func time_countdown():
-	var time_left = $"Level Background/waterlevelhitBox/air".time_left
+	var time_left = $"LevelStructure/WaterLevelHitBox/Air".time_left
 	return round(time_left)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !in_water:
-		$"Level Background/waterlevelhitBox/hitbox".disabled = true
+		$"LevelStructure/WaterLevelHitBox/HitBox".disabled = true
 		bubbleui.visible = false
 	var bubble = bubbleui.get_child(time_countdown())
 	bubble.visible = false
 	
 func _on_waterlevel_body_entered(body):
 	if body is MyPlayer:
-		$"Level Background/waterlevelhitBox/hitbox".disabled = true
+		$"LevelStructure/WaterLevelHitBox/HitBox".disabled = true
 		bubbleui.visible = true
 		var bubbles = bubbleui.get_children()
 		for bubble in bubbles:
 			bubble.visible = true
-		$"Level Background/waterlevelhitBox/air".start()
+		$"LevelStructure/WaterLevelHitBox/Air".start()
 		in_water = true
 
 func _on_waterlevel_body_exited(body):
 	if body is MyPlayer:
-		$"Level Background/waterlevelhitBox/air".stop
+		$"LevelStructure/WaterLevelHitBox/Air".stop
 		in_water = false
 
 func _on_air_timeout():
-	$"Level Background/waterlevelhitBox/hitbox".disabled = false
+	$"LevelStructure/waterlevelHitBox/Hitbox".disabled = false
 

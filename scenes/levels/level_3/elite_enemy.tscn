@@ -33,7 +33,7 @@ height = 58.0
 radius = 63.0
 height = 218.0
 
-[node name="elite enemy" type="CharacterBody2D"]
+[node name="Elite" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_al63f")
@@ -59,9 +59,9 @@ position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4s8e5")
 
-[node name="hitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+[node name="HitBox" type="CollisionShape2D" parent="HitBox"]
 visible = false
 position = Vector2(0, 5)
 rotation = 1.5708

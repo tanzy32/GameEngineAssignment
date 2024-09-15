@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d2q2hkcjeycs5" path="res://assets/menu/menu_backgrounds/far-mountains.png" id="2_qywnv"]
 [ext_resource type="Texture2D" uid="uid://1wo7n4vxxyaf" path="res://assets/menu/menu_backgrounds/near-clouds.png" id="3_v0ja2"]
 [ext_resource type="Texture2D" uid="uid://nf177rxdiugr" path="res://assets/menu/menu_backgrounds/new near cloud.png" id="5_87jea"]
-[ext_resource type="Texture2D" uid="uid://bt5tcqu0xv7w7" path="res://assets/menu/menu_backgrounds/Mountains.png" id="7_ryml4"]
+[ext_resource type="Texture2D" uid="uid://bt5tcqu0xv7w7" path="res://assets/menu/menu_backgrounds/mountains.png" id="7_ryml4"]
 
 [node name="MenuParallaxBackground" type="Node2D"]
 position = Vector2(248, 57)
@@ -27,45 +27,45 @@ scale = Vector2(3.62188, 3.76667)
 texture = ExtResource("2_1hxpo")
 centered = false
 
-[node name="Far Cloud" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="FarCloud" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 position = Vector2(-14, 3)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Far Cloud"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/FarCloud"]
 position = Vector2(5, -712)
 scale = Vector2(2.51172, 2.09583)
 texture = ExtResource("3_v0ja2")
 centered = false
 
-[node name="Near Cloud" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="NearCloud" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 position = Vector2(2, -7)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Near Cloud"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/NearCloud"]
 position = Vector2(-1530, -2094)
 scale = Vector2(2.78472, 2.5875)
 texture = ExtResource("5_87jea")
 centered = false
 
-[node name="Far Mountains" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="FarMountains" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 position = Vector2(-19, 16)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1152, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Far Mountains"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/FarMountains"]
 position = Vector2(5, -2721)
 scale = Vector2(3.6625, 3.15)
 texture = ExtResource("2_qywnv")
 centered = false
 
-[node name="Near Moutains" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="NearMoutains" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 position = Vector2(0, 11)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1152, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Near Moutains"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/NearMoutains"]
 texture_filter = 1
 position = Vector2(2, -3161)
 scale = Vector2(3.60312, 3.51667)

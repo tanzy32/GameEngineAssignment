@@ -101,7 +101,7 @@ _data = {
 "open_door": SubResource("Animation_tv5yl")
 }
 
-[node name="door" type="Area2D"]
+[node name="Door" type="Area2D"]
 script = ExtResource("1_eqe0l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -328,7 +328,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("Graphics/Sprite2D/Hurtbox/slime collision:disabled")
+tracks/23/path = NodePath("Graphics/Sprite2D/Hurtbox/SlimeCollision:disabled")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -352,7 +352,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("slime collision:disabled")
+tracks/25/path = NodePath("SlimeCollision:disabled")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -1397,7 +1397,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Graphics/Sprite2D/Hurtbox/slime collision:disabled")
+tracks/5/path = NodePath("Graphics/Sprite2D/Hurtbox/SlimeCollision:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1421,7 +1421,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("slime collision:disabled")
+tracks/7/path = NodePath("SlimeCollision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1852,7 +1852,7 @@ collision_mask = 5
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_md4mc")
 
-[node name="slime collision" type="CollisionShape2D" parent="Graphics/Sprite2D/Hurtbox"]
+[node name="SlimeCollision" type="CollisionShape2D" parent="Graphics/Sprite2D/Hurtbox"]
 position = Vector2(1, 11.125)
 shape = SubResource("RectangleShape2D_qwtam")
 disabled = true
@@ -1914,7 +1914,7 @@ frame = 4
 region_enabled = true
 region_rect = Rect2(0, 148, 343, 74)
 
-[node name="slime" type="Sprite2D" parent="Graphics"]
+[node name="Slime" type="Sprite2D" parent="Graphics"]
 visible = false
 position = Vector2(11, -25)
 scale = Vector2(1.6125, 1.98264)
@@ -1925,7 +1925,7 @@ frame = 6
 region_enabled = true
 region_rect = Rect2(0, 0, 160, 504)
 
-[node name="wings" type="Sprite2D" parent="Graphics"]
+[node name="Wings" type="Sprite2D" parent="Graphics"]
 position = Vector2(1, -14)
 scale = Vector2(0.25, 0.15)
 texture = ExtResource("6_u87rd")
@@ -1936,7 +1936,7 @@ region_rect = Rect2(84, 192, 82, 65)
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_l41ol")
 
-[node name="slime collision" type="CollisionShape2D" parent="."]
+[node name="SlimeCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -8)
 shape = SubResource("RectangleShape2D_fguni")
 disabled = true
@@ -1974,7 +1974,7 @@ libraries = {
 "": SubResource("AnimationLibrary_chyul")
 }
 
-[node name="hurtTimer" type="Timer" parent="."]
+[node name="HurtTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 

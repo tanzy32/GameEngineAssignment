@@ -142,7 +142,7 @@ height = 38.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p8pp"]
 size = Vector2(21, 37.1875)
 
-[node name="skeleton" type="CharacterBody2D"]
+[node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 68
 collision_mask = 2
 script = ExtResource("1_7uchh")
@@ -152,12 +152,12 @@ texture = ExtResource("1_caorc")
 hframes = 13
 vframes = 5
 
-[node name="hitBox" type="Area2D" parent="Sprite2D"]
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
 position = Vector2(-24.1403, 26.1565)
 collision_layer = 4
 collision_mask = 0
 
-[node name="hitbox" type="CollisionShape2D" parent="Sprite2D/hitBox"]
+[node name="Hitbox" type="CollisionShape2D" parent="Sprite2D/HitBox"]
 position = Vector2(18.8684, -26.0656)
 shape = SubResource("RectangleShape2D_d4sss")
 
@@ -181,7 +181,7 @@ value = 30.0
 position = Vector2(-5, 0)
 shape = SubResource("CapsuleShape2D_fl12d")
 
-[node name="debug" type="Label" parent="."]
+[node name="Actions" type="Label" parent="."]
 offset_left = -24.0
 offset_top = -51.0
 offset_right = 25.0
@@ -203,12 +203,12 @@ script = ExtResource("5_o4jdl")
 [node name="DeathSkeleton" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("6_b6pk4")
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+[node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-3.5, -0.59375)
 shape = SubResource("RectangleShape2D_5p8pp")
 
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

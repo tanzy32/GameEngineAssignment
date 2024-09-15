@@ -64,7 +64,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Golem/hitBox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("Golem/HitBox/HitBox:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -76,7 +76,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Pivot/Laser/hitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("Pivot/Laser/HitBox/HitBox:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -293,7 +293,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Laser/hitBox/CollisionShape2D:disabled")
+tracks/2/path = NodePath("Pivot/Laser/HitBox/HitBox:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -352,7 +352,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Golem/hitBox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Golem/HitBox/HitBox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -427,11 +427,11 @@ hframes = 10
 vframes = 10
 region_rect = Rect2(0, 0, 400, 100)
 
-[node name="hitBox" type="Area2D" parent="Golem"]
+[node name="HitBox" type="Area2D" parent="Golem"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Golem/hitBox"]
+[node name="HitBox" type="CollisionShape2D" parent="Golem/HitBox"]
 position = Vector2(-0.5, -2.25)
 shape = SubResource("RectangleShape2D_lufmx")
 disabled = true
@@ -445,11 +445,11 @@ scale = Vector2(1, 0.94)
 texture = ExtResource("2_8cnjt")
 vframes = 15
 
-[node name="hitBox" type="Area2D" parent="Pivot/Laser"]
+[node name="HitBox" type="Area2D" parent="Pivot/Laser"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Laser/hitBox"]
+[node name="HitBox" type="CollisionShape2D" parent="Pivot/Laser/HitBox"]
 position = Vector2(24.5, -17.2872)
 shape = SubResource("RectangleShape2D_pha71")
 disabled = true
@@ -503,7 +503,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Boss Slained"
 
-[node name="Debug" type="Label" parent="."]
+[node name="Actions" type="Label" parent="."]
 offset_left = -25.0
 offset_top = -43.0
 offset_right = 24.0
@@ -525,11 +525,11 @@ collision_layer = 0
 position = Vector2(1, -6)
 shape = SubResource("RectangleShape2D_en57q")
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+[node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_oig5r")
 
@@ -579,4 +579,4 @@ volume_db = 15.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

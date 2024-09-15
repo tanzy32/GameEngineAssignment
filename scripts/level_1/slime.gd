@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 @onready var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var animations = $AnimationPlayer
-@onready var hurtTimer = $hurtTimer
+@onready var hurtTimer = $HurtTimer
 
 var max_health: int
 var current_health: int
@@ -39,7 +39,7 @@ func _process(delta):
 	move_and_slide()
 
 func _jump():
-	$Jump.play()
+	$JumpSound.play()
 	# Determine the direction of the jump
 	var direction = -1 if randi() % 2 == 0 else 1
 	velocity.x = direction * horizontal_jump_speed
@@ -52,12 +52,12 @@ func updateAnimation(animation: String):
 	animations.play(animation)
 
 func _on_hurt_box_area_entered(area):
-	if area == $hitBox || area == $hurtBox: return
+	if area == $HitBox || area == $HurtBox: return
 	
 	if !isHurt:
 		isHurt = true
 		if current_health <= 1:
-			$hitBox.set_deferred("monitorable",false)
+			$HitBox.set_deferred("monitorable",false)
 			is_dead = true
 			updateAnimation("death")
 			

@@ -16,7 +16,7 @@ func _reset_focus_flag():
 func _on_texture_button_pressed():
 	$Click.play()
 	await $Click.finished
-	get_tree().change_scene_to_file("res://scenes/levels/level_1/level.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1/level_1.tscn")
 	
 func _on_texture_button_focus_entered():
 	if texture_button_focused:

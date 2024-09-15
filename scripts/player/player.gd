@@ -90,15 +90,15 @@ var is_game_over = false
 @onready var arrow_timer: Timer = $ArrowTimer
 @onready var hand_checker: RayCast2D = $Graphics/Sprite2D/HandChecker
 @onready var foot_checker: RayCast2D = $Graphics/Sprite2D/FootChecker
-@onready var hurtTimer: Timer = $hurtTimer
+@onready var hurtTimer: Timer = $HurtTimer
 @onready var effects: AnimationPlayer = $Effects
 @onready var death_timer = $PlayerUI/DeathTimer
 @onready var currentHealth: int = 2
-@onready var slime: Sprite2D = $Graphics/slime
+@onready var slime: Sprite2D = $Graphics/Slime
 @onready var reload_timer = $ReloadTimer
 @onready var sprite_2d: Sprite2D = $Graphics/Sprite2D
 @onready var game_over_ui = $GameOverUI
-@onready var wings: Sprite2D = $Graphics/wings
+@onready var wings: Sprite2D = $Graphics/Wings
 @onready var buff: Sprite2D = $Graphics/buff
 
 
@@ -578,7 +578,7 @@ func use_item(item: InventoryItem) -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if "hitBox" in area.name:
+	if "HitBox" in area.name:
 		enemyCollisions.append(area)
 
 

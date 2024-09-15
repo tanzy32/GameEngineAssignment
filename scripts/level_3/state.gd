@@ -3,7 +3,7 @@ class_name StateBoss
 
 @onready var boss_animation_player: AnimationPlayer = $"../../BossAnimationPlayer"
 @onready var player: MyPlayer = $Player
-@onready var debug: Label = $"../../Debug"
+@onready var debug: Label = $"../../Actions"
 
 func _ready():
 	set_physics_process(false)

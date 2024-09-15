@@ -2,7 +2,7 @@ extends Panel
 
 class_name ItemStackGui
 
-@onready var itemSprite: Sprite2D = $item
+@onready var itemSprite: Sprite2D = $Item
 @onready var amountLabel: Label = $Label
 
 var inventorySlot: InventorySlot

@@ -3,7 +3,7 @@ extends BaseScene
 var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var boss_slime = $Boss
 @onready var slime = slime_scene.instantiate()
-@onready var level_background: TileMap = $"Level background"
+@onready var level_background: TileMap = $LevelStructure
 @onready var label = $Guides/Boss
 
 func _process(delta):

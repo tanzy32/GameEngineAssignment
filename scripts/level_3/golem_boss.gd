@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var player: MyPlayer = $"../Player"
 @onready var golem: Sprite2D = $Golem
 @onready var progress_bar: ProgressBar = $UI/ProgressBar
-@onready var hit_box: Area2D = $Golem/hitBox
-@onready var collision_shape_2d: CollisionShape2D = $Golem/hitBox/CollisionShape2D
+@onready var hit_box: Area2D = $Golem/HitBox
+@onready var collision_shape_2d: CollisionShape2D = $Golem/HitBox/HitBox
 
 var direction : Vector2
 var DEF = 0

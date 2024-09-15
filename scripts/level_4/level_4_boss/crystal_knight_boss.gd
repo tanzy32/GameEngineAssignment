@@ -5,8 +5,8 @@ extends CharacterBody2D
 @onready var player = $"../Player"
 @onready var pivot = $Pivot
 @onready var progress_bar = $UI/ProgressBar
-@onready var hitbox: Area2D = $Sprite2D/hitBox
-@onready var collision_shape_2d: CollisionShape2D = $Sprite2D/hitBox/CollisionShape2D
+@onready var hitbox: Area2D = $Sprite2D/HitBox
+@onready var collision_shape_2d: CollisionShape2D = $Sprite2D/HitBox/CollisionShape2D
 
 
 
@@ -53,10 +53,6 @@ func update_health():
 	elif health <= progress_bar.max_value / 2 and DEF == 0:
 		DEF = 5
 	
-
-
-
-
 # Detect when the hurtbox is entered and apply damage
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	take_damage()
