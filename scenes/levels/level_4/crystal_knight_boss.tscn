@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/level_4/level_4_boss/crystal_knight_boss.gd" id="1_y0rw8"]
 [ext_resource type="Texture2D" uid="uid://ilwrrnw8v73o" path="res://assets/level_4/level_4 boss/Skills_1_attack.png" id="2_6jy4j"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="3_54fbo"]
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/finiteStateMachine.gd" id="4_n37o1"]
+[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/finite_state_machine.gd" id="4_n37o1"]
 [ext_resource type="Script" path="res://scripts/level_4/level_4_boss/boss_state.gd" id="4_oydtd"]
 [ext_resource type="Script" path="res://scripts/level_4/level_4_boss/idle.gd" id="4_rmpm2"]
 [ext_resource type="Script" path="res://scripts/level_4/level_4_boss/follow.gd" id="6_g4y60"]

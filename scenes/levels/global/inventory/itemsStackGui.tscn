@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6qevmaqj1c8g"]
 
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="1_o67kf"]
-[ext_resource type="Script" path="res://scripts/global/inventory/itemsStackGui.gd" id="1_tn1qs"]
+[ext_resource type="Script" path="res://scripts/global/inventory/items_stack_gui.gd" id="1_tn1qs"]
 
 [node name="Panel" type="Panel"]
 process_mode = 3

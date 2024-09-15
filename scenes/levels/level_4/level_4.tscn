@@ -541,7 +541,7 @@ position = Vector2(277, 305)
 [node name="Door" parent="LevelStructure" instance=ExtResource("7_45idg")]
 position = Vector2(719, 351)
 
-[node name="doorLabel" type="Label" parent="LevelStructure/Door"]
+[node name="DoorLabel" type="Label" parent="LevelStructure/Door"]
 visible = false
 offset_left = -124.0
 offset_top = -23.0

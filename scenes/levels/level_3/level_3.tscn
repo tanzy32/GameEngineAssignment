@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://dnkrt6om08ixj"]
 
-[ext_resource type="Script" path="res://scripts/level_3/level.gd" id="1_8inpm"]
+[ext_resource type="Script" path="res://scripts/level_3/level_3.gd" id="1_8inpm"]
 [ext_resource type="Texture2D" uid="uid://57a3w4b0m6gp" path="res://assets/level_3/sunken_temple_v1/V1/sunken_blocky.png" id="1_g53pp"]
 [ext_resource type="Texture2D" uid="uid://jy116hx5px60" path="res://assets/level_3/Space Cave Tileset.png" id="2_ununq"]
 [ext_resource type="Texture2D" uid="uid://cyxybqawl84m4" path="res://assets/level_3/sunken_temple_v1/V1/sunken_seamless.png" id="3_3sa6n"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dr7xt4okqlgcv"]
 
-[ext_resource type="Script" path="res://scripts/level_3/Bullet.gd" id="1_mje5u"]
+[ext_resource type="Script" path="res://scripts/level_3/bullet.gd" id="1_mje5u"]
 [ext_resource type="Texture2D" uid="uid://dvuj16l8d0nqn" path="res://assets/level_3/Mecha-stone Golem 0.1/weapon PNG/arm_projectile_glowing.png" id="2_ax6t5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fnfh"]

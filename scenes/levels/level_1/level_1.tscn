@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c4e4xoo217cvc"]
 
-[ext_resource type="Script" path="res://scripts/level_1/level.gd" id="1_kc6ft"]
+[ext_resource type="Script" path="res://scripts/level_1/level_1.gd" id="1_kc6ft"]
 [ext_resource type="Texture2D" uid="uid://phyqstdvbwu" path="res://assets/level_1/Taiga-Asset-Pack_v2_vnitti/PNG/Tileset.png" id="2_opssj"]
 [ext_resource type="FontFile" uid="uid://vrv8k1myvgmh" path="res://assets/font/PixelAE-Regular.ttf" id="3_5jfup"]
 [ext_resource type="PackedScene" uid="uid://b52frv2hv6vtt" path="res://scenes/levels/level_1/platform.tscn" id="4_dmvlv"]
@@ -334,7 +334,7 @@ _data = {
 "move": SubResource("Animation_ebxt3")
 }
 
-[node name="Level 1" type="Node2D"]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_kc6ft")
 
 [node name="Level background" type="TileMap" parent="."]
@@ -378,6 +378,7 @@ theme_override_font_sizes/font_size = 10
 text = "A - Move left
 D - Move right
 Spacebar - Jump
+Shift - Slide
 "
 
 [node name="DoubleJump" type="Label" parent="Guides"]
@@ -681,7 +682,7 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("8_1fv5y")]
-position = Vector2(377, -363)
+position = Vector2(691, -955)
 collision_layer = 1
 
 [connection signal="timeout" from="LevelControls/LevelTimer" to="." method="_on_level_timer_timeout"]
