@@ -84,12 +84,14 @@ autoplay = "default"
 shape = SubResource("RectangleShape2D_yjpad")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -40.0
-offset_top = -22.0
-offset_right = 43.0
-offset_bottom = -7.0
+offset_left = -6.0
+offset_top = -20.0
+offset_right = 7.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_wpdg5")
 theme_override_font_sizes/font_size = 10
-text = "Press E to pickup"
+text = "(E)"
 
 [connection signal="potion_picked_up" from="." to="." method="_on_potion_picked_up"]

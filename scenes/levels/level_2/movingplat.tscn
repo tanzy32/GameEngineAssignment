@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbupmg7kst0ir"]
 
-[ext_resource type="Script" path="res://scripts/level 2 script/movingplat.gd" id="1_v2nb5"]
+[ext_resource type="Script" path="res://scripts/level_2/movingplat.gd" id="1_v2nb5"]
 [ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="1_x3p76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7byc"]

@@ -127,13 +127,18 @@ libraries = {
 autoplay = "idle"
 
 [node name="Label" type="Label" parent="."]
-offset_left = -131.0
-offset_top = -106.0
-offset_right = 29.0
-offset_bottom = -76.0
+offset_left = -344.0
+offset_top = -216.0
+offset_right = -15.0
+offset_bottom = -54.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_kjlve")
 theme_override_font_sizes/font_size = 20
-text = "Press E to start!"
+text = "The obelisk will operate and little blobs will rain. If survive, a portal will spawn somewhere.
+
+Press E to start!"
+autowrap_mode = 2
 
 [node name="Puzzle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_26dmh")

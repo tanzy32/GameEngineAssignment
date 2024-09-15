@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var potion_drop_chance: float = 1  # 50% chance to drop a potion
+@export var potion_drop_chance: float = 0.8
 @export var potion_scene: PackedScene = load("res://scenes/levels/global/potion.tscn")  # Reference to the potion scene
 
 signal chest_opened  # Signal emitted when the chest is opened

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://camhyag5q2123" path="res://assets/player/Adventurer-Hand-Combat/adventurer-hand-combat-Sheet.png" id="6_uql5m"]
 [ext_resource type="PackedScene" uid="uid://bq0eoa3h4c2bt" path="res://scenes/levels/global/player_ui.tscn" id="6_ynbb7"]
 [ext_resource type="Texture2D" uid="uid://b8fk0abaonlh1" path="res://assets/level_1/Slimes/slime_idle1.png" id="7_khro0"]
-[ext_resource type="PackedScene" uid="uid://dl0wvpqnidlxb" path="res://scenes/levels/level_3/bubbleUI.tscn" id="7_ucyyq"]
+[ext_resource type="PackedScene" uid="uid://dl0wvpqnidlxb" path="res://scenes/levels/level_3/bubble_ui.tscn" id="7_ucyyq"]
 [ext_resource type="AudioStream" uid="uid://cvfyy2a5rrqfh" path="res://assets/audio/sfx/12_human_jump_1.wav" id="8_ksph6"]
 [ext_resource type="AudioStream" uid="uid://ds0pnhtv80o48" path="res://assets/audio/sfx/13_human_jump_land_1.wav" id="9_aiqf5"]
 [ext_resource type="AudioStream" uid="uid://npscc1kic28h" path="res://assets/audio/sfx/45_Landing_01.wav" id="9_ftkx0"]
@@ -1824,6 +1824,7 @@ collision_mask = 2
 script = ExtResource("1_xuxsi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 
 [node name="Graphics" type="Node2D" parent="."]
 

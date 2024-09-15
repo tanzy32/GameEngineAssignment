@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqy4jomxax4rq"]
+[gd_scene load_steps=20 format=3 uid="uid://dqy4jomxax4rq"]
 
-[ext_resource type="Script" path="res://scripts/level 2 script/level_2.gd" id="1_lurya"]
+[ext_resource type="Script" path="res://scripts/level_2/level_2.gd" id="1_lurya"]
 [ext_resource type="Texture2D" uid="uid://da3u75ljd7i3g" path="res://assets/level_2 assets/HD-wallpaper-2d-pixel-art-background-10-sky-cloud-2d-environments-unity-asset-store.png" id="2_230tp"]
 [ext_resource type="Texture2D" uid="uid://dc6e1uxgy47ls" path="res://assets/level_2 assets/Nature Platformer Tileset [16x16][FREE] - RottingPixels/nature-paltformer-tileset-16x16.png" id="2_juikb"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="2_yyfil"]
@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://d1fy5ptkrflrr" path="res://assets/audio/music/Ambient 5.wav" id="11_ejgoi"]
 [ext_resource type="PackedScene" uid="uid://bwl83ubixewog" path="res://scenes/levels/level_2/door.tscn" id="11_fb5j0"]
 [ext_resource type="PackedScene" uid="uid://brixk0gf31yu0" path="res://scenes/levels/level_1/chest.tscn" id="12_i80pv"]
-[ext_resource type="PackedScene" uid="uid://c7v383lf04rnc" path="res://scenes/levels/global/scene_trigger.tscn" id="13_vypqa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b7dkb"]
 
@@ -296,7 +295,7 @@ point_count = 2
 [node name="Level 2" type="Node2D"]
 script = ExtResource("1_lurya")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Parallex background" type="Sprite2D" parent="."]
 position = Vector2(756, 193)
 scale = Vector2(2.6275, 2.43111)
 texture = ExtResource("2_230tp")
@@ -311,10 +310,10 @@ zoom = Vector2(2, 2)
 [node name="background" parent="Player/PlayerUI/ParallaxBackground" index="0"]
 visible = false
 
-[node name="button" parent="." instance=ExtResource("10_sqc64")]
+[node name="Button" parent="." instance=ExtResource("10_sqc64")]
 position = Vector2(1283, 239)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Level Background" type="TileMap" parent="."]
 position = Vector2(-71, 32)
 tile_set = SubResource("TileSet_syyrq")
 format = 2
@@ -324,118 +323,117 @@ layer_1/name = "Water"
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(2621459, 327680, 5, 2621460, 327680, 5, 2621461, 327680, 5, 2621462, 327680, 5, 2621463, 327680, 5, 2621464, 327680, 5, 2621465, 327680, 5, 2621466, 327680, 5, 2621467, 327680, 5, 2621468, 327680, 5, 2621469, 327680, 5, 2621470, 327680, 5, 2621471, 327680, 5, 2621472, 327680, 5, 2621473, 327680, 5, 2621474, 327680, 5, 2621475, 327680, 5, 2621476, 327680, 5, 2621477, 327680, 5, 2621478, 327680, 5, 2621479, 327680, 5, 2621480, 327680, 5, 2621481, 327680, 5, 2621482, 327680, 5, 2621483, 327680, 5)
 
-[node name="Path2D" parent="." instance=ExtResource("4_r5n6x")]
-position = Vector2(513, 966)
-curve = SubResource("Curve2D_pwusb")
-
-[node name="Spawn" type="Node2D" parent="."]
-position = Vector2(39, 615)
-
-[node name="FlyingBat" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(204, 583)
-
-[node name="FlyingBatArea" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea"]
-polygon = PackedVector2Array(27, 617, 132, 617, 205, 616, 237, 603, 212, 571, 133, 567, 82, 578, 33, 603, 26, 613, 15, 614, 37, 579, 116, 558, 166, 563, 225, 568, 248, 599, 220, 619, 128, 627, 80, 629, 46, 624, 19, 622)
-
-[node name="FlyingBatArea2" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea2"]
-position = Vector2(356, -42)
-polygon = PackedVector2Array(83, 618, 132, 617, 148, 610, 151, 605, 156, 591, 133, 567, 83, 572, 59, 596, 83, 613, 81, 614, 48, 595, 78, 568, 119, 567, 166, 563, 165, 584, 178, 602, 157, 619, 128, 627, 84, 629, 80, 627, 82, 623)
-
-[node name="FlyingBat2" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(476, 549)
-
-[node name="FlyingBatArea3" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea3"]
-position = Vector2(305, -222)
-polygon = PackedVector2Array(92, 607, 131, 611, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 613, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 126, 621, 90, 618, 86, 618, 88, 613)
-
-[node name="FlyingBat3" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(463, 366)
-
-[node name="FlyingBatArea4" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea4"]
-position = Vector2(0, -475)
-polygon = PackedVector2Array(68, 619, 132, 617, 194, 615, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 68, 614, 55, 606, 50, 590, 78, 568, 119, 567, 166, 563, 216, 592, 234, 616, 215, 622, 128, 627, 84, 629, 67, 623, 67, 621)
-
-[node name="FlyingBat4" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(129, 101)
-
-[node name="Path2D4" parent="." instance=ExtResource("6_picn4")]
-position = Vector2(595, 296)
-curve = SubResource("Curve2D_8d3c4")
-
-[node name="Path2D2" parent="." instance=ExtResource("4_r5n6x")]
-position = Vector2(531, 63)
-curve = SubResource("Curve2D_nyrge")
-
-[node name="Path2D3" parent="." instance=ExtResource("4_r5n6x")]
-position = Vector2(640, 76)
-curve = SubResource("Curve2D_q4of6")
-
-[node name="FlyingBat5" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(912, -258)
-
-[node name="FlyingBat6" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(1130, -257)
-
-[node name="FlyingBatArea5" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea5"]
-position = Vector2(823, -844)
-scale = Vector2(1.76744, 1)
-polygon = PackedVector2Array(27, 617, 103, 612, 132, 617, 205, 616, 237, 603, 212, 571, 136.281, 529, 23.1974, 562, 33, 603, 26, 613, 15, 614, 10.75, 558, 92.7898, 525, 156.158, 520, 208.211, 555, 248, 599, 222, 616, 128, 627, 80, 629, 46, 624, 19, 622)
-
-[node name="FlyingBat7" parent="." instance=ExtResource("5_iwtop")]
-position = Vector2(1194, 147)
-
-[node name="FlyingBatArea6" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlyingBatArea6"]
-position = Vector2(1064, -431)
-polygon = PackedVector2Array(92, 595, 127, 597, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 605, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 127, 603, 108, 602, 90, 604, 85, 610, 85, 598)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("10_vhem3")]
-position = Vector2(290, 540)
-
-[node name="door" parent="." instance=ExtResource("11_fb5j0")]
+[node name="Door" parent="." instance=ExtResource("11_fb5j0")]
 position = Vector2(1241, 93)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ejgoi")
 bus = &"Music"
 
-[node name="Chest" parent="." instance=ExtResource("12_i80pv")]
-position = Vector2(337, 271)
+[node name="Chests" type="Node" parent="."]
 
-[node name="Chest2" parent="." instance=ExtResource("12_i80pv")]
-position = Vector2(196, -96)
-
-[node name="Chest3" parent="." instance=ExtResource("12_i80pv")]
+[node name="Chest3" parent="Chests" instance=ExtResource("12_i80pv")]
 position = Vector2(735, 127)
 
-[node name="PortalEntrance" parent="." instance=ExtResource("13_vypqa")]
-position = Vector2(137, 356)
-connected_scene = "lvl2boss"
+[node name="Chest2" parent="Chests" instance=ExtResource("12_i80pv")]
+position = Vector2(196, -96)
 
-[connection signal="Is_Active" from="button" to="door" method="_on_button_is_active"]
+[node name="Chest" parent="Chests" instance=ExtResource("12_i80pv")]
+position = Vector2(337, 271)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="FlyingBat" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(204, 583)
+
+[node name="FlyingBatArea" type="StaticBody2D" parent="Enemies"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/FlyingBatArea"]
+polygon = PackedVector2Array(27, 617, 132, 617, 205, 616, 237, 603, 212, 571, 133, 567, 82, 578, 33, 603, 26, 613, 15, 614, 37, 579, 116, 558, 166, 563, 225, 568, 248, 599, 220, 619, 128, 627, 80, 629, 46, 624, 19, 622)
+
+[node name="FlyingBatArea2" type="StaticBody2D" parent="Enemies"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/FlyingBatArea2"]
+position = Vector2(356, -42)
+polygon = PackedVector2Array(83, 618, 132, 617, 148, 610, 151, 605, 156, 591, 133, 567, 83, 572, 59, 596, 83, 613, 81, 614, 48, 595, 78, 568, 119, 567, 166, 563, 165, 584, 178, 602, 157, 619, 128, 627, 84, 629, 80, 627, 82, 623)
+
+[node name="FlyingBat2" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(476, 549)
+
+[node name="FlyingBatArea3" type="StaticBody2D" parent="Enemies"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/FlyingBatArea3"]
+position = Vector2(305, -222)
+polygon = PackedVector2Array(92, 607, 131, 611, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 613, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 126, 621, 90, 618, 86, 618, 88, 613)
+
+[node name="FlyingBat3" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(463, 366)
+
+[node name="FlyingBatArea4" type="StaticBody2D" parent="Enemies"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/FlyingBatArea4"]
+position = Vector2(0, -475)
+polygon = PackedVector2Array(68, 619, 132, 617, 194, 615, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 68, 614, 55, 606, 50, 590, 78, 568, 119, 567, 166, 563, 216, 592, 234, 616, 215, 622, 128, 627, 84, 629, 67, 623, 67, 621)
+
+[node name="FlyingBat4" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(129, 101)
+
+[node name="FlyingBat5" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(912, -258)
+
+[node name="FlyingBat6" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(1130, -257)
+
+[node name="FlyingBatArea5" type="StaticBody2D" parent="Enemies"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/FlyingBatArea5"]
+position = Vector2(823, -844)
+scale = Vector2(1.76744, 1)
+polygon = PackedVector2Array(27, 617, 103, 612, 132, 617, 205, 616, 237, 603, 212, 571, 136.281, 529, 23.1974, 562, 33, 603, 26, 613, 15, 614, 10.75, 558, 92.7898, 525, 156.158, 520, 208.211, 555, 248, 599, 222, 616, 128, 627, 80, 629, 46, 624, 19, 622)
+
+[node name="FlyingBat7" parent="Enemies" instance=ExtResource("5_iwtop")]
+position = Vector2(1194, 147)
+
+[node name="FlyingBatArea6" type="StaticBody2D" parent="Enemies"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/FlyingBatArea6"]
+position = Vector2(1064, -431)
+polygon = PackedVector2Array(92, 595, 127, 597, 191, 603, 209, 607, 194, 588, 133, 567, 83, 572, 81, 604, 83, 605, 81, 614, 74, 594, 78, 568, 119, 567, 166, 563, 216, 592, 213, 602, 206, 610, 127, 603, 108, 602, 90, 604, 85, 610, 85, 598)
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("10_vhem3")]
+position = Vector2(290, 540)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Path2D" parent="Platforms" instance=ExtResource("4_r5n6x")]
+position = Vector2(513, 966)
+curve = SubResource("Curve2D_pwusb")
+
+[node name="Path2D4" parent="Platforms" instance=ExtResource("6_picn4")]
+position = Vector2(595, 296)
+curve = SubResource("Curve2D_8d3c4")
+
+[node name="Path2D2" parent="Platforms" instance=ExtResource("4_r5n6x")]
+position = Vector2(531, 63)
+curve = SubResource("Curve2D_nyrge")
+
+[node name="Path2D3" parent="Platforms" instance=ExtResource("4_r5n6x")]
+position = Vector2(640, 76)
+curve = SubResource("Curve2D_q4of6")
+
+[connection signal="Is_Active" from="Button" to="Door" method="_on_button_is_active"]
 
 [editable path="Player"]
 [editable path="Player/PlayerUI"]

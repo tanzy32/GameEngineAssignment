@@ -4,12 +4,14 @@ var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
 @onready var boss_slime = $Boss
 @onready var slime = slime_scene.instantiate()
 @onready var level_background: TileMap = $"Level background"
-	
+@onready var label = $Guides/Boss
+
 func _process(delta):
 	if boss_slime.get_children().is_empty():
 		entrance_markers.visible = true
 	else:
 		entrance_markers.visible = false
+		label.hide()
 	
 func _ready() -> void:
 	BackgroundMusicMain.stop()

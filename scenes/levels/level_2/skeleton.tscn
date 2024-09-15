@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://dksyg8ryajssl"]
 
-[ext_resource type="Script" path="res://scripts/level 2 script/skeleton.gd" id="1_7uchh"]
+[ext_resource type="Script" path="res://scripts/level_2/skeleton.gd" id="1_7uchh"]
 [ext_resource type="Texture2D" uid="uid://du3oi7sukv7yc" path="res://assets/level_2 assets/Skeleton enemy.png" id="1_caorc"]
-[ext_resource type="Script" path="res://scripts/level 2 script/FiniteStateMachine.gd" id="2_h6hqg"]
-[ext_resource type="Script" path="res://scripts/level 2 script/Follow.gd" id="4_7kngu"]
-[ext_resource type="Script" path="res://scripts/level 2 script/AttackSkeleton.gd" id="5_o4jdl"]
-[ext_resource type="Script" path="res://scripts/level 2 script/DeathSkeleton.gd" id="6_b6pk4"]
+[ext_resource type="Script" path="res://scripts/level_2/FiniteStateMachine.gd" id="2_h6hqg"]
+[ext_resource type="Script" path="res://scripts/level_2/Follow.gd" id="4_7kngu"]
+[ext_resource type="Script" path="res://scripts/level_2/AttackSkeleton.gd" id="5_o4jdl"]
+[ext_resource type="Script" path="res://scripts/level_2/DeathSkeleton.gd" id="6_b6pk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4sss"]
 size = Vector2(20.5438, 39.8182)

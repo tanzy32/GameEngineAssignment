@@ -1,15 +1,15 @@
 [gd_scene load_steps=25 format=3 uid="uid://dil08sln4is51"]
 
-[ext_resource type="Script" path="res://scripts/level 2 script/necromancer.gd" id="1_4g3fp"]
+[ext_resource type="Script" path="res://scripts/level_2/necromancer.gd" id="1_4g3fp"]
 [ext_resource type="Texture2D" uid="uid://414n1xf77uej" path="res://assets/level_2 assets/Necromancer_creativekind-Sheet.png" id="1_ug1k8"]
-[ext_resource type="Script" path="res://scripts/level 2 script/FiniteStateMachine.gd" id="2_4lvh8"]
-[ext_resource type="Script" path="res://scripts/level 2 script/Idle.gd" id="3_g6vx4"]
-[ext_resource type="Script" path="res://scripts/level 2 script/Summon.gd" id="4_r5nnw"]
+[ext_resource type="Script" path="res://scripts/level_2/FiniteStateMachine.gd" id="2_4lvh8"]
+[ext_resource type="Script" path="res://scripts/level_2/Idle.gd" id="3_g6vx4"]
+[ext_resource type="Script" path="res://scripts/level_2/Summon.gd" id="4_r5nnw"]
 [ext_resource type="PackedScene" uid="uid://dksyg8ryajssl" path="res://scenes/levels/level_2/skeleton.tscn" id="5_vqb6q"]
-[ext_resource type="Script" path="res://scripts/level 2 script/Attack.gd" id="6_nqcry"]
+[ext_resource type="Script" path="res://scripts/level_2/Attack.gd" id="6_nqcry"]
 [ext_resource type="PackedScene" uid="uid://cqb6twidtc20e" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
-[ext_resource type="Script" path="res://scripts/level 2 script/Stagger.gd" id="8_ny0wv"]
-[ext_resource type="Script" path="res://scripts/level 2 script/Death.gd" id="9_4uivg"]
+[ext_resource type="Script" path="res://scripts/level_2/Stagger.gd" id="8_ny0wv"]
+[ext_resource type="Script" path="res://scripts/level_2/Death.gd" id="9_4uivg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huegx"]
 size = Vector2(31, 57)

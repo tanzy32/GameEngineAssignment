@@ -75,13 +75,15 @@ shape = SubResource("RectangleShape2D_ngbyi")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = -52.0
+offset_left = -15.0
 offset_top = -17.0
-offset_right = 39.0
+offset_right = -2.0
 offset_bottom = -2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_tswu0")
 theme_override_font_sizes/font_size = 10
-text = "Press E to interact"
+text = "(E)"
 
 [node name="Chest" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y1g3m")

@@ -3,9 +3,9 @@ extends BaseScene
 @onready var slimes = $Slimes
 
 var slime_scene: PackedScene = load("res://scenes/levels/level_1/slime.tscn")
-@onready var level_timer = $level_controls/level_timer
-@onready var label = $level_controls/level_description
-@onready var spawner_timer = $level_controls/spawner_timer
+@onready var level_timer = $Level_Controls/level_timer
+@onready var label = $Level_Controls/level_description
+@onready var spawner_timer = $Level_Controls/spawner_timer
 @onready var level_background: TileMap = $"Level background"
 
 
