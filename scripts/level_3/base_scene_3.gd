@@ -7,17 +7,17 @@ class_name BaseScene_3 extends Node2D
 var has_last_scene: bool = false
 
 func _ready():
-	if scene_manager.player:
+	if SceneManagerLoad.player:
 		if player:
 			player.queue_free()
 			
-		player = scene_manager.player
+		player = SceneManagerLoad.player
 		add_child(player)
 		
 	position_player()
 	
 func position_player()->void:
-	var last_scene = scene_manager.last_scene_name
+	var last_scene = SceneManagerLoad.last_scene_name
 	
 	if last_scene.is_empty():
 		has_last_scene = false

@@ -255,7 +255,7 @@ func should_slide() -> bool:
 	return Input.is_action_just_pressed("slide") and not foot_checker.is_colliding()
 
 func can_wall_slide() -> bool:
-	return is_on_wall() and hand_checker.is_colliding() and foot_checker.is_colliding()
+	return is_on_wall()
 
 func shoot_arrow() -> void:
 	var arrow_instance = arrow.instantiate()
