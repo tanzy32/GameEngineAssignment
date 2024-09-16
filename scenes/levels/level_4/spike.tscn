@@ -7,8 +7,8 @@
 size = Vector2(15, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhowl"]
-radius = 8.0
-height = 26.0
+radius = 6.0
+height = 14.0
 
 [node name="Spike" type="Area2D"]
 collision_layer = 2
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_45f7y")
 collision_layer = 4
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -8)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_mhowl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
