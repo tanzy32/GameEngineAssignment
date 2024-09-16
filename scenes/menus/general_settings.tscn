@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://csvdykup6gt7f"]
+[gd_scene load_steps=28 format=3 uid="uid://csvdykup6gt7f"]
 
 [ext_resource type="Script" path="res://scripts/menus/general_settings.gd" id="1_lbgnw"]
 [ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="2_tl2wo"]
@@ -21,7 +21,10 @@
 [ext_resource type="Script" path="res://scripts/menus/inventory_key_remap.gd" id="19_f8ow0"]
 [ext_resource type="Script" path="res://scripts/menus/use_item_key_remap.gd" id="20_yra5k"]
 [ext_resource type="Script" path="res://scripts/menus/drink_potion_key_remap.gd" id="21_glxjx"]
+[ext_resource type="Script" path="res://scripts/menus/skill1_key_remap.gd" id="22_3wuky"]
 [ext_resource type="AudioStream" uid="uid://djbuudst11eu7" path="res://assets/audio/sfx/drop_003.ogg" id="22_lge4c"]
+[ext_resource type="Script" path="res://scripts/menus/skill2_key_remap.gd" id="23_e7xxx"]
+[ext_resource type="Script" path="res://scripts/menus/skill3_key_remap.gd" id="24_0353c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4duv"]
 
@@ -482,13 +485,35 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("7_4d78i")
 theme_override_font_sizes/font_size = 25
-text = "  Attack"
+text = "  Melee Attack"
 
 [node name="AttackButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer"]
 custom_minimum_size = Vector2(222, 0)
 layout_mode = 2
 theme = ExtResource("12_0244f")
 script = ExtResource("17_m2jr3")
+
+[node name="BowHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/BowHBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Bow Attack"
+
+[node name="BowButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/BowHBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("21_glxjx")
 
 [node name="InteractHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
@@ -556,12 +581,12 @@ layout_mode = 2
 theme = ExtResource("12_0244f")
 script = ExtResource("20_yra5k")
 
-[node name="DrinkPotionHBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+[node name="Skill1HBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_constants/separation = 358
 
-[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer"]
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill1HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -570,13 +595,58 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("7_4d78i")
 theme_override_font_sizes/font_size = 25
-text = "  Drink Potion"
+text = "  Slimy Coat
+"
 
-[node name="DrinkPotionButton" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer"]
+[node name="Skill1Button" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill1HBoxContainer"]
 custom_minimum_size = Vector2(222, 0)
 layout_mode = 2
 theme = ExtResource("12_0244f")
-script = ExtResource("21_glxjx")
+script = ExtResource("22_3wuky")
+
+[node name="Skill2HBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill2HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Fly"
+
+[node name="Skill2Button" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill2HBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("23_e7xxx")
+
+[node name="Skill3HBoxContainer" type="HBoxContainer" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 358
+
+[node name="Label" type="Label" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill3HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_4d78i")
+theme_override_font_sizes/font_size = 25
+text = "  Angel Grace"
+
+[node name="Skill3Button" type="Button" parent="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill3HBoxContainer"]
+custom_minimum_size = Vector2(222, 0)
+layout_mode = 2
+theme = ExtResource("12_0244f")
+script = ExtResource("24_0353c")
 
 [node name="Dropdown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_lge4c")
@@ -599,7 +669,10 @@ bus = &"SFX"
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/JumpHBoxContainer/JumpButton" method="_on_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/SlideHBoxContainer/SlideButton" method="_on_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/AttackHBoxContainer/AttackButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/BowHBoxContainer/BowButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/BowHBoxContainer/BowButton" method="_on_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InteractHBoxContainer/InteractButton" method="_on_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/InventoryHBoxContainer/InventoryButton" method="_on_pressed"]
 [connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/UseItemHBoxContainer/UseItemButton" method="_on_pressed"]
-[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/DrinkPotionHBoxContainer/DrinkPotionButton" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill1HBoxContainer/Skill1Button" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill1HBoxContainer/Skill1Button" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill2HBoxContainer/Skill2Button" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill2HBoxContainer/Skill2Button" method="_on_pressed"]
+[connection signal="pressed" from="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill3HBoxContainer/Skill3Button" to="TitleVBoxContainer/TextureRect/ScrollContainer/VBoxContainer/KeybindVBoxContainer/Skill3HBoxContainer/Skill3Button" method="_on_pressed"]

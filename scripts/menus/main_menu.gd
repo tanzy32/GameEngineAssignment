@@ -6,6 +6,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	BackgroundMusicMain.play_bgm()
+	$ConfirmationWindow.visible = false
 	start_button_focused = true
 	start_button.grab_focus()
 	call_deferred("_reset_focus_flag")
@@ -29,7 +30,13 @@ func _on_start_texture_button_focus_entered():
 func _on_load_data_texture_button_pressed():
 	$Click.play()
 	await $Click.finished
-	SaveLoad.LoadGame("res://resources/data.tres")
+	# Check if the save file exists
+	if not SaveLoad.HasSavedData("res://resources/data.tres"):
+		$ConfirmationWindow.visible  = true
+		return
+	else:
+		SaveLoad.LoadGame("res://resources/data.tres")
+	
 	
 func _on_load_data_texture_button_focus_entered():
 	$Hover.play()
@@ -65,3 +72,8 @@ func _on_quit_texture_button_pressed():
 
 func _on_quit_texture_button_focus_entered():
 	$Hover.play()
+
+func _on_okay_texture_button_pressed():
+	$Click.play()
+	await $Click.finished
+	$ConfirmationWindow.visible = false

@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dksyg8ryajssl"]
+[gd_scene load_steps=16 format=3 uid="uid://dksyg8ryajssl"]
 
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/skeleton.gd" id="1_7uchh"]
 [ext_resource type="Texture2D" uid="uid://du3oi7sukv7yc" path="res://assets/level_2/Skeleton enemy.png" id="1_caorc"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/finite_state_machine.gd" id="3_kkihk"]
-[ext_resource type="Script" path="res://scripts/level_2/follow.gd" id="4_7kngu"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/attack_skeleton.gd" id="5_hcna4"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/death_skeleton.gd" id="6_xcppo"]
 
@@ -195,7 +194,6 @@ vertical_alignment = 1
 script = ExtResource("3_kkihk")
 
 [node name="Follow" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("4_7kngu")
 
 [node name="AttackSkeleton" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("5_hcna4")

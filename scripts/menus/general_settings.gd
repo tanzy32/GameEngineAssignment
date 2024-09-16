@@ -124,3 +124,6 @@ func _on_sfx_mute_check_box_pressed():
 		# If unmuting, restore the previous slider value
 		sfx_slider.value = sfx_previous_slider_value
 		AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(sfx_previous_slider_value))
+
+
+

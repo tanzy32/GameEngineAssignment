@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7dx32enef3lg"]
+[gd_scene load_steps=12 format=3 uid="uid://b7dx32enef3lg"]
 
 [ext_resource type="PackedScene" uid="uid://mk1ga18wbyfx" path="res://scenes/menus/menu_parallax_background.tscn" id="1_omntp"]
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_x8o8d"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://csu4c8mpu22o8" path="res://assets/audio/sfx/select_005.ogg" id="8_1wneq"]
 [ext_resource type="AudioStream" uid="uid://crdtcguydjno" path="res://assets/audio/sfx/error_007.ogg" id="9_che8y"]
 [ext_resource type="PackedScene" uid="uid://dvmwdqr7ujubj" path="res://scenes/menus/musics/background_music_main.tscn" id="10_nqmya"]
+[ext_resource type="Texture2D" uid="uid://d4k07nyxvm03t" path="res://assets/menu/GUI/Title.png" id="11_w8h80"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -291,6 +292,78 @@ bus = &"SFX"
 
 [node name="BackgroundMusicMain" parent="." instance=ExtResource("10_nqmya")]
 
+[node name="ConfirmationWindow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 306.0
+offset_top = 206.0
+offset_right = 883.0
+offset_bottom = 595.0
+texture = ExtResource("11_w8h80")
+
+[node name="Label" type="Label" parent="ConfirmationWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -64.5
+offset_right = 179.5
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 32
+text = "No Saved Data Available"
+horizontal_alignment = 1
+
+[node name="OkayTextureButton" type="TextureButton" parent="ConfirmationWindow"]
+texture_filter = 1
+offset_left = 215.0
+offset_top = 232.0
+offset_right = 361.0
+offset_bottom = 286.0
+focus_neighbor_top = NodePath("../QuitTextureButton")
+texture_normal = ExtResource("3_1n4ju")
+texture_pressed = ExtResource("4_j84s4")
+texture_hover = ExtResource("5_s6smv")
+texture_focused = ExtResource("5_s6smv")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationWindow/OkayTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 32.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ConfirmationWindow/OkayTextureButton/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qh6u1")
+theme_override_font_sizes/font_size = 21
+text = "OK"
+horizontal_alignment = 1
+
 [connection signal="focus_entered" from="ButtonsVBoxContainer/StartTextureButton" to="." method="_on_start_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/StartTextureButton" to="." method="_on_start_texture_button_pressed"]
 [connection signal="focus_entered" from="ButtonsVBoxContainer/LoadDataTextureButton" to="." method="_on_load_data_texture_button_focus_entered"]
@@ -303,3 +376,5 @@ bus = &"SFX"
 [connection signal="pressed" from="ButtonsVBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_pressed"]
 [connection signal="focus_entered" from="ButtonsVBoxContainer/QuitTextureButton" to="." method="_on_quit_texture_button_focus_entered"]
 [connection signal="pressed" from="ButtonsVBoxContainer/QuitTextureButton" to="." method="_on_quit_texture_button_pressed"]
+[connection signal="focus_entered" from="ConfirmationWindow/OkayTextureButton" to="." method="_on_start_texture_button_focus_entered"]
+[connection signal="pressed" from="ConfirmationWindow/OkayTextureButton" to="." method="_on_okay_texture_button_pressed"]

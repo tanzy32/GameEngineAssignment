@@ -3,7 +3,7 @@ extends Button
 @onready var remapping=false
 @onready var remap_events=[]
 
-@export var action: String = "rowAttack"
+@export var action: String = "angelGrace"
 
 func _ready():
 	update_key_text()

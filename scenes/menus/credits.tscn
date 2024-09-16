@@ -142,7 +142,7 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("5_t4vlk")
 theme_override_font_sizes/font_size = 20
-text = "Lee Chee Jian"
+text = "Lee Chee Jian           		     2106126"
 
 [node name="RickyTRHLabel2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -262,6 +262,96 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
 text = " BDragon1727"
 uri = "https://bdragon1727.itch.io/"
+
+[node name="LinkButton3" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " ansimuz"
+uri = "https://ansimuz.itch.io/mountain-dusk-parallax-background"
+
+[node name="LinkButton4" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " TheoAllen"
+uri = "https://theoallen.itch.io/theos-bgm-collection"
+
+[node name="LinkButton5" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " ColorAlpha"
+uri = "https://coloralpha.itch.io/50-menu-interface-sfx"
+
+[node name="LinkButton6" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Leohpaz"
+uri = "https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack"
+
+[node name="LinkButton7" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Kronbits"
+uri = "https://kronbits.itch.io/freesfx"
+
+[node name="LinkButton8" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " alkakrab"
+uri = "https://alkakrab.itch.io/fantasy-rpg-soundtrack-music"
+
+[node name="LinkButton9" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Kenny"
+uri = "<null>https://kenney.nl/assets/interface-sounds"
+
+[node name="LinkButton10" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Bit By Bit Sound"
+uri = "https://bit-by-bit-sound.itch.io/16-bit-starter-pack"
+
+[node name="LinkButton11" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Nostalgiac"
+uri = "https://nostalgiac.itch.io/free-music-pack"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 layout_mode = 2

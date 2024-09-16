@@ -29,4 +29,13 @@ func LoadGame(SaveFilePath:String)->void:
 	#play.owner = get_tree().current_scene
 	play.global_position = GameSave.PlayerPosition
 	
+func HasSavedData(SaveFilePath:String)->bool:
+	# Attempt to load the resource from the given path
+	var loaded_resource := ResourceLoader.load(SaveFilePath)
+	# Check if the resource is valid 
+	if loaded_resource:
+		return true
+	# If loading failed, return false
+	return false
+
 	
