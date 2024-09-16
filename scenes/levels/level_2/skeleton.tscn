@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://dksyg8ryajssl"]
 
-[ext_resource type="Script" path="res://scripts/level_2/skeleton.gd" id="1_7uchh"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/skeleton.gd" id="1_7uchh"]
 [ext_resource type="Texture2D" uid="uid://du3oi7sukv7yc" path="res://assets/level_2/Skeleton enemy.png" id="1_caorc"]
-[ext_resource type="Script" path="res://scripts/level_2/finite_state_machine.gd" id="2_h6hqg"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/finite_state_machine.gd" id="3_kkihk"]
 [ext_resource type="Script" path="res://scripts/level_2/follow.gd" id="4_7kngu"]
-[ext_resource type="Script" path="res://scripts/level_2/attack_skeleton.gd" id="5_o4jdl"]
-[ext_resource type="Script" path="res://scripts/level_2/death_skeleton.gd" id="6_b6pk4"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/attack_skeleton.gd" id="5_hcna4"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/death_skeleton.gd" id="6_xcppo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4sss"]
 size = Vector2(20.5438, 39.8182)
@@ -192,16 +192,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FiniteStateMachine" type="Node2D" parent="."]
-script = ExtResource("2_h6hqg")
+script = ExtResource("3_kkihk")
 
 [node name="Follow" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("4_7kngu")
 
 [node name="AttackSkeleton" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("5_o4jdl")
+script = ExtResource("5_hcna4")
 
 [node name="DeathSkeleton" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("6_b6pk4")
+script = ExtResource("6_xcppo")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
