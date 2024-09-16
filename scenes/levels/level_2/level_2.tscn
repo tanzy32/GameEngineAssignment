@@ -296,6 +296,7 @@ point_count = 2
 script = ExtResource("1_lurya")
 
 [node name="Parallex background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(756, 193)
 scale = Vector2(2.6275, 2.43111)
 texture = ExtResource("2_230tp")
@@ -432,6 +433,14 @@ curve = SubResource("Curve2D_nyrge")
 [node name="Path2D3" parent="Platforms" instance=ExtResource("4_r5n6x")]
 position = Vector2(640, 76)
 curve = SubResource("Curve2D_q4of6")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-2218.4, -779.034)
+
+[node name="background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(576.5, 324)
+scale = Vector2(1.5, 2.23)
+texture = ExtResource("2_230tp")
 
 [connection signal="Is_Active" from="Button" to="Door" method="_on_button_is_active"]
 

@@ -526,6 +526,7 @@ point_count = 2
 script = ExtResource("1_b0ssa")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(468, 426)
 scale = Vector2(0.267086, 0.566667)
 texture = ExtResource("1_2g0d3")
@@ -619,6 +620,7 @@ position = Vector2(293, 367)
 
 [node name="Spike" parent="Spikes" instance=ExtResource("7_upcs0")]
 position = Vector2(135, 648)
+collision_mask = 65
 
 [node name="Spike2" parent="Spikes" instance=ExtResource("7_upcs0")]
 position = Vector2(152, 648)
@@ -722,6 +724,13 @@ position = Vector2(897, 589)
 
 [node name="Chest3" parent="Chests" instance=ExtResource("17_6k2rs")]
 position = Vector2(627, 253)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-2218.4, -779.034)
+
+[node name="background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(576.5, 324)
+texture = ExtResource("1_2g0d3")
 
 [connection signal="Is_Active" from="LevelStructure/Lever" to="Bridge" method="_on_lever_switch_is_active"]
 [connection signal="body_entered" from="LevelStructure/Door/TransitionArea" to="LevelStructure/Door" method="_on_transition_area_body_entered"]
