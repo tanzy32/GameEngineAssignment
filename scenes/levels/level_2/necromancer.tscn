@@ -3,16 +3,17 @@
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/necromancer.gd" id="1_4g3fp"]
 [ext_resource type="Texture2D" uid="uid://414n1xf77uej" path="res://assets/level_2/Necromancer_creativekind-Sheet.png" id="1_ug1k8"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/finite_state_machine.gd" id="2_4lvh8"]
-[ext_resource type="Script" path="res://scripts/level_2/idle.gd" id="3_g6vx4"]
-[ext_resource type="Script" path="res://scripts/level_2/summon.gd" id="4_r5nnw"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/Idle.gd" id="4_3agwr"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/Summon.gd" id="5_v7syg"]
 [ext_resource type="PackedScene" uid="uid://dksyg8ryajssl" path="res://scenes/levels/level_2/skeleton.tscn" id="5_vqb6q"]
-[ext_resource type="Script" path="res://scripts/level_2/attack.gd" id="6_nqcry"]
 [ext_resource type="PackedScene" uid="uid://cqb6twidtc20e" path="res://scenes/levels/level_2/projectile.tscn" id="7_4p154"]
-[ext_resource type="Script" path="res://scripts/level_2/stagger.gd" id="8_ny0wv"]
-[ext_resource type="Script" path="res://scripts/level_2/death.gd" id="9_4uivg"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/Attack.gd" id="7_n2bxk"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/Stagger.gd" id="8_4x8n1"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/Death.gd" id="9_3cpl6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_huegx"]
-size = Vector2(31, 57)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mn5ni"]
+radius = 8.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_bs1m4"]
 length = 0.001
@@ -252,13 +253,12 @@ hframes = 17
 vframes = 7
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
-position = Vector2(-24.1403, 26.1565)
 collision_layer = 4
 collision_mask = 0
 
-[node name="Hitbox" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(26.1403, -3.65649)
-shape = SubResource("RectangleShape2D_huegx")
+[node name="HitBox" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_mn5ni")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -337,21 +337,21 @@ shape = SubResource("CircleShape2D_i70b8")
 script = ExtResource("2_4lvh8")
 
 [node name="Idle" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("3_g6vx4")
+script = ExtResource("4_3agwr")
 
 [node name="Summon" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("4_r5nnw")
+script = ExtResource("5_v7syg")
 skeleton_node = ExtResource("5_vqb6q")
 
 [node name="Attack" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("6_nqcry")
+script = ExtResource("7_n2bxk")
 bullet_node = ExtResource("7_4p154")
 
 [node name="Stagger" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("8_ny0wv")
+script = ExtResource("8_4x8n1")
 
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("9_4uivg")
+script = ExtResource("9_3cpl6")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

@@ -83,4 +83,4 @@ maxAmountPerStack = 0
 
 [resource]
 script = ExtResource("2_oefck")
-slots = [SubResource("Resource_kjqrg"), SubResource("Resource_0qrpa"), SubResource("Resource_j5kwp"), SubResource("Resource_mcgg1"), SubResource("Resource_bjvt4"), SubResource("Resource_3sgge"), SubResource("Resource_tw835"), SubResource("Resource_1c4ue"), SubResource("Resource_kb8m2"), SubResource("Resource_cqgyo"), SubResource("Resource_bkmch"), SubResource("Resource_qwx6h"), SubResource("Resource_4cu87"), SubResource("Resource_xerpk"), SubResource("Resource_mvnyn")]
+slots = Array[ExtResource("2_y6vo0")]([SubResource("Resource_kjqrg"), SubResource("Resource_0qrpa"), SubResource("Resource_j5kwp"), SubResource("Resource_mcgg1"), SubResource("Resource_bjvt4"), SubResource("Resource_3sgge"), SubResource("Resource_tw835"), SubResource("Resource_1c4ue"), SubResource("Resource_kb8m2"), SubResource("Resource_cqgyo"), SubResource("Resource_bkmch"), SubResource("Resource_qwx6h"), SubResource("Resource_4cu87"), SubResource("Resource_xerpk"), SubResource("Resource_mvnyn")])

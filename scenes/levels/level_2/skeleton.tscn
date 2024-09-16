@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dksyg8ryajssl"]
+[gd_scene load_steps=17 format=3 uid="uid://dksyg8ryajssl"]
 
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/skeleton.gd" id="1_7uchh"]
 [ext_resource type="Texture2D" uid="uid://du3oi7sukv7yc" path="res://assets/level_2/Skeleton enemy.png" id="1_caorc"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/finite_state_machine.gd" id="3_kkihk"]
+[ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/Follow.gd" id="4_st6b8"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/attack_skeleton.gd" id="5_hcna4"]
 [ext_resource type="Script" path="res://scripts/level_2/bosslevel_2/death_skeleton.gd" id="6_xcppo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4sss"]
-size = Vector2(20.5438, 39.8182)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ncl2o"]
+radius = 8.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_5ajlt"]
 length = 0.001
@@ -146,19 +148,18 @@ collision_layer = 68
 collision_mask = 2
 script = ExtResource("1_7uchh")
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_ncl2o")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_caorc")
 hframes = 13
 vframes = 5
-
-[node name="HitBox" type="Area2D" parent="Sprite2D"]
-position = Vector2(-24.1403, 26.1565)
-collision_layer = 4
-collision_mask = 0
-
-[node name="Hitbox" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(18.8684, -26.0656)
-shape = SubResource("RectangleShape2D_d4sss")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -194,6 +195,7 @@ vertical_alignment = 1
 script = ExtResource("3_kkihk")
 
 [node name="Follow" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("4_st6b8")
 
 [node name="AttackSkeleton" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("5_hcna4")

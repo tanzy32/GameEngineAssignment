@@ -1,7 +1,7 @@
 extends lvl2_State
 @onready var collision = %CollisionShape2D
 @onready var progress_bar = %ProgressBar
-
+ 
 var player_entered: bool = false:
 	set(value):
 		player_entered = value
