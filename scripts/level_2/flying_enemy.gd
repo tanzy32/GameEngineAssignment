@@ -6,7 +6,7 @@ var dir: Vector2
 var is_bat_chase: bool
 var player: CharacterBody2D
 var max_hp = 1000
-var current_health = 3
+var current_health = 1
 var is_dead: bool = false
 
 func _ready():

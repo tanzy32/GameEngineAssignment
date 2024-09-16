@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var facing_right = false
 var max_hp = 100
-var current_health = 3
+var current_health = 1
 var is_dead: bool = false
 
 func _ready():
