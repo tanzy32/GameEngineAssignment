@@ -11,8 +11,6 @@ var fish_friendly: PackedScene = load("res://scenes/levels/level_3/fishes.tscn")
 var fish_enemy: PackedScene = load("res://scenes/levels/level_3/enemyfish.tscn")
 var squid: PackedScene = load("res://scenes/levels/level_3/squid.tscn")
 var player_nearby: bool = false 
-var is_activate_waterlever: bool = false
-var is_activate_platformlever: bool = false
 var in_water = false
 
 

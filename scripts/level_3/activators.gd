@@ -132,7 +132,7 @@ func _on_easytimer_timeout():
 			j.disabled = false
 	is_activate_waterlever = false
 	activator.flip_h = false
-	
+		
 			
 func _on_hardtimer_timeout():
 	for i in range(4, 8):
