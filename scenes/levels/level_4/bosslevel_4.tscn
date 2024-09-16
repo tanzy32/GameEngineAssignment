@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dr7uyc48qewx2"]
 
-[ext_resource type="Script" path="res://scripts/level_4/level_4_boss/bosslevel_4.gd" id="1_skm5d"]
+[ext_resource type="Script" path="res://scripts/level_4/bosslevel_4/bosslevel_4.gd" id="1_skm5d"]
 [ext_resource type="Texture2D" uid="uid://dpfkfe2slu1hi" path="res://assets/level_4/Dungeon Tile Set.png" id="2_33lsx"]
 [ext_resource type="PackedScene" uid="uid://c700awxere05o" path="res://scenes/levels/level_4/crystal_knight_boss.tscn" id="3_utsgh"]
 [ext_resource type="PackedScene" uid="uid://d073oe2bjayce" path="res://scenes/player/player.tscn" id="4_6ld4q"]

@@ -12,7 +12,6 @@ func _input(event):
 		else:
 			inventory.open()
 
-
 func _on_inventory_gui_closed():
 	get_tree().paused = false
 
