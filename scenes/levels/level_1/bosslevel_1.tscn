@@ -212,7 +212,7 @@ sources/0 = SubResource("TileSetAtlasSource_s7o2i")
 script = ExtResource("1_wbqeu")
 
 [node name="Player" parent="." instance=ExtResource("2_7wkgj")]
-position = Vector2(805, 0)
+position = Vector2(515, 278)
 
 [node name="LevelStructure" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dyqyx")
