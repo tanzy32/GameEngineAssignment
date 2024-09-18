@@ -353,6 +353,76 @@ theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
 text = " Nostalgiac"
 uri = "https://nostalgiac.itch.io/free-music-pack"
 
+[node name="LinkButton12" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Admurin"
+uri = "https://admurin.itch.io/free-chest-animations"
+
+[node name="LinkButton13" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Arludus"
+uri = "https://arludus.itch.io/2d-pixel-art-backgrounds-10-sky-cloud-3"
+
+[node name="LinkButton14" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " nylmoth"
+uri = "https://nylmoth.itch.io/sunken-cave-tileset"
+
+[node name="LinkButton15" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " omniclause"
+uri = "https://omniclause.itch.io/spikes"
+
+[node name="LinkButton16" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Pixel_emm"
+uri = "https://pixel-emm.itch.io/deep-sea-creatures"
+
+[node name="LinkButton17" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Pixelnauta"
+uri = "https://pixelnauta.itch.io/pixel-dimensional-portal-32x32"
+
+[node name="LinkButton18" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " vnitti"
+uri = "https://vnitti.itch.io/taiga-asset-pack"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -434,10 +504,238 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("5_t4vlk")
 theme_override_font_sizes/font_size = 20
 
-[node name="Label8" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label9" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("5_t4vlk")
 theme_override_font_sizes/font_size = 20
+
+[node name="AccredidationLabel2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Special thanks to: "
+uppercase = true
+
+[node name="Label10" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="Label11" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+
+[node name="AccredidationLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_ma6kp")
+theme_override_font_sizes/font_size = 25
+text = "Special thanks to: "
+uppercase = true
+
+[node name="LinkButton" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " AstroBob"
+uri = "https://astrobob.itch.io/animated-pixel-art-skeleton?download"
+
+[node name="LinkButton2" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " bagzie"
+uri = "https://opengameart.org/content/bat-sprite "
+
+[node name="LinkButton3" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " bevouliin.com"
+uri = "<null>https://opengameart.org/content/green-walking-monster-sprite-sheets"
+
+[node name="LinkButton4" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Brother Daniel"
+uri = "https://brotherdaniel.itch.io/crystal-knight"
+
+[node name="LinkButton5" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " cassala"
+uri = "https://cassala.itch.io/bubble-sprites"
+
+[node name="LinkButton6" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " ColorAlpha"
+uri = "https://coloralpha.itch.io/50-menu-interface-sfx"
+
+[node name="LinkButton7" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " CreativeKind"
+uri = "https://creativekind.itch.io/obelisk"
+
+[node name="LinkButton8" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " David G"
+uri = "https://incolgames.itch.io/dungeon-platformer-tile-set-pixel-art?download"
+
+[node name="LinkButton9" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Flip"
+uri = "https://flippurgatory.itch.io/animated-potion-assets-pack-free"
+
+[node name="LinkButton10" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Kindpng"
+uri = "https://www.kindpng.com/imgv/howohwb_pixel-door-sprite-sheet-hd-png-download/#google_vignette"
+
+[node name="LinkButton11" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " kronbits"
+uri = "https://kronbits.itch.io/freesfx"
+
+[node name="LinkButton12" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Kronovi-"
+uri = "https://darkpixel-kronovi.itch.io/mecha-golem-free"
+
+[node name="LinkButton13" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " MakerTech"
+uri = "https://makertech.itch.io/additional-art-for-godot-4-tutorial"
+
+[node name="LinkButton14" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Mozgin"
+uri = "https://m039.itch.io/blue-space-cave-tileset"
+
+[node name="LinkButton15" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Quantiset"
+uri = "https://opengameart.org/content/city-scrollable-background-pixel-art"
+
+[node name="LinkButton16" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " RottingPixel"
+uri = "https://rottingpixels.itch.io/nature-platformer-tileset?download"
+
+[node name="LinkButton17" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Shutterstock"
+uri = "https://www.shutterstock.com/image-vector/pixel-art-lever-8bit-1016207812"
+
+[node name="LinkButton18" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Szym"
+uri = "https://nszym.itch.io/spearfishing-assets-pack"
+
+[node name="LinkButton19" type="LinkButton" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_t4vlk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_yv8pr")
+text = " Tienlev"
+uri = "https://tienlev.itch.io/slime-pixel-set"

@@ -10,10 +10,6 @@ func _play_music(music: AudioStream, volume = -5, bus = "Music"):
 		bus = "Music"
 		play()
 	
-	#stream = music
-	#volume_db = volume
-	#play()
-
 func play_bgm():
 	_play_music(background_music)
 	

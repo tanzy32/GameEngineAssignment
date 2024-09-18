@@ -85,8 +85,5 @@ func _choose_teleport_direction() -> Vector2:
 	return direction
 
 func _is_on_platform(player_position: Vector2) -> bool:
-	# Implement logic to determine if the player is on a platform
-	# For example, using raycasting or checking if the player's position matches platform coordinates
-	# This is just a placeholder for now:
-	var platform_y_position = 300  # Example: platform Y position
-	return player_position.y < platform_y_position  # Adjust based on actual platform logic
+	var platform_y_position = 300  # Platform Y position
+	return player_position.y < platform_y_position  
